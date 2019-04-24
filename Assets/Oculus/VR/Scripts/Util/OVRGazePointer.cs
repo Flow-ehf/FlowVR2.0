@@ -48,6 +48,13 @@ public class OVRGazePointer : OVRCursor {
     /// </summary>
     public Transform rayTransform;
 
+	public GameObject[] pointerObjects;
+
+	/// <summary>
+	/// Gaze Render Line
+	/// </summary>
+	public LineRenderer rayLineRenderer;
+
     /// <summary>
     /// Is gaze pointer current visible
     /// </summary>
@@ -168,6 +175,12 @@ public class OVRGazePointer : OVRCursor {
         // Move the gaze cursor to keep it in the middle of the view
         transform.position = rayTransform.position + rayTransform.forward * depth;
 
+		if(rayLineRenderer != null)
+		{
+			rayLineRenderer.useWorldSpace = false;
+			rayLineRenderer.SetPosition(1, new Vector3(0,0, depth));
+		}
+
         // Should we show or hide the gaze cursor?
         if (visibilityStrength == 0 && !hidden)
         {
@@ -254,9 +267,9 @@ public class OVRGazePointer : OVRCursor {
     // Disable/Enable child elements when we show/hide the cursor. For performance reasons.
     void Hide()
     {
-        foreach (Transform child in transform)
+        foreach (var obj in pointerObjects)
         {
-            child.gameObject.SetActive(false);
+            obj.SetActive(false);
         }
         if (GetComponent<Renderer>())
             GetComponent<Renderer>().enabled = false;
@@ -265,11 +278,11 @@ public class OVRGazePointer : OVRCursor {
 
     void Show()
     {
-        foreach (Transform child in transform)
-        {
-            child.gameObject.SetActive(true);
-        }
-        if (GetComponent<Renderer>())
+		foreach (var obj in pointerObjects)
+		{
+			obj.SetActive(true);
+		}
+		if (GetComponent<Renderer>())
             GetComponent<Renderer>().enabled = true;
         hidden = false;
     }
