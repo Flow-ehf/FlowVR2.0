@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
 		TimeDropDown = GameObject.Find("/MenuManager/Canvas/Video_Panel/Time_DropDown");
 		PlayButton = GameObject.Find("/MenuManager/Canvas/Video_Panel/Play");
 		LogOutButton = GameObject.Find("/MenuManager/Canvas/Main_Panel/LogOut");
-		PauseMenu = GameObject.Find("/MenuManager");
+		PauseMenu = GameObject.Find("/MenuManagerMeditation");
 		Video = GameObject.Find("/Video");
 		scene = SceneManager.GetActiveScene();
 		activeScene = scene.name;
