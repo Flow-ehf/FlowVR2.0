@@ -18,3 +18,5 @@ MonoBehaviour:
     str: Whatever 'Continue' is in icelandic
   - tag: back
     str: Whatever 'Back' is in icelandic
+  - tag: play
+    str: Whatever 'Play' is in icelandic

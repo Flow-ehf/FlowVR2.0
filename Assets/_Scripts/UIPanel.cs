@@ -14,6 +14,7 @@ public class UIPanel : MonoBehaviour
 	[SerializeField] TransitionType transition = TransitionType.Fade;
 	//When acivating panel, panels of higher or same layer are disabled with
 	[SerializeField] int layer = 0;
+	[SerializeField] int group = 0;
 	[SerializeField] bool isOpen = false;
 	[Space]
 	[SerializeField] Animator anim;
@@ -68,7 +69,7 @@ public class UIPanel : MonoBehaviour
 				}
 				else
 				{
-					if (allPanels[i].layer >= layer)
+					if (allPanels[i].layer >= layer && allPanels[i].group == group)
 						allPanels[i].OnActivatedImmediately(false);
 				}
 			}
@@ -93,7 +94,7 @@ public class UIPanel : MonoBehaviour
 				}
 				else
 				{
-					if (allPanels[i].layer >= layer)
+					if (allPanels[i].layer >= layer && allPanels[i].group == group)
 						allPanels[i].OnActivated(false);
 				}
 			}

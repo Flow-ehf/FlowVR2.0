@@ -15,8 +15,22 @@ public class LanguageUISelector : MonoBehaviour
 		if (button != null)
 		{
 			button.onClick.AddListener(() => LanguageManager.SetLangauge(targetLanguage));
+			button.interactable = LanguageManager.CurrentLanguage != targetLanguage;
+			LanguageManager.LanguageChanged += LanguageChanged;
 		}
     }
+
+
+	void LanguageChanged(LanguageManager.Language lang)
+	{
+		button.interactable = LanguageManager.CurrentLanguage != targetLanguage;
+	}
+
+
+	void OnDestroy()
+	{
+		LanguageManager.LanguageChanged -= LanguageChanged;
+	}
 
 
 	void Reset()

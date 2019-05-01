@@ -65,14 +65,5 @@ public static class SessionSettings
 		}
 	}
 
-	public static IEnumerable<int> AvailableDurations
-	{
-		get
-		{
-			foreach (var time in availableSessionDurations)
-			{
-				yield return time;
-			}
-		}
-	}
+	public static int[] AvailableDurations => availableSessionDurations;
 }

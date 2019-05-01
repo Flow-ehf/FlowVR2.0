@@ -15,7 +15,7 @@ public class LoginUI : MonoBehaviour
 	void Awake()
 	{
 		Debug.Log("UI awake");
-		login = LoginManager.Getlogin(loginMethod);
+		login = LoginManager.GetLogin(loginMethod);
 		if (login != null)
 		{
 			button = GetComponent<Button>();
