@@ -1,12 +1,22 @@
-﻿using System.Collections;
+﻿
+#define BYPASS_LOGIN
+
+using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using Facebook.Unity;
+
 
 public class LoginManager : MonoBehaviour
 {
+	public UnityEvent LoggedIn;
+	public UnityEvent LoggedOut;
+
+	static LoginManager instance;
 	//Any platform currently logged in
 	public static bool IsLoggedIn => currentLogin != null && currentLogin.IsLoggedIn;
 
@@ -16,9 +26,19 @@ public class LoginManager : MonoBehaviour
 
 	static LoginBase currentLogin;
 
+
 	public enum LoginMethod
 	{
 		FB,
+	}
+
+
+	void Awake()
+	{
+		if (instance == null)
+			instance = this;
+		else
+			DestroyImmediate(this);
 	}
 
 
@@ -28,7 +48,7 @@ public class LoginManager : MonoBehaviour
 	}
 
 
-	public static LoginBase Getlogin(LoginMethod loginMethod)
+	public static LoginBase GetLogin(LoginMethod loginMethod)
 	{
 		switch(loginMethod)
 		{
@@ -51,7 +71,10 @@ public class LoginManager : MonoBehaviour
 	static void OnLoggedIn(LoginBase login)
 	{
 		currentLogin = login;
+		instance?.LoggedIn.Invoke();
 		LoginChanged?.Invoke(true);
+
+		SceneManager.LoadScene("MainMenu");
 	}
 
 
@@ -64,6 +87,7 @@ public class LoginManager : MonoBehaviour
 
 	static void OnLoggedOut()
 	{
+		instance?.LoggedOut.Invoke();
 		LoginChanged?.Invoke(false);
 
 		//Return to login screen when logging out
@@ -83,7 +107,14 @@ public class LoginManager : MonoBehaviour
 		{
 			//No platform is currently logged in and this platform is ready for login
 			if (!LoginManager.IsLoggedIn && IsInitialized)
+			{
+#if UNITY_EDITOR && BYPASS_LOGIN
+				OnLoggedIn(this);
+#else
 				DoLogin();
+#endif
+
+			}
 		}
 
 		public void Logout()

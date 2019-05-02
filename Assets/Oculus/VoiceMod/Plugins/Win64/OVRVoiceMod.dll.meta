@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 91da3ab9c8aa549c685ec93106d71d95
+guid: 2dd330b32ea8eb5448eb7bffdcc30acf
 PluginImporter:
   externalObjects: {}
   serializedVersion: 2
@@ -16,29 +16,22 @@ PluginImporter:
       enabled: 0
       settings:
         Exclude Android: 1
-        Exclude Editor: 1
+        Exclude Editor: 0
         Exclude Linux: 1
-        Exclude Linux64: 1
+        Exclude Linux64: 0
         Exclude LinuxUniversal: 1
         Exclude OSXIntel: 1
-        Exclude OSXIntel64: 1
+        Exclude OSXIntel64: 0
         Exclude OSXUniversal: 1
-        Exclude WebGL: 1
         Exclude Win: 1
-        Exclude Win64: 1
-        Exclude iOS: 0
+        Exclude Win64: 0
   - first:
       '': Editor
     second:
       enabled: 0
       settings:
-        CPU: AnyCPU
-        OS: AnyOS
-  - first:
-      '': data
-    second:
-      enabled: 0
-      settings: {}
+        CPU: x86_64
+        OS: Windows
   - first:
       Android: Android
     second:
@@ -46,21 +39,28 @@ PluginImporter:
       settings:
         CPU: ARMv7
   - first:
-      Editor: Editor
+      Any: 
     second:
       enabled: 0
+      settings: {}
+  - first:
+      Editor: Editor
+    second:
+      enabled: 1
       settings:
+        CPU: x86_64
         DefaultValueInitialized: true
+        OS: Windows
   - first:
       Facebook: Win
     second:
       enabled: 0
       settings:
-        CPU: AnyCPU
+        CPU: None
   - first:
       Facebook: Win64
     second:
-      enabled: 0
+      enabled: 1
       settings:
         CPU: AnyCPU
   - first:
@@ -68,9 +68,15 @@ PluginImporter:
     second:
       enabled: 0
       settings:
-        CPU: x86
+        CPU: None
   - first:
       Standalone: Linux64
+    second:
+      enabled: 1
+      settings:
+        CPU: x86_64
+  - first:
+      Standalone: LinuxUniversal
     second:
       enabled: 0
       settings:
@@ -80,38 +86,31 @@ PluginImporter:
     second:
       enabled: 0
       settings:
-        CPU: AnyCPU
+        CPU: None
   - first:
       Standalone: OSXIntel64
     second:
-      enabled: 0
+      enabled: 1
       settings:
         CPU: AnyCPU
+  - first:
+      Standalone: OSXUniversal
+    second:
+      enabled: 0
+      settings:
+        CPU: x86_64
   - first:
       Standalone: Win
     second:
       enabled: 0
       settings:
-        CPU: AnyCPU
+        CPU: None
   - first:
       Standalone: Win64
     second:
-      enabled: 0
-      settings:
-        CPU: AnyCPU
-  - first:
-      Windows Store Apps: WindowsStoreApps
-    second:
-      enabled: 0
-      settings:
-        CPU: AnyCPU
-  - first:
-      iPhone: iOS
-    second:
       enabled: 1
       settings:
-        CompileFlags: 
-        FrameworkDependencies: 
+        CPU: AnyCPU
   userData: 
   assetBundleName: 
   assetBundleVariant: 

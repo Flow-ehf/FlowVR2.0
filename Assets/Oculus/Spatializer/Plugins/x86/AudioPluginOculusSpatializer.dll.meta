@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: 91da3ab9c8aa549c685ec93106d71d95
+guid: f13a06860e06aa543972e7be3648d789
 PluginImporter:
   externalObjects: {}
   serializedVersion: 2
   iconMap: {}
   executionOrder: {}
   defineConstraints: []
-  isPreloaded: 0
+  isPreloaded: 1
   isOverridable: 0
   isExplicitlyReferenced: 0
   platformData:
@@ -16,29 +16,30 @@ PluginImporter:
       enabled: 0
       settings:
         Exclude Android: 1
-        Exclude Editor: 1
-        Exclude Linux: 1
+        Exclude Editor: 0
+        Exclude Linux: 0
         Exclude Linux64: 1
         Exclude LinuxUniversal: 1
-        Exclude OSXIntel: 1
+        Exclude OSXIntel: 0
         Exclude OSXIntel64: 1
         Exclude OSXUniversal: 1
-        Exclude WebGL: 1
-        Exclude Win: 1
+        Exclude Win: 0
         Exclude Win64: 1
-        Exclude iOS: 0
   - first:
       '': Editor
     second:
       enabled: 0
       settings:
-        CPU: AnyCPU
-        OS: AnyOS
+        CPU: x86
+        OS: Windows
   - first:
-      '': data
+      '': WP8
     second:
       enabled: 0
-      settings: {}
+      settings:
+        CPU: AnyCPU
+        DontProcess: False
+        PlaceholderPath: 
   - first:
       Android: Android
     second:
@@ -46,15 +47,22 @@ PluginImporter:
       settings:
         CPU: ARMv7
   - first:
-      Editor: Editor
+      Any: 
     second:
       enabled: 0
+      settings: {}
+  - first:
+      Editor: Editor
+    second:
+      enabled: 1
       settings:
+        CPU: x86
         DefaultValueInitialized: true
+        OS: Windows
   - first:
       Facebook: Win
     second:
-      enabled: 0
+      enabled: 1
       settings:
         CPU: AnyCPU
   - first:
@@ -62,11 +70,17 @@ PluginImporter:
     second:
       enabled: 0
       settings:
-        CPU: AnyCPU
+        CPU: None
+  - first:
+      Samsung TV: SamsungTV
+    second:
+      enabled: 0
+      settings:
+        STV_MODEL: STANDARD_13
   - first:
       Standalone: Linux
     second:
-      enabled: 0
+      enabled: 1
       settings:
         CPU: x86
   - first:
@@ -74,11 +88,17 @@ PluginImporter:
     second:
       enabled: 0
       settings:
-        CPU: x86_64
+        CPU: None
+  - first:
+      Standalone: LinuxUniversal
+    second:
+      enabled: 0
+      settings:
+        CPU: x86
   - first:
       Standalone: OSXIntel
     second:
-      enabled: 0
+      enabled: 1
       settings:
         CPU: AnyCPU
   - first:
@@ -86,11 +106,17 @@ PluginImporter:
     second:
       enabled: 0
       settings:
-        CPU: AnyCPU
+        CPU: None
+  - first:
+      Standalone: OSXUniversal
+    second:
+      enabled: 0
+      settings:
+        CPU: x86
   - first:
       Standalone: Win
     second:
-      enabled: 0
+      enabled: 1
       settings:
         CPU: AnyCPU
   - first:
@@ -98,17 +124,20 @@ PluginImporter:
     second:
       enabled: 0
       settings:
-        CPU: AnyCPU
+        CPU: None
   - first:
       Windows Store Apps: WindowsStoreApps
     second:
       enabled: 0
       settings:
         CPU: AnyCPU
+        DontProcess: False
+        PlaceholderPath: 
+        SDK: AnySDK
   - first:
       iPhone: iOS
     second:
-      enabled: 1
+      enabled: 0
       settings:
         CompileFlags: 
         FrameworkDependencies: 

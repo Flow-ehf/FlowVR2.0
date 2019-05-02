@@ -18,3 +18,5 @@ MonoBehaviour:
     str: Continue
   - tag: back
     str: Back
+  - tag: play
+    str: Play

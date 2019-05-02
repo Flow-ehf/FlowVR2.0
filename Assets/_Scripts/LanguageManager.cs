@@ -11,6 +11,8 @@ public static class LanguageManager
 		Icelandic,
 	}
 
+	public static Language CurrentLanguage => currentInfo?.language ?? Language.English;
+
 	public static event Action<Language> LanguageChanged;
 
 	static LanguageInfo[] allInfo;

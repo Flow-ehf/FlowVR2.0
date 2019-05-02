@@ -8,7 +8,7 @@ public class LanguageText : MonoBehaviour
 {
 	Text text;
 
-	string tag;
+	string langTag;
 
 	void Awake()
 	{
@@ -19,16 +19,17 @@ public class LanguageText : MonoBehaviour
 
 	void Start()
 	{
-		tag = GetTag();
-		if (tag != null)
-			text.text = LanguageManager.GetStr(tag); 
+		langTag = GetTag();
+
+		if (langTag != null)
+			text.text = LanguageManager.GetStr(langTag); 
 	}
 
 
 	void LanguageChanged(LanguageManager.Language lang)
 	{ 
-		if (tag != null)
-			text.text = LanguageManager.GetStr(tag);
+		if (langTag != null)
+			text.text = LanguageManager.GetStr(langTag);
 	}
 
 

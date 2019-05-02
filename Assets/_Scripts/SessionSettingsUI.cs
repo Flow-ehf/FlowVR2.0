@@ -7,10 +7,11 @@ public class SessionSettingsUI : MonoBehaviour
 {
 	[SerializeField] Toggle playMusicToggle;
 	[SerializeField] Toggle playGuidanceToggle;
-	[SerializeField] Dropdown durationDropdown;
+	[SerializeField] GameObject durationButtonTemplate;
+	[SerializeField] RectTransform durationContainer;
 
-    // Start is called before the first frame update
-    void Start()
+	// Start is called before the first frame update
+	void Start()
     {
 		if(playMusicToggle != null)
 		{
@@ -22,17 +23,38 @@ public class SessionSettingsUI : MonoBehaviour
 			playGuidanceToggle.isOn = SessionSettings.PlayGuidance;
 			playGuidanceToggle.onValueChanged.AddListener(TogglePlayGuidance);
 		}
-		if(durationDropdown != null)
+		if(durationButtonTemplate != null && durationContainer != null)
 		{
-			durationDropdown.ClearOptions();
-			foreach (var duration in SessionSettings.AvailableDurations)
+			ToggleGroup group = durationContainer.GetComponent<ToggleGroup>();
+			if(group == null)
+				group = durationContainer.gameObject.AddComponent<ToggleGroup>();
+			group.allowSwitchOff = false;
+
+			float yPos = 0;
+			for (int i = 0; i < SessionSettings.AvailableDurations.Length; i++)
 			{
-				int min = duration / 60;
-				durationDropdown.options.Add(new Dropdown.OptionData(min + " min"));
+				int min = SessionSettings.AvailableDurations[i] / 60;
+				RectTransform rectTrans = Instantiate(durationButtonTemplate).GetComponent<RectTransform>();
+				rectTrans.SetParent(durationContainer, false);
+				rectTrans.anchoredPosition = new Vector2(0, -yPos);
+				Text text = rectTrans.GetComponentInChildren<Text>();
+				if (text != null)
+					text.text = min + " min";
+				Toggle toggle = rectTrans.GetComponent<Toggle>();
+				if(toggle != null)
+				{
+					int index = i;
+					toggle.isOn = SessionSettings.DurationIndex == index;
+					toggle.onValueChanged.AddListener((isOn) =>
+					{
+						if(isOn)
+							DurationIndexChanged(index);
+					});
+					toggle.group = group;
+				}
+				yPos += rectTrans.sizeDelta.y;
 			}
-			durationDropdown.value = SessionSettings.DurationIndex;
-			durationDropdown.RefreshShownValue();
-			durationDropdown.onValueChanged.AddListener(DurationDropdownChanged);
+			durationButtonTemplate.SetActive(false);
 		}
     }
 
@@ -47,7 +69,7 @@ public class SessionSettingsUI : MonoBehaviour
 		SessionSettings.PlayGuidance = isOn;
 	}
 
-	void DurationDropdownChanged(int index)
+	void DurationIndexChanged(int index)
 	{
 		SessionSettings.DurationIndex = index;
 	}
