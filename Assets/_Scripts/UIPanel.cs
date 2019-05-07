@@ -175,7 +175,6 @@ public class UIPanel : MonoBehaviour
 			else
 			{
 				if(alpha > 0)
-
 				{
 					alpha -= Time.deltaTime / fadeTime;
 

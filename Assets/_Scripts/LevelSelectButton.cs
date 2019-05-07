@@ -30,16 +30,13 @@ public class LevelSelectButton : MonoBehaviour
 	void OnEnable()
 	{
 #if UNITY_EDITOR
-		if (editorIgnoreOwnership)
+		ProductOwned();
+#else
+		if (productId == "")
 			ProductOwned();
 		else
+			StartCoroutine(WaitCheckOwnership());
 #endif
-		{
-			if (productId == "")
-				ProductOwned();
-			else
-				StartCoroutine(WaitCheckOwnership());
-		}
 	}	
 
 
@@ -56,7 +53,7 @@ public class LevelSelectButton : MonoBehaviour
 	void OnFetchedPurchases(Message<PurchaseList> msg)
 	{
 		if (msg.IsError)
-			Debug.LogError("Failed to fetch dlc purchase");
+			Debug.LogError("Failed to fetch dlc purchase: " + msg.GetError().Message);
 		else
 		{
 			foreach (var purchase in msg.GetPurchaseList())

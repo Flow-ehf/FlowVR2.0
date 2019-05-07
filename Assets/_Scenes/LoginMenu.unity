@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.4635715, g: 0.51933175, b: 0.522247, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1771,7 +1771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transition: 2
-  layer: 0
+  layer: 1
   group: 0
   isOpen: 0
   anim: {fileID: 0}
@@ -2660,10 +2660,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transition: 2
   layer: 0
-  group: 1
+  group: 0
   isOpen: 0
   anim: {fileID: 0}
-  fadeGroup: {fileID: 686031294}
+  fadeGroup: {fileID: 1621552936}
   fadeTime: 1
 --- !u!225 &1621552936
 CanvasGroup:
@@ -3099,6 +3099,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetLanguage: 1
+  allowSelectCurrentLanguage: 1
   button: {fileID: 1914190212}
 --- !u!1 &1937274875 stripped
 GameObject:
@@ -3484,11 +3485,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transition: 2
-  layer: 0
+  layer: 1
   group: 0
   isOpen: 0
   anim: {fileID: 0}
-  fadeGroup: {fileID: 858898835}
+  fadeGroup: {fileID: 2025560682}
   fadeTime: 1
 --- !u!225 &2025560682
 CanvasGroup:
@@ -3748,4 +3749,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetLanguage: 0
+  allowSelectCurrentLanguage: 1
   button: {fileID: 2040683881}

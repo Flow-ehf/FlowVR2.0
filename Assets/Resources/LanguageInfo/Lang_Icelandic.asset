@@ -15,8 +15,20 @@ MonoBehaviour:
   language: 1
   langStr:
   - tag: continue
-    str: Whatever 'Continue' is in icelandic
+    str: Continue
   - tag: back
-    str: Whatever 'Back' is in icelandic
+    str: Back
   - tag: play
-    str: Whatever 'Play' is in icelandic
+    str: Play
+  - tag: music_on
+    str: Music On
+  - tag: music_off
+    str: Music Off
+  - tag: guidance_on
+    str: Guidance On
+  - tag: guidance_off
+    str: Guidance Off
+  - tag: settings
+    str: Settings
+  - tag: logout
+    str: Log Out

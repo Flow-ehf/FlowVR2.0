@@ -20,3 +20,15 @@ MonoBehaviour:
     str: Back
   - tag: play
     str: Play
+  - tag: music_on
+    str: Music On
+  - tag: music_off
+    str: Music Off
+  - tag: guidance_on
+    str: Guidance On
+  - tag: guidance_off
+    str: Guidance Off
+  - tag: settings
+    str: Settings
+  - tag: logout
+    str: Log Out

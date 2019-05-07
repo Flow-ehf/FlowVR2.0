@@ -9,7 +9,8 @@ public class LevelController : MonoBehaviour
 	[SerializeField] Text timerText;
 	[SerializeField] Button pauseButton;
 	[SerializeField] Button resumeButton;
-	[SerializeField] GameObject guidanceObject;
+	[SerializeField] UIPanel pausePanel;
+	[SerializeField] GameObject[] guidanceObjects;
 	[SerializeField] GameObject musicObject;
 
 	float timeLeft;
@@ -18,11 +19,21 @@ public class LevelController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		guidanceObject?.SetActive(SessionSettings.PlayGuidance);
+		//Activate guidance for target language
+		if(guidanceObjects != null)
+		{
+			for (int i = 0; i < guidanceObjects.Length; i++)
+			{
+				if(guidanceObjects[i] != null )
+					guidanceObjects[i].SetActive(SessionSettings.PlayGuidance && (int)LanguageManager.CurrentLanguage == i);
+			}
+		}
 		musicObject?.SetActive(SessionSettings.PlayMusic);
 
 		pauseButton?.onClick.AddListener(() => Pause(true));
 		resumeButton?.onClick.AddListener(() => Pause(false));
+
+		pausePanel?.SetActiveImmediately(false);
 
 		timeLeft = SessionSettings.Duration;
 
@@ -49,13 +60,24 @@ public class LevelController : MonoBehaviour
 	}
 
 
-	void Pause(bool pause)
+	void Update()
 	{
-		isPaused = pause;
+		if(!isPaused && OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch))
+		{
+			Pause(!isPaused);
+		}
 	}
 
 
-	void ReturnToMenu()
+	void Pause(bool pause)
+	{
+		isPaused = pause;
+
+		pausePanel.SetActive(isPaused);
+	}
+
+
+	public void ReturnToMenu()
 	{
 		SceneManager.LoadScene("MainMenu");
 	}

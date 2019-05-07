@@ -30,7 +30,7 @@ public class SessionSettingsUI : MonoBehaviour
 				group = durationContainer.gameObject.AddComponent<ToggleGroup>();
 			group.allowSwitchOff = false;
 
-			float yPos = -75;
+			float yPos = 0;
 			for (int i = 0; i < SessionSettings.AvailableDurations.Length; i++)
 			{
 				int min = SessionSettings.AvailableDurations[i] / 60;
@@ -40,7 +40,7 @@ public class SessionSettingsUI : MonoBehaviour
 				Text text = rectTrans.GetComponentInChildren<Text>();
 				if (text != null)
 					text.text = min + " min";
-				Toggle toggle = rectTrans.GetComponent<Toggle>();
+				Toggle toggle = rectTrans.GetComponentInChildren<Toggle>();
 				if(toggle != null)
 				{
 					int index = i;

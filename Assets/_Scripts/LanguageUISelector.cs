@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class LanguageUISelector : MonoBehaviour
 {
 	[SerializeField] LanguageManager.Language targetLanguage;
+	[SerializeField] bool allowSelectCurrentLanguage = false;
 	[SerializeField] Button button;
 
 
@@ -15,7 +16,8 @@ public class LanguageUISelector : MonoBehaviour
 		if (button != null)
 		{
 			button.onClick.AddListener(() => LanguageManager.SetLangauge(targetLanguage));
-			button.interactable = LanguageManager.CurrentLanguage != targetLanguage;
+			if(!allowSelectCurrentLanguage)
+				button.interactable = LanguageManager.CurrentLanguage != targetLanguage;
 			LanguageManager.LanguageChanged += LanguageChanged;
 		}
     }
@@ -23,7 +25,8 @@ public class LanguageUISelector : MonoBehaviour
 
 	void LanguageChanged(LanguageManager.Language lang)
 	{
-		button.interactable = LanguageManager.CurrentLanguage != targetLanguage;
+		if(!allowSelectCurrentLanguage)
+			button.interactable = LanguageManager.CurrentLanguage != targetLanguage;
 	}
 
 
