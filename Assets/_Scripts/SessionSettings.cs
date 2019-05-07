@@ -12,7 +12,6 @@ public static class SessionSettings
 	{
 		240,
 		480,
-		720,
 	};
 
 

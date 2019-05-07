@@ -30,7 +30,7 @@ public class SessionSettingsUI : MonoBehaviour
 				group = durationContainer.gameObject.AddComponent<ToggleGroup>();
 			group.allowSwitchOff = false;
 
-			float yPos = 0;
+			float yPos = -75;
 			for (int i = 0; i < SessionSettings.AvailableDurations.Length; i++)
 			{
 				int min = SessionSettings.AvailableDurations[i] / 60;

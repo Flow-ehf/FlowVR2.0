@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.4635715, g: 0.51933175, b: 0.522247, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1612,6 +1612,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transition: 2
   layer: 0
+  group: 0
   isOpen: 1
   anim: {fileID: 0}
   fadeGroup: {fileID: 686031294}
@@ -1771,6 +1772,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transition: 2
   layer: 0
+  group: 0
   isOpen: 0
   anim: {fileID: 0}
   fadeGroup: {fileID: 858898835}
@@ -2658,6 +2660,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transition: 2
   layer: 0
+  group: 1
   isOpen: 0
   anim: {fileID: 0}
   fadeGroup: {fileID: 686031294}
@@ -3482,6 +3485,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transition: 2
   layer: 0
+  group: 0
   isOpen: 0
   anim: {fileID: 0}
   fadeGroup: {fileID: 858898835}

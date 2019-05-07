@@ -2,15 +2,15 @@ fileFormatVersion: 2
 guid: fa1f9dd7ce41743a686cbffd2853424e
 labels:
 - gpsr
-timeCreated: 1526625151
-licenseType: Store
 PluginImporter:
   externalObjects: {}
   serializedVersion: 2
   iconMap: {}
   executionOrder: {}
+  defineConstraints: []
   isPreloaded: 0
   isOverridable: 0
+  isExplicitlyReferenced: 0
   platformData:
   - first:
       Android: Android
