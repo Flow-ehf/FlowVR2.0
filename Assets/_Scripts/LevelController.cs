@@ -76,8 +76,6 @@ public class LevelController : MonoBehaviour
 
 		pausePanel.SetActive(isPaused);
 
-		//Time.timeScale = 0;
-
 	}
 
 
