@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.6823345, g: 0.6617649, b: 0.64305395, a: 1}
+  m_IndirectSpecularColor: {r: 0.68108463, g: 0.6604464, b: 0.64184713, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1312,10 +1312,23 @@ MonoBehaviour:
   pauseButton: {fileID: 0}
   resumeButton: {fileID: 8246622264512344196}
   pausePanel: {fileID: 8246622264512344195}
-  guidanceObjects:
-  - {fileID: 318568514}
-  - {fileID: 1331534547}
-  musicObject: {fileID: 539203501}
+  guidanceClips:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  musicClips:
+  - {fileID: 0}
+  - {fileID: 0}
+  ambianceClips:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &1845831857
 Transform:
   m_ObjectHideFlags: 0
@@ -1707,6 +1720,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsOn
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4890118443022926653, guid: 379750b7604f95743abbe800c841bfc1,
+        type: 3}
+      propertyPath: fadeTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4890118443022926653, guid: 379750b7604f95743abbe800c841bfc1,
+        type: 3}
+      propertyPath: isOpen
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096846166523844782, guid: 379750b7604f95743abbe800c841bfc1,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096846166523844782, guid: 379750b7604f95743abbe800c841bfc1,
+        type: 3}
+      propertyPath: m_BlocksRaycasts
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 379750b7604f95743abbe800c841bfc1, type: 3}

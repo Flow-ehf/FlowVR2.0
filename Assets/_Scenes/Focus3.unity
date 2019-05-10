@@ -540,6 +540,11 @@ PrefabInstance:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: set_mute
       objectReference: {fileID: 0}
+    - target: {fileID: 4890118443022926653, guid: 379750b7604f95743abbe800c841bfc1,
+        type: 3}
+      propertyPath: fadeTime
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 379750b7604f95743abbe800c841bfc1, type: 3}
 --- !u!114 &498667423 stripped
@@ -743,10 +748,9 @@ MonoBehaviour:
   pauseButton: {fileID: 0}
   resumeButton: {fileID: 498667424}
   pausePanel: {fileID: 498667423}
-  guidanceObjects:
-  - {fileID: 327496798}
-  - {fileID: 1105313923}
-  musicObject: {fileID: 425451731}
+  guidanceClips: []
+  musicClips: []
+  ambianceClips: []
 --- !u!4 &1081326350
 Transform:
   m_ObjectHideFlags: 0
