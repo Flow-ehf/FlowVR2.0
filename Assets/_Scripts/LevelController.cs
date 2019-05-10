@@ -112,6 +112,7 @@ public class LevelController : MonoBehaviour
 		if(!isPaused && OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch))
 		{
 			Pause(!isPaused);
+			
 		}
 	}
 
@@ -121,6 +122,7 @@ public class LevelController : MonoBehaviour
 		isPaused = pause;
 
 		pausePanel.SetActive(isPaused);
+
 	}
 
 
