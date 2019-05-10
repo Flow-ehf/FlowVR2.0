@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.61594003, g: 0.6266066, b: 0.59747386, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -138,7 +138,7 @@ AudioSource:
   m_GameObject: {fileID: 526151949}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 243239048813529634, guid: 1dd706bb85d8aef4e83a6229dbd62c36,
+  OutputAudioMixerGroup: {fileID: 243239048813529634, guid: 8709dada8ae8ae6458bf7ddd7960299e,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: fa99c3da6e727f64e9cdc13fe188e778, type: 3}
   m_PlayOnAwake: 1
@@ -266,7 +266,7 @@ AudioSource:
   m_GameObject: {fileID: 539203501}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 243386418493636774, guid: 1dd706bb85d8aef4e83a6229dbd62c36,
+  OutputAudioMixerGroup: {fileID: 243386418493636774, guid: 8709dada8ae8ae6458bf7ddd7960299e,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 9cb4f61ae0d60e1489f549c2f630f358, type: 3}
   m_PlayOnAwake: 1
@@ -394,7 +394,7 @@ AudioSource:
   m_GameObject: {fileID: 583984081}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 243239048813529634, guid: 1dd706bb85d8aef4e83a6229dbd62c36,
+  OutputAudioMixerGroup: {fileID: 243239048813529634, guid: 8709dada8ae8ae6458bf7ddd7960299e,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: fa99c3da6e727f64e9cdc13fe188e778, type: 3}
   m_PlayOnAwake: 1
@@ -770,16 +770,6 @@ PrefabInstance:
       propertyPath: rayLineRenderer
       value: 
       objectReference: {fileID: 1629335802}
-    - target: {fileID: 8246622265162297610, guid: 379750b7604f95743abbe800c841bfc1,
-        type: 3}
-      propertyPath: rayTransform
-      value: 
-      objectReference: {fileID: 1629335804}
-    - target: {fileID: 8246622265162297610, guid: 379750b7604f95743abbe800c841bfc1,
-        type: 3}
-      propertyPath: rayLineRenderer
-      value: 
-      objectReference: {fileID: 1629335802}
     - target: {fileID: 7449082304570612132, guid: 379750b7604f95743abbe800c841bfc1,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -810,6 +800,16 @@ PrefabInstance:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: set_mute
       objectReference: {fileID: 0}
+    - target: {fileID: 8246622265162297610, guid: 379750b7604f95743abbe800c841bfc1,
+        type: 3}
+      propertyPath: rayTransform
+      value: 
+      objectReference: {fileID: 1629335804}
+    - target: {fileID: 8246622265162297610, guid: 379750b7604f95743abbe800c841bfc1,
+        type: 3}
+      propertyPath: rayLineRenderer
+      value: 
+      objectReference: {fileID: 1629335802}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 379750b7604f95743abbe800c841bfc1, type: 3}
 --- !u!114 &834964673 stripped
@@ -925,7 +925,7 @@ AudioSource:
   m_GameObject: {fileID: 1437304493}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 243733269651704918, guid: 1dd706bb85d8aef4e83a6229dbd62c36,
+  OutputAudioMixerGroup: {fileID: 243733269651704918, guid: 8709dada8ae8ae6458bf7ddd7960299e,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 3dac2eedb927561449797e24594560d0, type: 3}
   m_PlayOnAwake: 1
