@@ -21,14 +21,62 @@ MonoBehaviour:
   - tag: play
     str: "\xC1fram"
   - tag: music_on
-    str: Music On
+    str: "T\xF3nlist \xC1"
   - tag: music_off
-    str: Music Off
+    str: "T\xF3nlist Af"
   - tag: guidance_on
-    str: Guidance On
+    str: "Handlei\xF0sla \xC1"
   - tag: guidance_off
-    str: Guidance Off
+    str: "Handlei\xF0sla Af"
   - tag: settings
     str: Stillingar
   - tag: logout
-    str: "Skr\xE1 \xFAt"
+    str: "Skr\xE1 \xDAt"
+  - tag: breath1
+    str: "Anda\xF0u1"
+  - tag: breath2
+    str: "Anda\xF0u2"
+  - tag: breath3
+    str: "Anda\xF0u3"
+  - tag: move1
+    str: "Hreyf\xF0u1"
+  - tag: move2
+    str: "Hreyf\xF0u2"
+  - tag: move3
+    str: "Hreyf\xF0u3"
+  - tag: letgo1
+    str: Slepptu1
+  - tag: letgo2
+    str: Slepptu2
+  - tag: letgo3
+    str: Slepptu3
+  - tag: calm1
+    str: "Slaka\xF0u1"
+  - tag: calm2
+    str: "Slaka\xF0u2"
+  - tag: calm3
+    str: "Slaka\xF0u3"
+  - tag: focus1
+    str: Einbeitu1
+  - tag: focus2
+    str: "N\xE1\xF0u Einbeitu2"
+  - tag: focus3
+    str: "N\xE1\xF0u Einbeitu3"
+  - tag: restore1
+    str: "Endurn\xFDja\xF0u1"
+  - tag: restore2
+    str: "Endurn\xFDja\xF0u2"
+  - tag: restore3
+    str: "Endurn\xFDja\xF0u3"
+  - tag: breath
+    str: "Anda\xF0u"
+  - tag: move
+    str: "Hreyf\xF0u"
+  - tag: letgo
+    str: Slepptu
+  - tag: calm
+    str: "Slaka\xF0u"
+  - tag: focus
+    str: Einbeitu
+  - tag: restore
+    str: "Endurn\xFDja\xF0u"

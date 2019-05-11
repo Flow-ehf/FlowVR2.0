@@ -32,3 +32,51 @@ MonoBehaviour:
     str: Settings
   - tag: logout
     str: Log Out
+  - tag: breath1
+    str: Breath1
+  - tag: breath2
+    str: Breath2
+  - tag: breath3
+    str: Breath3
+  - tag: move1
+    str: Move1
+  - tag: move2
+    str: Move2
+  - tag: move3
+    str: Move3
+  - tag: letgo1
+    str: LetGo1
+  - tag: letgo2
+    str: LetGo2
+  - tag: letgo3
+    str: LetGo3
+  - tag: calm1
+    str: Calm1
+  - tag: calm2
+    str: Calm2
+  - tag: calm3
+    str: Calm3
+  - tag: focus1
+    str: Focus1
+  - tag: focus2
+    str: Focus2
+  - tag: focus3
+    str: Focus3
+  - tag: restore1
+    str: Restore1
+  - tag: restore2
+    str: Restore2
+  - tag: restore3
+    str: Restore3
+  - tag: breath
+    str: Breath
+  - tag: move
+    str: Move
+  - tag: letgo
+    str: LetGo
+  - tag: calm
+    str: Calm
+  - tag: focus
+    str: Focus
+  - tag: restore
+    str: Restore
