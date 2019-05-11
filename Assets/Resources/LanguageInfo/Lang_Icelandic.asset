@@ -15,11 +15,11 @@ MonoBehaviour:
   language: 1
   langStr:
   - tag: continue
-    str: Continue
+    str: "\xC1fram"
   - tag: back
-    str: Back
+    str: Bakka
   - tag: play
-    str: Play
+    str: "\xC1fram"
   - tag: music_on
     str: Music On
   - tag: music_off
@@ -29,6 +29,6 @@ MonoBehaviour:
   - tag: guidance_off
     str: Guidance Off
   - tag: settings
-    str: Settings
+    str: Stillingar
   - tag: logout
-    str: Log Out
+    str: "Skr\xE1 \xFAt"
