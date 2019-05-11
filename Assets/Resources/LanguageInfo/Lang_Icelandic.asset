@@ -39,44 +39,44 @@ MonoBehaviour:
   - tag: breath3
     str: "Anda\xF0u3"
   - tag: move1
-    str: "Hreyf\xF0u1"
+    str: "Hreyf\xF0u \xDEig1"
   - tag: move2
-    str: "Hreyf\xF0u2"
+    str: "Hreyf\xF0u \xDEig2"
   - tag: move3
-    str: "Hreyf\xF0u3"
+    str: "Hreyf\xF0u \xDEig3"
   - tag: letgo1
-    str: Slepptu1
+    str: Slepptu Takinu1
   - tag: letgo2
-    str: Slepptu2
+    str: Slepptu Takinu2
   - tag: letgo3
-    str: Slepptu3
+    str: Slepptu Takinu3
   - tag: calm1
-    str: "Slaka\xF0u1"
+    str: "Slaka\xF0u \xC11"
   - tag: calm2
-    str: "Slaka\xF0u2"
+    str: "Slaka\xF0u \xC12"
   - tag: calm3
-    str: "Slaka\xF0u3"
+    str: "Slaka\xF0u \xC13"
   - tag: focus1
-    str: Einbeitu1
+    str: "N\xE1\xF0u Einbeitingu1"
   - tag: focus2
-    str: "N\xE1\xF0u Einbeitu2"
+    str: "N\xE1\xF0u Einbeitingu2"
   - tag: focus3
-    str: "N\xE1\xF0u Einbeitu3"
+    str: "N\xE1\xF0u Einbeitingu3"
   - tag: restore1
-    str: "Endurn\xFDja\xF0u1"
+    str: "Endurn\xFDja\xF0u \xDEig1"
   - tag: restore2
-    str: "Endurn\xFDja\xF0u2"
+    str: "Endurn\xFDja\xF0u \xDEig2"
   - tag: restore3
-    str: "Endurn\xFDja\xF0u3"
+    str: "Endurn\xFDja\xF0u \xDEig3"
   - tag: breath
     str: "Anda\xF0u"
   - tag: move
-    str: "Hreyf\xF0u"
+    str: "Hreyf\xF0u \xDEig"
   - tag: letgo
-    str: Slepptu
+    str: Slepptu Takinu
   - tag: calm
-    str: "Slaka\xF0u"
+    str: "Slaka\xF0u \xC1"
   - tag: focus
-    str: Einbeitu
+    str: "N\xE1\xF0u Einbeitingu"
   - tag: restore
-    str: "Endurn\xFDja\xF0u"
+    str: "Endurn\xFDja\xF0u \xDEig"
