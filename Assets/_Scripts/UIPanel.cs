@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class UIPanel : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class UIPanel : MonoBehaviour
 	[SerializeField] Animator anim;
 	[SerializeField] CanvasGroup fadeGroup;
 	[SerializeField] float fadeTime = 1;
+	[SerializeField] UnityEvent Opened;
+	[SerializeField] UnityEvent Closed;
 
 	static List<UIPanel> allPanels = new List<UIPanel>();
 
@@ -57,10 +60,12 @@ public class UIPanel : MonoBehaviour
 	{
 		if (!open)
 		{
+			Closed?.Invoke();
 			OnActivatedImmediately(false);
 		}
 		else
 		{
+			Opened?.Invoke();
 			for (int i = 0; i < allPanels.Count; i++)
 			{
 				if (allPanels[i] == this)
@@ -81,11 +86,12 @@ public class UIPanel : MonoBehaviour
 	{
 		if (!open)
 		{
+			Closed?.Invoke();
 			OnActivated(false);
 		}
 		else
 		{
-
+			Opened?.Invoke();
 			for (int i = 0; i < allPanels.Count; i++)
 			{
 				if (allPanels[i] == this)

@@ -173,7 +173,7 @@ public class OVRGazePointer : OVRCursor {
 			rayTransform = Camera.main.transform;
 		
         // Move the gaze cursor to keep it in the middle of the view
-        transform.position = rayTransform.position + rayTransform.forward * depth;
+        transform.position = rayTransform.position + rayTransform.forward * (depth - 1f);
 
 		if(rayLineRenderer != null)
 		{

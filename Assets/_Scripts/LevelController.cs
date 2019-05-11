@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour
 {
@@ -128,7 +127,7 @@ public class LevelController : MonoBehaviour
 
 	public void ReturnToMenu()
 	{
-		SceneManager.LoadScene("MainMenu");
+		LevelLoader.LoadLevel("MainMenu");
 	}
 
 

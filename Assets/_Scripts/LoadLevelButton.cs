@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 
 [RequireComponent(typeof(Button))]
@@ -30,7 +29,7 @@ public class LoadLevelButton : MonoBehaviour
 	{
 		if (level != "")
 		{
-			SceneManager.LoadScene(level);
+			LevelLoader.LoadLevel(level);
 		}
 	}
 }

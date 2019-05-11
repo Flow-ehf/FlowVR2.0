@@ -10,6 +10,17 @@ public class SessionSettingsUI : MonoBehaviour
 	[SerializeField] GameObject durationButtonTemplate;
 	[SerializeField] RectTransform durationContainer;
 
+	UIPanel panel;
+
+	Material startSkybox;
+
+	void Awake()
+	{
+		panel = GetComponent<UIPanel>();
+		startSkybox = RenderSettings.skybox;
+	}
+
+
 	// Start is called before the first frame update
 	void Start()
     {
@@ -59,6 +70,36 @@ public class SessionSettingsUI : MonoBehaviour
     }
 
 
+	public void Open(Material targetSkybox)
+	{
+		StartCoroutine(WaitOpen(targetSkybox));
+	}
+
+	public IEnumerator WaitOpen(Material targetSkybox)
+	{
+		panel.SetActive(true);
+
+		ScreenFade.instance.StartFade(1, Color.black);
+		yield return new WaitForSeconds(1);
+		RenderSettings.skybox = targetSkybox;
+		ScreenFade.instance.StartFade(1, Color.clear);
+	}
+
+
+	public void Close()
+	{
+		StartCoroutine(WaitClose());
+	}
+
+	IEnumerator WaitClose()
+	{
+		ScreenFade.instance.StartFade(1, Color.black);
+		yield return new WaitForSeconds(1);
+		RenderSettings.skybox = startSkybox;
+		ScreenFade.instance.StartFade(1, Color.clear);
+	}
+
+
 	void TogglePlayMusic(bool isOn)
 	{
 		SessionSettings.PlayMusic = isOn;
@@ -72,5 +113,11 @@ public class SessionSettingsUI : MonoBehaviour
 	void DurationIndexChanged(int index)
 	{
 		SessionSettings.DurationIndex = index;
+	}
+
+
+	void OnDestroy()
+	{
+		RenderSettings.skybox = startSkybox;
 	}
 }
