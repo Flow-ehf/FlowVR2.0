@@ -142,7 +142,7 @@ public class LevelController : MonoBehaviour
 			//Conected controller is probably GO remote
 			else
 			{
-				if(OVRInput.GetDown(OVRInput.Button.PrimaryTouchpad))
+				if(OVRInput.GetDown(OVRInput.Button.Back))
 					Pause(!isPaused);
 			}
 		}
