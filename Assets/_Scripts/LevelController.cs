@@ -10,6 +10,8 @@ public class LevelController : MonoBehaviour
 	[SerializeField] Text timerText;
 	[SerializeField] Button pauseButton;
 	[SerializeField] Button resumeButton;
+	[SerializeField] Toggle muteMusicButton;
+	[SerializeField] Toggle muteGuidanceButton;
 	[SerializeField] UIPanel pausePanel;
 	[SerializeField] AudioClip[] guidanceClips;
 	[SerializeField] AudioClip[] musicClips;
@@ -24,6 +26,8 @@ public class LevelController : MonoBehaviour
 	float timeLeft;
 	bool isPaused;
 
+	OVRRaycaster raycaster;
+	Coroutine waitEnableUIInteractCoroutine;
 
 	void Awake()
 	{
@@ -33,27 +37,46 @@ public class LevelController : MonoBehaviour
 		ambiance2 = GameObject.Find("Ambiance2")?.GetComponent<AudioSource>();
 		ambiance3 = GameObject.Find("Ambiance3")?.GetComponent<AudioSource>();
 		ambiance4 = GameObject.Find("Ambiance4")?.GetComponent<AudioSource>();
+
+		raycaster = FindObjectOfType<OVRRaycaster>();
+		raycaster.enabled = false;
 	}
 
 
 	// Start is called before the first frame update
 	void Start()
     {
-		if (SessionSettings.PlayGuidance)
+		if(muteGuidanceButton != null)
 		{
-			int totalLanguages = System.Enum.GetValues(typeof(LanguageManager.Language)).Length;
-			guidanceAudio.clip = guidanceClips[SessionSettings.DurationIndex * totalLanguages + (int)LanguageManager.CurrentLanguage];
-			guidanceAudio.Play();
+			//Update initial state
+			muteGuidanceButton.isOn = SessionSettings.PlayGuidance;
+			muteGuidanceButton.onValueChanged.AddListener((isOn) =>
+			{
+				//Save preference
+				SessionSettings.PlayGuidance = isOn;
+				guidanceAudio.mute = !isOn;
+			});
 		}
-		else
-			guidanceAudio.Stop();
-		if (SessionSettings.PlayMusic)
+		if (muteMusicButton != null)
 		{
-			musicAudio.clip = musicClips[SessionSettings.DurationIndex];
-			musicAudio.Play();
+			//Update initial state
+			muteMusicButton.isOn = SessionSettings.PlayMusic;
+			muteMusicButton.onValueChanged.AddListener((isOn) =>
+			{
+				//Save preference
+				SessionSettings.PlayMusic = isOn;
+				musicAudio.mute = !isOn;
+			});
 		}
-		else
-			musicAudio.Stop();
+
+		int totalLanguages = System.Enum.GetValues(typeof(LanguageManager.Language)).Length;
+		guidanceAudio.clip = guidanceClips[SessionSettings.DurationIndex * totalLanguages + (int)LanguageManager.CurrentLanguage];
+		guidanceAudio.Play();
+		guidanceAudio.mute = !SessionSettings.PlayGuidance;
+
+		musicAudio.clip = musicClips[SessionSettings.DurationIndex];
+		musicAudio.Play();
+		musicAudio.mute = !SessionSettings.PlayMusic;
 
 		if(ambiance1 != null)
 		{
@@ -110,8 +133,7 @@ public class LevelController : MonoBehaviour
 	{
 		if(!isPaused && OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch))
 		{
-			Pause(!isPaused);
-			
+			Pause(!isPaused);			
 		}
 	}
 
@@ -121,7 +143,23 @@ public class LevelController : MonoBehaviour
 		isPaused = pause;
 
 		pausePanel.SetActive(isPaused);
+		//Prevents click from interacting with any ui when opening pause menu
+		if(isPaused)
+		{
+			waitEnableUIInteractCoroutine = StartCoroutine(WaitEnableUIInteract());
+		}
+		else
+		{
+			StopCoroutine(waitEnableUIInteractCoroutine);
+			raycaster.enabled = false;
+		}
+	}
 
+
+	IEnumerator WaitEnableUIInteract()
+	{
+		yield return new WaitForSeconds(1);
+		raycaster.enabled = true;
 	}
 
 

@@ -14,11 +14,6 @@ public class ToggleFlip : MonoBehaviour
     void Awake()
     {
 		toggle = GetComponent<Toggle>();
-    }
-
-
-	void Start()
-	{
 		if (toggle != null)
 		{
 			toggle.onValueChanged.AddListener(OnToggled);

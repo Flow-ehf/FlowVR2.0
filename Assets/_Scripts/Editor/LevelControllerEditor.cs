@@ -10,7 +10,9 @@ public class LevelControllerEditor : Editor
 	SerializedProperty timerText;
 	SerializedProperty pauseButton;
 	SerializedProperty pausePanel;
-	SerializedProperty resumeButton;// Start is called before the first frame update
+	SerializedProperty resumeButton;
+	SerializedProperty muteMusicButton;
+	SerializedProperty muteGuidanceButton;
 	SerializedProperty guidanceClips;
 	SerializedProperty musicClips;
 	SerializedProperty ambianceClips;
@@ -21,6 +23,8 @@ public class LevelControllerEditor : Editor
 		pauseButton = serializedObject.FindProperty(nameof(pauseButton));
 		pausePanel = serializedObject.FindProperty(nameof(pausePanel));
 		resumeButton = serializedObject.FindProperty(nameof(resumeButton));
+		muteMusicButton = serializedObject.FindProperty(nameof(muteMusicButton));
+		muteGuidanceButton = serializedObject.FindProperty(nameof(muteGuidanceButton));
 		guidanceClips = serializedObject.FindProperty(nameof(guidanceClips));
 		musicClips = serializedObject.FindProperty(nameof(musicClips));
 		ambianceClips = serializedObject.FindProperty(nameof(ambianceClips));
@@ -35,6 +39,8 @@ public class LevelControllerEditor : Editor
 		EditorGUILayout.PropertyField(pauseButton);
 		EditorGUILayout.PropertyField(pausePanel);
 		EditorGUILayout.PropertyField(resumeButton);
+		EditorGUILayout.PropertyField(muteMusicButton);
+		EditorGUILayout.PropertyField(muteGuidanceButton);
 		EditorGUILayout.Space();
 		LanguageManager.Language[] allLang = Enum.GetValues(typeof(LanguageManager.Language)) as LanguageManager.Language[];
 		EditorGUILayout.LabelField("Guidance Audio Clips");

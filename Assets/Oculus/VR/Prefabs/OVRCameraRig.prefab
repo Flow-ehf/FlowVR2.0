@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 708090c30e7385d4580a16933b74dea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &100004
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,7 +299,7 @@ GameObject:
   - component: {fileID: 20000012175207052}
   m_Layer: 0
   m_Name: LeftEyeAnchor
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
