@@ -31,6 +31,7 @@ public class LevelSelectButton : MonoBehaviour
 #if UNITY_EDITOR || FLOWVR_UNLOCK_ALL_DLC
 		ProductOwned();
 #else
+		//Not dlc, unlock right away
 		if (productId == "")
 			ProductOwned();
 		else

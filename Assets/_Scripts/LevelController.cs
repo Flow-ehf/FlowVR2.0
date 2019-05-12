@@ -131,9 +131,20 @@ public class LevelController : MonoBehaviour
 
 	void Update()
 	{
-		if(!isPaused && OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch))
+		if(!isPaused)
 		{
-			Pause(!isPaused);			
+			//Connected controller is touch
+			if(OVRInput.IsControllerConnected(OVRInput.Controller.Touch))
+			{
+				if (OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch))
+					Pause(!isPaused);
+			}
+			//Conected controller is probably GO remote
+			else
+			{
+				if(OVRInput.GetDown(OVRInput.Button.PrimaryTouchpad))
+					Pause(!isPaused);
+			}
 		}
 	}
 
