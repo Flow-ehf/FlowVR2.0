@@ -67,6 +67,6 @@ public static class LanguageManager
 				return currentInfo.langStr[i].str;
 		}
 		Debug.LogWarning($"Tag '{tag}' not found for language '{currentInfo.language}'");
-		return "";
+		return tag;
 	}
 }

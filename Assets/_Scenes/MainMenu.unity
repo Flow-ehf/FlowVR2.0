@@ -356,7 +356,6 @@ MonoBehaviour:
   targetButton: {fileID: 1176582953}
   level: LetGo2
   productId: 
-  editorIgnoreOwnership: 0
 --- !u!114 &122978938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,15 +396,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1333927782}
-        m_MethodName: set_text
+      - m_Target: {fileID: 1333927784}
+        m_MethodName: UpdateTag
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Let Go 2
+          m_StringArgument: <letgo2>
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1446219067}
@@ -420,15 +419,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 125337563}
-        m_MethodName: set_text
+      - m_Target: {fileID: 125337565}
+        m_MethodName: UpdateTag
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: letgo_2_desc
+          m_StringArgument: <letgo2_desc>
           m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -610,6 +609,7 @@ GameObject:
   - component: {fileID: 125337562}
   - component: {fileID: 125337564}
   - component: {fileID: 125337563}
+  - component: {fileID: 125337565}
   m_Layer: 5
   m_Name: AboutMeditation
   m_TagString: Untagged
@@ -678,6 +678,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 125337561}
   m_CullTransparentMesh: 0
+--- !u!114 &125337565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125337561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 223584e247ff908448974be0eb7759f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &155239323
 GameObject:
   m_ObjectHideFlags: 0
@@ -8552,7 +8564,6 @@ MonoBehaviour:
   targetButton: {fileID: 1176582953}
   level: LetGo1
   productId: 
-  editorIgnoreOwnership: 0
 --- !u!114 &720120712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8593,15 +8604,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1333927782}
-        m_MethodName: set_text
+      - m_Target: {fileID: 1333927784}
+        m_MethodName: UpdateTag
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Let Go 1
+          m_StringArgument: <letgo1>
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1446219067}
@@ -8616,15 +8627,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 125337563}
-        m_MethodName: set_text
+      - m_Target: {fileID: 125337565}
+        m_MethodName: UpdateTag
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: letgo_1_desc
+          m_StringArgument: <letgo1_desc>
           m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -8855,7 +8866,6 @@ MonoBehaviour:
   targetButton: {fileID: 1176582953}
   level: Calm3
   productId: 
-  editorIgnoreOwnership: 0
 --- !u!114 &760275447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8896,15 +8906,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1333927782}
-        m_MethodName: set_text
+      - m_Target: {fileID: 1333927784}
+        m_MethodName: UpdateTag
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Clam 3
+          m_StringArgument: <clam3>
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1446219067}
@@ -8919,15 +8929,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 125337563}
-        m_MethodName: set_text
+      - m_Target: {fileID: 125337565}
+        m_MethodName: UpdateTag
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: calm_3_desc
+          m_StringArgument: <calm3_desc>
           m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -9406,7 +9416,6 @@ MonoBehaviour:
   targetButton: {fileID: 1176582953}
   level: Breath3
   productId: 
-  editorIgnoreOwnership: 0
 --- !u!114 &814072574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9447,15 +9456,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1333927782}
-        m_MethodName: set_text
+      - m_Target: {fileID: 1333927784}
+        m_MethodName: UpdateTag
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Breath 3
+          m_StringArgument: <breath 3>
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1446219067}
@@ -9470,15 +9479,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 125337563}
-        m_MethodName: set_text
+      - m_Target: {fileID: 125337565}
+        m_MethodName: UpdateTag
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: breath_3_desc
+          m_StringArgument: <breath3_desc>
           m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -9759,7 +9768,6 @@ MonoBehaviour:
   targetButton: {fileID: 1176582953}
   level: Restore2
   productId: 
-  editorIgnoreOwnership: 0
 --- !u!114 &843550064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9800,15 +9808,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1333927782}
-        m_MethodName: set_text
+      - m_Target: {fileID: 1333927784}
+        m_MethodName: UpdateTag
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Restore 2
+          m_StringArgument: <restore2>
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1446219067}
@@ -9823,15 +9831,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 125337563}
-        m_MethodName: set_text
+      - m_Target: {fileID: 125337565}
+        m_MethodName: UpdateTag
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: restore_2_desc
+          m_StringArgument: <restore2_desc>
           m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -9959,7 +9967,6 @@ MonoBehaviour:
   targetButton: {fileID: 1176582953}
   level: Restore1
   productId: 
-  editorIgnoreOwnership: 0
 --- !u!114 &924518258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10000,15 +10007,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1333927782}
-        m_MethodName: set_text
+      - m_Target: {fileID: 1333927784}
+        m_MethodName: UpdateTag
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Restore 1
+          m_StringArgument: <restore1>
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1446219067}
@@ -10023,15 +10030,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 125337563}
-        m_MethodName: set_text
+      - m_Target: {fileID: 125337565}
+        m_MethodName: UpdateTag
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: restore_1_desc
+          m_StringArgument: <restore1_desc>
           m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -10354,7 +10361,6 @@ MonoBehaviour:
   targetButton: {fileID: 1176582953}
   level: Focus2
   productId: 
-  editorIgnoreOwnership: 0
 --- !u!114 &960451667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10395,15 +10401,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1333927782}
-        m_MethodName: set_text
+      - m_Target: {fileID: 1333927784}
+        m_MethodName: UpdateTag
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Focus 2
+          m_StringArgument: <focus2>
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1446219067}
@@ -10418,15 +10424,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 125337563}
-        m_MethodName: set_text
+      - m_Target: {fileID: 125337565}
+        m_MethodName: UpdateTag
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: focus_2_desc
+          m_StringArgument: <focus2_desc>
           m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -10523,7 +10529,6 @@ MonoBehaviour:
   targetButton: {fileID: 1176582953}
   level: Restore3
   productId: 
-  editorIgnoreOwnership: 0
 --- !u!114 &971297510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10564,15 +10569,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1333927782}
-        m_MethodName: set_text
+      - m_Target: {fileID: 1333927784}
+        m_MethodName: UpdateTag
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Restore 3
+          m_StringArgument: <restore3>
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1446219067}
@@ -10587,15 +10592,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 125337563}
-        m_MethodName: set_text
+      - m_Target: {fileID: 125337565}
+        m_MethodName: UpdateTag
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: restore_3_desc
+          m_StringArgument: <restore3_desc>
           m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -11303,7 +11308,6 @@ MonoBehaviour:
   targetButton: {fileID: 1176582953}
   level: Breath1
   productId: 
-  editorIgnoreOwnership: 0
 --- !u!114 &1062575189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11344,15 +11348,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1333927782}
-        m_MethodName: set_text
+      - m_Target: {fileID: 1333927784}
+        m_MethodName: UpdateTag
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Breath 1
+          m_StringArgument: <breath1>
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1446219067}
@@ -11367,15 +11371,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 125337563}
-        m_MethodName: set_text
+      - m_Target: {fileID: 125337565}
+        m_MethodName: UpdateTag
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: breath_1_desc
+          m_StringArgument: <breath1_desc>
           m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -11544,7 +11548,6 @@ MonoBehaviour:
   targetButton: {fileID: 1176582953}
   level: Move2
   productId: 
-  editorIgnoreOwnership: 0
 --- !u!114 &1136430957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11585,15 +11588,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1333927782}
-        m_MethodName: set_text
+      - m_Target: {fileID: 1333927784}
+        m_MethodName: UpdateTag
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Move 2
+          m_StringArgument: <move2>
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1446219067}
@@ -11608,15 +11611,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 125337563}
-        m_MethodName: set_text
+      - m_Target: {fileID: 125337565}
+        m_MethodName: UpdateTag
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: move_2_desc
+          m_StringArgument: <move2_desc>
           m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -12322,7 +12325,6 @@ MonoBehaviour:
   targetButton: {fileID: 1176582953}
   level: Calm1
   productId: 
-  editorIgnoreOwnership: 0
 --- !u!114 &1209419068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12363,15 +12365,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1333927782}
-        m_MethodName: set_text
+      - m_Target: {fileID: 1333927784}
+        m_MethodName: UpdateTag
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Calm 1
+          m_StringArgument: <calm1>
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1446219067}
@@ -12386,15 +12388,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 125337563}
-        m_MethodName: set_text
+      - m_Target: {fileID: 125337565}
+        m_MethodName: UpdateTag
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: calm_1_desc
+          m_StringArgument: <calm1_desc>
           m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -12997,6 +12999,7 @@ GameObject:
   - component: {fileID: 1333927781}
   - component: {fileID: 1333927783}
   - component: {fileID: 1333927782}
+  - component: {fileID: 1333927784}
   m_Layer: 5
   m_Name: MeditationName
   m_TagString: Untagged
@@ -13056,7 +13059,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Meditation Name
+  m_Text: 
 --- !u!222 &1333927783
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13065,6 +13068,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1333927780}
   m_CullTransparentMesh: 0
+--- !u!114 &1333927784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333927780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 223584e247ff908448974be0eb7759f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1338197760
 GameObject:
   m_ObjectHideFlags: 0
@@ -14411,7 +14426,6 @@ MonoBehaviour:
   targetButton: {fileID: 1176582953}
   level: Calm2
   productId: 
-  editorIgnoreOwnership: 0
 --- !u!114 &1626644070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14452,15 +14466,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1333927782}
-        m_MethodName: set_text
+      - m_Target: {fileID: 1333927784}
+        m_MethodName: UpdateTag
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Calm 2
+          m_StringArgument: <calm2>
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1446219067}
@@ -14475,15 +14489,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 125337563}
-        m_MethodName: set_text
+      - m_Target: {fileID: 125337565}
+        m_MethodName: UpdateTag
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: calm_2_desc
+          m_StringArgument: <calm2_desc>
           m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -14664,7 +14678,6 @@ MonoBehaviour:
   targetButton: {fileID: 1176582953}
   level: Move1
   productId: 
-  editorIgnoreOwnership: 0
 --- !u!114 &1684206465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14705,15 +14718,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1333927782}
-        m_MethodName: set_text
+      - m_Target: {fileID: 1333927784}
+        m_MethodName: UpdateTag
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Move 1
+          m_StringArgument: <move1>
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1446219067}
@@ -14728,15 +14741,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 125337563}
-        m_MethodName: set_text
+      - m_Target: {fileID: 125337565}
+        m_MethodName: UpdateTag
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: move_1_desc
+          m_StringArgument: <move1_desc>
           m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -14833,7 +14846,6 @@ MonoBehaviour:
   targetButton: {fileID: 1176582953}
   level: Move3
   productId: 
-  editorIgnoreOwnership: 0
 --- !u!114 &1704073841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14874,15 +14886,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1333927782}
-        m_MethodName: set_text
+      - m_Target: {fileID: 1333927784}
+        m_MethodName: UpdateTag
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Move 3
+          m_StringArgument: <move3>
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1446219067}
@@ -14897,15 +14909,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 125337563}
-        m_MethodName: set_text
+      - m_Target: {fileID: 125337565}
+        m_MethodName: UpdateTag
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: move_3_desc
+          m_StringArgument: <move3_desc>
           m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -15168,7 +15180,6 @@ MonoBehaviour:
   targetButton: {fileID: 1176582953}
   level: LetGo3
   productId: 
-  editorIgnoreOwnership: 0
 --- !u!114 &1804007682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15209,15 +15220,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1333927782}
-        m_MethodName: set_text
+      - m_Target: {fileID: 1333927784}
+        m_MethodName: UpdateTag
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Let Go 3
+          m_StringArgument: <letgo3>
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1446219067}
@@ -15232,15 +15243,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 125337563}
-        m_MethodName: set_text
+      - m_Target: {fileID: 125337565}
+        m_MethodName: UpdateTag
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: letgo_3_desc
+          m_StringArgument: <letgo3_desc>
           m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -15337,7 +15348,6 @@ MonoBehaviour:
   targetButton: {fileID: 1176582953}
   level: Breath2
   productId: 
-  editorIgnoreOwnership: 0
 --- !u!114 &1830169239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15378,15 +15388,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1333927782}
-        m_MethodName: set_text
+      - m_Target: {fileID: 1333927784}
+        m_MethodName: UpdateTag
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Breath 2
+          m_StringArgument: <breath2>
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1446219067}
@@ -15401,15 +15411,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 125337563}
-        m_MethodName: set_text
+      - m_Target: {fileID: 125337565}
+        m_MethodName: UpdateTag
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: breath_2_desc
+          m_StringArgument: <breath2_desc>
           m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -15697,7 +15707,6 @@ MonoBehaviour:
   targetButton: {fileID: 1176582953}
   level: Focus1
   productId: 
-  editorIgnoreOwnership: 0
 --- !u!114 &1903751934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15738,15 +15747,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1333927782}
-        m_MethodName: set_text
+      - m_Target: {fileID: 1333927784}
+        m_MethodName: UpdateTag
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Focus 1
+          m_StringArgument: <focus1>
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1446219067}
@@ -15761,15 +15770,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 125337563}
-        m_MethodName: set_text
+      - m_Target: {fileID: 125337565}
+        m_MethodName: UpdateTag
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: focus_1_desc
+          m_StringArgument: <focus1_desc>
           m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -16175,7 +16184,6 @@ MonoBehaviour:
   targetButton: {fileID: 1176582953}
   level: Focus3
   productId: 
-  editorIgnoreOwnership: 0
 --- !u!114 &1940056308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16216,15 +16224,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1333927782}
-        m_MethodName: set_text
+      - m_Target: {fileID: 1333927784}
+        m_MethodName: UpdateTag
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Focus 3
+          m_StringArgument: <focus3>
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1446219067}
@@ -16239,15 +16247,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 125337563}
-        m_MethodName: set_text
+      - m_Target: {fileID: 125337565}
+        m_MethodName: UpdateTag
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: focus_3_desc
+          m_StringArgument: <focus3_desc>
           m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,

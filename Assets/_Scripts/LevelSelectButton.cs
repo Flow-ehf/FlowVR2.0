@@ -13,7 +13,6 @@ public class LevelSelectButton : MonoBehaviour
 	[SerializeField] LoadLevelButton targetButton;
 	[SerializeField] string level;
 	[SerializeField] string productId;
-	[SerializeField] bool editorIgnoreOwnership = false;
 
 	Button button;
 
@@ -29,7 +28,7 @@ public class LevelSelectButton : MonoBehaviour
 
 	void OnEnable()
 	{
-#if UNITY_EDITOR
+#if UNITY_EDITOR || FLOWVR_UNLOCK_ALL_DLC
 		ProductOwned();
 #else
 		if (productId == "")

@@ -19,10 +19,8 @@ public class LanguageText : MonoBehaviour
 
 	void Start()
 	{
-		langTag = GetTag();
-
-		if (langTag != null)
-			text.text = LanguageManager.GetStr(langTag); 
+		if(text.text != "")
+			UpdateTag(text.text);
 	}
 
 
@@ -33,9 +31,8 @@ public class LanguageText : MonoBehaviour
 	}
 
 
-	string GetTag()
+	string GetTag(string t)
 	{
-		string t = text.text;
 		int tagStart = t.IndexOf('<');
 		if(tagStart > -1)
 		{
@@ -46,6 +43,19 @@ public class LanguageText : MonoBehaviour
 			}
 		}
 		return null;
+	}
+
+
+	public void UpdateTag(string tag)
+	{
+		string t = GetTag(tag);
+		if (t != null)
+		{
+			langTag = t;
+			text.text = LanguageManager.GetStr(langTag);
+		}
+		else
+			Debug.LogError($"LanguageText: tag '{tag}' is invalid", this);
 	}
 
 
