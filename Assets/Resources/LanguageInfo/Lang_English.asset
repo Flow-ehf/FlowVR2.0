@@ -80,3 +80,39 @@ MonoBehaviour:
     str: Focus
   - tag: restore
     str: Restore
+  - tag: restore1_desc
+    str: restore1_desc
+  - tag: breath1_desc
+    str: breath1_desc
+  - tag: breath2_desc
+    str: breath2_desc
+  - tag: breath3_desc
+    str: breath3_desc
+  - tag: move1_desc
+    str: move1_desc
+  - tag: move2_desc
+    str: move2_desc
+  - tag: move3_desc
+    str: move3_desc
+  - tag: letgo1_desc
+    str: letgo1_desc
+  - tag: letgo2_desc
+    str: letgo2_desc
+  - tag: letgo3_desc
+    str: letgo3_desc
+  - tag: calm1_desc
+    str: calm1_desc
+  - tag: calm2_desc
+    str: calm2_desc
+  - tag: calm3_desc
+    str: calm3_desc
+  - tag: focus1_desc
+    str: focus1_desc
+  - tag: focus2_desc
+    str: focus2_desc
+  - tag: focus3_desc
+    str: focus3_desc
+  - tag: restore2_desc
+    str: restore2_desc
+  - tag: restore3_desc
+    str: restore3_desc
