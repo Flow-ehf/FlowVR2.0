@@ -68,8 +68,8 @@ MonoBehaviour:
     str: Restore2
   - tag: restore3
     str: Restore3
-  - tag: breath
-    str: Breath
+  - tag: breathe
+    str: Breathe
   - tag: move
     str: Move
   - tag: letgo
