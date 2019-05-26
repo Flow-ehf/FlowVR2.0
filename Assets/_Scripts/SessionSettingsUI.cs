@@ -47,7 +47,7 @@ public class SessionSettingsUI : MonoBehaviour
 				int min = SessionSettings.AvailableDurations[i] / 60;
 				RectTransform rectTrans = Instantiate(durationButtonTemplate).GetComponent<RectTransform>();
 				rectTrans.SetParent(durationContainer, false);
-				rectTrans.anchoredPosition = new Vector2(0, -yPos);
+				rectTrans.anchoredPosition = new Vector2(+yPos, 0);
 				Text text = rectTrans.GetComponentInChildren<Text>();
 				if (text != null)
 					text.text = min + " min";

@@ -68,7 +68,7 @@ MonoBehaviour:
     str: "Endurn\xFDja\xF0u \xDEig2"
   - tag: restore3
     str: "Endurn\xFDja\xF0u \xDEig3"
-  - tag: breath
+  - tag: breathe
     str: "Anda\xF0u"
   - tag: move
     str: "Hreyf\xF0u \xDEig"
