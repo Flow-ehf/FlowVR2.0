@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,6 +7,8 @@ using UnityEngine.UI;
 public class LevelController : MonoBehaviour
 {
 	const string FallbackLevel = "Breath1";
+
+	public static LevelController Instance { get; private set; }
 
 	[SerializeField] Text timerText;
 	[SerializeField] Button pauseButton;
@@ -25,12 +28,20 @@ public class LevelController : MonoBehaviour
 	AudioSource ambiance4;
 	float timeLeft;
 	bool isPaused;
+	float sessionStartTimestamp;
 
 	OVRRaycaster raycaster;
 	Coroutine waitEnableUIInteractCoroutine;
 
+	public event Action QuitMeditation;
+
+	public float TimeLeft => timeLeft;
+	public float PlayTime => Time.unscaledTime - sessionStartTimestamp;
+
 	void Awake()
 	{
+		Instance = this;
+
 		musicAudio = GameObject.Find("Music")?.GetComponent<AudioSource>();
 		guidanceAudio = GameObject.Find("Guidance")?.GetComponent<AudioSource>();
 		ambiance1 = GameObject.Find("Ambiance1")?.GetComponent<AudioSource>();
@@ -40,6 +51,8 @@ public class LevelController : MonoBehaviour
 
 		raycaster = FindObjectOfType<OVRRaycaster>();
 		raycaster.enabled = false;
+
+		sessionStartTimestamp = Time.unscaledTime;
 	}
 
 
@@ -114,7 +127,6 @@ public class LevelController : MonoBehaviour
 	{
 		while(timeLeft >= 0)
 		{
-			yield return new WaitForSeconds(1);
 			if(timerText != null)
 			{
 				if (timeLeft >= 60)
@@ -122,6 +134,8 @@ public class LevelController : MonoBehaviour
 				else
 					timerText.text = timeLeft + "s";
 			}
+			yield return new WaitForSeconds(1);
+			timeLeft--;
 			if (isPaused)
 				yield return new WaitWhile(() => isPaused);
 		}
@@ -176,7 +190,15 @@ public class LevelController : MonoBehaviour
 
 	public void ReturnToMenu()
 	{
+		QuitMeditation?.Invoke();
 		LevelLoader.LoadLevel("MainMenu");
+	}
+
+
+	void OnDestroy()
+	{
+		if(Instance == this)
+			Instance = null;
 	}
 
 

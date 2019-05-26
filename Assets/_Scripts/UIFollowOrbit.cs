@@ -6,6 +6,7 @@ public class UIFollowOrbit : MonoBehaviour
 {
 	[SerializeField] float speed = 90;
 	[SerializeField] bool followVertical = false;
+	[SerializeField] bool useUnscaledTime = false;
 
 	Transform camTrans;
 	float dist;
@@ -31,7 +32,7 @@ public class UIFollowOrbit : MonoBehaviour
 		{
 			Quaternion targetRot = GetTargetRot();
 
-			actualRot = Quaternion.Lerp(actualRot, targetRot, speed * Time.deltaTime);
+			actualRot = Quaternion.Lerp(actualRot, targetRot, speed * (useUnscaledTime ? Time.unscaledDeltaTime : Time.deltaTime));
 
 			transform.rotation = actualRot;
 

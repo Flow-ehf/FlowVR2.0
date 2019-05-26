@@ -16,6 +16,7 @@ public class ToggleFlip : MonoBehaviour
 		toggle = GetComponent<Toggle>();
 		if (toggle != null)
 		{
+			toggle.graphic = null;
 			toggle.onValueChanged.AddListener(OnToggled);
 			OnToggled(toggle.isOn);
 		}
@@ -26,5 +27,7 @@ public class ToggleFlip : MonoBehaviour
 	{
 		onObject?.SetActive(isOn);
 		offObject?.SetActive(!isOn);
+		toggle.targetGraphic = null;
+		toggle.targetGraphic = isOn ? onObject?.GetComponentInChildren<Graphic>() : offObject?.GetComponentInChildren<Graphic>();
 	}
 }

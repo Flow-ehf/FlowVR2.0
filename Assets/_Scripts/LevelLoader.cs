@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
+	const string LoaderScene = "LevelLoad";
 	const float FadeDuration = 1;
 
 	[RuntimeInitializeOnLoadMethod]
@@ -38,10 +39,39 @@ public class LevelLoader : MonoBehaviour
 	static IEnumerator WaitLoadLevel(string level)
 	{
 		Time.timeScale = 0;
+		//Fade to black
 		ScreenFade.instance.StartFade(FadeDuration, Color.black);
+		//Fade volume out
 		yield return FadeVolumeOut(FadeDuration);
-		yield return SceneManager.LoadSceneAsync(level);
+		//Load loader scene
+		yield return SceneManager.LoadSceneAsync(LoaderScene);
+		//Fade in
 		ScreenFade.instance.StartFade(FadeDuration, Color.clear);
+		yield return new WaitForSecondsRealtime(FadeDuration);
+		//Begin load target scene
+		var sceneLoad = SceneManager.LoadSceneAsync(level);
+		sceneLoad.allowSceneActivation = false;
+
+		var loadingBar = GameObject.FindGameObjectWithTag("LoadingBar")?.GetComponent<UnityEngine.UI.Image>();
+
+		do
+		{
+			if (loadingBar != null)
+			{
+				loadingBar.fillAmount = sceneLoad.progress / 0.9f;
+			}
+			yield return null;
+		}
+		while (sceneLoad.progress < 0.9f);
+		//When target scene is loaded, fade to black
+		ScreenFade.instance.StartFade(FadeDuration, Color.black);
+		yield return new WaitForSecondsRealtime(1);
+		//Activate target scene
+		sceneLoad.allowSceneActivation = true;
+		yield return sceneLoad;
+		//Fade in
+		ScreenFade.instance.StartFade(FadeDuration, Color.clear);
+		//Fade in volume 
 		yield return FadeVolumeIn(FadeDuration);
 		Time.timeScale = 1;
 	}
