@@ -17,13 +17,19 @@ public class UIFollowOrbit : MonoBehaviour
     void Awake()
     {
 		camTrans = Camera.main?.transform;
+    }
+
+
+	void Start()
+	{
 		if (camTrans != null)
 		{
 			actualRot = GetTargetRot();
 			dist = (camTrans.position - transform.position).magnitude;
 			height = transform.position.y;
 		}
-    }
+	}
+
 
     // Update is called once per frame
     void Update()

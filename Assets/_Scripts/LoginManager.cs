@@ -4,11 +4,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.Events;
-using UnityEngine.SceneManagement;
 using Facebook.Unity;
+using Google;
 
 
 public class LoginManager : MonoBehaviour
@@ -23,6 +23,7 @@ public class LoginManager : MonoBehaviour
 	public static event Action<bool> LoginChanged;
 
 	static FBLogin fbLogin = new FBLogin();
+	static GoogleLogin googleLogin = new GoogleLogin();
 
 	static LoginBase currentLogin;
 
@@ -30,6 +31,7 @@ public class LoginManager : MonoBehaviour
 	public enum LoginMethod
 	{
 		FB,
+		Google,
 	}
 
 
@@ -45,6 +47,7 @@ public class LoginManager : MonoBehaviour
 	void Start()
 	{
 		fbLogin.Initialize();
+		googleLogin.Initialize();
 	}
 
 
@@ -55,6 +58,8 @@ public class LoginManager : MonoBehaviour
 			default:
 			case LoginMethod.FB:
 				return fbLogin;
+			case LoginMethod.Google:
+				return googleLogin;
 		}
 	}
 
@@ -74,7 +79,7 @@ public class LoginManager : MonoBehaviour
 		instance?.LoggedIn.Invoke();
 		LoginChanged?.Invoke(true);
 
-		SceneManager.LoadScene("MainMenu");
+		LevelLoader.LoadLevel("MainMenu");
 	}
 
 
@@ -91,8 +96,8 @@ public class LoginManager : MonoBehaviour
 		LoginChanged?.Invoke(false);
 
 		//Return to login screen when logging out
-		if (SceneManager.GetActiveScene().name != "LoginMenu")
-			SceneManager.LoadScene("LoginMenu");
+		if (LevelLoader.CurrentLevel != "LoginMenu")
+			LevelLoader.LoadLevel("LoginMenu");
 	}
 
 	public abstract class LoginBase
@@ -132,6 +137,63 @@ public class LoginManager : MonoBehaviour
 			Debug.Log(PlatformName + ": login ready!");
 
 			Initalized?.Invoke();
+		}
+	}
+
+	class GoogleLogin : LoginBase
+	{
+		const string webClientId = "";
+
+		public override bool IsInitialized => isInitialized;
+
+		public override bool IsLoggedIn => loggedInUser != null;
+
+		public override string PlatformName => "Google";
+
+		bool isInitialized;
+		GoogleSignInConfiguration configuration;
+		GoogleSignInUser loggedInUser;
+
+
+		public override void Initialize()
+		{
+			configuration = new GoogleSignInConfiguration
+			{
+				WebClientId = webClientId,
+				RequestIdToken = true
+			};
+			isInitialized = true;
+			OnInitialized();
+		}
+
+
+		protected override void DoLogin()
+		{
+			GoogleSignIn.Configuration = configuration;
+			GoogleSignIn.Configuration.UseGameSignIn = false;
+			GoogleSignIn.Configuration.RequestIdToken = true;
+
+			GoogleSignIn.DefaultInstance.SignIn().ContinueWith(OnLogin);
+		}
+
+
+		protected override void DoLogout()
+		{
+			loggedInUser = null;
+			GoogleSignIn.DefaultInstance.SignOut();
+			OnLoggedOut();
+		}
+
+
+		void OnLogin(Task<GoogleSignInUser> result)
+		{
+			if (result.IsFaulted || result.IsCanceled)
+				OnlogginFailed();
+			else
+			{
+				loggedInUser = result.Result;
+				OnLoggedIn(this);
+			}
 		}
 	}
 

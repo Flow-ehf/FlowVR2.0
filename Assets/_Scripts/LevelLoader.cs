@@ -17,10 +17,13 @@ public class LevelLoader : MonoBehaviour
 	}
 
 	static LevelLoader instance;
+	public static string CurrentLevel { get; private set; }
 
 
 	IEnumerator Start()
 	{
+		CurrentLevel = SceneManager.GetActiveScene().name;
+
 		Time.timeScale = 0;
 		AudioListener.volume = 0;
 		yield return new WaitForSecondsRealtime(1);
@@ -68,6 +71,7 @@ public class LevelLoader : MonoBehaviour
 		yield return new WaitForSecondsRealtime(1);
 		//Activate target scene
 		sceneLoad.allowSceneActivation = true;
+		CurrentLevel = level;
 		yield return sceneLoad;
 		//Fade in
 		ScreenFade.instance.StartFade(FadeDuration, Color.clear);
