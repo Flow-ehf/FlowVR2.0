@@ -198,7 +198,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &899520896
 RectTransform:
   m_ObjectHideFlags: 0
@@ -736,8 +736,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 50b964640f3213a4fbcbc64e0b6dbfa4, type: 3}
-    m_FontSize: 32
+    m_Font: {fileID: 12800000, guid: 7e89e80fce8fc06478c726f2f3de7863, type: 3}
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -772,6 +772,14 @@ MonoBehaviour:
   texts:
   - <profound_quote_1>
   - <profound_quote_2>
+  - <profound_quote_3>
+  - <profound_quote_4>
+  - <profound_quote_5>
+  - <profound_quote_6>
+  - <profound_quote_7>
+  - <profound_quote_8>
+  - <profound_quote_9>
+  - <profound_quote_10>
 --- !u!114 &2050280095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -834,7 +842,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8246622263317469823}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7aaf960227867044282d921171d2d7ac, type: 3}
   m_Name: 

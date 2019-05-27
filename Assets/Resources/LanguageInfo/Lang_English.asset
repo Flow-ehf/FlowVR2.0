@@ -116,3 +116,23 @@ MonoBehaviour:
     str: restore2_desc
   - tag: restore3_desc
     str: restore3_desc
+  - tag: profound_quote_1
+    str: profound quote 1
+  - tag: profound_quote_2
+    str: profound quote 2
+  - tag: profound_quote_3
+    str: profound quote 3
+  - tag: profound_quote_4
+    str: profound quote 4
+  - tag: profound_quote_5
+    str: profound quote 5
+  - tag: profound_quote_6
+    str: profound quote 6
+  - tag: profound_quote_7
+    str: profound quote 7
+  - tag: profound_quote_8
+    str: profound quote 8
+  - tag: profound_quote_9
+    str: profound quote 9
+  - tag: profound_quote_10
+    str: profound quote 10

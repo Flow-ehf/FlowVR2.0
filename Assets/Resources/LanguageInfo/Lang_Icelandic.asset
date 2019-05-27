@@ -116,3 +116,23 @@ MonoBehaviour:
     str: "Endurn\xFDja\xF0u \xFEig2 l\xFDsing"
   - tag: restore3_desc
     str: "Endurn\xFDja\xF0u \xFEig3 l\xFDsing"
+  - tag: profound_quote_1
+    str: "H\xE1fleyg or\xF0 1"
+  - tag: profound_quote_2
+    str: "H\xE1fleyg or\xF0 2"
+  - tag: profound_quote_3
+    str: "H\xE1fleyg or\xF0 3"
+  - tag: profound_quote_4
+    str: "H\xE1fleyg or\xF0 4"
+  - tag: profound_quote_5
+    str: "H\xE1fleyg or\xF0 5"
+  - tag: profound_quote_6
+    str: "H\xE1fleyg or\xF0 6"
+  - tag: profound_quote_7
+    str: "H\xE1fleyg or\xF0 7"
+  - tag: profound_quote_8
+    str: "H\xE1fleyg or\xF0 8"
+  - tag: profound_quote_9
+    str: "H\xE1fleyg or\xF0 9"
+  - tag: profound_quote_10
+    str: "H\xE1fleyg or\xF0 10"
