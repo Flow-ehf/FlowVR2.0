@@ -13,6 +13,8 @@ using Google;
 
 public class LoginManager : MonoBehaviour
 {
+	const int LOGIN_CACHE_LIFETIME = int.MaxValue;
+
 	public UnityEvent LoggedIn;
 	public UnityEvent LoggedOut;
 
@@ -27,6 +29,7 @@ public class LoginManager : MonoBehaviour
 
 	static LoginBase currentLogin;
 
+	public static User currentUser;
 
 	public enum LoginMethod
 	{
@@ -48,6 +51,21 @@ public class LoginManager : MonoBehaviour
 	{
 		fbLogin.Initialize();
 		googleLogin.Initialize();
+
+		currentUser = GetCachedUser();
+		//User logged in previously
+		if(currentUser != null)
+		{
+			//Login is outdated
+			if (currentUser.LoginDuration > LOGIN_CACHE_LIFETIME)
+				currentUser = null;
+			else
+			{
+				//Already logged in to non company account, skip to menu
+				if (!currentUser.IsCompanyAccount)
+					LevelLoader.LoadLevel("MainMenu");
+			}
+		}
 	}
 
 
@@ -76,10 +94,18 @@ public class LoginManager : MonoBehaviour
 	static void OnLoggedIn(LoginBase login)
 	{
 		currentLogin = login;
+		currentUser = login.GetUser();
 		instance?.LoggedIn.Invoke();
 		LoginChanged?.Invoke(true);
 
-		LevelLoader.LoadLevel("MainMenu");
+		bool firstLogin = PlayerPrefs.GetInt("HasLogin", 0) == 0;
+
+		PlayerPrefs.SetInt("HasLogin", 1);
+
+		if (firstLogin && !currentUser.IsCompanyAccount)
+			LevelLoader.LoadLevel("BuySubscription");
+		else
+			LevelLoader.LoadLevel("MainMenu");
 	}
 
 
@@ -99,6 +125,30 @@ public class LoginManager : MonoBehaviour
 		if (LevelLoader.CurrentLevel != "LoginMenu")
 			LevelLoader.LoadLevel("LoginMenu");
 	}
+
+
+	static User GetCachedUser()
+	{
+		return null;
+	}
+
+
+	public class User
+	{
+		bool isCompanyAccount;
+		DateTime lastLogin;
+
+		public bool IsCompanyAccount => isCompanyAccount;
+		public DateTime LastLoginTime => lastLogin;
+		public int LoginDuration => (int)DateTime.UtcNow.Subtract(lastLogin).TotalSeconds;
+
+		public User(bool isCompanyAccount)
+		{
+			this.isCompanyAccount = isCompanyAccount;
+			this.lastLogin = DateTime.UtcNow;
+		}
+	}
+
 
 	public abstract class LoginBase
 	{
@@ -129,6 +179,7 @@ public class LoginManager : MonoBehaviour
 		}
 
 		public abstract void Initialize();
+		public abstract User GetUser();
 		protected abstract void DoLogin();
 		protected abstract void DoLogout();
 
@@ -182,6 +233,12 @@ public class LoginManager : MonoBehaviour
 			loggedInUser = null;
 			GoogleSignIn.DefaultInstance.SignOut();
 			OnLoggedOut();
+		}
+
+
+		public override User GetUser()
+		{
+			return new User(false);
 		}
 
 
@@ -241,6 +298,12 @@ public class LoginManager : MonoBehaviour
 		{
 			FB.LogOut();
 			OnLoggedOut();
+		}
+
+
+		public override User GetUser()
+		{
+			return new User(false);
 		}
 	}
 }

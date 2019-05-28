@@ -20,10 +20,14 @@ public class LevelLoader : MonoBehaviour
 	public static string CurrentLevel { get; private set; }
 
 
-	IEnumerator Start()
+	void Awake()
 	{
 		CurrentLevel = SceneManager.GetActiveScene().name;
+	}
 
+
+	IEnumerator Start()
+	{
 		Time.timeScale = 0;
 		AudioListener.volume = 0;
 		yield return new WaitForSecondsRealtime(1);
