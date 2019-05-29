@@ -33,71 +33,71 @@ MonoBehaviour:
   - tag: logout
     str: "Skr\xE1 \xDAt"
   - tag: breath1
-    str: "Anda\xF0u1"
+    str: "\xD6ndun1"
   - tag: breath2
-    str: "Anda\xF0u2"
+    str: "\xD6ndun2"
   - tag: breath3
-    str: "Anda\xF0u3"
+    str: "\xD6ndun3"
   - tag: move1
-    str: "Hreyf\xF0u \xDEig1"
+    str: Hreyfing1
   - tag: move2
-    str: "Hreyf\xF0u \xDEig2"
+    str: Hreyfing2
   - tag: move3
-    str: "Hreyf\xF0u \xDEig3"
+    str: Hreyfing3
   - tag: letgo1
-    str: Slepptu Takinu1
+    str: Sleppa1
   - tag: letgo2
-    str: Slepptu Takinu2
+    str: Sleppa2
   - tag: letgo3
-    str: Slepptu Takinu3
+    str: Sleppa3
   - tag: calm1
-    str: "Slaka\xF0u \xC11"
+    str: "Sl\xF6kun1"
   - tag: calm2
-    str: "Slaka\xF0u \xC12"
+    str: "Sl\xF6kun2"
   - tag: calm3
-    str: "Slaka\xF0u \xC13"
+    str: "Sl\xF6kun3"
   - tag: focus1
-    str: "N\xE1\xF0u Einbeitingu1"
+    str: Einbeiting1
   - tag: focus2
-    str: "N\xE1\xF0u Einbeitingu2"
+    str: Einbeiting2
   - tag: focus3
-    str: "N\xE1\xF0u Einbeitingu3"
+    str: Einbeiting3
   - tag: restore1
-    str: "Endurn\xFDja\xF0u \xDEig1"
+    str: "Endurn\xFDjun1"
   - tag: restore2
-    str: "Endurn\xFDja\xF0u \xDEig2"
+    str: "Endurn\xFDjun2"
   - tag: restore3
-    str: "Endurn\xFDja\xF0u \xDEig3"
+    str: "Endurn\xFDjun3"
   - tag: breathe
-    str: "Anda\xF0u"
+    str: "\xD6ndun"
   - tag: move
-    str: "Hreyf\xF0u \xDEig"
+    str: Hreyfing
   - tag: letgo
-    str: Slepptu Takinu
+    str: Sleppa
   - tag: calm
-    str: "Slaka\xF0u \xC1"
+    str: "Sl\xF6kun"
   - tag: focus
-    str: "N\xE1\xF0u Einbeitingu"
+    str: Einbeiting
   - tag: restore
-    str: "Endurn\xFDja\xF0u \xDEig"
+    str: "Endurn\xFDjun"
   - tag: breath1_desc
-    str: "Anda\xF0u1 l\xFDsing"
+    str: "\xD6ndun1 l\xFDsing"
   - tag: breath2_desc
-    str: "Anda\xF0u2 l\xFDsing"
+    str: "\xD6ndun2 l\xFDsing"
   - tag: breath3_desc
-    str: "Anda\xF0u3 l\xFDsing"
+    str: "\xD6ndun3 l\xFDsing"
   - tag: move1_desc
-    str: "Hreyf\xF0u \xFEig1 l\xFDsing"
+    str: "Hreyfing1 l\xFDsing"
   - tag: move2_desc
-    str: "Hreyf\xF0u \xFEig2 l\xFDsing"
+    str: "Hreyfing2 l\xFDsing"
   - tag: move3_desc
-    str: "Hreyf\xF0u \xFEig3 l\xFDsing"
+    str: "Hreyfing3 l\xFDsing"
   - tag: letgo1_desc
-    str: "Slepptu takinu1 l\xFDsing"
+    str: "Sleppa1 l\xFDsing"
   - tag: letgo2_desc
-    str: "Slepptu takinu2 l\xFDsing"
+    str: "Sleppa2 l\xFDsing"
   - tag: letgo3_desc
-    str: "Slepptu takinu3 l\xFDsing"
+    str: "Sleppa3 l\xFDsing"
   - tag: calm1_desc
     str: "Slaka\xF0u \xE11 l\xFDsing"
   - tag: calm2_desc
@@ -105,17 +105,17 @@ MonoBehaviour:
   - tag: calm3_desc
     str: "Slaka\xF0u \xE13 l\xFDsing"
   - tag: focus1_desc
-    str: "Endurn\xFDja\xF0u \xFEig1 l\xFDsing"
+    str: "Einbeting1 l\xFDsing"
   - tag: focus2_desc
-    str: "Endurn\xFDja\xF0u \xFEig2 l\xFDsing"
+    str: "Einbeting2 l\xFDsing"
   - tag: focus3_desc
-    str: "Endurn\xFDja\xF0u \xFEig3 l\xFDsing"
+    str: "Einbeting3 l\xFDsing"
   - tag: restore1_desc
-    str: "Endurn\xFDja\xF0u \xFEig1 l\xFDsing"
+    str: "Endurn\xFDjun1 l\xFDsing"
   - tag: restore2_desc
-    str: "Endurn\xFDja\xF0u \xFEig2 l\xFDsing"
+    str: "Endurn\xFDjun2 l\xFDsing"
   - tag: restore3_desc
-    str: "Endurn\xFDja\xF0u \xFEig3 l\xFDsing"
+    str: "Endurn\xFDjun3 l\xFDsing"
   - tag: profound_quote_1
     str: "H\xE1fleyg or\xF0 1"
   - tag: profound_quote_2
