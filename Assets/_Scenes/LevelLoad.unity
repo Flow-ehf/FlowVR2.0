@@ -705,15 +705,15 @@ RectTransform:
   m_GameObject: {fileID: 2050280090}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children: []
   m_Father: {fileID: 1732205740}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 400, y: 100}
+  m_AnchoredPosition: {x: 0, y: -10}
+  m_SizeDelta: {x: 1400, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2050280092
 MonoBehaviour:
@@ -728,16 +728,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_Color: {r: 0.98039216, g: 0.98039216, b: 0.98039216, a: 1}
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 7e89e80fce8fc06478c726f2f3de7863, type: 3}
-    m_FontSize: 40
+    m_Font: {fileID: 12800000, guid: 50b964640f3213a4fbcbc64e0b6dbfa4, type: 3}
+    m_FontSize: 100
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -748,7 +748,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: The cake is a lie
+  m_Text: The cake is a lie The cake is a lie The cake is a lie The cake is a lie
+    The cake is a lie The cake is a lie The cake is a lie
 --- !u!222 &2050280093
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -776,10 +777,6 @@ MonoBehaviour:
   - <profound_quote_4>
   - <profound_quote_5>
   - <profound_quote_6>
-  - <profound_quote_7>
-  - <profound_quote_8>
-  - <profound_quote_9>
-  - <profound_quote_10>
 --- !u!114 &2050280095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -957,6 +954,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.25
       objectReference: {fileID: 0}
+    - target: {fileID: 6503579409894622908, guid: 5a7682c244a150b49965c007720bdbb7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1937274876, guid: 5a7682c244a150b49965c007720bdbb7, type: 3}
       propertyPath: rayTransform
       value: 
@@ -965,6 +967,11 @@ PrefabInstance:
       propertyPath: rayLineRenderer
       value: 
       objectReference: {fileID: 1629335802}
+    - target: {fileID: 4538071902986836899, guid: 5a7682c244a150b49965c007720bdbb7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a7682c244a150b49965c007720bdbb7, type: 3}
 --- !u!1 &8246622263426895477 stripped

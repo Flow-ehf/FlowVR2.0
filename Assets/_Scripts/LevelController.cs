@@ -150,13 +150,13 @@ public class LevelController : MonoBehaviour
 			//Connected controller is touch
 			if(OVRInput.IsControllerConnected(OVRInput.Controller.Touch))
 			{
-				if (OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch))
+				if (OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger, OVRInput.Controller.RTouch))
 					Pause(!isPaused);
 			}
 			//Conected controller is probably GO remote
 			else
 			{
-				if(OVRInput.GetDown(OVRInput.Button.Back))
+				if(OVRInput.GetDown(OVRInput.Button.Back) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
 					Pause(!isPaused);
 			}
 		}
@@ -178,8 +178,21 @@ public class LevelController : MonoBehaviour
 			StopCoroutine(waitEnableUIInteractCoroutine);
 			raycaster.enabled = false;
 		}
+		StartCoroutine(ClosePauseMenu());
 	}
 
+	IEnumerator ClosePauseMenu()
+	{
+		if (isPaused)
+		{
+			yield return new WaitForSeconds(10);
+			Pause(false);
+		}
+		else
+		{
+			yield break;
+		}
+	}
 
 	IEnumerator WaitEnableUIInteract()
 	{

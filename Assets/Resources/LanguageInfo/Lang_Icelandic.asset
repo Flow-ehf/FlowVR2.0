@@ -117,22 +117,18 @@ MonoBehaviour:
   - tag: restore3_desc
     str: "Endurn\xFDjun3 l\xFDsing"
   - tag: profound_quote_1
-    str: "H\xE1fleyg or\xF0 1"
+    str: "A\xF0 l\xE6ra a\xF0 anda me\xF0vita\xF0 er grunnurinn a\xF0 Flow huglei\xF0slu"
   - tag: profound_quote_2
-    str: "H\xE1fleyg or\xF0 2"
+    str: "Einbeiting hj\xE1lpar okkur a\xF0 finna aukna j\xE1kv\xE6\xF0a orku \xED
+      huglei\xF0slu"
   - tag: profound_quote_3
-    str: "H\xE1fleyg or\xF0 3"
+    str: "\xDEa\xF0 a\xF0 hreyfa l\xEDkaman getur auki\xF0 kraft og d\xFDpt huglei\xF0slu
+      okkar"
   - tag: profound_quote_4
-    str: "H\xE1fleyg or\xF0 4"
+    str: "A\xF0 finna r\xF3 kemur n\xE1tt\xFArulega \xFEegar vi\xF0 f\xF6rum d\xFDpra
+      of sleppum streitu"
   - tag: profound_quote_5
-    str: "H\xE1fleyg or\xF0 5"
+    str: "\xDEegar vi\xF0 sleppum streitu og spennu opnast auki\xF0 pl\xE1ss innra
+      me\xF0 okkur fyrir \xFEa\xF0 sem vi\xF0 \xFEr\xE1um"
   - tag: profound_quote_6
-    str: "H\xE1fleyg or\xF0 6"
-  - tag: profound_quote_7
-    str: "H\xE1fleyg or\xF0 7"
-  - tag: profound_quote_8
-    str: "H\xE1fleyg or\xF0 8"
-  - tag: profound_quote_9
-    str: "H\xE1fleyg or\xF0 9"
-  - tag: profound_quote_10
-    str: "H\xE1fleyg or\xF0 10"
+    str: "D\xFDpri sl\xF6kun og hv\xEDld er lykillinn a\xF0 aukinni velfer\xF0"
