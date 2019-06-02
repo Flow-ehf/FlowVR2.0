@@ -278,9 +278,9 @@ MonoBehaviour:
   pausePanel: {fileID: 1739603828}
   guidanceClips:
   - {fileID: 8300000, guid: 5ec4f5f3a1068814a9f55d252a2fdfe7, type: 3}
+  - {fileID: 8300000, guid: 85f518146c0643d4784897ae00d1d6ab, type: 3}
   - {fileID: 8300000, guid: 5ec4f5f3a1068814a9f55d252a2fdfe7, type: 3}
-  - {fileID: 8300000, guid: 5ec4f5f3a1068814a9f55d252a2fdfe7, type: 3}
-  - {fileID: 8300000, guid: 5ec4f5f3a1068814a9f55d252a2fdfe7, type: 3}
+  - {fileID: 8300000, guid: 85f518146c0643d4784897ae00d1d6ab, type: 3}
   musicClips:
   - {fileID: 8300000, guid: b00e4eab943380545a3eb0d5de423b17, type: 3}
   - {fileID: 8300000, guid: b00e4eab943380545a3eb0d5de423b17, type: 3}
@@ -611,7 +611,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1230,6 +1230,36 @@ PrefabInstance:
       propertyPath: fadeTime
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8246622263801523826, guid: 379750b7604f95743abbe800c841bfc1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 539203502}
+    - target: {fileID: 8246622263801523826, guid: 379750b7604f95743abbe800c841bfc1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_mute
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246622263418144899, guid: 379750b7604f95743abbe800c841bfc1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246622263418144899, guid: 379750b7604f95743abbe800c841bfc1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 157001829}
+    - target: {fileID: 8246622263418144899, guid: 379750b7604f95743abbe800c841bfc1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_mute
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246622263418144899, guid: 379750b7604f95743abbe800c841bfc1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: set_mute
+      objectReference: {fileID: 0}
     - target: {fileID: 8096846166523844782, guid: 379750b7604f95743abbe800c841bfc1,
         type: 3}
       propertyPath: m_Interactable
@@ -1344,36 +1374,6 @@ PrefabInstance:
         type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key1.a
       value: 0.19607843
-      objectReference: {fileID: 0}
-    - target: {fileID: 8246622263801523826, guid: 379750b7604f95743abbe800c841bfc1,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 539203502}
-    - target: {fileID: 8246622263801523826, guid: 379750b7604f95743abbe800c841bfc1,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: set_mute
-      objectReference: {fileID: 0}
-    - target: {fileID: 8246622263418144899, guid: 379750b7604f95743abbe800c841bfc1,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8246622263418144899, guid: 379750b7604f95743abbe800c841bfc1,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 157001829}
-    - target: {fileID: 8246622263418144899, guid: 379750b7604f95743abbe800c841bfc1,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: set_mute
-      objectReference: {fileID: 0}
-    - target: {fileID: 8246622263418144899, guid: 379750b7604f95743abbe800c841bfc1,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: set_mute
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 379750b7604f95743abbe800c841bfc1, type: 3}

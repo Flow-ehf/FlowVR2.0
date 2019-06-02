@@ -33,41 +33,41 @@ MonoBehaviour:
   - tag: logout
     str: Log Out
   - tag: breath1
-    str: Breath2
+    str: In production
   - tag: breath2
-    str: Siggis amazing name
+    str: Breathe
   - tag: breath3
-    str: Breath3
+    str: In production
   - tag: move1
-    str: Move2
+    str: In production
   - tag: move2
-    str: Siggis amazing name
+    str: Move
   - tag: move3
-    str: Move3
+    str: In production
   - tag: letgo1
-    str: LetGo2
+    str: In production
   - tag: letgo2
-    str: Siggis amazing name
+    str: Let Go
   - tag: letgo3
-    str: LetGo3
+    str: In production
   - tag: calm1
-    str: Calm2
+    str: In production
   - tag: calm2
-    str: Siggis amazing name
+    str: Calm
   - tag: calm3
-    str: Calm3
+    str: In production
   - tag: focus1
-    str: Focus2
+    str: In production
   - tag: focus2
-    str: Siggis amazing name
+    str: Focus
   - tag: focus3
-    str: Focus3
+    str: In production
   - tag: restore1
-    str: Restore2
+    str: In production
   - tag: restore2
-    str: Siggis amazing name
+    str: Restore
   - tag: restore3
-    str: Restore3
+    str: In production
   - tag: breathe
     str: Breathe
   - tag: move
@@ -85,35 +85,41 @@ MonoBehaviour:
   - tag: breath1_desc
     str: breath1_desc
   - tag: breath2_desc
-    str: Siggis amazing description
+    str: 'Breathe deeply and become aware of your breath. We recommend you do this
+      meditation sitting down '
   - tag: breath3_desc
     str: breath3_desc
   - tag: move1_desc
     str: move1_desc
   - tag: move2_desc
-    str: Siggis amazing description
+    str: Move and open up to access more of what you seek within. You can do this
+      meditation from a sitting or standing position
   - tag: move3_desc
     str: move3_desc
   - tag: letgo1_desc
     str: letgo1_desc
   - tag: letgo2_desc
-    str: Siggis amazing description
+    str: Let Go of stress or tension and increase your ability to go deeper within.
+      We recommend doing this meditation from a standing position
   - tag: letgo3_desc
     str: letgo3_desc
   - tag: calm1_desc
     str: calm1_desc
   - tag: calm2_desc
-    str: Siggis amazing description
+    str: Calm and access the infinite benefits of meditation. We recommend you do
+      this meditation sitting down
   - tag: calm3_desc
     str: calm3_desc
   - tag: focus1_desc
     str: focus1_desc
   - tag: focus2_desc
-    str: Siggis amazing description
+    str: Focus within to help you move toward your truest goal. You can do this meditation
+      from a sitting or standing position
   - tag: focus3_desc
     str: focus3_desc
   - tag: restore2_desc
-    str: Siggis amazing description
+    str: Restore to recharge and boost well being. We recommend you do this meditation
+      sitting down
   - tag: restore3_desc
     str: restore3_desc
   - tag: profound_quote_1

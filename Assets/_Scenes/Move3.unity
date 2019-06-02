@@ -404,7 +404,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -666,9 +666,9 @@ MonoBehaviour:
   pausePanel: {fileID: 1881165039}
   guidanceClips:
   - {fileID: 8300000, guid: 75fc18082eac73d4ea96edab78e7d9ee, type: 3}
+  - {fileID: 8300000, guid: 597db51dddcb7e541b9dd29c7e42966b, type: 3}
   - {fileID: 8300000, guid: 75fc18082eac73d4ea96edab78e7d9ee, type: 3}
-  - {fileID: 8300000, guid: 75fc18082eac73d4ea96edab78e7d9ee, type: 3}
-  - {fileID: 8300000, guid: 75fc18082eac73d4ea96edab78e7d9ee, type: 3}
+  - {fileID: 8300000, guid: 597db51dddcb7e541b9dd29c7e42966b, type: 3}
   musicClips:
   - {fileID: 8300000, guid: f30734d460caffa43bf367189040ef57, type: 3}
   - {fileID: 8300000, guid: f30734d460caffa43bf367189040ef57, type: 3}
@@ -1225,21 +1225,6 @@ PrefabInstance:
       propertyPath: fadeTime
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 8246622265117636144, guid: 379750b7604f95743abbe800c841bfc1,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8246622265117636144, guid: 379750b7604f95743abbe800c841bfc1,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8246622265117636144, guid: 379750b7604f95743abbe800c841bfc1,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 8246622263801523826, guid: 379750b7604f95743abbe800c841bfc1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1269,6 +1254,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: set_mute
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246622265117636144, guid: 379750b7604f95743abbe800c841bfc1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246622265117636144, guid: 379750b7604f95743abbe800c841bfc1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246622265117636144, guid: 379750b7604f95743abbe800c841bfc1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 379750b7604f95743abbe800c841bfc1, type: 3}

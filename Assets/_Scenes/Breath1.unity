@@ -1201,9 +1201,9 @@ MonoBehaviour:
   pausePanel: {fileID: 8246622264512344195}
   guidanceClips:
   - {fileID: 8300000, guid: 5ec4f5f3a1068814a9f55d252a2fdfe7, type: 3}
+  - {fileID: 8300000, guid: 85f518146c0643d4784897ae00d1d6ab, type: 3}
   - {fileID: 8300000, guid: 5ec4f5f3a1068814a9f55d252a2fdfe7, type: 3}
-  - {fileID: 8300000, guid: 5ec4f5f3a1068814a9f55d252a2fdfe7, type: 3}
-  - {fileID: 8300000, guid: 5ec4f5f3a1068814a9f55d252a2fdfe7, type: 3}
+  - {fileID: 8300000, guid: 85f518146c0643d4784897ae00d1d6ab, type: 3}
   musicClips:
   - {fileID: 8300000, guid: b00e4eab943380545a3eb0d5de423b17, type: 3}
   - {fileID: 8300000, guid: b00e4eab943380545a3eb0d5de423b17, type: 3}

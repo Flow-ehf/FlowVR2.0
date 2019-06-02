@@ -1142,7 +1142,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1276,9 +1276,9 @@ MonoBehaviour:
   pausePanel: {fileID: 1282756256}
   guidanceClips:
   - {fileID: 8300000, guid: fa2c390c1b99f1a4c917c802a8b38e41, type: 3}
+  - {fileID: 8300000, guid: 53ad2593eec536a4a8b241fe15153be9, type: 3}
   - {fileID: 8300000, guid: fa2c390c1b99f1a4c917c802a8b38e41, type: 3}
-  - {fileID: 8300000, guid: fa2c390c1b99f1a4c917c802a8b38e41, type: 3}
-  - {fileID: 8300000, guid: fa2c390c1b99f1a4c917c802a8b38e41, type: 3}
+  - {fileID: 8300000, guid: 53ad2593eec536a4a8b241fe15153be9, type: 3}
   musicClips:
   - {fileID: 8300000, guid: ac0d4104068a5be44ad1840d300c3393, type: 3}
   - {fileID: 8300000, guid: ac0d4104068a5be44ad1840d300c3393, type: 3}

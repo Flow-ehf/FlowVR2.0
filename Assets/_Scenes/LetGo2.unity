@@ -150,12 +150,12 @@ MonoBehaviour:
   pausePanel: {fileID: 1044349596}
   guidanceClips:
   - {fileID: 8300000, guid: ba6d49d9203fa75439942bf02653ce4d, type: 3}
+  - {fileID: 8300000, guid: d0ed26242e856db46bbd27a8c2782331, type: 3}
   - {fileID: 8300000, guid: ba6d49d9203fa75439942bf02653ce4d, type: 3}
-  - {fileID: 8300000, guid: ba6d49d9203fa75439942bf02653ce4d, type: 3}
-  - {fileID: 8300000, guid: ba6d49d9203fa75439942bf02653ce4d, type: 3}
+  - {fileID: 8300000, guid: d0ed26242e856db46bbd27a8c2782331, type: 3}
   musicClips:
-  - {fileID: 8300000, guid: 545146d6088b6504eb19ca8ddf10f2d1, type: 3}
-  - {fileID: 8300000, guid: 545146d6088b6504eb19ca8ddf10f2d1, type: 3}
+  - {fileID: 8300000, guid: 224d6eb8488864f409dc53d2c41b7db0, type: 3}
+  - {fileID: 8300000, guid: 224d6eb8488864f409dc53d2c41b7db0, type: 3}
   ambianceClips:
   - {fileID: 8300000, guid: cb52b9bdb6e64ce469bc2931a2f4bfd5, type: 3}
   - {fileID: 8300000, guid: cb52b9bdb6e64ce469bc2931a2f4bfd5, type: 3}
@@ -219,7 +219,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243386418493636774, guid: 2404c35838480064bba59930266732aa,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 545146d6088b6504eb19ca8ddf10f2d1, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 224d6eb8488864f409dc53d2c41b7db0, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1221,7 +1221,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

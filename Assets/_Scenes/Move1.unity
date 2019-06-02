@@ -410,9 +410,9 @@ MonoBehaviour:
   pausePanel: {fileID: 2074075232}
   guidanceClips:
   - {fileID: 8300000, guid: 75fc18082eac73d4ea96edab78e7d9ee, type: 3}
+  - {fileID: 8300000, guid: 597db51dddcb7e541b9dd29c7e42966b, type: 3}
   - {fileID: 8300000, guid: 75fc18082eac73d4ea96edab78e7d9ee, type: 3}
-  - {fileID: 8300000, guid: 75fc18082eac73d4ea96edab78e7d9ee, type: 3}
-  - {fileID: 8300000, guid: 75fc18082eac73d4ea96edab78e7d9ee, type: 3}
+  - {fileID: 8300000, guid: 597db51dddcb7e541b9dd29c7e42966b, type: 3}
   musicClips:
   - {fileID: 8300000, guid: f30734d460caffa43bf367189040ef57, type: 3}
   - {fileID: 8300000, guid: f30734d460caffa43bf367189040ef57, type: 3}
@@ -483,7 +483,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

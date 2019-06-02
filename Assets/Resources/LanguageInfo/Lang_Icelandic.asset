@@ -33,41 +33,41 @@ MonoBehaviour:
   - tag: logout
     str: "Skr\xE1 \xDAt"
   - tag: breath1
-    str: "\xD6ndun1"
+    str: "\xCD framlei\xF0slu"
   - tag: breath2
-    str: "\xD6ndun2"
+    str: "Anda\xF0u"
   - tag: breath3
-    str: "\xD6ndun3"
+    str: "\xCD framlei\xF0slu"
   - tag: move1
-    str: Hreyfing1
+    str: "\xCD framlei\xF0slu"
   - tag: move2
-    str: Hreyfing2
+    str: "Hreyf\xF0u \xDEig"
   - tag: move3
-    str: Hreyfing3
+    str: "\xCD framlei\xF0slu"
   - tag: letgo1
-    str: Sleppa1
+    str: "\xCD framlei\xF0slu"
   - tag: letgo2
-    str: Sleppa2
+    str: Slepptu Takinu
   - tag: letgo3
-    str: Sleppa3
+    str: "\xCD framlei\xF0slu"
   - tag: calm1
-    str: "Sl\xF6kun1"
+    str: "\xCD framlei\xF0slu"
   - tag: calm2
-    str: "Sl\xF6kun2"
+    str: "Slaka\xF0u \xC1"
   - tag: calm3
-    str: "Sl\xF6kun3"
+    str: "\xCD framlei\xF0slu"
   - tag: focus1
-    str: Einbeiting1
+    str: "\xCD framlei\xF0slu"
   - tag: focus2
-    str: Einbeiting2
+    str: "N\xE1\xF0u Einbeitingu"
   - tag: focus3
-    str: Einbeiting3
+    str: "\xCD framlei\xF0slu"
   - tag: restore1
-    str: "Endurn\xFDjun1"
+    str: "\xCD framlei\xF0slu"
   - tag: restore2
-    str: "Endurn\xFDjun2"
+    str: "Endurn\xFDja\xF0u \xDEig"
   - tag: restore3
-    str: "Endurn\xFDjun3"
+    str: "\xCD framlei\xF0slu"
   - tag: breathe
     str: "\xD6ndun"
   - tag: move
@@ -83,37 +83,45 @@ MonoBehaviour:
   - tag: breath1_desc
     str: "\xD6ndun1 l\xFDsing"
   - tag: breath2_desc
-    str: "\xD6ndun2 l\xFDsing"
+    str: "Anda\xF0u dj\xFApt og me\xF0vita\xF0. Vi\xF0 m\xE6lum me\xF0 \xFEv\xED a\xF0
+      gera \xFEessa huglei\xF0slu sitjandi"
   - tag: breath3_desc
     str: "\xD6ndun3 l\xFDsing"
   - tag: move1_desc
     str: "Hreyfing1 l\xFDsing"
   - tag: move2_desc
-    str: "Hreyfing2 l\xFDsing"
+    str: "Hreyf\xF0u \xFEig og opna\xF0u til a\xF0 f\xE1 a\xF0gang a\xF0 \xFEv\xED
+      sem \xFE\xFA leitar innra me\xF0 \xFE\xE9r. \xDEessa huglei\xF0slu m\xE1 gera
+      b\xE6\xF0i sitjandi og standandi"
   - tag: move3_desc
     str: "Hreyfing3 l\xFDsing"
   - tag: letgo1_desc
     str: "Sleppa1 l\xFDsing"
   - tag: letgo2_desc
-    str: "Sleppa2 l\xFDsing"
+    str: "Slepptu streitu og spennu og l\xE6r\xF0u a\xF0 fara d\xFDpra innra me\xF0
+      \xFE\xE9r. Vi\xF0 m\xE6lum me\xF0 a\xF0 gera \xFEessa huglei\xF0slu standandi"
   - tag: letgo3_desc
     str: "Sleppa3 l\xFDsing"
   - tag: calm1_desc
     str: "Slaka\xF0u \xE11 l\xFDsing"
   - tag: calm2_desc
-    str: "Slaka\xF0u \xE12 l\xFDsing"
+    str: "Slaka\xF0u \xE1 og opna\xF0u dyrnar a\xF0 \xF3endanlegum \xE1vinningi huglei\xF0slu.
+      Vi\xF0 m\xE6lum me\xF0 \xFEv\xED a\xF0 gera \xFEessa huglei\xF0slu sitjandi"
   - tag: calm3_desc
     str: "Slaka\xF0u \xE13 l\xFDsing"
   - tag: focus1_desc
     str: "Einbeting1 l\xFDsing"
   - tag: focus2_desc
-    str: "Einbeting2 l\xFDsing"
+    str: "N\xE1\xF0u einbeitingu til a\xF0 hj\xE1lpa \xFE\xE9r a\xF0 f\xE6rast n\xE6r
+      \xFE\xEDnu \xE6\xF0sta markmi\xF0i. \xDEessa huglei\xF0slu m\xE1 gera b\xE6\xF0i
+      sitjandi og standandi"
   - tag: focus3_desc
     str: "Einbeting3 l\xFDsing"
   - tag: restore1_desc
     str: "Endurn\xFDjun1 l\xFDsing"
   - tag: restore2_desc
-    str: "Endurn\xFDjun2 l\xFDsing"
+    str: "Endurn\xFDja\xF0u \xFEig til a\xF0 \xF6\xF0last aukna orku og vell\xED\xF0an.
+      Vi\xF0 m\xE6lum me\xF0 \xFEv\xED a\xF0 gera \xFEessa huglei\xF0slu sitjandi"
   - tag: restore3_desc
     str: "Endurn\xFDjun3 l\xFDsing"
   - tag: profound_quote_1
