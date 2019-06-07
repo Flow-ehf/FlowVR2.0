@@ -18,55 +18,55 @@ EditorBuildSettings:
     path: Assets/_Scenes/BuySubscription.unity
     guid: 42958a2021b97a743a130a340c0a8e7a
   - enabled: 1
-    path: Assets/_Scenes/Focus1.unity
+    path: Assets/_Scenes/Focus2.unity
     guid: fa2dc90ea06231e498268cf689c8e2dc
   - enabled: 1
-    path: Assets/_Scenes/Focus2.unity
+    path: Assets/_Scenes/Focus1.unity
     guid: acc723fe080e8204aab4f746b8553ce1
   - enabled: 1
     path: Assets/_Scenes/Focus3.unity
     guid: 3c53dba84e221f84192a7e9ffca63369
   - enabled: 1
-    path: Assets/_Scenes/Breath1.unity
+    path: Assets/_Scenes/Breath2.unity
     guid: f5ec35d4c4728a2448b47d6e927b0809
   - enabled: 1
-    path: Assets/_Scenes/Breath2.unity
+    path: Assets/_Scenes/Breath1.unity
     guid: a5e5bf8bf34f68b448a6753dd1cfcd70
   - enabled: 1
     path: Assets/_Scenes/Breath3.unity
     guid: f1b04127dbfd51f4094a78359f46acc1
   - enabled: 1
-    path: Assets/_Scenes/Calm1.unity
+    path: Assets/_Scenes/Calm2.unity
     guid: 20595f29b7b19af46ab836d75cbc6f51
   - enabled: 1
-    path: Assets/_Scenes/Calm2.unity
+    path: Assets/_Scenes/Calm1.unity
     guid: b575de892f256334bb880945de6de71e
   - enabled: 1
     path: Assets/_Scenes/Calm3.unity
     guid: 6ab56d75e915a7f448e4d5c8c9ac39e6
   - enabled: 1
-    path: Assets/_Scenes/LetGo1.unity
+    path: Assets/_Scenes/LetGo2.unity
     guid: 9deb56faf91da79459475b5e54038940
   - enabled: 1
-    path: Assets/_Scenes/LetGo2.unity
+    path: Assets/_Scenes/LetGo1.unity
     guid: 15627a8da4f6c97479683876659cf0ee
   - enabled: 1
     path: Assets/_Scenes/LetGo3.unity
     guid: 45ebb01454b116b439e7ac3467983651
   - enabled: 1
-    path: Assets/_Scenes/Move1.unity
+    path: Assets/_Scenes/Move2.unity
     guid: e5611c1c50047974f97ade13c36a4593
   - enabled: 1
-    path: Assets/_Scenes/Move2.unity
+    path: Assets/_Scenes/Move1.unity
     guid: a2cfdf9343ddba04abe55d25a47a0d2c
   - enabled: 1
     path: Assets/_Scenes/Move3.unity
     guid: 21b372c0d45952d4fa69fdb9e7dc8c81
   - enabled: 1
-    path: Assets/_Scenes/Restore1.unity
+    path: Assets/_Scenes/Restore2.unity
     guid: c94ae05a35ce7104a81fdf5b56e06397
   - enabled: 1
-    path: Assets/_Scenes/Restore2.unity
+    path: Assets/_Scenes/Restore1.unity
     guid: 149712d3eddae544aad2fef096ee9d95
   - enabled: 1
     path: Assets/_Scenes/Restore3.unity

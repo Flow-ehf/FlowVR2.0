@@ -213,8 +213,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1903751932}
   - {fileID: 960451665}
+  - {fileID: 1903751932}
   - {fileID: 1940056306}
   m_Father: {fileID: 648721229}
   m_RootOrder: 4
@@ -316,7 +316,7 @@ GameObject:
   - component: {fileID: 122978937}
   - component: {fileID: 122978941}
   m_Layer: 5
-  m_Name: LetGo2
+  m_Name: LetGo1
   m_TagString: Levels
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -335,7 +335,7 @@ RectTransform:
   m_Children:
   - {fileID: 1009448479}
   m_Father: {fileID: 1299018540}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -973,8 +973,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1209419066}
   - {fileID: 1626644068}
+  - {fileID: 1209419066}
   - {fileID: 760275445}
   m_Father: {fileID: 648721229}
   m_RootOrder: 3
@@ -1489,8 +1489,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1062575187}
   - {fileID: 1830169237}
+  - {fileID: 1062575187}
   - {fileID: 814072572}
   m_Father: {fileID: 648721229}
   m_RootOrder: 0
@@ -8702,7 +8702,7 @@ GameObject:
   - component: {fileID: 720120711}
   - component: {fileID: 720120715}
   m_Layer: 5
-  m_Name: LetGo1
+  m_Name: LetGo2
   m_TagString: Levels
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8721,7 +8721,7 @@ RectTransform:
   m_Children:
   - {fileID: 479402587}
   m_Father: {fileID: 1299018540}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -35, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9049,7 +9049,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &760275445
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9639,7 +9639,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &814072572
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10006,7 +10006,7 @@ GameObject:
   - component: {fileID: 843550063}
   - component: {fileID: 843550067}
   m_Layer: 5
-  m_Name: Restore2
+  m_Name: Restore1
   m_TagString: Levels
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10025,7 +10025,7 @@ RectTransform:
   m_Children:
   - {fileID: 823948053}
   m_Father: {fileID: 1468840042}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10225,7 +10225,7 @@ GameObject:
   - component: {fileID: 924518257}
   - component: {fileID: 924518261}
   m_Layer: 5
-  m_Name: Restore1
+  m_Name: Restore2
   m_TagString: Levels
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10244,7 +10244,7 @@ RectTransform:
   m_Children:
   - {fileID: 1298783670}
   m_Father: {fileID: 1468840042}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -35, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10659,7 +10659,7 @@ GameObject:
   - component: {fileID: 960451666}
   - component: {fileID: 960451670}
   m_Layer: 5
-  m_Name: Focus2
+  m_Name: Focus1
   m_TagString: Levels
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10678,7 +10678,7 @@ RectTransform:
   m_Children:
   - {fileID: 1713382567}
   m_Father: {fileID: 111042686}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10852,7 +10852,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &971297508
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11378,8 +11378,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1684206463}
   - {fileID: 1136430955}
+  - {fileID: 1684206463}
   - {fileID: 1704073839}
   m_Father: {fileID: 648721229}
   m_RootOrder: 1
@@ -11677,7 +11677,7 @@ GameObject:
   - component: {fileID: 1062575188}
   - component: {fileID: 1062575192}
   m_Layer: 5
-  m_Name: Breath1
+  m_Name: Breath2
   m_TagString: Levels
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11696,7 +11696,7 @@ RectTransform:
   m_Children:
   - {fileID: 1159177742}
   m_Father: {fileID: 213742946}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -35, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -11937,7 +11937,7 @@ GameObject:
   - component: {fileID: 1136430956}
   - component: {fileID: 1136430960}
   m_Layer: 5
-  m_Name: Move2
+  m_Name: Move1
   m_TagString: Levels
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11956,7 +11956,7 @@ RectTransform:
   m_Children:
   - {fileID: 1944451369}
   m_Father: {fileID: 1007344205}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -12774,7 +12774,7 @@ GameObject:
   - component: {fileID: 1209419067}
   - component: {fileID: 1209419071}
   m_Layer: 5
-  m_Name: Calm1
+  m_Name: Calm2
   m_TagString: Levels
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12793,7 +12793,7 @@ RectTransform:
   m_Children:
   - {fileID: 1256077475}
   m_Father: {fileID: 162184007}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -35, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -13353,8 +13353,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 720120710}
   - {fileID: 122978936}
+  - {fileID: 720120710}
   - {fileID: 1804007680}
   m_Father: {fileID: 648721229}
   m_RootOrder: 2
@@ -14367,8 +14367,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 924518256}
   - {fileID: 843550062}
+  - {fileID: 924518256}
   - {fileID: 971297508}
   m_Father: {fileID: 648721229}
   m_RootOrder: 5
@@ -14895,7 +14895,7 @@ GameObject:
   - component: {fileID: 1626644069}
   - component: {fileID: 1626644073}
   m_Layer: 5
-  m_Name: Calm2
+  m_Name: Calm1
   m_TagString: Levels
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14914,7 +14914,7 @@ RectTransform:
   m_Children:
   - {fileID: 1440652405}
   m_Father: {fileID: 162184007}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -15167,7 +15167,7 @@ GameObject:
   - component: {fileID: 1684206464}
   - component: {fileID: 1684206468}
   m_Layer: 5
-  m_Name: Move1
+  m_Name: Move2
   m_TagString: Levels
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15186,7 +15186,7 @@ RectTransform:
   m_Children:
   - {fileID: 820781652}
   m_Father: {fileID: 1007344205}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -35, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -15360,7 +15360,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1704073839
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15714,7 +15714,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1804007680
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15897,7 +15897,7 @@ GameObject:
   - component: {fileID: 1830169238}
   - component: {fileID: 1830169242}
   m_Layer: 5
-  m_Name: Breath2
+  m_Name: Breath1
   m_TagString: Levels
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15916,7 +15916,7 @@ RectTransform:
   m_Children:
   - {fileID: 336601149}
   m_Father: {fileID: 213742946}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -16296,7 +16296,7 @@ GameObject:
   - component: {fileID: 1903751933}
   - component: {fileID: 1903751937}
   m_Layer: 5
-  m_Name: Focus1
+  m_Name: Focus2
   m_TagString: Levels
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16315,7 +16315,7 @@ RectTransform:
   m_Children:
   - {fileID: 434153884}
   m_Father: {fileID: 111042686}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -35, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -16798,7 +16798,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1940056306
 RectTransform:
   m_ObjectHideFlags: 0

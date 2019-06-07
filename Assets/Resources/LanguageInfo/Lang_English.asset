@@ -85,41 +85,38 @@ MonoBehaviour:
   - tag: breath1_desc
     str: breath1_desc
   - tag: breath2_desc
-    str: 'Breathe deeply and become aware of your breath. We recommend you do this
-      meditation sitting down '
+    str: Learn to breathe with awareness is the foundation of Flow meditation
   - tag: breath3_desc
     str: breath3_desc
   - tag: move1_desc
     str: move1_desc
   - tag: move2_desc
-    str: Move and open up to access more of what you seek within. You can do this
-      meditation from a sitting or standing position
+    str: Moving our bodies can increase the depth and power of our meditation
   - tag: move3_desc
     str: move3_desc
   - tag: letgo1_desc
     str: letgo1_desc
   - tag: letgo2_desc
-    str: Let Go of stress or tension and increase your ability to go deeper within.
-      We recommend doing this meditation from a standing position
+    str: Letting go of stress or tension helps us make more space inside ourselves
+      for more of what we desire
   - tag: letgo3_desc
     str: letgo3_desc
   - tag: calm1_desc
     str: calm1_desc
   - tag: calm2_desc
-    str: Calm and access the infinite benefits of meditation. We recommend you do
-      this meditation sitting down
+    str: Letting go of stress or tension helps us make more space inside ourselves
+      for more of what we desire
   - tag: calm3_desc
     str: calm3_desc
   - tag: focus1_desc
     str: focus1_desc
   - tag: focus2_desc
-    str: Focus within to help you move toward your truest goal. You can do this meditation
-      from a sitting or standing position
+    str: Choosing a focus allows us to find more of the positive energy we are looking
+      for in meditation
   - tag: focus3_desc
     str: focus3_desc
   - tag: restore2_desc
-    str: Restore to recharge and boost well being. We recommend you do this meditation
-      sitting down
+    str: Relaxing and resting more deeply is essential key to well being
   - tag: restore3_desc
     str: restore3_desc
   - tag: profound_quote_1
