@@ -33,37 +33,37 @@ MonoBehaviour:
   - tag: logout
     str: "Skr\xE1 \xDAt"
   - tag: breath1
-    str: "\xCD framlei\xF0slu"
+    str: "Anda\xF0u og losa\xF0u um spennu"
   - tag: breath2
     str: "Anda\xF0u"
   - tag: breath3
     str: "\xCD framlei\xF0slu"
   - tag: move1
-    str: "\xCD framlei\xF0slu"
+    str: "Opna\xF0 fyrir j\xE1kv\xE6\xF0a orku "
   - tag: move2
     str: "Hreyf\xF0u \xDEig"
   - tag: move3
     str: "\xCD framlei\xF0slu"
   - tag: letgo1
-    str: "\xCD framlei\xF0slu"
+    str: "Finndu innri styrk og \xE1r\xE6\xF0ni "
   - tag: letgo2
     str: Slepptu Takinu
   - tag: letgo3
     str: "\xCD framlei\xF0slu"
   - tag: calm1
-    str: "\xCD framlei\xF0slu"
+    str: "Hugarr\xF3 fyrir sk\xFDrleika og skilning"
   - tag: calm2
     str: "Slaka\xF0u \xC1"
   - tag: calm3
     str: "\xCD framlei\xF0slu"
   - tag: focus1
-    str: "\xCD framlei\xF0slu"
+    str: "Dj\xFAp \xEDhugun"
   - tag: focus2
     str: "N\xE1\xF0u Einbeitingu"
   - tag: focus3
     str: "\xCD framlei\xF0slu"
   - tag: restore1
-    str: "\xCD framlei\xF0slu"
+    str: "Dj\xFAp fri\xF0s\xE6ld"
   - tag: restore2
     str: "Endurn\xFDja\xF0u \xDEig"
   - tag: restore3
@@ -81,14 +81,15 @@ MonoBehaviour:
   - tag: restore
     str: "Endurn\xFDjun"
   - tag: breath1_desc
-    str: "\xD6ndun1 l\xFDsing"
+    str: "L\xE6r\xF0u a\xF0 nota andardr\xE1ttinn til a\xF0 yfirst\xEDga streitu,
+      \xE1hyggjur og spennu \xE1 milli \xFEin og f\xF3lksins \xED l\xEDfi \xFE\xEDnu"
   - tag: breath2_desc
     str: "Anda\xF0u dj\xFApt og me\xF0vita\xF0. Vi\xF0 m\xE6lum me\xF0 \xFEv\xED a\xF0
       gera \xFEessa huglei\xF0slu sitjandi"
   - tag: breath3_desc
     str: "\xD6ndun3 l\xFDsing"
   - tag: move1_desc
-    str: "Hreyfing1 l\xFDsing"
+    str: "Hreyfum l\xEDkamann, opnum hugann og fyllum okkur af j\xE1kv\xE6\xF0ri orku "
   - tag: move2_desc
     str: "Hreyf\xF0u \xFEig og opna\xF0u til a\xF0 f\xE1 a\xF0gang a\xF0 \xFEv\xED
       sem \xFE\xFA leitar innra me\xF0 \xFE\xE9r. \xDEessa huglei\xF0slu m\xE1 gera
@@ -96,21 +97,24 @@ MonoBehaviour:
   - tag: move3_desc
     str: "Hreyfing3 l\xFDsing"
   - tag: letgo1_desc
-    str: "Sleppa1 l\xFDsing"
+    str: "Kraftmikil huglei\xF0sla sem hj\xE1lpar \xFE\xE9r a\xF0 brj\xF3tast \xFAt
+      \xFAr g\xF6mlum heg\xF0unarmynstrum og finna innri styrk og \xE1kve\xF0ni"
   - tag: letgo2_desc
     str: "Slepptu streitu og spennu og l\xE6r\xF0u a\xF0 fara d\xFDpra innra me\xF0
       \xFE\xE9r. Vi\xF0 m\xE6lum me\xF0 a\xF0 gera \xFEessa huglei\xF0slu standandi"
   - tag: letgo3_desc
     str: "Sleppa3 l\xFDsing"
   - tag: calm1_desc
-    str: "Slaka\xF0u \xE11 l\xFDsing"
+    str: "R\xF3a\xF0u hugann og b\xFA\xF0u \xFEig undir a\xF0 finna sk\xFDrar launsnir
+      \xE1 hindrunum "
   - tag: calm2_desc
     str: "Slaka\xF0u \xE1 og opna\xF0u dyrnar a\xF0 \xF3endanlegum \xE1vinningi huglei\xF0slu.
       Vi\xF0 m\xE6lum me\xF0 \xFEv\xED a\xF0 gera \xFEessa huglei\xF0slu sitjandi"
   - tag: calm3_desc
     str: "Slaka\xF0u \xE13 l\xFDsing"
   - tag: focus1_desc
-    str: "Einbeting1 l\xFDsing"
+    str: "\xDEegar hugurinn er r\xF3r hj\xE1lpar dj\xFAp \xEDhugun vi\xF0 a\xF0 tengja
+      \xFEig vi\xF0 \xFE\xEDna \xE6\xF0stu vitsmuni"
   - tag: focus2_desc
     str: "N\xE1\xF0u einbeitingu til a\xF0 hj\xE1lpa \xFE\xE9r a\xF0 f\xE6rast n\xE6r
       \xFE\xEDnu \xE6\xF0sta markmi\xF0i. \xDEessa huglei\xF0slu m\xE1 gera b\xE6\xF0i
@@ -118,7 +122,8 @@ MonoBehaviour:
   - tag: focus3_desc
     str: "Einbeting3 l\xFDsing"
   - tag: restore1_desc
-    str: "Endurn\xFDjun1 l\xFDsing"
+    str: "\xCD hr\xF6\xF0u n\xFAt\xEDmasamf\xE9lagi er mikilv\xE6gt a\xF0 n\xE1 endurn\xE6randi
+      heilun me\xF0 dj\xFApri hv\xEDld"
   - tag: restore2_desc
     str: "Endurn\xFDja\xF0u \xFEig til a\xF0 \xF6\xF0last aukna orku og vell\xED\xF0an.
       Vi\xF0 m\xE6lum me\xF0 \xFEv\xED a\xF0 gera \xFEessa huglei\xF0slu sitjandi"

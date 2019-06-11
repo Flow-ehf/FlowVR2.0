@@ -33,37 +33,37 @@ MonoBehaviour:
   - tag: logout
     str: Log Out
   - tag: breath1
-    str: In production
+    str: Breathe To Ease Tension
   - tag: breath2
     str: Breathe
   - tag: breath3
     str: In production
   - tag: move1
-    str: In production
+    str: Open Up For Positive Energy
   - tag: move2
     str: Move
   - tag: move3
     str: In production
   - tag: letgo1
-    str: In production
+    str: Find Determination
   - tag: letgo2
     str: Let Go
   - tag: letgo3
     str: In production
   - tag: calm1
-    str: In production
+    str: Calm For Clarity
   - tag: calm2
     str: Calm
   - tag: calm3
     str: In production
   - tag: focus1
-    str: In production
+    str: Thinking In Meditation
   - tag: focus2
     str: Focus
   - tag: focus3
     str: In production
   - tag: restore1
-    str: In production
+    str: Deep Peace
   - tag: restore2
     str: Restore
   - tag: restore3
@@ -81,35 +81,41 @@ MonoBehaviour:
   - tag: restore
     str: Restore
   - tag: restore1_desc
-    str: restore1_desc
+    str: 'In the midst of fast paced, modern existence it is important to relax into
+      deep peace for restorative healing of body and mind. '
   - tag: breath1_desc
-    str: breath1_desc
+    str: Learn how to use your breath to overcome obstacles like stress, worry or
+      tension in interpersonal relationships
   - tag: breath2_desc
     str: Learn to breathe with awareness is the foundation of Flow meditation
   - tag: breath3_desc
     str: breath3_desc
   - tag: move1_desc
-    str: move1_desc
+    str: Moving the body, while opening the mind and heart is the doorway to positive
+      energy
   - tag: move2_desc
     str: Moving our bodies can increase the depth and power of our meditation
   - tag: move3_desc
     str: move3_desc
   - tag: letgo1_desc
-    str: letgo1_desc
+    str: Get out of old patterns and find your inner passion by letting go to energetic
+      music
   - tag: letgo2_desc
     str: Letting go of stress or tension helps us make more space inside ourselves
       for more of what we desire
   - tag: letgo3_desc
     str: letgo3_desc
   - tag: calm1_desc
-    str: calm1_desc
+    str: 'Calm your body and mind and prepare yourself to find accurate solutions
+      to your challenges '
   - tag: calm2_desc
     str: Letting go of stress or tension helps us make more space inside ourselves
       for more of what we desire
   - tag: calm3_desc
     str: calm3_desc
   - tag: focus1_desc
-    str: focus1_desc
+    str: Meditative thinking, from a calm place within is the key to connect with
+      your true intelligence
   - tag: focus2_desc
     str: Choosing a focus allows us to find more of the positive energy we are looking
       for in meditation
