@@ -55,6 +55,8 @@ public class OVRGazePointer : OVRCursor {
 	/// </summary>
 	public LineRenderer rayLineRenderer;
 
+	private IUIConditional conditional;
+
     /// <summary>
     /// Is gaze pointer current visible
     /// </summary>
@@ -165,6 +167,8 @@ public class OVRGazePointer : OVRCursor {
 
 		gazeIcon = transform.Find("GazeIcon");
         progressIndicator = transform.GetComponent<OVRProgressIndicator>();
+
+		conditional = GetComponentInParent<Canvas>().GetComponent<IUIConditional>();
     }
     
     void Update () 
@@ -177,6 +181,10 @@ public class OVRGazePointer : OVRCursor {
 
 		if(rayLineRenderer != null)
 		{
+			if(conditional != null)
+			{
+				rayLineRenderer.enabled = conditional.Enabled;
+			}
 			rayLineRenderer.useWorldSpace = false;
 			rayLineRenderer.SetPosition(1, new Vector3(0,0, depth));
 		}

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class LevelController : MonoBehaviour
 {
+	const float PauseMenuCloseTime = 10;
 	const string FallbackLevel = "Breath1";
 
 	public static LevelController Instance { get; private set; }
@@ -29,9 +30,11 @@ public class LevelController : MonoBehaviour
 	float timeLeft;
 	bool isPaused;
 	float sessionStartTimestamp;
+	float pauseMenuTimer;
 
 	OVRRaycaster raycaster;
 	Coroutine waitEnableUIInteractCoroutine;
+	Coroutine waitPauseMenuCloseCoroutine;
 
 	public event Action QuitMeditation;
 
@@ -150,7 +153,7 @@ public class LevelController : MonoBehaviour
 			//Connected controller is touch
 			if(OVRInput.IsControllerConnected(OVRInput.Controller.Touch))
 			{
-				if (OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger, OVRInput.Controller.RTouch))
+				if (OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch) || OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger, OVRInput.Controller.RTouch))
 					Pause(!isPaused);
 			}
 			//Conected controller is probably GO remote
@@ -159,6 +162,12 @@ public class LevelController : MonoBehaviour
 				if(OVRInput.GetDown(OVRInput.Button.Back) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
 					Pause(!isPaused);
 			}
+		}
+		else
+		{
+			//Reset pause menu close on input
+			if (OVRInput.GetDown(OVRInput.Button.One))
+				pauseMenuTimer = 0;
 		}
 	}
 
@@ -171,28 +180,25 @@ public class LevelController : MonoBehaviour
 		//Prevents click from interacting with any ui when opening pause menu
 		if(isPaused)
 		{
+			pauseMenuTimer = 0;
 			waitEnableUIInteractCoroutine = StartCoroutine(WaitEnableUIInteract());
+			waitPauseMenuCloseCoroutine = StartCoroutine(WaitClosePauseMenu());
 		}
 		else
 		{
 			StopCoroutine(waitEnableUIInteractCoroutine);
+			StopCoroutine(waitPauseMenuCloseCoroutine);
 			raycaster.enabled = false;
 		}
-		StartCoroutine(ClosePauseMenu());
 	}
 
-	IEnumerator ClosePauseMenu()
+
+	IEnumerator WaitClosePauseMenu()
 	{
-		if (isPaused)
-		{
-			yield return new WaitForSeconds(10);
-			Pause(false);
-		}
-		else
-		{
-			yield break;
-		}
+		yield return new WaitForSeconds(PauseMenuCloseTime);
+		Pause(false);
 	}
+
 
 	IEnumerator WaitEnableUIInteract()
 	{

@@ -20,7 +20,7 @@ public class LanguageText : MonoBehaviour
 	void Start()
 	{
 		if(text.text != "")
-			UpdateTag(text.text);
+			UpdateText(text.text);
 	}
 
 
@@ -46,7 +46,7 @@ public class LanguageText : MonoBehaviour
 	}
 
 
-	public void UpdateTag(string tag)
+	public void UpdateText(string tag)
 	{
 		string t = GetTag(tag);
 		if (t != null)
@@ -55,7 +55,7 @@ public class LanguageText : MonoBehaviour
 			text.text = LanguageManager.GetStr(langTag);
 		}
 		else
-			Debug.LogError($"LanguageText: tag '{tag}' is invalid", this);
+			text.text = tag;
 	}
 
 

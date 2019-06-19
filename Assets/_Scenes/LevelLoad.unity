@@ -748,8 +748,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: The cake is a lie The cake is a lie The cake is a lie The cake is a lie
-    The cake is a lie The cake is a lie The cake is a lie
+  m_Text: 
 --- !u!222 &2050280093
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -771,12 +770,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   texts:
-  - <profound_quote_1>
-  - <profound_quote_2>
-  - <profound_quote_3>
-  - <profound_quote_4>
-  - <profound_quote_5>
-  - <profound_quote_6>
+  - levels:
+    - Breath1
+    - Breath2
+    - Breath3
+    randomTexts:
+    - <profound_quote_1>
+  - levels:
+    - Focus1
+    - Focus2
+    - Focus3
+    randomTexts:
+    - <profound_quote_2>
+  - levels:
+    - Move1
+    - Move2
+    - Move3
+    randomTexts:
+    - <profound_quote_3>
+  - levels:
+    - Calm1
+    - Calm2
+    - Calm3
+    randomTexts:
+    - <profound_quote_4>
+  - levels:
+    - LetGo1
+    - LetGo2
+    - LetGo3
+    randomTexts:
+    - <profound_quote_5>
+  - levels:
+    - Restore1
+    - Restore2
+    - Restore3
+    randomTexts:
+    - <profound_quote_6>
+  fallbackText: Insert Back To Menu Quote Here
 --- !u!114 &2050280095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -954,11 +984,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.25
       objectReference: {fileID: 0}
-    - target: {fileID: 6503579409894622908, guid: 5a7682c244a150b49965c007720bdbb7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1937274876, guid: 5a7682c244a150b49965c007720bdbb7, type: 3}
       propertyPath: rayTransform
       value: 
@@ -967,6 +992,11 @@ PrefabInstance:
       propertyPath: rayLineRenderer
       value: 
       objectReference: {fileID: 1629335802}
+    - target: {fileID: 6503579409894622908, guid: 5a7682c244a150b49965c007720bdbb7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4538071902986836899, guid: 5a7682c244a150b49965c007720bdbb7,
         type: 3}
       propertyPath: m_IsActive

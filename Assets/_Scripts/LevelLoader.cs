@@ -17,12 +17,13 @@ public class LevelLoader : MonoBehaviour
 	}
 
 	static LevelLoader instance;
-	public static string CurrentLevel { get; private set; }
+	public static string Level { get; private set; }
+	public static string LevelBeingLoaded { get; private set; }
 
 
 	void Awake()
 	{
-		CurrentLevel = SceneManager.GetActiveScene().name;
+		Level = SceneManager.GetActiveScene().name;
 	}
 
 
@@ -45,6 +46,8 @@ public class LevelLoader : MonoBehaviour
 
 	static IEnumerator WaitLoadLevel(string level)
 	{
+		LevelBeingLoaded = level;
+
 		Time.timeScale = 0;
 		//Fade to black
 		ScreenFade.instance.StartFade(FadeDuration, Color.black);
@@ -60,6 +63,8 @@ public class LevelLoader : MonoBehaviour
 		sceneLoad.allowSceneActivation = false;
 
 		var loadingBar = GameObject.FindGameObjectWithTag("LoadingBar")?.GetComponent<UnityEngine.UI.Image>();
+		//Loading scene shows for minimum 3 seconds
+		float duration = 0;
 
 		do
 		{
@@ -67,15 +72,17 @@ public class LevelLoader : MonoBehaviour
 			{
 				loadingBar.fillAmount = sceneLoad.progress / 0.9f;
 			}
+			duration += Time.unscaledDeltaTime;
 			yield return null;
 		}
-		while (sceneLoad.progress < 0.9f);
+		while (sceneLoad.progress < 0.9f || duration < 3f);
 		//When target scene is loaded, fade to black
 		ScreenFade.instance.StartFade(FadeDuration, Color.black);
 		yield return new WaitForSecondsRealtime(1);
 		//Activate target scene
 		sceneLoad.allowSceneActivation = true;
-		CurrentLevel = level;
+		Level = level;
+		LevelBeingLoaded = null;
 		yield return sceneLoad;
 		//Fade in
 		ScreenFade.instance.StartFade(FadeDuration, Color.clear);

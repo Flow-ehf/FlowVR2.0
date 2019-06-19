@@ -122,7 +122,7 @@ public class LoginManager : MonoBehaviour
 		LoginChanged?.Invoke(false);
 
 		//Return to login screen when logging out
-		if (LevelLoader.CurrentLevel != "LoginMenu")
+		if (LevelLoader.Level != "LoginMenu")
 			LevelLoader.LoadLevel("LoginMenu");
 	}
 

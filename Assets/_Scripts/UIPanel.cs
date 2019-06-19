@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class UIPanel : MonoBehaviour
+public class UIPanel : MonoBehaviour, IUIConditional
 {
 	enum TransitionType
 	{
@@ -36,6 +36,9 @@ public class UIPanel : MonoBehaviour
 		if(fadeGroup == null)
 			fadeGroup = GetComponent<CanvasGroup>();
 	}
+
+
+	public bool Enabled => isOpen;
 
 
 	void OnEnable()
