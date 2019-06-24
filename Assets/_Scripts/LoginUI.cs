@@ -8,6 +8,10 @@ public class LoginUI : MonoBehaviour
 {
 	[SerializeField] LoginManager.LoginMethod loginMethod;
 	[SerializeField] Text platformText;
+	[Space]
+	[SerializeField] bool requireEmailFormat = true;
+	[SerializeField] InputField nameInput;
+	[SerializeField] InputField passwordInput;
 
 	Button button;
 	LoginManager.LoginBase login;
@@ -19,50 +23,70 @@ public class LoginUI : MonoBehaviour
 		if (login != null)
 		{
 			button = GetComponent<Button>();
-			button.onClick.AddListener(login.Login);
+			button.onClick.AddListener(DoLogin);
 			button.interactable = false;
 
 			if(platformText != null)
 			{
 				platformText.text = login.PlatformName;
 			}
-
-			if (!login.IsInitialized)
-				login.Initalized += LoginInitialized;
-			else
-				LoginInitialized();
 		}
 		else
 			Debug.LogError("LoginUI failed to find login method: " + loginMethod);
 	}
 
 
+	void Update()
+	{
+		button.interactable = login != null && login.IsInitialized && !LoginManager.IsLoggedIn && !LoginManager.IsLoggingIn && (!(login is LoginManager.IRequireLoginDetails) || (NameInputValid() && passwordInput != null && passwordInput.text.Length > 0));
+	}
+
+
 	[ContextMenu("Login")]
 	void EditorLogin()
 	{
+		DoLogin();
+	}
+
+
+	void DoLogin()
+	{
+		var loginDetails = login as LoginManager.IRequireLoginDetails;
+		if (loginDetails != null)
+		{
+			loginDetails.LoginUserName = nameInput.text;
+			loginDetails.LoginPassword = passwordInput.text;
+
+			nameInput.text = "";
+			passwordInput.text = "";
+		}
 		login.Login();
 	}
 
 
-	void LoginInitialized()
+	bool NameInputValid()
 	{
-		button.interactable = true;
-		LoginManager.LoginChanged += LoginChanged;
-	}
-
-
-	void LoginChanged(bool loggedIn)
-	{
-		button.interactable = !loggedIn;
-	}
-
-
-	void OnDestroy()
-	{
-		if (login != null)
-			login.Initalized -= LoginInitialized;
-
-		LoginManager.LoginChanged -= LoginChanged;
+		if (nameInput == null)
+			return false;
+		if (!requireEmailFormat)
+			return nameInput.text.Length > 0;
+		else
+		{
+			string text = nameInput.text.Trim();
+			//Email is minimum 5 characters (a@b.c)
+			if (text.Length < 5)
+				return false;
+			//must have an '@' at min second character
+			int at = text.IndexOf('@');
+			if (at < 1)
+				return false;
+			//Must have a period 
+			int period = text.IndexOf('.');
+			//Period must be after at +1 character and must have character after it
+			if (period <= at + 1 || period == text.Length - 1)
+				return false;
+			return true;
+		}
 	}
 
 

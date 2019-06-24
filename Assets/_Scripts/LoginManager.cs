@@ -1,5 +1,5 @@
 ﻿
-#define BYPASS_LOGIN
+//#define BYPASS_LOGIN
 
 using System.Collections;
 using System.Collections.Generic;
@@ -13,6 +13,7 @@ using Google;
 
 public class LoginManager : MonoBehaviour
 {
+	//Duration before login cache is invalid, in seconds
 	const int LOGIN_CACHE_LIFETIME = int.MaxValue;
 
 	public UnityEvent LoggedIn;
@@ -26,15 +27,19 @@ public class LoginManager : MonoBehaviour
 
 	static FBLogin fbLogin = new FBLogin();
 	static GoogleLogin googleLogin = new GoogleLogin();
+	static EmailLogin emailLogin = new EmailLogin();
 
 	static LoginBase currentLogin;
 
-	public static User currentUser;
+	public static AccountBackend.User currentUser;
+
+	public static bool IsLoggingIn { get; private set; }
 
 	public enum LoginMethod
 	{
 		FB,
 		Google,
+		Email, 
 	}
 
 
@@ -54,15 +59,15 @@ public class LoginManager : MonoBehaviour
 
 		currentUser = GetCachedUser();
 		//User logged in previously
-		if(currentUser != null)
+		if (currentUser != null)
 		{
 			//Login is outdated
-			if (currentUser.LoginDuration > LOGIN_CACHE_LIFETIME)
+			if ((DateTime.UtcNow - currentUser.LastLogin).Seconds > LOGIN_CACHE_LIFETIME)
 				currentUser = null;
 			else
 			{
 				//Already logged in to non company account, skip to menu
-				if (!currentUser.IsCompanyAccount)
+				if (!currentUser.IsSubscribed)
 					LevelLoader.LoadLevel("MainMenu");
 			}
 		}
@@ -71,20 +76,22 @@ public class LoginManager : MonoBehaviour
 
 	public static LoginBase GetLogin(LoginMethod loginMethod)
 	{
-		switch(loginMethod)
+		switch (loginMethod)
 		{
 			default:
 			case LoginMethod.FB:
 				return fbLogin;
 			case LoginMethod.Google:
 				return googleLogin;
+			case LoginMethod.Email:
+				return emailLogin;
 		}
 	}
 
 
 	public static void Logout()
 	{
-		if(IsLoggedIn)
+		if (IsLoggedIn)
 		{
 			currentLogin.Logout();
 		}
@@ -94,7 +101,26 @@ public class LoginManager : MonoBehaviour
 	static void OnLoggedIn(LoginBase login)
 	{
 		currentLogin = login;
-		currentUser = login.GetUser();
+		instance.StartCoroutine(WaitGetLoggedInUserData());
+	}
+
+
+	static IEnumerator WaitGetLoggedInUserData()
+	{
+		yield return AccountBackend.WaitFetchUserDetails(currentLogin.LoggedInEmail, (user) =>
+		{
+			currentUser = user;
+			OnFetchedUserData();
+		});
+		if (currentUser == null)
+		{
+			Debug.LogError("Failed to fetch user login data");
+		}
+	}
+
+
+	static void OnFetchedUserData()
+	{
 		instance?.LoggedIn.Invoke();
 		LoginChanged?.Invoke(true);
 
@@ -102,7 +128,7 @@ public class LoginManager : MonoBehaviour
 
 		PlayerPrefs.SetInt("HasLogin", 1);
 
-		if (firstLogin && !currentUser.IsCompanyAccount)
+		if (firstLogin && !currentUser.IsSubscribed)
 			LevelLoader.LoadLevel("BuySubscription");
 		else
 			LevelLoader.LoadLevel("MainMenu");
@@ -112,7 +138,7 @@ public class LoginManager : MonoBehaviour
 	//Todo add data/error info
 	static void OnlogginFailed()
 	{
-
+		Debug.LogError("Login Canceled/Failed");
 	}
 
 
@@ -127,26 +153,9 @@ public class LoginManager : MonoBehaviour
 	}
 
 
-	static User GetCachedUser()
+	static AccountBackend.User GetCachedUser()
 	{
 		return null;
-	}
-
-
-	public class User
-	{
-		bool isCompanyAccount;
-		DateTime lastLogin;
-
-		public bool IsCompanyAccount => isCompanyAccount;
-		public DateTime LastLoginTime => lastLogin;
-		public int LoginDuration => (int)DateTime.UtcNow.Subtract(lastLogin).TotalSeconds;
-
-		public User(bool isCompanyAccount)
-		{
-			this.isCompanyAccount = isCompanyAccount;
-			this.lastLogin = DateTime.UtcNow;
-		}
 	}
 
 
@@ -155,13 +164,14 @@ public class LoginManager : MonoBehaviour
 		public abstract bool IsInitialized { get; }
 		public abstract bool IsLoggedIn { get; }
 		public abstract string PlatformName { get; }
+		public abstract string LoggedInEmail { get; }
 
 		public event Action Initalized;
 
 		public void Login()
 		{
 			//No platform is currently logged in and this platform is ready for login
-			if (!LoginManager.IsLoggedIn && IsInitialized)
+			if (!LoginManager.IsLoggingIn && !LoginManager.IsLoggedIn && IsInitialized)
 			{
 #if UNITY_EDITOR && BYPASS_LOGIN
 				OnLoggedIn(this);
@@ -172,6 +182,7 @@ public class LoginManager : MonoBehaviour
 			}
 		}
 
+
 		public void Logout()
 		{
 			if (IsLoggedIn)
@@ -179,7 +190,6 @@ public class LoginManager : MonoBehaviour
 		}
 
 		public abstract void Initialize();
-		public abstract User GetUser();
 		protected abstract void DoLogin();
 		protected abstract void DoLogout();
 
@@ -200,6 +210,8 @@ public class LoginManager : MonoBehaviour
 		public override bool IsLoggedIn => loggedInUser != null;
 
 		public override string PlatformName => "Google";
+
+		public override string LoggedInEmail => loggedInUser?.Email ?? "";
 
 		bool isInitialized;
 		GoogleSignInConfiguration configuration;
@@ -236,12 +248,6 @@ public class LoginManager : MonoBehaviour
 		}
 
 
-		public override User GetUser()
-		{
-			return new User(false);
-		}
-
-
 		void OnLogin(Task<GoogleSignInUser> result)
 		{
 			if (result.IsFaulted || result.IsCanceled)
@@ -260,6 +266,10 @@ public class LoginManager : MonoBehaviour
 		public override bool IsLoggedIn => FB.IsLoggedIn;
 
 		public override string PlatformName { get; } = "Facebook";
+
+		public override string LoggedInEmail => loggedInEmail;
+
+		string loggedInEmail = "";
 
 
 		public override void Initialize()
@@ -288,7 +298,15 @@ public class LoginManager : MonoBehaviour
 		void OnFBLogin(ILoginResult result)
 		{
 			if (IsLoggedIn)
+			{
+				Debug.Log(result.AccessToken.UserId);
+				foreach (var res in result.ResultDictionary)
+				{
+					Debug.Log(res.Key + " " + res.Value);
+				}
+				loggedInEmail = "";
 				OnLoggedIn(this);
+			}
 			else
 				OnlogginFailed();
 		}
@@ -299,11 +317,50 @@ public class LoginManager : MonoBehaviour
 			FB.LogOut();
 			OnLoggedOut();
 		}
+	}
 
+	class EmailLogin : LoginBase, IRequireLoginDetails
+	{
+		public override bool IsInitialized => true;
+		public override bool IsLoggedIn => currentUser != null;
 
-		public override User GetUser()
+		public override string PlatformName => "Email";
+
+		public override string LoggedInEmail => throw new NotImplementedException();
+
+		public string LoginUserName { get; set; }
+		public string LoginPassword { get; set; }
+
+		public override void Initialize()
 		{
-			return new User(false);
+
 		}
+
+
+		protected override void DoLogin()
+		{
+			if (LoginPassword != "" && LoginUserName != "")
+			{
+				AccountBackend.AuthenticateUser(LoginUserName, LoginPassword, (user) =>
+				{
+					OnLoggedIn(this);
+				});
+			}
+			else
+				Debug.LogError("Email login failed. Username or password field is empty");
+		}
+
+
+		protected override void DoLogout()
+		{
+			OnLoggedOut();
+		}
+	}
+
+
+	public interface IRequireLoginDetails
+	{
+		string LoginUserName { get; set; }
+		string LoginPassword { get; set; }
 	}
 }
