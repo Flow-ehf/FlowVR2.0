@@ -49,7 +49,7 @@ public class UIPanel : MonoBehaviour, IUIConditional
 
 	void Start()
 	{
-		SetActiveImmediately(isOpen);
+		OnActivatedImmediately(isOpen);
 	}
 
 
@@ -71,9 +71,10 @@ public class UIPanel : MonoBehaviour, IUIConditional
 			Opened?.Invoke();
 			for (int i = 0; i < allPanels.Count; i++)
 			{
+				//Activate this panel
 				if (allPanels[i] == this)
 				{
-					allPanels[i].OnActivatedImmediately(open);
+					allPanels[i].OnActivatedImmediately(true);
 				}
 				else
 				{

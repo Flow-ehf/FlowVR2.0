@@ -25,18 +25,25 @@ public class NetworkTest : MonoBehaviour
 		StartCoroutine(PerformTest());
 	}
 
+	[ContextMenu("Test2")]
+	void Test2()
+	{
+		AccountBackend.AuthenticateEmail("test@onymos.com", "TestPassword123", null);
+	}
+
 
 	IEnumerator PerformTest()
 	{
 		string endpoint = "http://ec2-52-34-136-26.us-west-2.compute.amazonaws.com:3001";
-		string api = "/fabric/O7000002973/authenticateUser";
+		//
+		string api = "/fabric/O7000002973/isEmailSubscribed";
 
 		Uri uri = new Uri(endpoint + api);
 
 		Dictionary<string, string> data = new Dictionary<string, string>()
 		{
 			["userEmail"] = "test@onymos.com",
-			["userPassword"] = "TestPassword123",
+			//["userPassword"] = "TestPassword123",
 		};
 
 		UnityWebRequest request = UnityWebRequest.Post(uri, data);

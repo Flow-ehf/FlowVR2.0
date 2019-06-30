@@ -147,6 +147,9 @@ public class LoginManager : MonoBehaviour
 		instance?.LoggedOut.Invoke();
 		LoginChanged?.Invoke(false);
 
+		currentLogin = null;
+		currentUser = null;
+
 		//Return to login screen when logging out
 		if (LevelLoader.Level != "LoginMenu")
 			LevelLoader.LoadLevel("LoginMenu");
@@ -193,7 +196,7 @@ public class LoginManager : MonoBehaviour
 		protected abstract void DoLogin();
 		protected abstract void DoLogout();
 
-		protected void OnInitialized()
+		protected virtual void OnInitialized()
 		{
 			Debug.Log(PlatformName + ": login ready!");
 
@@ -223,7 +226,8 @@ public class LoginManager : MonoBehaviour
 			configuration = new GoogleSignInConfiguration
 			{
 				WebClientId = webClientId,
-				RequestIdToken = true
+				RequestIdToken = true,
+				
 			};
 			isInitialized = true;
 			OnInitialized();
@@ -278,6 +282,12 @@ public class LoginManager : MonoBehaviour
 		}
 
 
+		protected override void OnInitialized()
+		{
+			FB.ActivateApp();
+		}
+
+
 		protected override void DoLogin()
 		{
 			if (!IsInitialized)
@@ -291,7 +301,9 @@ public class LoginManager : MonoBehaviour
 				OnlogginFailed();
 			}
 			else
+			{
 				FB.LogInWithReadPermissions(new List<string>() { "public_profile", "email" }, OnFBLogin);
+			}
 		}
 
 
@@ -341,7 +353,7 @@ public class LoginManager : MonoBehaviour
 		{
 			if (LoginPassword != "" && LoginUserName != "")
 			{
-				AccountBackend.AuthenticateUser(LoginUserName, LoginPassword, (user) =>
+				AccountBackend.AuthenticateEmail(LoginUserName, LoginPassword, (user) =>
 				{
 					OnLoggedIn(this);
 				});
