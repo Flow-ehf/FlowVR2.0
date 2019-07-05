@@ -38,7 +38,7 @@ public class LoginUI : MonoBehaviour
 
 	void Update()
 	{
-		button.interactable = login != null && login.IsInitialized && !LoginManager.IsLoggedIn && !LoginManager.IsLoggingIn && (!(login is LoginManager.IRequireLoginDetails) || (NameInputValid() && passwordInput != null && passwordInput.text.Length > 0));
+		button.interactable = login != null && login.IsInitialized && !LoginManager.IsLoggedIn && !LoginManager.IsLoggingIn && (!(login is LoginManager.IRequireLoginDetails) || (EmailValid() && passwordInput != null && passwordInput.text.Length > 0));
 	}
 
 
@@ -64,29 +64,14 @@ public class LoginUI : MonoBehaviour
 	}
 
 
-	bool NameInputValid()
+	bool EmailValid()
 	{
 		if (nameInput == null)
 			return false;
 		if (!requireEmailFormat)
 			return nameInput.text.Length > 0;
 		else
-		{
-			string text = nameInput.text.Trim();
-			//Email is minimum 5 characters (a@b.c)
-			if (text.Length < 5)
-				return false;
-			//must have an '@' at min second character
-			int at = text.IndexOf('@');
-			if (at < 1)
-				return false;
-			//Must have a period 
-			int period = text.IndexOf('.');
-			//Period must be after at +1 character and must have character after it
-			if (period <= at + 1 || period == text.Length - 1)
-				return false;
-			return true;
-		}
+			return AccountBackend.IsEmailFormat(nameInput.text);
 	}
 
 

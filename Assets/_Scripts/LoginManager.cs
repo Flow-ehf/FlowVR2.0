@@ -331,7 +331,7 @@ public class LoginManager : MonoBehaviour
 		}
 	}
 
-	class EmailLogin : LoginBase, IRequireLoginDetails
+	class EmailLogin : LoginBase, IRequireLoginDetails, ICanRegistrer
 	{
 		public override bool IsInitialized => true;
 		public override bool IsLoggedIn => currentUser != null;
@@ -342,6 +342,8 @@ public class LoginManager : MonoBehaviour
 
 		public string LoginUserName { get; set; }
 		public string LoginPassword { get; set; }
+
+		public event Action<bool> RegistrationComplete;
 
 		public override void Initialize()
 		{
@@ -367,6 +369,15 @@ public class LoginManager : MonoBehaviour
 		{
 			OnLoggedOut();
 		}
+
+
+		public void Registrer(string username, string password)
+		{
+			AccountBackend.RegistrerEmail(username, password, (u) =>
+			{
+				RegistrationComplete?.Invoke(u != null);
+			});
+		}
 	}
 
 
@@ -374,5 +385,11 @@ public class LoginManager : MonoBehaviour
 	{
 		string LoginUserName { get; set; }
 		string LoginPassword { get; set; }
+	}
+
+	public interface ICanRegistrer
+	{
+		event Action<bool> RegistrationComplete;
+		void Registrer(string username, string password);
 	}
 }

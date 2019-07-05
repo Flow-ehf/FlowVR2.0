@@ -67,6 +67,27 @@ public class AccountBackend : MonoBehaviour
 		});
 	}
 
+
+	public static void RegistrerEmail(string email, string password, Action<User> callback)
+	{
+		instance.StartCoroutine(WaitRegistrerEmail(email, password, callback));
+	}
+
+
+	public static IEnumerator WaitRegistrerEmail(string email, string password, Action<User> callback)
+	{
+		Dictionary<string, string> args = new Dictionary<string, string>
+		{
+			["userEmail"] = email,
+			["userPassword"] = password,
+		};
+		yield return BackendFunction("createUser", args, (result) =>
+		{
+			Debug.Log(result);
+			callback?.Invoke(null);
+		});
+	}
+
 	public static void FetchUserDetails(string email, Action<User> callback)
 	{
 		instance.StartCoroutine(WaitFetchUserDetails(email, callback));
@@ -106,5 +127,24 @@ public class AccountBackend : MonoBehaviour
 		{
 			return $"subscribed: {IsSubscribed}. last login: {LastLogin}";
 		}
+	}
+
+
+	public static bool IsEmailFormat(string email)
+	{
+		string text = email.Trim();
+		//Email is minimum 5 characters (a@b.c)
+		if (text.Length < 5)
+			return false;
+		//must have an '@' at min second character
+		int at = text.IndexOf('@');
+		if (at < 1)
+			return false;
+		//Must have a period 
+		int period = text.IndexOf('.');
+		//Period must be after at +1 character and must have character after it
+		if (period <= at + 1 || period == text.Length - 1)
+			return false;
+		return true;
 	}
 }

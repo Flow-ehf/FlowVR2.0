@@ -34,11 +34,10 @@ public class NetworkTest : MonoBehaviour
 
 	IEnumerator PerformTest()
 	{
-		string endpoint = "http://ec2-52-34-136-26.us-west-2.compute.amazonaws.com:3001";
-		//
-		string api = "/fabric/O7000002973/isEmailSubscribed";
+		string endpoint = "http://ec2-52-34-136-26.us-west-2.compute.amazonaws.com:3001/fabric/O7000002973/";
+		string function = "isEmailRegistered";
 
-		Uri uri = new Uri(endpoint + api);
+		Uri uri = new Uri(endpoint + function);
 
 		Dictionary<string, string> data = new Dictionary<string, string>()
 		{
