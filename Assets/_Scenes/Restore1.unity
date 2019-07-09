@@ -1276,21 +1276,21 @@ MonoBehaviour:
   pausePanel: {fileID: 1282756256}
   guidanceClips:
   - {fileID: 8300000, guid: fa2c390c1b99f1a4c917c802a8b38e41, type: 3}
-  - {fileID: 8300000, guid: 53ad2593eec536a4a8b241fe15153be9, type: 3}
-  - {fileID: 8300000, guid: fa2c390c1b99f1a4c917c802a8b38e41, type: 3}
-  - {fileID: 8300000, guid: 53ad2593eec536a4a8b241fe15153be9, type: 3}
+  - {fileID: 8300000, guid: a58910e7d0db99548a167b78d9fe297d, type: 3}
+  - {fileID: 8300000, guid: 08529f8754dcde646a6e90af5e2f9159, type: 3}
+  - {fileID: 8300000, guid: d8ef8c1345a3cc7479f425f36dba4945, type: 3}
   musicClips:
   - {fileID: 8300000, guid: ac0d4104068a5be44ad1840d300c3393, type: 3}
-  - {fileID: 8300000, guid: ac0d4104068a5be44ad1840d300c3393, type: 3}
+  - {fileID: 8300000, guid: 542b90e20baf646418bf188e616f3169, type: 3}
   ambianceClips:
   - {fileID: 8300000, guid: 4dea7e06399fb084c818748f15e9545c, type: 3}
-  - {fileID: 8300000, guid: 4dea7e06399fb084c818748f15e9545c, type: 3}
-  - {fileID: 8300000, guid: 4dea7e06399fb084c818748f15e9545c, type: 3}
-  - {fileID: 8300000, guid: 4dea7e06399fb084c818748f15e9545c, type: 3}
-  - {fileID: 8300000, guid: 4dea7e06399fb084c818748f15e9545c, type: 3}
-  - {fileID: 8300000, guid: 4dea7e06399fb084c818748f15e9545c, type: 3}
-  - {fileID: 8300000, guid: 4dea7e06399fb084c818748f15e9545c, type: 3}
-  - {fileID: 8300000, guid: 4dea7e06399fb084c818748f15e9545c, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 8300000, guid: 4b0c014c469f9c648b85ac281a1e8c09, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &1813012709
 Transform:
   m_ObjectHideFlags: 0

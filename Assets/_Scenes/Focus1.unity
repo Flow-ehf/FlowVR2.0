@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.46306705, g: 0.51948357, b: 0.5221202, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -228,21 +228,21 @@ MonoBehaviour:
   pausePanel: {fileID: 1087995185}
   guidanceClips:
   - {fileID: 8300000, guid: fa99c3da6e727f64e9cdc13fe188e778, type: 3}
-  - {fileID: 8300000, guid: a0586599700dd8d4ca22fe8fe3de3db2, type: 3}
-  - {fileID: 8300000, guid: fa99c3da6e727f64e9cdc13fe188e778, type: 3}
-  - {fileID: 8300000, guid: a0586599700dd8d4ca22fe8fe3de3db2, type: 3}
+  - {fileID: 8300000, guid: 7abbb0024129b324383cff5f98405532, type: 3}
+  - {fileID: 8300000, guid: ecaafbc3bec7e0445aa79b63d0808a3b, type: 3}
+  - {fileID: 8300000, guid: 43b34e062594b9b4fb8695b1a78e1096, type: 3}
   musicClips:
   - {fileID: 8300000, guid: 9cb4f61ae0d60e1489f549c2f630f358, type: 3}
-  - {fileID: 8300000, guid: 9cb4f61ae0d60e1489f549c2f630f358, type: 3}
+  - {fileID: 8300000, guid: b57fcd15cfca6084a8950a795ec91628, type: 3}
   ambianceClips:
   - {fileID: 8300000, guid: 3dac2eedb927561449797e24594560d0, type: 3}
-  - {fileID: 8300000, guid: 3dac2eedb927561449797e24594560d0, type: 3}
-  - {fileID: 8300000, guid: 3dac2eedb927561449797e24594560d0, type: 3}
-  - {fileID: 8300000, guid: 3dac2eedb927561449797e24594560d0, type: 3}
-  - {fileID: 8300000, guid: 3dac2eedb927561449797e24594560d0, type: 3}
-  - {fileID: 8300000, guid: 3dac2eedb927561449797e24594560d0, type: 3}
-  - {fileID: 8300000, guid: 3dac2eedb927561449797e24594560d0, type: 3}
-  - {fileID: 8300000, guid: 3dac2eedb927561449797e24594560d0, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 8300000, guid: af18f1e24bd9abf45b66f24c453e1e84, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &241693619
 Transform:
   m_ObjectHideFlags: 0
