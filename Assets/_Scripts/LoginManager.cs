@@ -7,6 +7,7 @@ using System;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 using Facebook.Unity;
 using Google;
 
@@ -21,7 +22,7 @@ public class LoginManager : MonoBehaviour
 
 	static LoginManager instance;
 	//Any platform currently logged in
-	public static bool IsLoggedIn => currentLogin != null && currentLogin.IsLoggedIn;
+	public static bool IsLoggedIn => currentUser != null;
 
 	public static event Action<bool> LoginChanged;
 
@@ -35,11 +36,16 @@ public class LoginManager : MonoBehaviour
 
 	public static bool IsLoggingIn { get; private set; }
 
+
+	//Login menu
+	[SerializeField] UIPanel mainMenu;
+
 	public enum LoginMethod
 	{
 		FB,
 		Google,
 		Email, 
+		Guest,
 	}
 
 
@@ -79,6 +85,7 @@ public class LoginManager : MonoBehaviour
 		switch (loginMethod)
 		{
 			default:
+				return null;
 			case LoginMethod.FB:
 				return fbLogin;
 			case LoginMethod.Google:
@@ -93,7 +100,10 @@ public class LoginManager : MonoBehaviour
 	{
 		if (IsLoggedIn)
 		{
-			currentLogin.Logout();
+			if (currentLogin != null)
+				currentLogin.Logout();
+			else
+				OnLoggedOut();
 		}
 	}
 
@@ -112,15 +122,13 @@ public class LoginManager : MonoBehaviour
 			currentUser = user;
 			OnFetchedUserData();
 		});
-		if (currentUser == null)
-		{
-			Debug.LogError("Failed to fetch user login data");
-		}
 	}
 
 
 	static void OnFetchedUserData()
 	{
+		IsLoggingIn = false;
+
 		instance?.LoggedIn.Invoke();
 		LoginChanged?.Invoke(true);
 
@@ -128,7 +136,7 @@ public class LoginManager : MonoBehaviour
 
 		PlayerPrefs.SetInt("HasLogin", 1);
 
-		if (firstLogin && !currentUser.IsSubscribed)
+		if (firstLogin && !currentUser.IsSubscribed && !currentUser.IsGuest)
 			LevelLoader.LoadLevel("BuySubscription");
 		else
 			LevelLoader.LoadLevel("MainMenu");
@@ -139,6 +147,7 @@ public class LoginManager : MonoBehaviour
 	static void OnlogginFailed()
 	{
 		Debug.LogError("Login Canceled/Failed");
+		IsLoggingIn = false;
 	}
 
 
@@ -162,6 +171,16 @@ public class LoginManager : MonoBehaviour
 	}
 
 
+	public static void LoginAsGuest()
+	{
+		if (!IsLoggedIn && !IsLoggingIn)
+		{
+			currentUser = new AccountBackend.User(false, true, "");
+			OnFetchedUserData();
+		}
+	}
+
+
 	public abstract class LoginBase
 	{
 		public abstract bool IsInitialized { get; }
@@ -176,6 +195,7 @@ public class LoginManager : MonoBehaviour
 			//No platform is currently logged in and this platform is ready for login
 			if (!LoginManager.IsLoggingIn && !LoginManager.IsLoggedIn && IsInitialized)
 			{
+				IsLoggingIn = true;
 #if UNITY_EDITOR && BYPASS_LOGIN
 				OnLoggedIn(this);
 #else
