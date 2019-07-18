@@ -20,25 +20,21 @@ public class LoginUI : MonoBehaviour
 	{
 		Debug.Log("UI awake");
 		login = LoginManager.GetLogin(loginMethod);
-		if (login != null)
-		{
-			button = GetComponent<Button>();
-			button.onClick.AddListener(DoLogin);
-			button.interactable = false;
 
-			if(platformText != null)
-			{
-				platformText.text = login.PlatformName;
-			}
+		button = GetComponent<Button>();
+		button.onClick.AddListener(DoLogin);
+		button.interactable = false;
+
+		if(platformText != null)
+		{
+			platformText.text = login?.PlatformName ?? "Guest";
 		}
-		else
-			Debug.LogError("LoginUI failed to find login method: " + loginMethod);
 	}
 
 
 	void Update()
 	{
-		button.interactable = login != null && login.IsInitialized && !LoginManager.IsLoggedIn && !LoginManager.IsLoggingIn && (!(login is LoginManager.IRequireLoginDetails) || (EmailValid() && passwordInput != null && passwordInput.text.Length > 0));
+		button.interactable = (login == null || login.IsInitialized) && !LoginManager.IsLoggedIn && !LoginManager.IsLoggingIn && ((login == null || !(login is LoginManager.IRequireLoginDetails)) || (EmailValid() && passwordInput != null && passwordInput.text.Length > 0));
 	}
 
 
@@ -51,16 +47,23 @@ public class LoginUI : MonoBehaviour
 
 	void DoLogin()
 	{
-		var loginDetails = login as LoginManager.IRequireLoginDetails;
-		if (loginDetails != null)
+		if (login != null)
 		{
-			loginDetails.LoginUserName = nameInput.text;
-			loginDetails.LoginPassword = passwordInput.text;
+			var loginDetails = login as LoginManager.IRequireLoginDetails;
+			if (loginDetails != null)
+			{
+				loginDetails.LoginUserName = nameInput.text;
+				loginDetails.LoginPassword = passwordInput.text;
 
-			nameInput.text = "";
-			passwordInput.text = "";
+				nameInput.text = "";
+				passwordInput.text = "";
+			}
+			login.Login();
 		}
-		login.Login();
+		else
+		{
+			LoginManager.LoginAsGuest();
+		}
 	}
 
 

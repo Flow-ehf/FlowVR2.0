@@ -12,6 +12,7 @@ public class AccountBackend : MonoBehaviour
 	//createUser
 	//authenticateUser
 	//isEmailSubscribed
+	//isEmailRegistrered
 	//getUserDetails
 
 	[RuntimeInitializeOnLoadMethod]
@@ -100,8 +101,6 @@ public class AccountBackend : MonoBehaviour
 			["userEmail"] = email,
 		};
 
-		User user = new User();
-
 		yield return BackendFunction("getUserDetails", args, (result) =>
 		{
 			Debug.Log(result);
@@ -111,6 +110,8 @@ public class AccountBackend : MonoBehaviour
 			Debug.Log(result);
 		});
 
+		User user = new User(false, false, "");
+
 		callback?.Invoke(user);
 	}
 
@@ -118,10 +119,21 @@ public class AccountBackend : MonoBehaviour
 	public class User
 	{
 		bool isSubscribed;
+		bool isGuest;
 		long lastLoginTime;
+		string email;
 
 		public bool IsSubscribed => isSubscribed;
+		public bool IsGuest => isGuest;
 		public DateTime LastLogin => new DateTime(lastLoginTime);
+
+		public User(bool isSubscribed, bool isGuest, string email)
+		{
+			this.isSubscribed = isSubscribed;
+			this.isGuest = isGuest;
+			this.email = email;
+			this.lastLoginTime = DateTime.UtcNow.Ticks;
+		}
 
 		public override string ToString()
 		{
