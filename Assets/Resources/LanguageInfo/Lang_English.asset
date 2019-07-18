@@ -21,49 +21,49 @@ MonoBehaviour:
   - tag: play
     str: Play
   - tag: music_on
-    str: Music On
+    str: Music on
   - tag: music_off
-    str: Music Off
+    str: Music off
   - tag: guidance_on
-    str: Guidance On
+    str: Guidance on
   - tag: guidance_off
-    str: Guidance Off
+    str: Guidance off
   - tag: settings
     str: Settings
   - tag: logout
-    str: Log Out
+    str: Log out
   - tag: breath1
-    str: Breathe To Ease Tension
+    str: Breathe to ease tension
   - tag: breath2
     str: Breathe
   - tag: breath3
     str: In production
   - tag: move1
-    str: Open Up For Positive Energy
+    str: Open up for positive energy
   - tag: move2
     str: Move
   - tag: move3
     str: In production
   - tag: letgo1
-    str: Find Determination
+    str: Find determination
   - tag: letgo2
-    str: Let Go
+    str: Let go
   - tag: letgo3
     str: In production
   - tag: calm1
-    str: Calm For Clarity
+    str: Calm for clarity
   - tag: calm2
     str: Calm
   - tag: calm3
     str: In production
   - tag: focus1
-    str: Thinking In Meditation
+    str: Thinking in meditation
   - tag: focus2
     str: Focus
   - tag: focus3
     str: In production
   - tag: restore1
-    str: Deep Peace
+    str: Deep peace
   - tag: restore2
     str: Restore
   - tag: restore3
@@ -73,7 +73,7 @@ MonoBehaviour:
   - tag: move
     str: Move
   - tag: letgo
-    str: LetGo
+    str: Let go
   - tag: calm
     str: Calm
   - tag: focus
@@ -126,7 +126,7 @@ MonoBehaviour:
   - tag: restore3_desc
     str: restore3_desc
   - tag: profound_quote_1
-    str: Learning to Breathe with awareness is the foundation of Flow meditation
+    str: Learning to breathe with awareness is the foundation of Flow meditation
   - tag: profound_quote_2
     str: Choosing a focus allows us to find more of the positive energy we are looking
       for in meditation
@@ -139,3 +139,39 @@ MonoBehaviour:
       for more of what we desire
   - tag: profound_quote_6
     str: Relaxing and resting more deeply is an essential key to well being
+  - tag: breathe_1_location
+    str: "Sn\xE6fellsnes cove"
+  - tag: breathe_2_location
+    str: location
+  - tag: breathe_3_location
+    str: location
+  - tag: move_1_location
+    str: "\xDEingvellir waterfall"
+  - tag: move_2_location
+    str: location
+  - tag: move_3_location
+    str: location
+  - tag: letgo_1_location
+    str: Glymur waterfall
+  - tag: letgo_2_location
+    str: location
+  - tag: letgo_3_location
+    str: location
+  - tag: calm_1_location
+    str: Hitardalur lava moss
+  - tag: calm_2_location
+    str: location
+  - tag: calm_3_location
+    str: location
+  - tag: focus_1_location
+    str: "Gr\xEDmssta\xF0ir lake"
+  - tag: focus_2_location
+    str: location
+  - tag: focus_3_location
+    str: location
+  - tag: restore_1_location
+    str: "\xDE\xF3rsm\xF6rk cave"
+  - tag: restore_2_location
+    str: location
+  - tag: restore_3_location
+    str: location
