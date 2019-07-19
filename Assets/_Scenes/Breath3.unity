@@ -901,7 +901,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!114 &1003066399 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7449082304570612132, guid: 379750b7604f95743abbe800c841bfc1,
+  m_CorrespondingSourceObject: {fileID: 9154167046371965900, guid: 379750b7604f95743abbe800c841bfc1,
     type: 3}
   m_PrefabInstance: {fileID: 1003066395}
   m_PrefabAsset: {fileID: 0}
@@ -913,7 +913,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!114 &1003066400 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8834759313529659342, guid: 379750b7604f95743abbe800c841bfc1,
+  m_CorrespondingSourceObject: {fileID: 6574544203300479353, guid: 379750b7604f95743abbe800c841bfc1,
     type: 3}
   m_PrefabInstance: {fileID: 1003066395}
   m_PrefabAsset: {fileID: 0}

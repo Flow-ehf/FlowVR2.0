@@ -50,7 +50,7 @@ public class SessionSettingsUI : MonoBehaviour
 				rectTrans.anchoredPosition = new Vector2(0, -yPos);
 				Text text = rectTrans.GetComponentInChildren<Text>();
 				if (text != null)
-					text.text = min + " \n min";
+					text.text = min + " \nmin";
 				Toggle toggle = rectTrans.GetComponentInChildren<Toggle>();
 				if(toggle != null)
 				{
