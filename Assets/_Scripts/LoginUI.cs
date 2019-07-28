@@ -53,8 +53,7 @@ public class LoginUI : MonoBehaviour
 
 	void OnError(AccountBackend.BackendError error)
 	{
-		var code = error.GetCode();
-		if(code == AccountBackend.BackendError.ErrorCode.UserNotFound)
+		if(error.method == AccountBackend.BackendError.Method.Login)
 		{
 			errorTimestamp = Time.realtimeSinceStartup;
 			errorText.color = errorText.color.WithAlpha(1);

@@ -32,6 +32,25 @@ public class RegistrerLoginUI : MonoBehaviour
     }
 
 
+	void OnEnable()
+	{
+		AccountBackend.Error += OnError;
+	}
+
+
+	void OnDisable()
+	{
+		AccountBackend.Error -= OnError;
+	}
+
+
+	void OnError(AccountBackend.BackendError error)
+	{
+		if (error.method == AccountBackend.BackendError.Method.Registrer)
+			DisplayErrorText(error.GetMessage());
+	}
+
+
     // Update is called once per frame
     void Update()
     {

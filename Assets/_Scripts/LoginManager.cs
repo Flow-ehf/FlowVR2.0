@@ -73,7 +73,7 @@ public class LoginManager : MonoBehaviour
 			else
 			{
 				//Already logged in to non company account, skip to menu
-				if (!currentUser.isCompanyAccount)
+				if (!currentUser.IsCompanyAccount)
 					LevelLoader.LoadLevel("MainMenu");
 			}
 		}
@@ -136,7 +136,7 @@ public class LoginManager : MonoBehaviour
 
 		PlayerPrefs.SetInt("HasLogin", 1);
 
-		if (firstLogin && !currentUser.IsSubscribed && !currentUser.IsGuest && !currentUser.isCompanyAccount)
+		if (firstLogin && !currentUser.IsSubscribed && !currentUser.IsGuest && !currentUser.IsCompanyAccount)
 			LevelLoader.LoadLevel("BuySubscription");
 		else
 			LevelLoader.LoadLevel("MainMenu");
