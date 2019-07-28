@@ -28,7 +28,7 @@ public class NetworkTest : MonoBehaviour
 	[ContextMenu("TestLogin")]
 	void Test2()
 	{
-		AccountBackend.AuthenticateEmail("test@onymos.com", "TestPassword123", null);
+		AccountBackend.AuthenticateEmail("a@abc.com", "TestPassword123", null);
 	}
 
 	[ContextMenu("TestCreate")]

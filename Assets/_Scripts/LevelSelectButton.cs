@@ -32,7 +32,7 @@ public class LevelSelectButton : MonoBehaviour
 		ProductOwned();
 #else
 		//Not dlc, unlock right away
-		if (productId == "" || LoginManager.currentUser.IsSubscribed)
+		if (productId == "" || LoginManager.currentUser.IsSubscribed || LoginManager.currentUser.IsCompanyUser)
 			ProductOwned();
 		else
 			StartCoroutine(WaitCheckOwnership());

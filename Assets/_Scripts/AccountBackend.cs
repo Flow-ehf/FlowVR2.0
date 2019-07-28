@@ -15,6 +15,9 @@ public class AccountBackend : MonoBehaviour
 	//isEmailRegistrered
 	//getUserDetails
 
+	public static event Action<BackendError> Error;
+
+
 	[RuntimeInitializeOnLoadMethod]
 	static void Init()
 	{
@@ -39,6 +42,10 @@ public class AccountBackend : MonoBehaviour
 		{
 			Debug.Log(request.downloadHandler.text + " " + uri);
 			Debug.LogError(request.error + " (" + request.responseCode + ")");
+
+			var errorMsg = JsonUtility.FromJson<BackendError>(request.error);
+			errorMsg.SetMethod(function);
+			Error?.Invoke(errorMsg);
 		}
 		else
 		{
@@ -119,11 +126,13 @@ public class AccountBackend : MonoBehaviour
 	public class User
 	{
 		bool isSubscribed;
+		bool isCompanyAccount;
 		bool isGuest;
 		long lastLoginTime;
 		string email;
 
 		public bool IsSubscribed => isSubscribed;
+		public bool IsCompanyAccount => isCompanyAccount;
 		public bool IsGuest => isGuest;
 		public DateTime LastLogin => new DateTime(lastLoginTime);
 
@@ -137,7 +146,7 @@ public class AccountBackend : MonoBehaviour
 
 		public override string ToString()
 		{
-			return $"subscribed: {IsSubscribed}. last login: {LastLogin}";
+			return $"subscribed: {IsSubscribed}. company: {IsCompanyAccount} last login: {LastLogin}";
 		}
 	}
 
@@ -158,5 +167,90 @@ public class AccountBackend : MonoBehaviour
 		if (period <= at + 1 || period == text.Length - 1)
 			return false;
 		return true;
+	}
+
+
+	public class BackendError
+	{
+		public enum ErrorCode
+		{
+			UserNotFound,
+			UserAlreadyExists,
+			Unknown,
+		}
+
+		public enum Method
+		{
+			Registrer,
+			Login,
+			UserDetails,
+			IsSubscribed,
+			UserExists,
+			Unknown,
+		}
+
+		[Serializable]
+		class Error
+		{
+			public string code;
+			public string message;
+		}
+
+		public Method method = Method.Unknown;
+
+		[SerializeField] Error error;
+
+
+		public void SetMethod(string function)
+		{
+			switch(function)
+			{
+				case "createUser":
+					method = Method.Registrer;
+					break;
+				case "authenticateUser":
+					method = Method.Login;
+					break;
+				case "isEmailSubscribed":
+					method = Method.IsSubscribed;
+					break;
+				case "isEmailRegistrered":
+					method = Method.UserExists;
+					break;
+				case "getUserDetails":
+					method = Method.UserDetails;
+					break;
+			}
+		}
+
+		public string GetMessage()
+		{
+			switch(GetCode())
+			{
+				case ErrorCode.UserNotFound:
+					return "Invalid Login";
+				case ErrorCode.UserAlreadyExists:
+					return "Email already in use";
+				default:
+					return "There was an error";
+			}
+		}
+
+
+		public ErrorCode GetCode()
+		{
+			if (error == null)
+				return ErrorCode.Unknown;
+
+			switch(error.code)
+			{
+				case "auth/user-not-found":
+					return ErrorCode.UserNotFound;
+				case "auth/email-already-in-use":
+					return ErrorCode.UserAlreadyExists;
+				default:
+					return ErrorCode.Unknown;
+			}
+		}
 	}
 }
