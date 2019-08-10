@@ -6,7 +6,7 @@ using UnityEngine.Networking;
 
 public class AccountBackend : MonoBehaviour
 {
-	const string EndPoint = "http://ec2-52-34-136-26.us-west-2.compute.amazonaws.com:3001/fabric/O7000002973/";
+	const string EndPoint = "http://ec2-52-34-136-26.us-west-2.compute.amazonaws.com:3001/fabric/";
 	const string Token = "UEn0k5cz/bdm2bRcahPLrlgMFfO2qswnJ5+OF8d1s5XGQWdkBACoiS5a5ukCy4hPgrF5E0VvBd0lU2NLbBMTjuHwSMdM8ISML1l/rZz2VrxCu9J+sknzkvQYUUpVy3n39tg1KZwtK8FNTWOhKxtS/GZgOINda1pOkhNV/g0+VVPSpk1Vp48KLZ8xiCfaaVMgr7aeWd3EmNkJoGqz6wZgOMup2n8Na1vbfAXQu7WfV3vnV4lRALH9e5EUAOPdc6BScbpX4tjTo5CRVLzCsBMIH8S82F/73yUIJzUGCFWuo171lL0JxHN6Jg+Yx4Xplduy12dHsXnX7LYSfCW2NieeKCd+yT3Ac8cn6yIJ/zqCqLPiv4jaL/MIfHmHmjdtE2BUaPrVUO/iIQQaIhvjXAMyhEiV9J1GyDA9sDjwyWKej5csmdm1iZOQKnH+IlpUtMZbRRMT4GTuZ24LUWnVoA4kEspKa3XwHdtcAzNbd0jYvVjM790fLnib4djUVrAP1dG7Ds2/QUafjyLJe5nbKGBOX7lXJ0e32s9cakRN2YgLdCD4XM0lkNC88NHvy4E2UWkZGP7OsqAaHoV8kxNwQ2FSzFf+bvRgqa0mXcwNhdrtBwG5dFYQ3njFemwRr4Lyrx1dYzQqfPJFZEXjQkTBtFYEGI9VSPXgOURzCpOe2ooubmw=";
 
 	//createUser
@@ -15,7 +15,7 @@ public class AccountBackend : MonoBehaviour
 	//isEmailRegistrered
 	//getUserDetails
 
-	public static event Action<BackendError> Error;
+	public static event Action<AccountBackend.Result> Error;
 
 
 	[RuntimeInitializeOnLoadMethod]
@@ -29,29 +29,29 @@ public class AccountBackend : MonoBehaviour
 
 	static AccountBackend instance;
 
-	static IEnumerator BackendFunction(string function, Dictionary<string,string> arguments, Action<string> callback)
+	static IEnumerator BackendFunction<T>(string function, Dictionary<string,string> arguments, Action<string> callback) where T: Result, new()
 	{
 		Uri uri = new Uri(EndPoint + function);
-		UnityWebRequest request = UnityWebRequest.Post(uri, arguments);
-
-		request.SetRequestHeader("Authorization", "Bearer " + Token);
-
-		yield return request.SendWebRequest();
-
-		if (request.isNetworkError || request.isHttpError)
+		using (UnityWebRequest request = UnityWebRequest.Post(uri, arguments))
 		{
-			Debug.Log(request.downloadHandler.text + " " + uri);
-			Debug.LogError(request.error + " (" + request.responseCode + ")");
+			request.SetRequestHeader("Authorization", "Bearer " + Token);
 
-			var errorMsg = JsonUtility.FromJson<BackendError>(request.error);
-			errorMsg.SetMethod(function);
-			Error?.Invoke(errorMsg);
+			yield return request.SendWebRequest();
+
+			if (request.isNetworkError || request.isHttpError)
+			{
+				Debug.LogError($"[Backend {function}] {request.error} ({request.responseCode})");
+				Debug.Log($"[Backend {function}] {request.downloadHandler.text} {uri}");
+
+				var result = new T();
+				JsonUtility.FromJsonOverwrite(request.downloadHandler.text, request);
+				result.method = Result.GetMethod(function);
+				Error?.Invoke(result);
+			}
+			var json = request.downloadHandler.text;
+			Debug.Log($"[Backend {function}] {json}");
+			callback?.Invoke(json);
 		}
-		else
-		{
-			callback?.Invoke(request.downloadHandler.text);
-		}
-		request.Dispose();
 	}
 
 
@@ -60,7 +60,6 @@ public class AccountBackend : MonoBehaviour
 		instance.StartCoroutine(WaitAuthenticateEmail(email, password, callback));
 	}
 
-
 	public static IEnumerator WaitAuthenticateEmail(string email, string password, Action<User> callback)
 	{
 		Dictionary<string, string> args = new Dictionary<string, string>
@@ -68,11 +67,95 @@ public class AccountBackend : MonoBehaviour
 			["userEmail"] = email,
 			["userPassword"] = password,
 		};
-		yield return BackendFunction("authenticateUser", args, (result) =>
+		User user = null;
+		yield return BackendFunction<AuthResult>("authenticateUser", args, (json) =>
 		{
-			Debug.Log(result);
-			callback?.Invoke(null);
+			var r = new AuthResult();
+			JsonUtility.FromJsonOverwrite(json, r);
+			r.method = Result.Method.Login;
+
+			if (r.GetError() == null)
+			{
+				user = r.user;
+			}
 		});
+		if (user != null)
+			yield return WaitIsSubscribed(email, (subbed) =>
+			{
+				user.isSubscribed = subbed;
+			});
+		callback?.Invoke(user);
+	}
+
+
+	public static void IsRegistrered(string email, Action<bool> callback)
+	{
+		instance.StartCoroutine(WaitIsRegistrered(email, callback));
+	}
+
+	public static IEnumerator WaitIsRegistrered(string email, Action<bool> callback)
+	{
+		Dictionary<string, string> arg = new Dictionary<string, string>
+		{
+			["userEmail"] = email,
+		};
+		yield return BackendFunction<MethodResult>("isEmailRegistered", arg, (json) =>
+		{
+			var r = new MethodResult();
+			JsonUtility.FromJsonOverwrite(json, r);
+			r.method = Result.Method.UserDetails;
+			callback?.Invoke(r.error == null);
+		});
+	}
+
+
+	public static void IsSubscribed(string email, Action<bool> callback)
+	{
+		instance.StartCoroutine(WaitIsSubscribed(email, callback));
+	}
+
+	public static IEnumerator WaitIsSubscribed(string email, Action<bool> callback)
+	{
+		Dictionary<string, string> arg = new Dictionary<string, string>
+		{
+			["userEmail"] = email,
+		};
+		yield return BackendFunction<MethodResult>("isEmailSubscribed", arg, (json) =>
+		{
+			var r = new MethodResult();
+			JsonUtility.FromJsonOverwrite(json, r);
+			r.method = Result.Method.IsSubscribed;
+			callback?.Invoke(r.error == null);
+		});
+	}
+
+
+	public static void GetuserDetails(string email, Action<User> callback)
+	{
+		instance.StartCoroutine(WaitGetUserDetails(email, callback));
+	}
+
+	public static IEnumerator WaitGetUserDetails(string email, Action<User> callback)
+	{
+		Dictionary<string, string> arg = new Dictionary<string, string>
+		{
+			["userEmail"] = email,
+		};
+		User user = null;
+		yield return BackendFunction<AuthResult>("getUserDetails", arg, (json) =>
+		{
+			var r = new AuthResult();
+			JsonUtility.FromJsonOverwrite(json, r);
+			r.method = Result.Method.UserDetails;
+			if(r.GetError() == null)
+				user = r.user;
+		});
+		if(user != null)
+			yield return WaitIsSubscribed(email, (subbed) => 
+			{
+				user.isSubscribed = subbed;
+			});
+		callback?.Invoke(user);
 	}
 
 
@@ -81,7 +164,6 @@ public class AccountBackend : MonoBehaviour
 		instance.StartCoroutine(WaitRegistrerEmail(email, password, callback));
 	}
 
-
 	public static IEnumerator WaitRegistrerEmail(string email, string password, Action<User> callback)
 	{
 		Dictionary<string, string> args = new Dictionary<string, string>
@@ -89,64 +171,33 @@ public class AccountBackend : MonoBehaviour
 			["userEmail"] = email,
 			["userPassword"] = password,
 		};
-		yield return BackendFunction("createUser", args, (result) =>
+		yield return BackendFunction<AuthResult>("createUser", args, (result) =>
 		{
-			Debug.Log(result);
-			callback?.Invoke(null);
+			var r = new AuthResult();
+			JsonUtility.FromJsonOverwrite(result, r);
+			r.method = Result.Method.Registrer;
+
+			User user = r.user;
+			callback?.Invoke(user);   
 		});
 	}
 
-	public static void FetchUserDetails(string email, Action<User> callback)
-	{
-		instance.StartCoroutine(WaitFetchUserDetails(email, callback));
-	}
 
-	public static IEnumerator WaitFetchUserDetails(string email, Action<User> callback)
-	{
-		Dictionary<string, string> args = new Dictionary<string, string>
-		{
-			["userEmail"] = email,
-		};
-
-		yield return BackendFunction("getUserDetails", args, (result) =>
-		{
-			Debug.Log(result);
-		});
-		yield return BackendFunction("isEmailSubscribed", args, (result) =>
-		{
-			Debug.Log(result);
-		});
-
-		User user = new User(false, false, "");
-
-		callback?.Invoke(user);
-	}
-
-
+	[System.Serializable]
 	public class User
 	{
-		bool isSubscribed;
-		bool isCompanyAccount;
-		bool isGuest;
-		long lastLoginTime;
-		string email;
-
-		public bool IsSubscribed => isSubscribed;
-		public bool IsCompanyAccount => isCompanyAccount;
-		public bool IsGuest => isGuest;
-		public DateTime LastLogin => new DateTime(lastLoginTime);
-
-		public User(bool isSubscribed, bool isGuest, string email)
-		{
-			this.isSubscribed = isSubscribed;
-			this.isGuest = isGuest;
-			this.email = email;
-			this.lastLoginTime = DateTime.UtcNow.Ticks;
-		}
+		public bool isSubscribed;
+		public bool isCompanyAccount;
+		public bool isGuest;
+		public long lastLoginTime;
+		public string displayName;
+		public string email;
+		public string uid;
+		public string photoUrl;
 
 		public override string ToString()
 		{
-			return $"subscribed: {IsSubscribed}. company: {IsCompanyAccount} last login: {LastLogin}";
+			return $"subscribed: {isSubscribed}. company: {isCompanyAccount}. email {email}. uid {uid}.";
 		}
 	}
 
@@ -169,16 +220,9 @@ public class AccountBackend : MonoBehaviour
 		return true;
 	}
 
-
-	public class BackendError
+	[System.Serializable]
+	public abstract class Result
 	{
-		public enum ErrorCode
-		{
-			UserNotFound,
-			UserAlreadyExists,
-			Unknown,
-		}
-
 		public enum Method
 		{
 			Registrer,
@@ -189,68 +233,137 @@ public class AccountBackend : MonoBehaviour
 			Unknown,
 		}
 
-		[Serializable]
-		class Error
-		{
-			public string code;
-			public string message;
-		}
-
 		public Method method = Method.Unknown;
 
-		[SerializeField] Error error;
+		public abstract Error GetError();
 
-
-		public void SetMethod(string function)
+		[Serializable]
+		public class Error
 		{
-			switch(function)
+			public enum ErrorCode
+			{
+				UserNotFound,
+				UserAlreadyExists,
+				InvalidEmail,
+				Unknown,
+			}
+
+			public string code;
+			public string message;
+
+			public string GetMessage()
+			{
+				switch (GetCode())
+				{
+					case ErrorCode.UserNotFound:
+						return "Invalid Login";
+					case ErrorCode.UserAlreadyExists:
+						return "Email already in use";
+					default:
+						return "There was an error";
+				}
+			}
+
+			public ErrorCode GetCode()
+			{
+				switch (code)
+				{
+					case "auth/wrong-password":
+					case "auth/user-not-found":
+						return ErrorCode.UserNotFound;
+					case "auth/email-already-in-use":
+						return ErrorCode.UserAlreadyExists;
+					case "Invalid Email":
+						return ErrorCode.InvalidEmail;
+					default:
+						return ErrorCode.Unknown;
+				}
+			}
+
+			public override string ToString()
+			{
+				return $"{GetCode()} - {GetMessage()}";
+			}
+		}
+
+		public static Result.Method GetMethod(string function)
+		{
+			switch (function)
 			{
 				case "createUser":
-					method = Method.Registrer;
-					break;
+					return Result.Method.Registrer;
 				case "authenticateUser":
-					method = Method.Login;
-					break;
+					return Result.Method.Login;
 				case "isEmailSubscribed":
-					method = Method.IsSubscribed;
-					break;
+					return Result.Method.IsSubscribed;
 				case "isEmailRegistrered":
-					method = Method.UserExists;
-					break;
+					return Result.Method.UserExists;
 				case "getUserDetails":
-					method = Method.UserDetails;
-					break;
+					return Result.Method.UserDetails;
+				default:
+					return Result.Method.Unknown;
 			}
 		}
 
-		public string GetMessage()
+	}
+
+	[System.Serializable]
+	public class MethodResult : Result
+	{
+		public string error;
+		public string userEmail;
+
+		public MethodResult() : base()
 		{
-			switch(GetCode())
-			{
-				case ErrorCode.UserNotFound:
-					return "Invalid Login";
-				case ErrorCode.UserAlreadyExists:
-					return "Email already in use";
-				default:
-					return "There was an error";
-			}
+
 		}
 
-
-		public ErrorCode GetCode()
+		public override Error GetError()
 		{
-			if (error == null)
-				return ErrorCode.Unknown;
+			if (error == null || error == "")
+				return null;
+			else
+				return new Error()
+				{
+					code = error,
+				};		
+		}
+	}
 
-			switch(error.code)
+	[System.Serializable]
+	public class AuthResult : Result
+	{
+
+		public AuthResult() : base()
+		{
+
+		}
+
+		public Result.Error error = null;
+		public User user = null;
+
+		public override Error GetError()
+		{
+			if (error.code == null || error.code == "")
+				return null;
+			else
+				return error;
+		}
+
+		public override string ToString()
+		{
+			string s = $"[{method}] ";
+			if (error != null)
 			{
-				case "auth/user-not-found":
-					return ErrorCode.UserNotFound;
-				case "auth/email-already-in-use":
-					return ErrorCode.UserAlreadyExists;
-				default:
-					return ErrorCode.Unknown;
+				s += Environment.NewLine;
+				s += error.ToString();
 			}
+			if (user != null)
+			{
+				s += Environment.NewLine;
+				s += user.ToString();
+			}
+			return s;
 		}
 	}
 }

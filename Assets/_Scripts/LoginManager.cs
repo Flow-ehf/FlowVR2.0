@@ -67,15 +67,9 @@ public class LoginManager : MonoBehaviour
 		//User logged in previously
 		if (currentUser != null)
 		{
-			//Login is outdated
-			if ((DateTime.UtcNow - currentUser.LastLogin).Seconds > LOGIN_CACHE_LIFETIME)
-				currentUser = null;
-			else
-			{
-				//Already logged in to non company account, skip to menu
-				if (!currentUser.IsCompanyAccount)
-					LevelLoader.LoadLevel("MainMenu");
-			}
+			//Already logged in to non company account, skip to menu
+			if (!currentUser.isCompanyAccount)
+				LevelLoader.LoadLevel("MainMenu");
 		}
 	}
 
@@ -110,14 +104,10 @@ public class LoginManager : MonoBehaviour
 
 	static void OnLoggedIn(LoginBase login)
 	{
+		Debug.Log("Logged in. Fetching user details");
+
 		currentLogin = login;
-		instance.StartCoroutine(WaitGetLoggedInUserData());
-	}
-
-
-	static IEnumerator WaitGetLoggedInUserData()
-	{
-		yield return AccountBackend.WaitFetchUserDetails(currentLogin.LoggedInEmail, (user) =>
+		AccountBackend.GetuserDetails(currentLogin.LoggedInEmail, (user) =>
 		{
 			currentUser = user;
 			OnFetchedUserData();
@@ -136,7 +126,7 @@ public class LoginManager : MonoBehaviour
 
 		PlayerPrefs.SetInt("HasLogin", 1);
 
-		if (firstLogin && !currentUser.IsSubscribed && !currentUser.IsGuest && !currentUser.IsCompanyAccount)
+		if (firstLogin && !currentUser.isSubscribed && !currentUser.isGuest && !currentUser.isCompanyAccount)
 			LevelLoader.LoadLevel("BuySubscription");
 		else
 			LevelLoader.LoadLevel("MainMenu");
@@ -175,7 +165,9 @@ public class LoginManager : MonoBehaviour
 	{
 		if (!IsLoggedIn && !IsLoggingIn)
 		{
-			currentUser = new AccountBackend.User(false, true, "");
+			currentUser = new AccountBackend.User();
+			currentUser.isGuest = true;
+			currentUser.displayName = "Guest";
 			OnFetchedUserData();
 		}
 	}
@@ -358,7 +350,8 @@ public class LoginManager : MonoBehaviour
 
 		public override string PlatformName => "Email";
 
-		public override string LoggedInEmail => throw new NotImplementedException();
+		string email;
+		public override string LoggedInEmail => email;
 
 		public string LoginUserName { get; set; }
 		public string LoginPassword { get; set; }
@@ -377,7 +370,11 @@ public class LoginManager : MonoBehaviour
 			{
 				AccountBackend.AuthenticateEmail(LoginUserName, LoginPassword, (user) =>
 				{
-					OnLoggedIn(this);
+					if (user != null)
+					{
+						email = user.email;
+						OnLoggedIn(this);
+					}
 				});
 			}
 			else

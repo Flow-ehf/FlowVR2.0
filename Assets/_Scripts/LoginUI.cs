@@ -45,19 +45,13 @@ public class LoginUI : MonoBehaviour
 	}
 
 
-	void OnDisable()
+	void OnError(AccountBackend.Result result)
 	{
-		AccountBackend.Error -= OnError;
-	}
-
-
-	void OnError(AccountBackend.BackendError error)
-	{
-		if(error.method == AccountBackend.BackendError.Method.Login)
+		if(result.method == AccountBackend.Result.Method.Login)
 		{
 			errorTimestamp = Time.realtimeSinceStartup;
 			errorText.color = errorText.color.WithAlpha(1);
-			errorText.text = error.GetMessage();
+			errorText.text = result.GetError().GetMessage();
 		}
 	}
 
@@ -93,6 +87,7 @@ public class LoginUI : MonoBehaviour
 			var loginDetails = login as LoginManager.IRequireLoginDetails;
 			if (loginDetails != null)
 			{
+				//Copy text to fix refs
 				loginDetails.LoginUserName = nameInput.text;
 				loginDetails.LoginPassword = passwordInput.text;
 
@@ -116,6 +111,12 @@ public class LoginUI : MonoBehaviour
 			return nameInput.text.Length > 0;
 		else
 			return AccountBackend.IsEmailFormat(nameInput.text);
+	}
+
+
+	void OnDisable()
+	{
+		AccountBackend.Error -= OnError;
 	}
 
 

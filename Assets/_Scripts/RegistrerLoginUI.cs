@@ -44,10 +44,10 @@ public class RegistrerLoginUI : MonoBehaviour
 	}
 
 
-	void OnError(AccountBackend.BackendError error)
+	void OnError(AccountBackend.Result result)
 	{
-		if (error.method == AccountBackend.BackendError.Method.Registrer)
-			DisplayErrorText(error.GetMessage());
+		if (result.method == AccountBackend.Result.Method.Registrer)
+			DisplayErrorText(result.GetError().GetMessage());
 	}
 
 
