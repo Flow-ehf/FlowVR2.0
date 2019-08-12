@@ -181,3 +181,25 @@ MonoBehaviour:
     str: location
   - tag: restore_3_location
     str: location
+  - tag: sign_up
+    str: "Stofan a\xF0gang"
+  - tag: log_in
+    str: "Innskr\xE1"
+  - tag: try_as_guest
+    str: "Sko\xF0a sem gestur"
+  - tag: enter_first_name
+    str: Fornafn
+  - tag: enter_last_name
+    str: Eftirnafn
+  - tag: enter_email
+    str: "T\xF6lvup\xF3stfang"
+  - tag: enter_password
+    str: "Lykilor\xF0"
+  - tag: reset_password
+    str: "T\xFDnt lykilor\xF0?"
+  - tag: error
+    str: Villa
+  - tag: on
+    str: "\xE1"
+  - tag: off
+    str: af

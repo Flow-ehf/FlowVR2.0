@@ -175,3 +175,25 @@ MonoBehaviour:
     str: location
   - tag: restore_3_location
     str: location
+  - tag: sign_up
+    str: Sign up
+  - tag: log_in
+    str: Sign in
+  - tag: try_as_guest
+    str: Try as guest
+  - tag: enter_first_name
+    str: Enter first name...
+  - tag: enter_last_name
+    str: Enter last name...
+  - tag: enter_email
+    str: Enter email...
+  - tag: enter_password
+    str: Enter password...
+  - tag: reset_password
+    str: Reset password
+  - tag: error
+    str: Error
+  - tag: on
+    str: on
+  - tag: off
+    str: off
