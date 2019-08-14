@@ -64,7 +64,10 @@ public static class LanguageManager
 		for (int i = 0; i < currentInfo.langStr.Length; i++)
 		{
 			if (currentInfo.langStr[i].tag == tag)
-				return currentInfo.langStr[i].str;
+			{
+				string str = currentInfo.langStr[i].str;
+				return str.Replace("\\n","\n");
+			}
 		}
 		Debug.LogWarning($"Tag '{tag}' not found for language '{currentInfo.language}'");
 		return tag;
