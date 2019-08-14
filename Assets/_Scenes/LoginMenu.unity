@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.65951324, g: 0.7517244, b: 0.7414068, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6589,7 +6589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loginMethod: 3
-  platformText: {fileID: 1919508710}
+  platformText: {fileID: 0}
   requireEmailFormat: 1
   nameInput: {fileID: 0}
   passwordInput: {fileID: 0}

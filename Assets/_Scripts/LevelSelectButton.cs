@@ -13,16 +13,28 @@ public class LevelSelectButton : MonoBehaviour
 	[SerializeField] LoadLevelButton targetButton;
 	[SerializeField] string level;
 	[SerializeField] string productId;
+	[SerializeField] Sprite noAccessSprite;
+	[SerializeField] Material skyboxMaterial;
 
+	Image image;
 	Button button;
+	Sprite normalSpite;
+	bool canAccess = false;
+	SessionSettingsUI session;
 
 	void Awake()
 	{
+
 		if (targetButton == null)
 			targetButton = FindObjectOfType<LoadLevelButton>();
 
+		session = FindObjectOfType<SessionSettingsUI>();
 		button = GetComponent<Button>();
-		button.interactable = false;
+
+		image = GetComponent<Image>();
+		normalSpite = image.sprite;
+		if(noAccessSprite != null)
+			image.sprite = noAccessSprite;
 	}
 
 
@@ -72,15 +84,26 @@ public class LevelSelectButton : MonoBehaviour
 	{
 		button.interactable = true;
 		button.onClick.AddListener(ClickedButton);
-		//No need to keep checking ownership
-		enabled = false;
+		image.sprite = normalSpite;
+		canAccess = true;
+		StopAllCoroutines();
 	}
 
 
 	void ClickedButton()
 	{
-		if (targetButton != null)
-			targetButton.SetTargetLevel(level);
+		if (canAccess)
+		{
+			if (targetButton != null && session != null)
+			{
+				targetButton.SetTargetLevel(level);
+				session.Open(skyboxMaterial);
+			}
+		}
+		else
+		{
+
+		}
 	}
 
 
