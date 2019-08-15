@@ -21,50 +21,50 @@ MonoBehaviour:
   - tag: play
     str: "\xC1fram"
   - tag: music_on
-    str: "T\xF3nlist \xE1"
+    str: "T\xF3nlist \\n\xE1"
   - tag: music_off
-    str: "T\xF3nlist af"
+    str: "T\xF3nlist \\naf"
   - tag: guidance_on
-    str: "Handlei\xF0sla \xE1"
+    str: "Handlei\xF0sla \\n\xE1"
   - tag: guidance_off
-    str: "Handlei\xF0sla af"
+    str: "Handlei\xF0sla \\naf"
   - tag: settings
     str: Stillingar
   - tag: logout
     str: "Skr\xE1 \xFAt"
-  - tag: breath1
-    str: "Anda\xF0u og losa\xF0u um spennu"
   - tag: breath2
+    str: "Anda\xF0u og losa\xF0u um spennu"
+  - tag: breath1
     str: "Anda\xF0u"
   - tag: breath3
     str: "\xCD framlei\xF0slu"
-  - tag: move1
-    str: "Opna\xF0 fyrir j\xE1kv\xE6\xF0a orku "
   - tag: move2
+    str: "Opna\xF0 fyrir j\xE1kv\xE6\xF0a orku "
+  - tag: move1
     str: "Hreyf\xF0u \xFEig"
   - tag: move3
     str: "\xCD framlei\xF0slu"
-  - tag: letgo1
-    str: "Finndu innri styrk og \xE1r\xE6\xF0ni "
   - tag: letgo2
+    str: "Finndu innri styrk og \xE1r\xE6\xF0ni "
+  - tag: letgo1
     str: Slepptu takinu
   - tag: letgo3
     str: "\xCD framlei\xF0slu"
-  - tag: calm1
-    str: "Hugarr\xF3 fyrir sk\xFDrleika og skilning"
   - tag: calm2
+    str: "Hugarr\xF3 fyrir sk\xFDrleika og skilning"
+  - tag: calm1
     str: "Slaka\xF0u \xE1"
   - tag: calm3
     str: "\xCD framlei\xF0slu"
-  - tag: focus1
-    str: "Dj\xFAp \xEDhugun"
   - tag: focus2
+    str: "Dj\xFAp \xEDhugun"
+  - tag: focus1
     str: "N\xE1\xF0u einbeitingu"
   - tag: focus3
     str: "\xCD framlei\xF0slu"
-  - tag: restore1
-    str: "Dj\xFAp fri\xF0s\xE6ld"
   - tag: restore2
+    str: "Dj\xFAp fri\xF0s\xE6ld"
+  - tag: restore1
     str: "Endurn\xFDja\xF0u \xFEig"
   - tag: restore3
     str: "\xCD framlei\xF0slu"

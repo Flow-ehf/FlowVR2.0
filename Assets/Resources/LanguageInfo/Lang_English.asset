@@ -21,50 +21,50 @@ MonoBehaviour:
   - tag: play
     str: Play
   - tag: music_on
-    str: Music on
+    str: Music \non
   - tag: music_off
-    str: Music off
+    str: Music \noff
   - tag: guidance_on
-    str: Guidance on
+    str: Guidance \non
   - tag: guidance_off
-    str: Guidance off
+    str: Guidance \noff
   - tag: settings
     str: Settings
   - tag: logout
     str: Log out
-  - tag: breath1
-    str: Breathe to ease tension
   - tag: breath2
+    str: Breathe to ease tension
+  - tag: breath1
     str: Breathe
   - tag: breath3
     str: In production
-  - tag: move1
-    str: Open up for positive energy
   - tag: move2
+    str: Open up for positive energy
+  - tag: move1
     str: Move
   - tag: move3
     str: In production
-  - tag: letgo1
-    str: Find determination
   - tag: letgo2
+    str: Find determination
+  - tag: letgo1
     str: Let go
   - tag: letgo3
     str: In production
-  - tag: calm1
-    str: Calm for clarity
   - tag: calm2
+    str: Calm for clarity
+  - tag: calm1
     str: Calm
   - tag: calm3
     str: In production
-  - tag: focus1
-    str: Thinking in meditation
   - tag: focus2
+    str: Thinking in meditation
+  - tag: focus1
     str: Focus
   - tag: focus3
     str: In production
-  - tag: restore1
-    str: Deep peace
   - tag: restore2
+    str: Deep peace
+  - tag: restore1
     str: Restore
   - tag: restore3
     str: In production
