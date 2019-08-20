@@ -42,9 +42,10 @@ public class LevelSelectButton : MonoBehaviour
 	{
 #if UNITY_EDITOR || FLOWVR_UNLOCK_ALL_DLC
 		ProductOwned();
+
 #else
 		//Not dlc, unlock right away
-		if (productId == "" || LoginManager.currentUser.IsSubscribed || LoginManager.currentUser.IsCompanyUser)
+		if (productId == "" || LoginManager.currentUser.isSubscribed || LoginManager.currentUser.isCompanyAccount)
 			ProductOwned();
 		else
 			StartCoroutine(WaitCheckOwnership());
