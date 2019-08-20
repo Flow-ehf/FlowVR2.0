@@ -1132,44 +1132,8 @@ PrefabInstance:
       propertyPath: rayLineRenderer
       value: 
       objectReference: {fileID: 1256460652}
-    - target: {fileID: 8206836929756727825, guid: 5a7682c244a150b49965c007720bdbb7,
-        type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8206836929756727825, guid: 5a7682c244a150b49965c007720bdbb7,
-        type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].time
-      value: 0.001
-      objectReference: {fileID: 0}
-    - target: {fileID: 8206836929756727825, guid: 5a7682c244a150b49965c007720bdbb7,
-        type: 3}
-      propertyPath: m_Parameters.widthMultiplier
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 8206836929756727825, guid: 5a7682c244a150b49965c007720bdbb7,
-        type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8206836929756727825, guid: 5a7682c244a150b49965c007720bdbb7,
-        type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
-      value: 0.001
-      objectReference: {fileID: 0}
-    - target: {fileID: 8206836929756727825, guid: 5a7682c244a150b49965c007720bdbb7,
-        type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8206836929756727825, guid: 5a7682c244a150b49965c007720bdbb7,
-        type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].inWeight
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8206836929756727825, guid: 5a7682c244a150b49965c007720bdbb7,
-        type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].outWeight
+    - target: {fileID: 8579281019748986, guid: 5a7682c244a150b49965c007720bdbb7, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9167052891667392988, guid: 5a7682c244a150b49965c007720bdbb7,
@@ -1272,8 +1236,44 @@ PrefabInstance:
       propertyPath: ColorModule.gradient.maxGradient.key1.a
       value: 0.19607843
       objectReference: {fileID: 0}
-    - target: {fileID: 8579281019748986, guid: 5a7682c244a150b49965c007720bdbb7, type: 3}
-      propertyPath: m_Enabled
+    - target: {fileID: 8206836929756727825, guid: 5a7682c244a150b49965c007720bdbb7,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8206836929756727825, guid: 5a7682c244a150b49965c007720bdbb7,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].time
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8206836929756727825, guid: 5a7682c244a150b49965c007720bdbb7,
+        type: 3}
+      propertyPath: m_Parameters.widthMultiplier
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8206836929756727825, guid: 5a7682c244a150b49965c007720bdbb7,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8206836929756727825, guid: 5a7682c244a150b49965c007720bdbb7,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8206836929756727825, guid: 5a7682c244a150b49965c007720bdbb7,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8206836929756727825, guid: 5a7682c244a150b49965c007720bdbb7,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8206836929756727825, guid: 5a7682c244a150b49965c007720bdbb7,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].outWeight
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2102,7 +2102,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 275
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 0
     m_HorizontalOverflow: 1
@@ -2133,8 +2133,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -20, y: 2.5}
-  m_SizeDelta: {x: 40, y: -5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 900, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &499463134
 MonoBehaviour:
@@ -2486,8 +2486,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -20, y: 2.5}
-  m_SizeDelta: {x: 40, y: -5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 900, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &599345677
 GameObject:
@@ -2867,7 +2867,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 275
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 0
     m_HorizontalOverflow: 1
@@ -2898,8 +2898,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -20, y: 2.5}
-  m_SizeDelta: {x: 40, y: -5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 900, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &650969167
 GameObject:
@@ -3924,8 +3924,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 885562993}
   m_TextComponent: {fileID: 609213504}
   m_Placeholder: {fileID: 499463131}
-  m_ContentType: 7
-  m_InputType: 2
+  m_ContentType: 0
+  m_InputType: 0
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
@@ -4391,9 +4391,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc449404c6c4aed45b03b6b18dedf675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firsNameText: {fileID: 1215570727}
+  lastNameText: {fileID: 404482433}
   emailInput: {fileID: 477261754}
   password1Input: {fileID: 1420737144}
-  password2Input: {fileID: 1215570727}
+  password2Input: {fileID: 0}
   registrationFailedText: {fileID: 1942131828}
   RegistrationSuccess:
     m_PersistentCalls:
@@ -7025,7 +7027,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 275
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 0
     m_HorizontalOverflow: 1
@@ -7056,8 +7058,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -20, y: 2.5}
-  m_SizeDelta: {x: 40, y: -5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 900, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1809024957
 MonoBehaviour:

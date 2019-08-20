@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Button))]
-public class LoginUI : MonoBehaviour
+public class LoginUI : MonoBehaviour, ILoginDetails
 {
 	[SerializeField] LoginManager.LoginMethod loginMethod;
 	[SerializeField] Text platformText;
@@ -17,6 +17,11 @@ public class LoginUI : MonoBehaviour
 	Button button;
 	LoginManager.LoginBase login;
 	float errorTimestamp;
+
+	public string Username => nameInput.text;
+	public string Password => passwordInput.text;
+	public string FirstName => null;
+	public string LastName => null;
 
 	void Awake()
 	{
@@ -58,7 +63,7 @@ public class LoginUI : MonoBehaviour
 
 	void Update()
 	{
-		button.interactable = (login == null || login.IsInitialized) && !LoginManager.IsLoggedIn && !LoginManager.IsLoggingIn && ((login == null || !(login is LoginManager.IRequireLoginDetails)) || (EmailValid() && passwordInput != null && passwordInput.text.Length > 0));
+		button.interactable = (login == null || login.IsInitialized) && !LoginManager.IsLoggedIn && !LoginManager.IsLoggingIn && (EmailValid() && passwordInput != null && passwordInput.text.Length > 0);
 
 		if (errorText != null)
 		{
@@ -84,17 +89,10 @@ public class LoginUI : MonoBehaviour
 	{
 		if (login != null)
 		{
-			var loginDetails = login as LoginManager.IRequireLoginDetails;
-			if (loginDetails != null)
-			{
-				//Copy text to fix refs
-				loginDetails.LoginUserName = nameInput.text;
-				loginDetails.LoginPassword = passwordInput.text;
-
-				nameInput.text = "";
-				passwordInput.text = "";
-			}
+			login.LoginDetails = this;
 			login.Login();
+			nameInput.text = "";
+			passwordInput.text = "";
 		}
 		else
 		{

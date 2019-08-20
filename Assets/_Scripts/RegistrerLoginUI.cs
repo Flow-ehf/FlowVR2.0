@@ -5,24 +5,31 @@ using UnityEngine.UI;
 
 //Registrer with email
 [RequireComponent(typeof(Button))]
-public class RegistrerLoginUI : MonoBehaviour
+public class RegistrerLoginUI : MonoBehaviour, ILoginDetails
 {
 	const int MinPasswordLength = 1;
 
+	[SerializeField] InputField firsNameText;
+	[SerializeField] InputField lastNameText;
 	[SerializeField] InputField emailInput;
 	[SerializeField] InputField password1Input;
 	[SerializeField] InputField password2Input;
 	[SerializeField] Text registrationFailedText;
 	[SerializeField] UnityEngine.Events.UnityEvent RegistrationSuccess;
 
-	LoginManager.ICanRegistrer registrer;
+	ICanRegistrer registrer;
 	Coroutine fadeTextCoroutine;
 	Button registrerButton;
+
+	public string Username => emailInput.text;
+	public string Password => password1Input.text;
+	public string FirstName => firsNameText.text;
+	public string LastName => lastNameText.text;
 
 	// Start is called before the first frame update
 	void Start()
     {
-		registrer = LoginManager.GetLogin(LoginManager.LoginMethod.Email) as LoginManager.ICanRegistrer;
+		registrer = LoginManager.GetLogin(LoginManager.LoginMethod.Email) as ICanRegistrer;
 		registrer.RegistrationComplete += OnRegistrationComplete;
 
 		registrerButton = GetComponent<Button>();
@@ -54,14 +61,14 @@ public class RegistrerLoginUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		registrerButton.interactable = !LoginManager.IsLoggedIn && !LoginManager.IsLoggingIn && IsPasswordInputValid() && IsEmailInputValid();
+		registrerButton.interactable = !LoginManager.IsLoggedIn && !LoginManager.IsLoggingIn && IsPasswordInputValid() && IsEmailInputValid() && IsNameInputValid();
 	}
 
 
 	void Registrer()
 	{
 		if (IsEmailInputValid() && IsPasswordInputValid())
-			registrer.Registrer(emailInput.text, password1Input.text);
+			registrer.Registrer(this);
 	}
 
 
@@ -102,11 +109,11 @@ public class RegistrerLoginUI : MonoBehaviour
 	
 	bool IsPasswordInputValid()
 	{
-		if (password1Input == null || password2Input == null)
+		if (password1Input == null)
 			return false;
-		if (password1Input.text.Length + password2Input.text.Length < MinPasswordLength * 2)
+		if (password1Input.text.Length < MinPasswordLength)
 			return false;
-		if (password1Input.text != password1Input.text)
+		if(password2Input != null && password1Input.text != password1Input.text)
 			return false;
 		return true;
 	}
@@ -117,5 +124,12 @@ public class RegistrerLoginUI : MonoBehaviour
 		if (emailInput == null)
 			return false;
 		return AccountBackend.IsEmailFormat(emailInput.text);
+	}
+
+	bool IsNameInputValid()
+	{
+		if (firsNameText == null || lastNameText == null)
+			return true;
+		return firsNameText.text.Length > 0 && lastNameText.text.Length > 0;
 	}
 }

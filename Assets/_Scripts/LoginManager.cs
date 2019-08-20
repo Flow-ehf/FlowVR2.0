@@ -63,13 +63,17 @@ public class LoginManager : MonoBehaviour
 		fbLogin.Initialize();
 		googleLogin.Initialize();
 
-		currentUser = GetCachedUser();
+		currentUser = AccountCache.GetLastLogin();
+
 		//User logged in previously
 		if (currentUser != null)
 		{
 			//Already logged in to non company account, skip to menu
 			if (!currentUser.isCompanyAccount)
-				LevelLoader.LoadLevel("MainMenu");
+				LevelLoader.LoadLevel("MainMenu", false);
+			//Previously logged in to company account, show account selection
+			else if(AccountCache.GetCachedCompanyAccounts(currentUser.Company) > 1)
+				LevelLoader.LoadLevel("CompanyAccountSelection", false);
 		}
 	}
 
@@ -110,7 +114,10 @@ public class LoginManager : MonoBehaviour
 		AccountBackend.GetuserDetails(currentLogin.LoggedInEmail, (user) =>
 		{
 			currentUser = user;
-			OnFetchedUserData();
+			if (currentUser != null)
+				OnFetchedUserData();
+			else
+				OnlogginFailed();
 		});
 	}
 
@@ -121,6 +128,7 @@ public class LoginManager : MonoBehaviour
 
 		instance?.LoggedIn.Invoke();
 		LoginChanged?.Invoke(true);
+		AccountCache.AddToCache(currentUser);
 
 		bool firstLogin = PlayerPrefs.GetInt("HasLogin", 0) == 0;
 
@@ -146,6 +154,8 @@ public class LoginManager : MonoBehaviour
 		instance?.LoggedOut.Invoke();
 		LoginChanged?.Invoke(false);
 
+		AccountCache.RemoveFromCache(currentUser);
+
 		currentLogin = null;
 		currentUser = null;
 
@@ -155,19 +165,22 @@ public class LoginManager : MonoBehaviour
 	}
 
 
-	static AccountBackend.User GetCachedUser()
+	public static void LoginAsGuest()
 	{
-		return null;
+		var guestUser = new AccountBackend.User();
+		guestUser.isGuest = true;
+		guestUser.displayName = "Guest";
+		LoginAsUser(guestUser);
 	}
 
 
-	public static void LoginAsGuest()
+	public static void LoginAsUser(AccountBackend.User user)
 	{
-		if (!IsLoggedIn && !IsLoggingIn)
+		if (!IsLoggingIn)
 		{
-			currentUser = new AccountBackend.User();
-			currentUser.isGuest = true;
-			currentUser.displayName = "Guest";
+			if (IsLoggedIn)
+				Logout();
+			currentUser = user;
 			OnFetchedUserData();
 		}
 	}
@@ -179,6 +192,8 @@ public class LoginManager : MonoBehaviour
 		public abstract bool IsLoggedIn { get; }
 		public abstract string PlatformName { get; }
 		public abstract string LoggedInEmail { get; }
+
+		public ILoginDetails LoginDetails { protected get; set; }
 
 		public event Action Initalized;
 
@@ -196,7 +211,6 @@ public class LoginManager : MonoBehaviour
 
 			}
 		}
-
 
 		public void Logout()
 		{
@@ -231,7 +245,6 @@ public class LoginManager : MonoBehaviour
 		bool isInitialized;
 		GoogleSignInConfiguration configuration;
 		GoogleSignInUser loggedInUser;
-
 
 		public override void Initialize()
 		{
@@ -343,7 +356,7 @@ public class LoginManager : MonoBehaviour
 		}
 	}
 
-	class EmailLogin : LoginBase, IRequireLoginDetails, ICanRegistrer
+	class EmailLogin : LoginBase, ICanRegistrer
 	{
 		public override bool IsInitialized => true;
 		public override bool IsLoggedIn => currentUser != null;
@@ -352,9 +365,6 @@ public class LoginManager : MonoBehaviour
 
 		string email;
 		public override string LoggedInEmail => email;
-
-		public string LoginUserName { get; set; }
-		public string LoginPassword { get; set; }
 
 		public event Action<bool> RegistrationComplete;
 
@@ -366,9 +376,9 @@ public class LoginManager : MonoBehaviour
 
 		protected override void DoLogin()
 		{
-			if (LoginPassword != "" && LoginUserName != "")
+			if (LoginDetails != null)
 			{
-				AccountBackend.AuthenticateEmail(LoginUserName, LoginPassword, (user) =>
+				AccountBackend.AuthenticateEmail(LoginDetails.Username, LoginDetails.Password, (user) =>
 				{
 					if (user != null)
 					{
@@ -388,25 +398,26 @@ public class LoginManager : MonoBehaviour
 		}
 
 
-		public void Registrer(string username, string password)
+		public void Registrer(ILoginDetails details)
 		{
-			AccountBackend.RegistrerEmail(username, password, (u) =>
+			AccountBackend.RegistrerEmail(details.Username, details.Password, (u) =>
 			{
 				RegistrationComplete?.Invoke(u != null);
 			});
 		}
 	}
+}
 
+public interface ILoginDetails
+{
+	string Username { get; }
+	string Password { get; }
+	string FirstName { get; }
+	string LastName { get; }
+}
 
-	public interface IRequireLoginDetails
-	{
-		string LoginUserName { get; set; }
-		string LoginPassword { get; set; }
-	}
-
-	public interface ICanRegistrer
-	{
-		event Action<bool> RegistrationComplete;
-		void Registrer(string username, string password);
-	}
+public interface ICanRegistrer
+{
+	event Action<bool> RegistrationComplete;
+	void Registrer(ILoginDetails details);
 }

@@ -12,6 +12,18 @@ public static class Extensions
 	}
 
 
+	public static bool Exists<T>(this T[] array, System.Predicate<T> predicate)
+	{
+		return Array.Exists(array, predicate);
+	}
+
+
+	public static int IndexOf<T>(this T[] array, T element)
+	{
+		return Array.IndexOf(array, element);
+	}
+
+
 	public static T RandomElement<T>(this IList<T> list)
 	{
 		if (list.Count == 0)

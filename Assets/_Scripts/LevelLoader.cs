@@ -19,66 +19,87 @@ public class LevelLoader : MonoBehaviour
 	static LevelLoader instance;
 	public static string Level { get; private set; }
 	public static string LevelBeingLoaded { get; private set; }
+	public static bool IsLoading { get; private set; }
 
 
 	void Awake()
 	{
-		Level = SceneManager.GetActiveScene().name;
+		StartCoroutine(InitTransition());
 	}
 
-
-	IEnumerator Start()
+	IEnumerator InitTransition()
 	{
+		IsLoading = true;
+		Level = SceneManager.GetActiveScene().name;
+
 		Time.timeScale = 0;
 		AudioListener.volume = 0;
 		yield return new WaitForSecondsRealtime(1);
 		ScreenFade.instance.StartFade(FadeDuration, Color.clear);
 		yield return FadeVolumeIn(FadeDuration);
 		Time.timeScale = 1;
+		IsLoading = false;
+	}
+
+	public static void LoadLevel(string level, bool transition = true)
+	{
+		instance.StartCoroutine(WaitLoadLevel(level, transition));
 	}
 
 
-	public static void LoadLevel(string level)
+	static IEnumerator WaitLoadLevel(string level, bool transition)
 	{
-		instance.StartCoroutine(WaitLoadLevel(level));
-	}
+		if (IsLoading)
+			yield return new WaitUntil(() => !IsLoading);
 
-
-	static IEnumerator WaitLoadLevel(string level)
-	{
+		IsLoading = true;
 		LevelBeingLoaded = level;
 
 		Time.timeScale = 0;
-		//Fade to black
-		ScreenFade.instance.StartFade(FadeDuration, Color.black);
-		//Fade volume out
-		yield return FadeVolumeOut(FadeDuration);
+		if (transition)
+		{
+			ScreenFade.instance.StartFade(FadeDuration, Color.black);
+			yield return FadeVolumeOut(FadeDuration);
+		}
+		else
+		{
+			ScreenFade.instance.StartFade(0, Color.black);
+			AudioListener.volume = 0;
+		}
+
 		//Load loader scene
 		yield return SceneManager.LoadSceneAsync(LoaderScene);
-		//Fade in
-		ScreenFade.instance.StartFade(FadeDuration, Color.clear);
-		yield return new WaitForSecondsRealtime(FadeDuration);
-		//Begin load target scene
+		if (transition)
+		{
+			//Fade in
+			ScreenFade.instance.StartFade(FadeDuration, Color.clear);
+			yield return new WaitForSecondsRealtime(FadeDuration);
+			//Begin load target scene
+		}
 		var sceneLoad = SceneManager.LoadSceneAsync(level);
 		sceneLoad.allowSceneActivation = false;
 
-		var loadingBar = GameObject.FindGameObjectWithTag("LoadingBar")?.GetComponent<UnityEngine.UI.Image>();
-		//Loading scene shows for minimum 3 seconds
-		float duration = 0;
-
-		do
+		if (transition)
 		{
-			if (loadingBar != null)
+			var loadingBar = GameObject.FindGameObjectWithTag("LoadingBar")?.GetComponent<UnityEngine.UI.Image>();
+			//Loading scene shows for minimum 3 seconds
+			float duration = 0;
+
+			do
 			{
-				loadingBar.fillAmount = sceneLoad.progress / 0.9f;
+				if (loadingBar != null)
+				{
+					loadingBar.fillAmount = sceneLoad.progress / 0.9f;
+				}
+				duration += Time.unscaledDeltaTime;
+				yield return null;
 			}
-			duration += Time.unscaledDeltaTime;
-			yield return null;
+			while (sceneLoad.progress < 0.9f || duration < 3f);
+
+			//When target scene is loaded, fade to black
+			ScreenFade.instance.StartFade(FadeDuration, Color.black);
+			yield return new WaitForSecondsRealtime(1);
 		}
-		while (sceneLoad.progress < 0.9f || duration < 3f);
-		//When target scene is loaded, fade to black
-		ScreenFade.instance.StartFade(FadeDuration, Color.black);
-		yield return new WaitForSecondsRealtime(1);
 		//Activate target scene
 		sceneLoad.allowSceneActivation = true;
 		Level = level;
@@ -89,6 +110,7 @@ public class LevelLoader : MonoBehaviour
 		//Fade in volume 
 		yield return FadeVolumeIn(FadeDuration);
 		Time.timeScale = 1;
+		IsLoading = false;
 	}
 
 
