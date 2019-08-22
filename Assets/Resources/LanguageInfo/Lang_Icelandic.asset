@@ -203,3 +203,10 @@ MonoBehaviour:
     str: "\xE1"
   - tag: off
     str: af
+  - tag: login_menu_message
+    str: "Nota\xF0u \xF3keypis efni\xF0 okkar e\xF0a stofna\xF0u \\na\xF0gang \xED
+      s\xEDma appinu okkar til a\xF0 gerast \\n\xE1skrifandi og f\xE1 a\xF0gang a\xF0
+      \xF6llu \xFAtgefnu efni"
+  - tag: sales_menu_message
+    str: "Kauptu einstakar huglei\xF0slur e\xF0a  \\ngestu \xE1skrifandi \xED gengum
+      s\xEDma appi\xF0 \\nog f\xE1\xF0u a\xF0gang a\xF0 \xF6llu \xFAtgefnu efni"
