@@ -39,6 +39,7 @@ public static class MeditationAnalytics
 		public MeditationSessionDataPoint<bool> quitEarly;
 		public MeditationSessionDataPoint<bool> initialMusicEnabled;
 		public MeditationSessionDataPoint<bool> initialGuidanceEnabled;
+		public MeditationSessionDataPoint<string> hmdId;
 	}
 
 

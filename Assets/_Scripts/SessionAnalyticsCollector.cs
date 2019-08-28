@@ -9,12 +9,20 @@ public class SessionAnalyticsCollector : MonoBehaviour
     {
 		string lvl = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
 
+#if UNITY_EDITOR || UNITY_STANDALONE
+		string deviceId = "PC_" + SystemInfo.deviceUniqueIdentifier; //Unique per pc
+#elif UNITY_ANDROID
+		AndroidJavaObject jo = new AndroidJavaObject("android.os.Build");
+		string hmdId = jo.GetStatic<string>("SERIAL");
+#endif
+
 		MeditationAnalytics.MeditationSessionData data = new MeditationAnalytics.MeditationSessionData()
 		{
 			level = lvl,
 			selectedDuration = SessionSettings.Duration,
 			initialMusicEnabled = SessionSettings.PlayMusic,
 			initialGuidanceEnabled = SessionSettings.PlayGuidance,
+			hmdId = deviceId,
 		};
 		MeditationAnalytics.AddMeditationSession(data);
 

@@ -380,11 +380,14 @@ public class LoginManager : MonoBehaviour
 			{
 				AccountBackend.AuthenticateEmail(LoginDetails.Username, LoginDetails.Password, (user) =>
 				{
+					Debug.Log(user);
 					if (user != null)
 					{
 						email = user.email;
 						OnLoggedIn(this);
 					}
+					else
+						Debug.LogError("Failed to login user");
 				});
 			}
 			else

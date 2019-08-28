@@ -40,7 +40,7 @@ public class LevelSelectButton : MonoBehaviour
 
 	void OnEnable()
 	{
-#if UNITY_EDITOR || FLOWVR_UNLOCK_ALL_DLC
+#if FLOWVR_UNLOCK_ALL_DLC
 		ProductOwned();
 
 #else
@@ -103,7 +103,8 @@ public class LevelSelectButton : MonoBehaviour
 		}
 		else
 		{
-
+			BuyDLC_UI.targetDlcSKU = productId;
+			LevelLoader.LoadLevel("BuyDLC");
 		}
 	}
 

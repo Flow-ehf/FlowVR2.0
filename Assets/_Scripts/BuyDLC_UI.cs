@@ -15,9 +15,16 @@ public class BuyDLC_UI : MonoBehaviour
 
 	Dictionary<string, DLCButton> buttons = new Dictionary<string, DLCButton>();
 
+	public static string targetDlcSKU = "";
+
     // Start is called before the first frame update
     void Start()
     {
+		for (int i = container.childCount - 1; i >= 0; i--)
+		{
+			Destroy(container.GetChild(i).gameObject);
+		}
+
 		if (dlcSKUValues.Length > 0 && container != null && prefabOrTemplate != null)
 			IAP.GetProductsBySKU(dlcSKUValues).OnComplete(OnRetrievedProductList);
     }
@@ -62,6 +69,12 @@ public class BuyDLC_UI : MonoBehaviour
 			foreach (var dlc in result.GetPurchaseList())
 			{
 				UpdatePurchase(dlc.Sku);
+			}
+
+			if(targetDlcSKU != "")
+			{
+				Buy(buttons[targetDlcSKU]);
+				targetDlcSKU = "";
 			}
 		}
 	}

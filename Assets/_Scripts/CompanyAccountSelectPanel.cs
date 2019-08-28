@@ -37,6 +37,11 @@ public class CompanyAccountSelectPanel : MonoBehaviour
 				availableUsers.Add(cachedUser);
 		}
 
+		for (int i = content.childCount - 1; i >= 0; i--)
+		{
+			Destroy(content.GetChild(i).gameObject);
+		}
+
 		for (int i = 0; i < availableUsers.Count; i++)
 		{
 			AccountBackend.User user = availableUsers[i];

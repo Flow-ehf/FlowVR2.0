@@ -63,7 +63,7 @@ public class LoginUI : MonoBehaviour, ILoginDetails
 
 	void Update()
 	{
-		button.interactable = (login == null || login.IsInitialized) && !LoginManager.IsLoggedIn && !LoginManager.IsLoggingIn && (EmailValid() && passwordInput != null && passwordInput.text.Length > 0);
+		button.interactable = (login == null || login.IsInitialized) && !LoginManager.IsLoggedIn && !LoginManager.IsLoggingIn && EmailValid() && PasswordValid();
 
 		if (errorText != null)
 		{
@@ -104,11 +104,18 @@ public class LoginUI : MonoBehaviour, ILoginDetails
 	bool EmailValid()
 	{
 		if (nameInput == null)
-			return false;
+			return true;
 		if (!requireEmailFormat)
 			return nameInput.text.Length > 0;
 		else
 			return AccountBackend.IsEmailFormat(nameInput.text);
+	}
+
+	bool PasswordValid()
+	{
+		if (passwordInput == null)
+			return true;
+		return passwordInput.text.Length > 0;
 	}
 
 

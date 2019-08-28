@@ -29,12 +29,15 @@ public class AccountBackend : MonoBehaviour
 
 	static AccountBackend instance;
 
-	static IEnumerator BackendFunction<T>(string function, Dictionary<string,string> arguments, Action<string> callback) where T: Result, new()
+	static IEnumerator BackendFunction<T>(string function, WWWForm arguments, Action<string> callback) where T: Result, new()
 	{
 		Uri uri = new Uri(EndPoint + function);
 		using (UnityWebRequest request = UnityWebRequest.Post(uri, arguments))
 		{
+			Debug.Log($"[Backend] method '{function}' args '{arguments}' callback '{callback != null}'");
+
 			request.SetRequestHeader("Authorization", "Bearer " + Token);
+			request.timeout = 5;
 
 			yield return request.SendWebRequest();
 
@@ -62,11 +65,10 @@ public class AccountBackend : MonoBehaviour
 
 	public static IEnumerator WaitAuthenticateEmail(string email, string password, Action<User> callback)
 	{
-		Dictionary<string, string> args = new Dictionary<string, string>
-		{
-			["userEmail"] = email,
-			["userPassword"] = password,
-		};
+		WWWForm args = new WWWForm();
+		args.AddField("userEmail", email);
+		args.AddField("userPassword", password);
+
 		User user = null;
 		yield return BackendFunction<AuthResult>("authenticateUser", args, (json) =>
 		{
@@ -76,14 +78,17 @@ public class AccountBackend : MonoBehaviour
 
 			if (r.GetError() == null)
 			{
+				Debug.Log(r.user);
 				user = r.user;
 			}
 		});
+		Debug.Log(user);
 		if (user != null)
 			yield return WaitIsSubscribed(email, (subbed) =>
 			{
 				user.isSubscribed = subbed;
 			});
+		Debug.Log(user);
 		callback?.Invoke(user);
 	}
 
@@ -95,11 +100,10 @@ public class AccountBackend : MonoBehaviour
 
 	public static IEnumerator WaitIsRegistrered(string email, Action<bool> callback)
 	{
-		Dictionary<string, string> arg = new Dictionary<string, string>
-		{
-			["userEmail"] = email,
-		};
-		yield return BackendFunction<MethodResult>("isEmailRegistered", arg, (json) =>
+		WWWForm args = new WWWForm();
+		args.AddField("userEmail", email);
+
+		yield return BackendFunction<MethodResult>("isEmailRegistered", args, (json) =>
 		{
 			var r = new MethodResult();
 			JsonUtility.FromJsonOverwrite(json, r);
@@ -116,11 +120,10 @@ public class AccountBackend : MonoBehaviour
 
 	public static IEnumerator WaitIsSubscribed(string email, Action<bool> callback)
 	{
-		Dictionary<string, string> arg = new Dictionary<string, string>
-		{
-			["userEmail"] = email,
-		};
-		yield return BackendFunction<MethodResult>("isEmailSubscribed", arg, (json) =>
+		WWWForm args = new WWWForm();
+		args.AddField("userEmail", email);
+
+		yield return BackendFunction<MethodResult>("isEmailSubscribed", args, (json) =>
 		{
 			var r = new MethodResult();
 			JsonUtility.FromJsonOverwrite(json, r);
@@ -137,12 +140,11 @@ public class AccountBackend : MonoBehaviour
 
 	public static IEnumerator WaitGetUserDetails(string email, Action<User> callback)
 	{
-		Dictionary<string, string> arg = new Dictionary<string, string>
-		{
-			["userEmail"] = email,
-		};
+		WWWForm args = new WWWForm();
+		args.AddField("userEmail", email);
+
 		User user = null;
-		yield return BackendFunction<AuthResult>("getUserDetails", arg, (json) =>
+		yield return BackendFunction<AuthResult>("getUserDetails", args, (json) =>
 		{
 			var r = new AuthResult();
 			JsonUtility.FromJsonOverwrite(json, r);
@@ -166,11 +168,10 @@ public class AccountBackend : MonoBehaviour
 
 	public static IEnumerator WaitRegistrerEmail(string email, string password, Action<User> callback)
 	{
-		Dictionary<string, string> args = new Dictionary<string, string>
-		{
-			["userEmail"] = email,
-			["userPassword"] = password,
-		};
+		WWWForm args = new WWWForm();
+		args.AddField("userEmail", email);
+		args.AddField("userPassword", password);
+
 		yield return BackendFunction<AuthResult>("createUser", args, (result) =>
 		{
 			var r = new AuthResult();
@@ -348,7 +349,7 @@ public class AccountBackend : MonoBehaviour
 
 		public override Error GetError()
 		{
-			if (error.code == null || error.code == "")
+			if (error == null || error.code == null || error.code == "")
 				return null;
 			else
 				return error;
