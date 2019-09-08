@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class SessionSettingsUI : MonoBehaviour
 {
@@ -9,15 +10,17 @@ public class SessionSettingsUI : MonoBehaviour
 	[SerializeField] Toggle playGuidanceToggle;
 	[SerializeField] GameObject durationButtonTemplate;
 	[SerializeField] RectTransform durationContainer;
+	[Space]
+	[SerializeField] Material skyboxNomal;
+	[SerializeField] Material skyboxMeditation;
+	[SerializeField] VideoPlayer playerNormal;
+	[SerializeField] VideoPlayer playerMeditation;
 
 	UIPanel panel;
-
-	Material startSkybox;
 
 	void Awake()
 	{
 		panel = GetComponent<UIPanel>();
-		startSkybox = RenderSettings.skybox;
 	}
 
 
@@ -70,18 +73,21 @@ public class SessionSettingsUI : MonoBehaviour
     }
 
 
-	public void Open(Material targetSkybox)
+	public void Open(VideoClip targetSkybox)
 	{
 		StartCoroutine(WaitOpen(targetSkybox));
 	}
 
-	public IEnumerator WaitOpen(Material targetSkybox)
+	public IEnumerator WaitOpen(VideoClip targetClip)
 	{
 		panel.SetActive(true);
 
 		ScreenFade.instance.StartFade(1, Color.black);
 		yield return new WaitForSeconds(1);
-		RenderSettings.skybox = targetSkybox;
+		playerMeditation.clip = targetClip;
+		playerMeditation.enabled = true;
+		playerNormal.enabled = false;
+		RenderSettings.skybox = skyboxMeditation;
 		ScreenFade.instance.StartFade(1, Color.clear);
 	}
 
@@ -95,7 +101,9 @@ public class SessionSettingsUI : MonoBehaviour
 	{
 		ScreenFade.instance.StartFade(1, Color.black);
 		yield return new WaitForSeconds(1);
-		RenderSettings.skybox = startSkybox;
+		playerNormal.enabled = true;
+		playerMeditation.enabled = false;
+		RenderSettings.skybox = skyboxNomal;
 		ScreenFade.instance.StartFade(1, Color.clear);
 	}
 
@@ -118,6 +126,10 @@ public class SessionSettingsUI : MonoBehaviour
 
 	void OnDestroy()
 	{
-		RenderSettings.skybox = startSkybox;
+		if(playerNormal != null)
+			playerNormal.enabled = true;
+		if(playerMeditation != null)
+			playerMeditation.enabled = false;
+		RenderSettings.skybox = skyboxNomal;
 	}
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 public static class MeditationAnalytics
 {
@@ -23,7 +24,11 @@ public static class MeditationAnalytics
 
 	public static void AddMeditationSession(MeditationSessionData data)
 	{
-		meditationSessions.Add(data ?? new MeditationSessionData());
+		if (data != null)
+		{
+			meditationSessions.Add(data);
+			AnalyticsEvent.Custom("Session", data.ToDictionary());
+		}
 	}
 
     public struct PlaySessionData
@@ -40,6 +45,20 @@ public static class MeditationAnalytics
 		public MeditationSessionDataPoint<bool> initialMusicEnabled;
 		public MeditationSessionDataPoint<bool> initialGuidanceEnabled;
 		public MeditationSessionDataPoint<string> hmdId;
+
+		public Dictionary<string, object> ToDictionary()
+		{
+			return new Dictionary<string, object>
+			{
+				[nameof(level)] = level.data,
+				[nameof(selectedDuration)] = selectedDuration.data,
+				[nameof(playTime)] = playTime.data,
+				[nameof(quitEarly)] = quitEarly.data,
+				[nameof(initialGuidanceEnabled)] = initialGuidanceEnabled.data,
+				[nameof(initialMusicEnabled)] = initialMusicEnabled.data,
+				[nameof(hmdId)] = hmdId.data,
+			};
+		}
 	}
 
 
@@ -57,8 +76,7 @@ public static class MeditationAnalytics
 
 			this.timeStamp = System.DateTime.UtcNow;
 			this.playtime = Time.unscaledTime;
-		}
-
+		}	
 
 		public static implicit operator MeditationSessionDataPoint<T>(T data)
 		{

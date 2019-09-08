@@ -47,8 +47,9 @@ public class AccountBackend : MonoBehaviour
 				Debug.Log($"[Backend {function}] {request.downloadHandler.text} {uri}");
 
 				var result = new T();
-				JsonUtility.FromJsonOverwrite(request.downloadHandler.text, request);
+				JsonUtility.FromJsonOverwrite(request.downloadHandler.text, result);
 				result.method = Result.GetMethod(function);
+				Debug.Log(result.GetError());
 				Error?.Invoke(result);
 			}
 			var json = request.downloadHandler.text;

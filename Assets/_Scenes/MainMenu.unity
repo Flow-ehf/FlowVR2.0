@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.3949553, g: 0.43343368, b: 0.4630565, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -451,7 +451,7 @@ MonoBehaviour:
   level: LetGo1
   productId: 
   noAccessSprite: {fileID: 0}
-  skyboxMaterial: {fileID: 2100000, guid: d558e252b6a162e43b0e8c37bb2ab20f, type: 2}
+  skyboxClip: {fileID: 32900000, guid: c941b169412c51748936eab05c372f9c, type: 3}
 --- !u!114 &122978938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1616,7 +1616,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &213742945
 GameObject:
@@ -9179,7 +9179,7 @@ MonoBehaviour:
   level: LetGo2
   productId: unlock_2-3
   noAccessSprite: {fileID: 21300000, guid: 93194b5f0ccb4aa49a9d539305c63767, type: 3}
-  skyboxMaterial: {fileID: 2100000, guid: 3dd693e4a25d9434485e3f1f5c1135ee, type: 2}
+  skyboxClip: {fileID: 32900000, guid: c941b169412c51748936eab05c372f9c, type: 3}
 --- !u!114 &720120712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9300,6 +9300,71 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &725867369
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 725867371}
+  - component: {fileID: 725867370}
+  m_Layer: 0
+  m_Name: VideoMeditation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!328 &725867370
+VideoPlayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725867369}
+  m_Enabled: 0
+  m_VideoClip: {fileID: 0}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera3DLayout: 0
+  m_TargetCamera: {fileID: 0}
+  m_TargetTexture: {fileID: 8400000, guid: 0677c3b7e6241de479fe24eb27d07feb, type: 2}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: _MainTex
+  m_RenderMode: 2
+  m_AspectRatio: 2
+  m_DataSource: 0
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 2
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 1
+  m_Url: 
+  m_EnabledAudioTracks: 01
+  m_DirectAudioMutes: 00
+  m_ControlledAudioTrackCount: 1
+  m_PlayOnAwake: 1
+  m_SkipOnDrop: 1
+  m_Looping: 1
+  m_WaitForFirstFrame: 1
+  m_FrameReadyEventEnabled: 0
+--- !u!4 &725867371
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725867369}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.234503, y: -2.42109, z: 146.84375}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &743766513
 GameObject:
   m_ObjectHideFlags: 0
@@ -9511,7 +9576,7 @@ MonoBehaviour:
   level: Calm3
   productId: 
   noAccessSprite: {fileID: 0}
-  skyboxMaterial: {fileID: 2100000, guid: cb0278a9d0b5e564cb8ab8eb896345f9, type: 2}
+  skyboxClip: {fileID: 0}
 --- !u!114 &760275447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10091,7 +10156,7 @@ MonoBehaviour:
   level: Breath3
   productId: 
   noAccessSprite: {fileID: 0}
-  skyboxMaterial: {fileID: 2100000, guid: 4fcf7585f16a6034faf4dc6f800a3c24, type: 2}
+  skyboxClip: {fileID: 0}
 --- !u!114 &814072574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10454,7 +10519,7 @@ MonoBehaviour:
   level: Restore1
   productId: 
   noAccessSprite: {fileID: 0}
-  skyboxMaterial: {fileID: 2100000, guid: be4093ea40e746a4bb86bc2304bca862, type: 2}
+  skyboxClip: {fileID: 32900000, guid: ce11836a03b27a14da99f118cacb952d, type: 3}
 --- !u!114 &843550064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10756,7 +10821,7 @@ MonoBehaviour:
   level: Restore2
   productId: unlock_2-6
   noAccessSprite: {fileID: 21300000, guid: dc0fcf621e03cb64e8c5b8bd2c5238c1, type: 3}
-  skyboxMaterial: {fileID: 2100000, guid: 66caee76bf8e73e4eabeacb973c4d347, type: 2}
+  skyboxClip: {fileID: 32900000, guid: ce11836a03b27a14da99f118cacb952d, type: 3}
 --- !u!114 &924518258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11273,7 +11338,7 @@ MonoBehaviour:
   level: Focus1
   productId: 
   noAccessSprite: {fileID: 0}
-  skyboxMaterial: {fileID: 2100000, guid: 2e76b59fce9565c45a12b13e8e79051d, type: 2}
+  skyboxClip: {fileID: 32900000, guid: b5686a2b3e0c2e447b9aa50aa108f63f, type: 3}
 --- !u!114 &960451667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11451,7 +11516,7 @@ MonoBehaviour:
   level: Restore3
   productId: 
   noAccessSprite: {fileID: 0}
-  skyboxMaterial: {fileID: 2100000, guid: 907fd6626c705ea41af871a98713721b, type: 2}
+  skyboxClip: {fileID: 0}
 --- !u!114 &971297510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12292,7 +12357,7 @@ MonoBehaviour:
   level: Breath2
   productId: unlock_2-1
   noAccessSprite: {fileID: 21300000, guid: cc2e9ed6660feca42bc8688e44367f79, type: 3}
-  skyboxMaterial: {fileID: 2100000, guid: 83ae2173410dad14da140c212dc6df8b, type: 2}
+  skyboxClip: {fileID: 32900000, guid: 6c2de1b4dbb9cfc4e9a1728b6de56f14, type: 3}
 --- !u!114 &1062575189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12635,7 +12700,7 @@ MonoBehaviour:
   level: Move1
   productId: 
   noAccessSprite: {fileID: 0}
-  skyboxMaterial: {fileID: 2100000, guid: a844b128caa732041bd9ab9fecc9c862, type: 2}
+  skyboxClip: {fileID: 32900000, guid: ecadb194c609a81449c3f1a5423457eb, type: 3}
 --- !u!114 &1136430957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13575,7 +13640,7 @@ MonoBehaviour:
   level: Calm2
   productId: unlock_2-4
   noAccessSprite: {fileID: 21300000, guid: 175a9f7d9c3586c45bdd3b900f9cd915, type: 3}
-  skyboxMaterial: {fileID: 2100000, guid: 5bdf273266bd4a542a5ebf67416783b1, type: 2}
+  skyboxClip: {fileID: 32900000, guid: 42aa2f2ba54231f4c9834704c250673a, type: 3}
 --- !u!114 &1209419068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14759,7 +14824,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1425305750
 GameObject:
@@ -14802,7 +14867,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1434036540
 GameObject:
@@ -15089,6 +15154,10 @@ MonoBehaviour:
   playGuidanceToggle: {fileID: 1140098698}
   durationButtonTemplate: {fileID: 550014308}
   durationContainer: {fileID: 1095965599}
+  skyboxNomal: {fileID: 2100000, guid: 968582bcfa54e9a48932409a31ec7d0f, type: 2}
+  skyboxMeditation: {fileID: 2100000, guid: 9af12e0322dcbc649bbdecc867870549, type: 2}
+  playerNormal: {fileID: 1151187571}
+  playerMeditation: {fileID: 725867370}
 --- !u!225 &1446219068
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -15822,7 +15891,7 @@ MonoBehaviour:
   level: Calm1
   productId: 
   noAccessSprite: {fileID: 0}
-  skyboxMaterial: {fileID: 2100000, guid: 0452c9288968735409cdd31437bb0a99, type: 2}
+  skyboxClip: {fileID: 32900000, guid: 42aa2f2ba54231f4c9834704c250673a, type: 3}
 --- !u!114 &1626644070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16177,7 +16246,7 @@ MonoBehaviour:
   level: Move2
   productId: unlock_2-2
   noAccessSprite: {fileID: 21300000, guid: ef8bee4e00b5b33478372c4a36755ce4, type: 3}
-  skyboxMaterial: {fileID: 2100000, guid: 21fcf6cd3479ade4c88603286954257e, type: 2}
+  skyboxClip: {fileID: 32900000, guid: ecadb194c609a81449c3f1a5423457eb, type: 3}
 --- !u!114 &1684206465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16355,7 +16424,7 @@ MonoBehaviour:
   level: Move3
   productId: 
   noAccessSprite: {fileID: 0}
-  skyboxMaterial: {fileID: 2100000, guid: 140d81777ce51d249b7eef0487c3dd5f, type: 2}
+  skyboxClip: {fileID: 0}
 --- !u!114 &1704073841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16774,7 +16843,7 @@ MonoBehaviour:
   level: LetGo3
   productId: 
   noAccessSprite: {fileID: 0}
-  skyboxMaterial: {fileID: 2100000, guid: fafa2d7d42f6443489bd7c293fe22402, type: 2}
+  skyboxClip: {fileID: 0}
 --- !u!114 &1804007682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16953,7 +17022,7 @@ MonoBehaviour:
   level: Breath1
   productId: 
   noAccessSprite: {fileID: 0}
-  skyboxMaterial: {fileID: 2100000, guid: 3983b7ace23c4774092d7745a7d65978, type: 2}
+  skyboxClip: {fileID: 32900000, guid: 6c2de1b4dbb9cfc4e9a1728b6de56f14, type: 3}
 --- !u!114 &1830169239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17435,7 +17504,7 @@ MonoBehaviour:
   level: Focus2
   productId: unlock_2-5
   noAccessSprite: {fileID: 21300000, guid: c6139dd9d2f0d8f45b3ccea29a0abcca, type: 3}
-  skyboxMaterial: {fileID: 2100000, guid: a93bf7ff17d1b524aa11210fd314c66d, type: 2}
+  skyboxClip: {fileID: 32900000, guid: b5686a2b3e0c2e447b9aa50aa108f63f, type: 3}
 --- !u!114 &1903751934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17922,7 +17991,7 @@ MonoBehaviour:
   level: Focus3
   productId: 
   noAccessSprite: {fileID: 0}
-  skyboxMaterial: {fileID: 2100000, guid: b6d85cf920dee6c42be474a1ed8d6c19, type: 2}
+  skyboxClip: {fileID: 0}
 --- !u!114 &1940056308
 MonoBehaviour:
   m_ObjectHideFlags: 0

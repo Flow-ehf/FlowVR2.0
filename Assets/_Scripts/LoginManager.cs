@@ -68,6 +68,8 @@ public class LoginManager : MonoBehaviour
 		//User logged in previously
 		if (currentUser != null)
 		{
+			Debug.Log("Found cached login: " + currentUser);
+
 			//Already logged in to non company account, skip to menu
 			if (!currentUser.isCompanyAccount)
 				LevelLoader.LoadLevel("MainMenu", false);

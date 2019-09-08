@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 using Oculus.Platform;
 using Oculus.Platform.Models;
 
@@ -14,7 +15,7 @@ public class LevelSelectButton : MonoBehaviour
 	[SerializeField] string level;
 	[SerializeField] string productId;
 	[SerializeField] Sprite noAccessSprite;
-	[SerializeField] Material skyboxMaterial;
+	[SerializeField] VideoClip skyboxClip;
 
 	Image image;
 	Button button;
@@ -98,7 +99,7 @@ public class LevelSelectButton : MonoBehaviour
 			if (targetButton != null && session != null)
 			{
 				targetButton.SetTargetLevel(level);
-				session.Open(skyboxMaterial);
+				session.Open(skyboxClip);
 			}
 		}
 		else
