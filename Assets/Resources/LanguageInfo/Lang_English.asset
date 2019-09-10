@@ -198,8 +198,8 @@ MonoBehaviour:
   - tag: off
     str: off
   - tag: login_menu_message
-    str: Try our free content or use the mobile app\nto create an account and subscribe
-      to\nget access to all our premium content
+    str: Use the Flow mobile app*\nto subscribe and get access to\nall current and
+      future premium\ncontent for a monthly fee\n\n*available on android and iOS
   - tag: sales_menu_message
     str: Buy individual meditations \nor use the mobile app to subscribe \nand get
       access to all premium content
