@@ -65,7 +65,7 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _ImageType: 0
-    - _Layout: 2
+    - _Layout: 0
     - _Mapping: 1
     - _Metallic: 0
     - _MirrorOnBack: 0

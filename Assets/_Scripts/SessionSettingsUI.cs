@@ -44,13 +44,13 @@ public class SessionSettingsUI : MonoBehaviour
 				group = durationContainer.gameObject.AddComponent<ToggleGroup>();
 			group.allowSwitchOff = false;
 
-			float yPos = 0;
+			float xPos = 0;
 			for (int i = 0; i < SessionSettings.AvailableDurations.Length; i++)
 			{
 				int min = SessionSettings.AvailableDurations[i] / 60;
 				RectTransform rectTrans = Instantiate(durationButtonTemplate).GetComponent<RectTransform>();
 				rectTrans.SetParent(durationContainer, false);
-				rectTrans.anchoredPosition = new Vector2(0, -yPos);
+				rectTrans.anchoredPosition = new Vector2(xPos, 0);
 				Text text = rectTrans.GetComponentInChildren<Text>();
 				if (text != null)
 					text.text = min + " \nmin";
@@ -66,7 +66,7 @@ public class SessionSettingsUI : MonoBehaviour
 					});
 					toggle.group = group;
 				}
-				yPos += rectTrans.sizeDelta.y;
+				xPos += (rectTrans.sizeDelta.x + 30);
 			}
 			durationButtonTemplate.SetActive(false);
 		}
