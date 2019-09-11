@@ -33,7 +33,7 @@ public class CompanyAccountSelectPanel : MonoBehaviour
 		for (int i = 0; i < AccountCache.Count; i++)
 		{
 			var cachedUser = AccountCache.GetLoginAtIndex(i);
-			if (cachedUser.uid != LoginManager.currentUser.uid && cachedUser.Company == LoginManager.currentUser.Company)
+			if (cachedUser.uid != LoginManager.currentUser.uid)
 				availableUsers.Add(cachedUser);
 		}
 

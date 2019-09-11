@@ -41,18 +41,6 @@ public static class AccountCache
 		return cache.users[index];
 	}
 
-	public static int GetCachedCompanyAccounts(string company)
-	{
-		company = company.ToLower();
-		int count = 0;
-		for (int i = 0; i < Count; i++)
-		{
-			if (cache.users[i].company.ToLower() == company)
-				count++;
-		}
-		return count;
-	}
-
 	public static AccountBackend.User GetLoginAtIndex(int index)
 	{
 		if (index < 0 || index >= Count)

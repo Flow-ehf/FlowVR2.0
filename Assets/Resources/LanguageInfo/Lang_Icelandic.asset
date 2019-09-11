@@ -32,11 +32,11 @@ MonoBehaviour:
     str: Stillingar
   - tag: logout
     str: "Skr\xE1 \xFAt"
-  - tag: breath2
+  - tag: breathe2
     str: "Anda\xF0u og losa\xF0u um spennu"
-  - tag: breath1
+  - tag: breathe1
     str: "Anda\xF0u"
-  - tag: breath3
+  - tag: breathe3
     str: "\xCD framlei\xF0slu"
   - tag: move2
     str: "Opna\xF0 fyrir j\xE1kv\xE6\xF0a orku "

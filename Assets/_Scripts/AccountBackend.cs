@@ -189,21 +189,16 @@ public class AccountBackend : MonoBehaviour
 	public class User
 	{
 		public bool isSubscribed;
-		public bool isCompanyAccount;
 		public bool isGuest;
 		public long lastLoginAt;
 		public string displayName;
 		public string email;
 		public string uid;
 		public string photoUrl;
-		public string company;
-
-		//In case api name is different
-		public string Company => company;
 
 		public override string ToString()
 		{
-			return $"subscribed: {isSubscribed}. company: {isCompanyAccount}. email {email}. uid {uid}.";
+			return $"subscribed: {isSubscribed}. email {email}. uid {uid}.";
 		}
 	}
 

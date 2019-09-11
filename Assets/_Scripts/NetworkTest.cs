@@ -9,19 +9,19 @@ public class NetworkTest : MonoBehaviour
 	[ContextMenu("TestIsReg")]
 	void Test4()
 	{
-		AccountBackend.IsRegistrered("a@abc.com", (registrered) => Debug.Log("Reg " + registrered));
+		AccountBackend.IsRegistrered("jo_harald@hotmail.com", (registrered) => Debug.Log("Reg " + registrered));
 	}
 
 	[ContextMenu("TestIsSubbed")]
 	void Test5()
 	{
-		AccountBackend.IsSubscribed("a@abc.com", (subbed) => Debug.Log("Subbed " + subbed));
+		AccountBackend.IsSubscribed("jo_harald@hotmail.com", (subbed) => Debug.Log("Subbed " + subbed));
 	}
 
 	[ContextMenu("TestUserDetails")]
 	void Test1()
 	{
-		AccountBackend.GetuserDetails("a@abc.com", (user) => Debug.Log(user));
+		AccountBackend.GetuserDetails("jo_harald@hotmail.com", (user) => Debug.Log(user));
 	}
 
 	[ContextMenu("TestUserDetails2")]
@@ -33,7 +33,7 @@ public class NetworkTest : MonoBehaviour
 	[ContextMenu("TestLogin")]
 	void Test2()
 	{
-		AccountBackend.AuthenticateEmail("a@abc.com", "password123", (user) => Debug.Log(user));
+		AccountBackend.AuthenticateEmail("jo_harald@hotmail.com", "No11235813", (user) => Debug.Log(user));
 	}
 
 	[ContextMenu("TestCreate")]

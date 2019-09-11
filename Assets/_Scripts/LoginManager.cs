@@ -70,12 +70,11 @@ public class LoginManager : MonoBehaviour
 		{
 			Debug.Log("Found cached login: " + currentUser);
 
-			//Already logged in to non company account, skip to menu
-			if (!currentUser.isCompanyAccount)
-				LevelLoader.LoadLevel("MainMenu", false);
 			//Previously logged in to company account, show account selection
-			else if(AccountCache.GetCachedCompanyAccounts(currentUser.Company) > 1)
+			if(currentUser.isSubscribed && AccountCache.Count > 1)
 				LevelLoader.LoadLevel("CompanyAccountSelection", false);
+			else
+				LevelLoader.LoadLevel("MainMenu", false);
 		}
 	}
 
@@ -136,8 +135,10 @@ public class LoginManager : MonoBehaviour
 
 		PlayerPrefs.SetInt("HasLogin", 1);
 
-		if (firstLogin && !currentUser.isSubscribed && !currentUser.isGuest && !currentUser.isCompanyAccount)
+		if (firstLogin && !currentUser.isSubscribed && !currentUser.isGuest)
 			LevelLoader.LoadLevel("BuySubscription");
+		else if(AccountCache.Count > 1 && currentUser.isSubscribed)
+			LevelLoader.LoadLevel("CompanyAccountSelection", false);
 		else
 			LevelLoader.LoadLevel("MainMenu");
 	}

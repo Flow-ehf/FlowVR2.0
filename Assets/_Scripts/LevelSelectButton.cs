@@ -46,7 +46,7 @@ public class LevelSelectButton : MonoBehaviour
 
 #else
 		//Not dlc, unlock right away
-		if (productId == "" || LoginManager.currentUser.isSubscribed || LoginManager.currentUser.isCompanyAccount)
+		if (productId == "" || LoginManager.currentUser.isSubscribed)
 			ProductOwned();
 		else
 			StartCoroutine(WaitCheckOwnership());

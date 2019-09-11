@@ -32,11 +32,11 @@ MonoBehaviour:
     str: Settings
   - tag: logout
     str: Log out
-  - tag: breath2
+  - tag: breathe2
     str: Breathe to ease tension
-  - tag: breath1
+  - tag: breathe1
     str: Breathe
-  - tag: breath3
+  - tag: breathe3
     str: In production
   - tag: move2
     str: Open up for positive energy
@@ -83,12 +83,12 @@ MonoBehaviour:
   - tag: restore1_desc
     str: 'In the midst of fast paced, modern existence it is important to relax into
       deep peace for restorative healing of body and mind. '
-  - tag: breath1_desc
+  - tag: breathe1_desc
     str: Learn how to use your breath to overcome obstacles like stress, worry or
       tension in interpersonal relationships
-  - tag: breath2_desc
+  - tag: breathe2_desc
     str: Learn to breathe with awareness is the foundation of Flow meditation
-  - tag: breath3_desc
+  - tag: breathe3_desc
     str: breath3_desc
   - tag: move1_desc
     str: Moving the body, while opening the mind and heart is the doorway to positive
