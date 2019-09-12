@@ -204,9 +204,9 @@ MonoBehaviour:
   - tag: off
     str: af
   - tag: login_menu_message
-    str: "Nota\xF0u Flow s\xEDma aooi\xF0*\\ntil a\xF0 gerast \xE1skrifandi og f\xE1
+    str: "Nota\xF0u Flow s\xEDma appi\xF0*\\ntil a\xF0 gerast \xE1skrifandi og f\xE1
       a\xF0gang a\xF0\\n\xF6llu \xFAtgefnu og framt\xED\xF0ar\\nefni fyrir fast ver\xF0
       m\xE1na\xF0arlega\\n\\n*fyrir android og iOS"
   - tag: sales_menu_message
-    str: "Kauptu einstakar huglei\xF0slur e\xF0a  \\ngestu \xE1skrifandi \xED gengum
-      s\xEDma appi\xF0 \\nog f\xE1\xF0u a\xF0gang a\xF0 \xF6llu \xFAtgefnu efni"
+    str: "Nota\xF0u Flow appi\xF0 til a\xF0 gerast \xE1skrifandi\\nog f\xE1 a\xF0gang
+      a\xF0 \xF6llu \xFAtgefnu efni"
