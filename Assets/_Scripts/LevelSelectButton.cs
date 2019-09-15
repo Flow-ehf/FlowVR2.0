@@ -15,7 +15,8 @@ public class LevelSelectButton : MonoBehaviour
 	[SerializeField] string level;
 	[SerializeField] string productId;
 	[SerializeField] Sprite noAccessSprite;
-	[SerializeField] VideoClip skyboxClip;
+	[SerializeField] Material skyboxMat;
+	[SerializeField] VideoClip meditationClip;
 
 	Image image;
 	Button button;
@@ -99,7 +100,7 @@ public class LevelSelectButton : MonoBehaviour
 			if (targetButton != null && session != null)
 			{
 				targetButton.SetTargetLevel(level);
-				session.Open(skyboxClip);
+				session.Open(skyboxMat, meditationClip);
 			}
 		}
 		else

@@ -11,11 +11,10 @@ public class SessionSettingsUI : MonoBehaviour
 	[SerializeField] GameObject durationButtonTemplate;
 	[SerializeField] RectTransform durationContainer;
 	[Space]
-	[SerializeField] Material skyboxNomal;
-	[SerializeField] Material skyboxMeditation;
-	[SerializeField] VideoPlayer playerNormal;
-	[SerializeField] VideoPlayer playerMeditation;
+	[SerializeField] VideoPlayer player;
 
+	Material defaultSkybox;
+	VideoClip defaultClip;
 	UIPanel panel;
 
 	void Awake()
@@ -27,6 +26,9 @@ public class SessionSettingsUI : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
+		defaultSkybox = RenderSettings.skybox;
+		defaultClip = player.clip;
+
 		if(playMusicToggle != null)
 		{
 			playMusicToggle.isOn = SessionSettings.PlayMusic;
@@ -73,21 +75,20 @@ public class SessionSettingsUI : MonoBehaviour
     }
 
 
-	public void Open(VideoClip targetSkybox)
+	public void Open(Material targetMateial, VideoClip targetClip)
 	{
-		StartCoroutine(WaitOpen(targetSkybox));
+		StartCoroutine(WaitOpen(targetMateial, targetClip));
 	}
 
-	public IEnumerator WaitOpen(VideoClip targetClip)
+	public IEnumerator WaitOpen(Material targetMaterial, VideoClip targetClip)
 	{
 		panel.SetActive(true);
 
 		ScreenFade.instance.StartFade(1, Color.black);
 		yield return new WaitForSeconds(1);
-		playerMeditation.clip = targetClip;
-		playerMeditation.enabled = true;
-		playerNormal.enabled = false;
-		RenderSettings.skybox = skyboxMeditation;
+		player.clip = targetClip;
+		player.targetTexture = targetMaterial.mainTexture as RenderTexture;
+		RenderSettings.skybox = targetMaterial;
 		ScreenFade.instance.StartFade(1, Color.clear);
 	}
 
@@ -101,9 +102,9 @@ public class SessionSettingsUI : MonoBehaviour
 	{
 		ScreenFade.instance.StartFade(1, Color.black);
 		yield return new WaitForSeconds(1);
-		playerNormal.enabled = true;
-		playerMeditation.enabled = false;
-		RenderSettings.skybox = skyboxNomal;
+		player.clip = defaultClip;
+		player.targetTexture = defaultSkybox.mainTexture as RenderTexture;
+		RenderSettings.skybox = defaultSkybox;
 		ScreenFade.instance.StartFade(1, Color.clear);
 	}
 
@@ -126,10 +127,6 @@ public class SessionSettingsUI : MonoBehaviour
 
 	void OnDestroy()
 	{
-		if(playerNormal != null)
-			playerNormal.enabled = true;
-		if(playerMeditation != null)
-			playerMeditation.enabled = false;
-		RenderSettings.skybox = skyboxNomal;
+		RenderSettings.skybox = defaultSkybox;
 	}
 }
