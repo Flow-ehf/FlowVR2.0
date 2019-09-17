@@ -703,7 +703,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!114 &834964674 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8246622265117636144, guid: 379750b7604f95743abbe800c841bfc1,
+  m_CorrespondingSourceObject: {fileID: 6291239371493665288, guid: 379750b7604f95743abbe800c841bfc1,
     type: 3}
   m_PrefabInstance: {fileID: 834964672}
   m_PrefabAsset: {fileID: 0}
@@ -749,6 +749,18 @@ MonoBehaviour:
   m_Script: {fileID: 2109663825, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &834964678 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3194958206390039951, guid: 379750b7604f95743abbe800c841bfc1,
+    type: 3}
+  m_PrefabInstance: {fileID: 834964672}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1300345130
 GameObject:
   m_ObjectHideFlags: 0
@@ -780,7 +792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 0}
-  pauseButton: {fileID: 0}
+  pauseButton: {fileID: 834964678}
   resumeButton: {fileID: 834964674}
   muteMusicButton: {fileID: 834964677}
   muteGuidanceButton: {fileID: 834964676}

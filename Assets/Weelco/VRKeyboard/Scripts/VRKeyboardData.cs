@@ -17,7 +17,7 @@ namespace Weelco.VRKeyboard {
             "q","w","e","r","t","y","u","i","o","p",
             SYM,"a","s","d","f","g","h","j","k","l",
             UP,"z","x","c","v","b","n","m",BACK,
-            ".com","@"," ",".",ENTER
+            ".com","@","space",".",ENTER
         };
 
         public static readonly string[] allLettersUppercase = new string[]
@@ -26,7 +26,7 @@ namespace Weelco.VRKeyboard {
             "Q","W","E","R","T","Y","U","I","O","P",
             SYM,"A","S","D","F","G","H","J","K","L",
             LOW,"Z","X","C","V","B","N","M",BACK,
-            ".com","@"," ",".",ENTER
+            ".com","@","space",".",ENTER
         };
 
         public static readonly string[] allSpecials = new string[]
@@ -35,7 +35,7 @@ namespace Weelco.VRKeyboard {
             "!","~","#","$","%","^","&","*","(",")",
             ABC,"-","_","+","=","\\",";",":","'","\"",
             "№","{","}","<",">",",","/","?",BACK,
-            ".com","@"," ",".",ENTER
+            ".com","@","space",".",ENTER
         };
     }
 }

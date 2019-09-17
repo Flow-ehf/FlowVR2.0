@@ -68,7 +68,7 @@ public class SessionSettingsUI : MonoBehaviour
 					});
 					toggle.group = group;
 				}
-				xPos += (rectTrans.sizeDelta.x + 30);
+				xPos += (rectTrans.sizeDelta.x - 10);
 			}
 			durationButtonTemplate.SetActive(false);
 		}
