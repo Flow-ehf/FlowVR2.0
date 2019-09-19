@@ -11,12 +11,14 @@ TrueTypeFontImporter:
   fontName: Agenda
   fontNames:
   - Agenda
-  fallbackFontReferences: []
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 71e3e325b056967408aa9562d735714a, type: 3}
+  - {fileID: 12800000, guid: 470375f8cd4d9804ba70d01b6037fbf2, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
   useLegacyBoundsCalculation: 0
-  shouldRoundAdvanceValue: 1
+  shouldRoundAdvanceValue: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

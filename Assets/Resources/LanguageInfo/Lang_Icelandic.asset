@@ -204,12 +204,12 @@ MonoBehaviour:
   - tag: off
     str: af
   - tag: login_menu_message
-    str: "Nota\xF0u Flow s\xEDma appi\xF0*\\ntil a\xF0 gerast \xE1skrifandi og f\xE1
-      a\xF0gang a\xF0\\n\xF6llu \xFAtgefnu og framt\xED\xF0ar\\nefni fyrir fast ver\xF0
+    str: "Nota\xF0u Flow s\xEDma appi\xF0* til a\xF0 gerast \xE1skrifandi og f\xE1
+      a\xF0gang a\xF0 \xF6llu \xFAtgefnu og framt\xED\xF0ar efni fyrir fast ver\xF0
       m\xE1na\xF0arlega\\n\\n*fyrir android og iOS"
   - tag: profound_quote_7
     str: "\xDE\xFA f\xE6r\xF0 meira \xFAt \xFAr Flow me\xF0 \xFEv\xED a\xF0 nota nokkrar
       mismunandi huglei\xF0slur \xED hvert skipti"
   - tag: sales_menu_message
-    str: "Nota\xF0u Flow appi\xF0 til a\xF0 gerast \xE1skrifandi\\nog f\xE1 a\xF0gang
+    str: "Nota\xF0u Flow appi\xF0 til a\xF0 gerast \xE1skrifandi og f\xE1 a\xF0gang
       a\xF0 \xF6llu \xFAtgefnu efni"
