@@ -140,39 +140,39 @@ MonoBehaviour:
   - tag: profound_quote_6
     str: Relaxing and resting more deeply is an essential key to well being
   - tag: breathe_1_location
-    str: "Sn\xE6fellsnes cove"
+    str: "Sn\xE6fellsnes"
   - tag: breathe_2_location
-    str: location
+    str: Kleifarvatn
   - tag: breathe_3_location
     str: location
   - tag: move_1_location
-    str: "\xDEingvellir waterfall"
+    str: "\xDEingvellir"
   - tag: move_2_location
-    str: location
+    str: Hveradalir
   - tag: move_3_location
     str: location
   - tag: letgo_1_location
-    str: Glymur waterfall
+    str: Glymur
   - tag: letgo_2_location
-    str: location
+    str: "G\xFDgjarfoss"
   - tag: letgo_3_location
     str: location
   - tag: calm_1_location
-    str: Hitardalur lava moss
+    str: Hitardalur
   - tag: calm_2_location
-    str: location
+    str: "Sta\xF0arkirkja"
   - tag: calm_3_location
     str: location
   - tag: focus_1_location
     str: "Gr\xEDmssta\xF0ir lake"
   - tag: focus_2_location
-    str: location
+    str: Holtsbryggja
   - tag: focus_3_location
     str: location
   - tag: restore_1_location
-    str: "\xDE\xF3rsm\xF6rk cave"
+    str: "\xDE\xF3rsm\xF6rk"
   - tag: restore_2_location
-    str: location
+    str: "Rau\xF0isandur"
   - tag: restore_3_location
     str: location
   - tag: sign_up

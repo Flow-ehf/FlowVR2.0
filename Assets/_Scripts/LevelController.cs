@@ -111,7 +111,7 @@ public class LevelController : MonoBehaviour
 		}
 		if (ambiance4 != null)
 		{
-			ambiance3.clip = ambianceClips[SessionSettings.DurationIndex * 4 + 3];
+			ambiance4.clip = ambianceClips[SessionSettings.DurationIndex * 4 + 3];
 			ambiance4.Play();
 		}
 
@@ -256,7 +256,7 @@ public class LevelController : MonoBehaviour
 				ambianceClips[i] = a2Clip;
 			else if (i % 4 == 2)
 				ambianceClips[i] = a3Clip;
-			else
+			else if (i % 4 == 3)
 				ambianceClips[i] = a4Clip;
 		}
 	}

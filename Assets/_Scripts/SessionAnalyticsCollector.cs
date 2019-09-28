@@ -22,7 +22,7 @@ public class SessionAnalyticsCollector : MonoBehaviour
 			selectedDuration = SessionSettings.Duration,
 			initialMusicEnabled = SessionSettings.PlayMusic,
 			initialGuidanceEnabled = SessionSettings.PlayGuidance,
-			hmdId = deviceId,
+			//hmdId = deviceId,
 		};
 		MeditationAnalytics.AddMeditationSession(data);
 
