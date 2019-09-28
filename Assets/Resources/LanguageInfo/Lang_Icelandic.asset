@@ -146,39 +146,39 @@ MonoBehaviour:
   - tag: profound_quote_6
     str: "D\xFDpri sl\xF6kun og hv\xEDld er lykillinn a\xF0 aukinni velfer\xF0"
   - tag: breathe_1_location
-    str: "Sn\xE6fellsnes fjara"
+    str: "Sn\xE6fellsnes"
   - tag: breathe_2_location
-    str: location
+    str: Kleifarvatn
   - tag: breathe_3_location
     str: location
   - tag: move_1_location
-    str: "\xDEingvellir foss"
+    str: "\xDEingvellir"
   - tag: move_2_location
-    str: location
+    str: Hveradalir
   - tag: move_3_location
     str: location
   - tag: letgo_1_location
-    str: Glymur foss
+    str: Glymur
   - tag: letgo_2_location
-    str: location
+    str: "G\xFDgjafoss"
   - tag: letgo_3_location
     str: location
   - tag: calm_1_location
-    str: Hitardalur hraun
+    str: Hitardalur
   - tag: calm_2_location
-    str: location
+    str: "Sta\xF0arkirkja"
   - tag: calm_3_location
     str: location
   - tag: focus_1_location
     str: "Gr\xEDmssta\xF0ar vatn"
   - tag: focus_2_location
-    str: location
+    str: Holtsbryggja
   - tag: focus_3_location
     str: location
   - tag: restore_1_location
-    str: "\xDE\xF3rsm\xF6rk hellir"
+    str: "\xDE\xF3rsm\xF6rk"
   - tag: restore_2_location
-    str: location
+    str: "Rau\xF0isandur"
   - tag: restore_3_location
     str: location
   - tag: sign_up
