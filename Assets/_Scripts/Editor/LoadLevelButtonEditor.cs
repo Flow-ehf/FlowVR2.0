@@ -22,6 +22,7 @@ public class LoadLevelButtonEditor : Editor
 		serializedObject.Update();
 
 		string[] levels = EditorBuildSettings.scenes.Select((s) => Path.GetFileNameWithoutExtension(s.path)).ToArray();
+		index = levels.IndexOf(level.stringValue);
 		int newIndex = EditorGUILayout.Popup(index, levels);
 		if(newIndex != index)
 		{

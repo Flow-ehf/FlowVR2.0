@@ -6,9 +6,9 @@ public class ScreenFade : MonoBehaviour
 {
 	public static ScreenFade instance;
 
-	[SerializeField] Color currentColor = new Color(0, 0, 0, 1);
-	Color targetColor = new Color(0, 0, 0, 1); 
-	Color deltaColor = new Color(0, 0, 0, 0);   // the delta-color is basically the "speed / second" at which the current color should change
+	static Color currentColor = new Color(0, 0, 0, 1);
+	static Color targetColor = new Color(0, 0, 0, 1); 
+	static Color deltaColor = new Color(0, 0, 0, 0);   // the delta-color is basically the "speed / second" at which the current color should change
 
 	static Material fadeMaterial = null;
 
