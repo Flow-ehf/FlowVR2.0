@@ -80,13 +80,13 @@ MonoBehaviour:
     str: Einbeiting
   - tag: restore
     str: "Endurn\xFDjun"
-  - tag: breath1_desc
+  - tag: breathe1_desc
     str: "L\xE6r\xF0u a\xF0 nota andardr\xE1ttinn til a\xF0 yfirst\xEDga streitu,
       \xE1hyggjur og spennu \xE1 milli \xFEin og f\xF3lksins \xED l\xEDfi \xFE\xEDnu"
-  - tag: breath2_desc
+  - tag: breathe2_desc
     str: "Anda\xF0u dj\xFApt og me\xF0vita\xF0. Vi\xF0 m\xE6lum me\xF0 \xFEv\xED a\xF0
       gera \xFEessa huglei\xF0slu sitjandi"
-  - tag: breath3_desc
+  - tag: breathe3_desc
     str: "\xD6ndun3 l\xFDsing"
   - tag: move1_desc
     str: "Hreyfum l\xEDkamann, opnum hugann og fyllum okkur af j\xE1kv\xE6\xF0ri orku "

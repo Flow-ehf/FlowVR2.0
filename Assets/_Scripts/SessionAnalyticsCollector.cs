@@ -13,7 +13,7 @@ public class SessionAnalyticsCollector : MonoBehaviour
 		string deviceId = "PC_" + SystemInfo.deviceUniqueIdentifier; //Unique per pc
 #elif UNITY_ANDROID
 		AndroidJavaObject jo = new AndroidJavaObject("android.os.Build");
-		string hmdId = jo.GetStatic<string>("SERIAL");
+		string deviceId = jo.GetStatic<string>("SERIAL");
 #endif
 
 		MeditationAnalytics.MeditationSessionData data = new MeditationAnalytics.MeditationSessionData()
