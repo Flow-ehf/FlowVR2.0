@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Video;
 using UnityEngine.EventSystems;
-using Facebook.Unity;
+//using Facebook.Unity;
 
 public class GameManager : MonoBehaviour
 {
@@ -248,7 +248,7 @@ public class GameManager : MonoBehaviour
 
 	public void LogOut()
 	{
-		FB.LogOut();
+//		FB.LogOut();
 		SceneManager.LoadScene("LoginMenu");
 	}
 }

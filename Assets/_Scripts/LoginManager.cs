@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
-using Facebook.Unity;
-using Google;
+//using Facebook.Unity;
+//using Google;
 
 
 public class LoginManager : MonoBehaviour
@@ -26,8 +26,8 @@ public class LoginManager : MonoBehaviour
 
 	public static event Action<bool> LoginChanged;
 
-	static FBLogin fbLogin = new FBLogin();
-	static GoogleLogin googleLogin = new GoogleLogin();
+//	static FBLogin fbLogin = new FBLogin();
+//	static GoogleLogin googleLogin = new GoogleLogin();
 	static EmailLogin emailLogin = new EmailLogin();
 
 	static LoginBase currentLogin;
@@ -42,8 +42,8 @@ public class LoginManager : MonoBehaviour
 
 	public enum LoginMethod
 	{
-		FB,
-		Google,
+//		FB,
+//		Google,
 		Email, 
 		Guest,
 	}
@@ -60,8 +60,8 @@ public class LoginManager : MonoBehaviour
 
 	void Start()
 	{
-		fbLogin.Initialize();
-		googleLogin.Initialize();
+//		fbLogin.Initialize();
+//		googleLogin.Initialize();
 
 		currentUser = AccountCache.GetLastLogin();
 
@@ -85,10 +85,10 @@ public class LoginManager : MonoBehaviour
 		{
 			default:
 				return null;
-			case LoginMethod.FB:
-				return fbLogin;
-			case LoginMethod.Google:
-				return googleLogin;
+//			case LoginMethod.FB:
+//				return fbLogin;
+//			case LoginMethod.Google:
+//				return googleLogin;
 			case LoginMethod.Email:
 				return emailLogin;
 		}
@@ -233,131 +233,131 @@ public class LoginManager : MonoBehaviour
 		}
 	}
 
-	class GoogleLogin : LoginBase
-	{
-		const string webClientId = "";
+//	class GoogleLogin : LoginBase
+//	{
+//		const string webClientId = "";
 
-		public override bool IsInitialized => isInitialized;
+//		public override bool IsInitialized => isInitialized;
 
-		public override bool IsLoggedIn => loggedInUser != null;
+//		public override bool IsLoggedIn => loggedInUser != null;
 
-		public override string PlatformName => "Google";
+//		public override string PlatformName => "Google";
 
-		public override string LoggedInEmail => loggedInUser?.Email ?? "";
+//		public override string LoggedInEmail => loggedInUser?.Email ?? "";
 
-		bool isInitialized;
-		GoogleSignInConfiguration configuration;
-		GoogleSignInUser loggedInUser;
+//		bool isInitialized;
+////		GoogleSignInConfiguration configuration;
+////		GoogleSignInUser loggedInUser;
 
-		public override void Initialize()
-		{
-			configuration = new GoogleSignInConfiguration
-			{
-				WebClientId = webClientId,
-				RequestIdToken = true,
+//		public override void Initialize()
+//		{
+//			configuration = new GoogleSignInConfiguration
+//			{
+//				WebClientId = webClientId,
+//				RequestIdToken = true,
 				
-			};
-			isInitialized = true;
-			OnInitialized();
-		}
+//			};
+//			isInitialized = true;
+//			OnInitialized();
+//		}
 
 
-		protected override void DoLogin()
-		{
-			GoogleSignIn.Configuration = configuration;
-			GoogleSignIn.Configuration.UseGameSignIn = false;
-			GoogleSignIn.Configuration.RequestIdToken = true;
+//		protected override void DoLogin()
+//		{
+//			GoogleSignIn.Configuration = configuration;
+//			GoogleSignIn.Configuration.UseGameSignIn = false;
+//			GoogleSignIn.Configuration.RequestIdToken = true;
 
-			GoogleSignIn.DefaultInstance.SignIn().ContinueWith(OnLogin);
-		}
-
-
-		protected override void DoLogout()
-		{
-			loggedInUser = null;
-			GoogleSignIn.DefaultInstance.SignOut();
-			OnLoggedOut();
-		}
+//			GoogleSignIn.DefaultInstance.SignIn().ContinueWith(OnLogin);
+//		}
 
 
-		void OnLogin(Task<GoogleSignInUser> result)
-		{
-			if (result.IsFaulted || result.IsCanceled)
-				OnlogginFailed();
-			else
-			{
-				loggedInUser = result.Result;
-				OnLoggedIn(this);
-			}
-		}
-	}
-
-	class FBLogin : LoginBase
-	{
-		public override bool IsInitialized => FB.IsInitialized;
-		public override bool IsLoggedIn => FB.IsLoggedIn;
-
-		public override string PlatformName { get; } = "Facebook";
-
-		public override string LoggedInEmail => loggedInEmail;
-
-		string loggedInEmail = "";
+//		protected override void DoLogout()
+//		{
+//			loggedInUser = null;
+//			GoogleSignIn.DefaultInstance.SignOut();
+//			OnLoggedOut();
+//		}
 
 
-		public override void Initialize()
-		{
-			FB.Init(OnInitialized);
-		}
+//		//void OnLogin(Task<GoogleSignInUser> result)
+//		//{
+//		//	if (result.IsFaulted || result.IsCanceled)
+//		//		OnlogginFailed();
+//		//	else
+//		//	{
+//		//		loggedInUser = result.Result;
+//		//		OnLoggedIn(this);
+//		//	}
+//		//}
+//	}
+
+	//class FBLogin : LoginBase
+	//{
+	//	public override bool IsInitialized => FB.IsInitialized;
+	//	public override bool IsLoggedIn => FB.IsLoggedIn;
+
+	//	public override string PlatformName { get; } = "Facebook";
+
+	//	public override string LoggedInEmail => loggedInEmail;
+
+	//	string loggedInEmail = "";
 
 
-		protected override void OnInitialized()
-		{
-			FB.ActivateApp();
-		}
+	//	public override void Initialize()
+	//	{
+	//		FB.Init(OnInitialized);
+	//	}
 
 
-		protected override void DoLogin()
-		{
-			if (!IsInitialized)
-			{
-				Debug.LogError("Login failed! FB not initialized.");
-				OnlogginFailed();
-			}
-			else if (LoginManager.IsLoggedIn)
-			{
-				Debug.LogError("Login failed! Already logged in");
-				OnlogginFailed();
-			}
-			else
-			{
-				FB.LogInWithReadPermissions(new List<string>() { "public_profile", "email" }, OnFBLogin);
-			}
-		}
+	//	protected override void OnInitialized()
+	//	{
+	//		FB.ActivateApp();
+	//	}
 
 
-		void OnFBLogin(ILoginResult result)
-		{
-			if (IsLoggedIn)
-			{
-				Debug.Log(result.AccessToken.UserId);
-				foreach (var res in result.ResultDictionary)
-				{
-					Debug.Log(res.Key + " " + res.Value);
-				}
-				loggedInEmail = "";
-				OnLoggedIn(this);
-			}
-			else
-				OnlogginFailed();
-		}
+	//	protected override void DoLogin()
+	//	{
+	//		if (!IsInitialized)
+	//		{
+	//			Debug.LogError("Login failed! FB not initialized.");
+	//			OnlogginFailed();
+	//		}
+	//		else if (LoginManager.IsLoggedIn)
+	//		{
+	//			Debug.LogError("Login failed! Already logged in");
+	//			OnlogginFailed();
+	//		}
+	//		else
+	//		{
+	//			FB.LogInWithReadPermissions(new List<string>() { "public_profile", "email" }, OnFBLogin);
+	//		}
+	//	}
 
 
-		protected override void DoLogout()
-		{
-			FB.LogOut();
-			OnLoggedOut();
-		}
-	}
+		//void OnFBLogin(ILoginResult result)
+		//{
+		//	if (IsLoggedIn)
+		//	{
+		//		Debug.Log(result.AccessToken.UserId);
+		//		foreach (var res in result.ResultDictionary)
+		//		{
+		//			Debug.Log(res.Key + " " + res.Value);
+		//		}
+		//		loggedInEmail = "";
+		//		OnLoggedIn(this);
+		//	}
+		//	else
+		//		OnlogginFailed();
+		//}
+
+
+	//	protected override void DoLogout()
+	//	{
+		//	FB.LogOut();
+	//		OnLoggedOut();
+	//	}
+	//}
 
 	class EmailLogin : LoginBase, ICanRegistrer
 	{
