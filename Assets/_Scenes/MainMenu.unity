@@ -1177,7 +1177,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 2.5}
-  m_SizeDelta: {x: 90, y: 115}
+  m_SizeDelta: {x: 115, y: 115}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &159922614
 MonoBehaviour:
@@ -1691,7 +1691,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 213742945}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -2230,6 +2230,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2.79
       objectReference: {fileID: 0}
+    - target: {fileID: 6503579409894622908, guid: 5a7682c244a150b49965c007720bdbb7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1937274876, guid: 5a7682c244a150b49965c007720bdbb7, type: 3}
       propertyPath: rayTransform
       value: 
@@ -2241,11 +2246,6 @@ PrefabInstance:
     - target: {fileID: 8579281019748986, guid: 5a7682c244a150b49965c007720bdbb7, type: 3}
       propertyPath: m_Enabled
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6503579409894622908, guid: 5a7682c244a150b49965c007720bdbb7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a7682c244a150b49965c007720bdbb7, type: 3}
@@ -2965,8 +2965,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1, y: 1}
-  m_SizeDelta: {x: 15, y: 15}
+  m_AnchoredPosition: {x: -1, y: 0.5}
+  m_SizeDelta: {x: 13, y: 13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &435683540
 MonoBehaviour:
@@ -4213,7 +4213,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -6.3}
-  m_SizeDelta: {x: 90, y: 40}
+  m_SizeDelta: {x: 130, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &613855043
 CanvasRenderer:
@@ -9336,7 +9336,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 350, y: 350}
+  m_SizeDelta: {x: 175, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &683690416
 CanvasRenderer:
@@ -9535,7 +9535,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetButton: {fileID: 1176582953}
   level: LetGo2
-  productId: 
+  productId: unlock_2-3
   noAccessSprite: {fileID: 21300000, guid: cc1b04c1e1b9eb0489103a0db98aa808, type: 3}
   skyboxMat: {fileID: 2100000, guid: 3dd693e4a25d9434485e3f1f5c1135ee, type: 2}
   meditationClip: {fileID: 32900000, guid: 5ece7454a32749c44b5c627a5b57d026, type: 3}
@@ -9744,7 +9744,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: c19b92d358cff2846b11d6e5f037ee30, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -9776,7 +9776,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -19, y: 15}
-  m_SizeDelta: {x: 42.1875, y: 25.3125}
+  m_SizeDelta: {x: 45, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &743766518
 MonoBehaviour:
@@ -10594,8 +10594,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1, y: 1}
-  m_SizeDelta: {x: 15, y: 15}
+  m_AnchoredPosition: {x: -1, y: 0.5}
+  m_SizeDelta: {x: 13, y: 13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &846043426
 MonoBehaviour:
@@ -10813,7 +10813,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetButton: {fileID: 1176582953}
   level: Restore2
-  productId: 
+  productId: unlock_2-6
   noAccessSprite: {fileID: 21300000, guid: 207fa1da667cfb3468d224a2900feef1, type: 3}
   skyboxMat: {fileID: 2100000, guid: 66caee76bf8e73e4eabeacb973c4d347, type: 2}
   meditationClip: {fileID: 32900000, guid: 15c53d5bcc497d143a5128688ac7d34c, type: 3}
@@ -11067,7 +11067,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 19, y: 15}
-  m_SizeDelta: {x: 42.1875, y: 25.3125}
+  m_SizeDelta: {x: 45, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &942230020
 MonoBehaviour:
@@ -11133,7 +11133,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: bff7d97b8e7d431489bfe467af547869, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -11609,7 +11609,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 5.5}
-  m_SizeDelta: {x: 120, y: 25}
+  m_SizeDelta: {x: 120, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1006337279
 MonoBehaviour:
@@ -11631,7 +11631,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 51f0eb6d00e259246b7a375d11510cc0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ef90a9ac1d0140040b50adeac1ad4dfd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11995,7 +11995,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 40}
-  m_SizeDelta: {x: 55, y: 50}
+  m_SizeDelta: {x: 80, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1039886648
 MonoBehaviour:
@@ -12090,7 +12090,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetButton: {fileID: 1176582953}
   level: Breath2
-  productId: 
+  productId: unlock_2-1
   noAccessSprite: {fileID: 21300000, guid: 0527c56a58899ca4f87f489afe8e23d7, type: 3}
   skyboxMat: {fileID: 2100000, guid: 83ae2173410dad14da140c212dc6df8b, type: 2}
   meditationClip: {fileID: 32900000, guid: 384307fb4cc020b48bc3202949acfb0d, type: 3}
@@ -12247,7 +12247,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -45, y: 22.5}
+  m_AnchoredPosition: {x: -45, y: 19}
   m_SizeDelta: {x: 35, y: 35}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &1102340222
@@ -13503,7 +13503,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetButton: {fileID: 1176582953}
   level: Calm2
-  productId: 
+  productId: unlock_2-4
   noAccessSprite: {fileID: 21300000, guid: b608b0a3f4cc75840a65b6f674bbf692, type: 3}
   skyboxMat: {fileID: 2100000, guid: 5bdf273266bd4a542a5ebf67416783b1, type: 2}
   meditationClip: {fileID: 32900000, guid: 6ff8631e85ed22047ae1a16601797807, type: 3}
@@ -14211,7 +14211,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.5, y: 0}
-  m_SizeDelta: {x: 15, y: 15}
+  m_SizeDelta: {x: 13, y: 13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1348729940
 MonoBehaviour:
@@ -14450,7 +14450,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 27, y: 27}
+  m_SizeDelta: {x: 28, y: 28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1397774160
 MonoBehaviour:
@@ -15153,7 +15153,7 @@ MonoBehaviour:
   transition: 2
   layer: 0
   group: 1
-  isOpen: 0
+  isOpen: 1
   anim: {fileID: 0}
   fadeGroup: {fileID: 1522947099}
   fadeTime: 0.5
@@ -15412,7 +15412,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 27, y: 27}
+  m_SizeDelta: {x: 28, y: 28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1581684711
 MonoBehaviour:
@@ -16002,7 +16002,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetButton: {fileID: 1176582953}
   level: Move2
-  productId: 
+  productId: unlock_2-2
   noAccessSprite: {fileID: 21300000, guid: 960f065d9bc08ac42bc4412b8f8ecfb5, type: 3}
   skyboxMat: {fileID: 2100000, guid: 21fcf6cd3479ade4c88603286954257e, type: 2}
   meditationClip: {fileID: 32900000, guid: 2d67da3d47cec194d951fd7c62c602c5, type: 3}
@@ -16331,7 +16331,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 32.5}
-  m_SizeDelta: {x: 120, y: 30}
+  m_SizeDelta: {x: 120, y: 37}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1753191915
 MonoBehaviour:
@@ -16353,7 +16353,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 51f0eb6d00e259246b7a375d11510cc0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ef90a9ac1d0140040b50adeac1ad4dfd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -16817,7 +16817,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetButton: {fileID: 1176582953}
   level: Focus2
-  productId: 
+  productId: unlock_2-5
   noAccessSprite: {fileID: 21300000, guid: 818b9d8c693efae4b8f9bc170c9ff369, type: 3}
   skyboxMat: {fileID: 2100000, guid: a93bf7ff17d1b524aa11210fd314c66d, type: 2}
   meditationClip: {fileID: 32900000, guid: b07627bad80811c40bb2536d830d2637, type: 3}
@@ -17760,7 +17760,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.5, y: 0}
-  m_SizeDelta: {x: 15, y: 15}
+  m_SizeDelta: {x: 13, y: 13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2042311468
 MonoBehaviour:

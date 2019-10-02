@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.29974324, g: 0.3280728, b: 0.3492022, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -51,8 +51,8 @@ LightmapSettings:
     m_IndirectOutputScale: 1
     m_AlbedoBoost: 1
     m_EnvironmentLightingMode: 0
-    m_EnableBakedLightmaps: 1
-    m_EnableRealtimeLightmaps: 1
+    m_EnableBakedLightmaps: 0
+    m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
     serializedVersion: 10
     m_Resolution: 2
@@ -289,7 +289,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: cd6d67b7276272e41b9a6308409422fa, type: 3}
   - {fileID: 8300000, guid: f1f2b9c25523b3343b80131926036e6e, type: 3}
   - {fileID: 8300000, guid: e35300f7e848023498892359020f4de9, type: 3}
-  - {fileID: 8300000, guid: 87ef333ce75ab634ead1067bf476c9c3, type: 3}
+  - {fileID: 8300000, guid: 9004e85b60fddee46bcd2ad0f4462c6e, type: 3}
   - {fileID: 8300000, guid: cd6d67b7276272e41b9a6308409422fa, type: 3}
   - {fileID: 8300000, guid: f1f2b9c25523b3343b80131926036e6e, type: 3}
   - {fileID: 8300000, guid: e35300f7e848023498892359020f4de9, type: 3}
