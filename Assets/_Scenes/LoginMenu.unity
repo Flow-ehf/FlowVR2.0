@@ -2578,9 +2578,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 0d2548522ae586d409149b8a302d525e, type: 3}
     m_FontSize: 6
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 1
-    m_MaxSize: 275
+    m_BestFit: 1
+    m_MinSize: 4
+    m_MaxSize: 6
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 0
@@ -2828,9 +2828,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 0d2548522ae586d409149b8a302d525e, type: 3}
     m_FontSize: 6
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 1
-    m_MaxSize: 275
+    m_BestFit: 1
+    m_MinSize: 4
+    m_MaxSize: 6
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 0
@@ -12345,15 +12345,15 @@ MonoBehaviour:
     m_FontSize: 6
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 275
+    m_MinSize: 4
+    m_MaxSize: 6
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 0
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: <enter_email>
+  m_Text: 
 --- !u!222 &1809024955
 CanvasRenderer:
   m_ObjectHideFlags: 0
