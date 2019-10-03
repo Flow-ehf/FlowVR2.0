@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: a93bf7ff17d1b524aa11210fd314c66d, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 2e76b59fce9565c45a12b13e8e79051d, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.35285875, g: 0.3896544, b: 0.42638883, a: 1}
+  m_IndirectSpecularColor: {r: 0.46306705, g: 0.51948357, b: 0.5221202, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -805,7 +805,7 @@ VideoPlayer:
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 8400000, guid: abdb248f4eb7cba42860c9db273f1e21, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: 826b6df0082b71b4298800e08b742827, type: 2}
   m_TimeReference: 0
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: _MainTex

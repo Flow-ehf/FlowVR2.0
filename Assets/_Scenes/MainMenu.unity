@@ -15153,7 +15153,7 @@ MonoBehaviour:
   transition: 2
   layer: 0
   group: 1
-  isOpen: 1
+  isOpen: 0
   anim: {fileID: 0}
   fadeGroup: {fileID: 1522947099}
   fadeTime: 0.5

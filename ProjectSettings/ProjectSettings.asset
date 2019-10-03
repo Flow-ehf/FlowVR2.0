@@ -159,7 +159,7 @@ PlayerSettings:
     Android: com.flowmeditation.flowvr
     Standalone: com.oculus.UnitySample
   buildNumber: {}
-  AndroidBundleVersionCode: 30
+  AndroidBundleVersionCode: 31
   AndroidMinSdkVersion: 21
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 0
@@ -248,8 +248,8 @@ PlayerSettings:
   AndroidTargetArchitectures: 5
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: C:/Users/gnusi/Desktop/FlowVR_2.0_Repo/flow.keystore
-  AndroidKeyaliasName: flow-key
+  AndroidKeystoreName: C:/Users/gnusi/Desktop/FlowVR_2.0_Repo/user.keystore
+  AndroidKeyaliasName: ourkey
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
