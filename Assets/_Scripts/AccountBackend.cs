@@ -79,16 +79,17 @@ public class AccountBackend : MonoBehaviour
 
 			if (r.GetError() == null)
 			{
-				Debug.Log(r.user);
 				user = r.user;
 			}
 		});
-		Debug.Log(user);
 		if (user != null)
-			yield return WaitIsSubscribed(email, (subbed) =>
+		{
+			yield return WaitGetUserDetails(email, (result) =>
 			{
-				user.isSubscribed = subbed;
+				user.isSubscribed = !string.IsNullOrEmpty(result.userTrialCode) || !string.IsNullOrEmpty(result.userResellerCode);
+				user.isCompany = !string.IsNullOrEmpty(result.userPremiumCode);
 			});
+		}
 		Debug.Log(user);
 		callback?.Invoke(user);
 	}
@@ -134,31 +135,23 @@ public class AccountBackend : MonoBehaviour
 	}
 
 
-	public static void GetuserDetails(string email, Action<User> callback)
+	public static void GetuserDetails(string email, Action<UserDetailsResult> callback)
 	{
 		instance.StartCoroutine(WaitGetUserDetails(email, callback));
 	}
 
-	public static IEnumerator WaitGetUserDetails(string email, Action<User> callback)
+	public static IEnumerator WaitGetUserDetails(string email, Action<UserDetailsResult> callback)
 	{
 		WWWForm args = new WWWForm();
 		args.AddField("userEmail", email);
 
-		User user = null;
-		yield return BackendFunction<AuthResult>("getUserDetails", args, (json) =>
+		yield return BackendFunction<UserDetailsResult>("getUserDetails", args, (json) =>
 		{
-			var r = new AuthResult();
+			var r = new UserDetailsResult();
 			JsonUtility.FromJsonOverwrite(json, r);
 			r.method = Result.Method.UserDetails;
-			if(r.GetError() == null)
-				user = r.user;
+			callback?.Invoke(r);
 		});
-		if(user != null)
-			yield return WaitIsSubscribed(email, (subbed) => 
-			{
-				user.isSubscribed = subbed;
-			});
-		callback?.Invoke(user);
 	}
 
 
@@ -189,6 +182,7 @@ public class AccountBackend : MonoBehaviour
 	public class User
 	{
 		public bool isSubscribed;
+		public bool isCompany;
 		public bool isGuest;
 		public long lastLoginAt;
 		public string displayName;
@@ -196,9 +190,11 @@ public class AccountBackend : MonoBehaviour
 		public string uid;
 		public string photoUrl;
 
+		public bool IsPremiumUser => isSubscribed || isCompany;
+
 		public override string ToString()
 		{
-			return $"subscribed: {isSubscribed}. email {email}. uid {uid}.";
+			return $"premium: {IsPremiumUser}. email {email}. uid {uid}.";
 		}
 	}
 
@@ -328,6 +324,29 @@ public class AccountBackend : MonoBehaviour
 				{
 					code = error,
 				};		
+		}
+	}
+
+	public class UserDetailsResult : MethodResult
+	{
+		public string userPremiumCode;
+		public string userTrialCode;
+		public string userResellerCode;
+
+		public UserDetailsResult() : base()
+		{
+
+		}
+
+		public override Error GetError()
+		{
+			if (error == null || error == "")
+				return null;
+			else
+				return new Error()
+				{
+					code = error,
+				};
 		}
 	}
 

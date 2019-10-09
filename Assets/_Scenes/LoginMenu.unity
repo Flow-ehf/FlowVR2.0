@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.39401236, g: 0.43247807, b: 0.462205, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1256,14 +1256,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1937274876, guid: 5a7682c244a150b49965c007720bdbb7, type: 3}
-      propertyPath: rayTransform
-      value: 
-      objectReference: {fileID: 1256460651}
-    - target: {fileID: 1937274876, guid: 5a7682c244a150b49965c007720bdbb7, type: 3}
-      propertyPath: rayLineRenderer
-      value: 
-      objectReference: {fileID: 1256460652}
     - target: {fileID: 8579281019748986, guid: 5a7682c244a150b49965c007720bdbb7, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1368,6 +1360,14 @@ PrefabInstance:
       propertyPath: ColorModule.gradient.maxGradient.key1.a
       value: 0.19607843
       objectReference: {fileID: 0}
+    - target: {fileID: 1937274876, guid: 5a7682c244a150b49965c007720bdbb7, type: 3}
+      propertyPath: rayTransform
+      value: 
+      objectReference: {fileID: 1256460651}
+    - target: {fileID: 1937274876, guid: 5a7682c244a150b49965c007720bdbb7, type: 3}
+      propertyPath: rayLineRenderer
+      value: 
+      objectReference: {fileID: 1256460652}
     - target: {fileID: 8206836929756727825, guid: 5a7682c244a150b49965c007720bdbb7,
         type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.size
@@ -11519,13 +11519,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1549737622}
   m_TextComponent: {fileID: 582254306}
   m_Placeholder: {fileID: 1809024954}
-  m_ContentType: 0
+  m_ContentType: 6
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 7
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 5
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:

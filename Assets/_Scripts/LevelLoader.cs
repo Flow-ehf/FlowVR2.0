@@ -105,6 +105,8 @@ public class LevelLoader : MonoBehaviour
 		Level = level;
 		LevelBeingLoaded = null;
 		yield return sceneLoad;
+		//Wait for video to load
+		yield return WaitForVideo();
 		//Fade in
 		ScreenFade.instance.StartFade(FadeDuration, Color.clear);
 		//Fade in volume 
@@ -136,6 +138,15 @@ public class LevelLoader : MonoBehaviour
 			time -= Time.unscaledDeltaTime;
 		}
 		AudioListener.volume = 1;
+	}
+
+	static IEnumerator WaitForVideo()
+	{
+		var player = FindObjectOfType<UnityEngine.Video.VideoPlayer>();
+		if(player != null)
+		{
+			yield return new WaitWhile(() => !player.isPrepared);
+		}
 	}
 
 }

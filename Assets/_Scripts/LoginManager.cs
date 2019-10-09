@@ -71,7 +71,7 @@ public class LoginManager : MonoBehaviour
 			Debug.Log("Found cached login: " + currentUser);
 
 			//Previously logged in to company account, show account selection
-			if(currentUser.isSubscribed && AccountCache.Count > 1)
+			if(currentUser.isCompany && AccountCache.Count > 1)
 				LevelLoader.LoadLevel("CompanyAccountSelection", false);
 			else
 				LevelLoader.LoadLevel("MainMenu", false);
@@ -112,14 +112,10 @@ public class LoginManager : MonoBehaviour
 		Debug.Log("Logged in. Fetching user details");
 
 		currentLogin = login;
-		AccountBackend.GetuserDetails(currentLogin.LoggedInEmail, (user) =>
-		{
-			currentUser = user;
-			if (currentUser != null)
-				OnFetchedUserData();
-			else
-				OnlogginFailed();
-		});
+		if (currentUser != null)
+			OnFetchedUserData();
+		else
+			OnLogginFailed();
 	}
 
 
@@ -137,7 +133,7 @@ public class LoginManager : MonoBehaviour
 
 		if (firstLogin && !currentUser.isSubscribed && !currentUser.isGuest)
 			LevelLoader.LoadLevel("BuySubscription");
-		else if(AccountCache.Count > 1 && currentUser.isSubscribed)
+		else if(AccountCache.Count > 1 && currentUser.isCompany)
 			LevelLoader.LoadLevel("CompanyAccountSelection", false);
 		else
 			LevelLoader.LoadLevel("MainMenu");
@@ -145,7 +141,7 @@ public class LoginManager : MonoBehaviour
 
 
 	//Todo add data/error info
-	static void OnlogginFailed()
+	static void OnLogginFailed()
 	{
 		Debug.LogError("Login Canceled/Failed");
 		IsLoggingIn = false;
@@ -387,6 +383,7 @@ public class LoginManager : MonoBehaviour
 					if (user != null)
 					{
 						email = user.email;
+						currentUser = user;
 						OnLoggedIn(this);
 					}
 					else

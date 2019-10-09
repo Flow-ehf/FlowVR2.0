@@ -48,7 +48,7 @@ public class IdleDetector : MonoBehaviour
 
 	void OnLevelLoad(Scene oldScene, Scene newScene)
 	{
-		if (newScene.name == "LoginMenu" || !LoginManager.currentUser.isSubscribed)
+		if (newScene.name == "LoginMenu" || !LoginManager.currentUser.isCompany)
 			enabled = false;
 		else
 			enabled = true;
