@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.39401236, g: 0.43247807, b: 0.462205, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1128,6 +1128,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8579281019748986, guid: 5a7682c244a150b49965c007720bdbb7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1937274876, guid: 5a7682c244a150b49965c007720bdbb7, type: 3}
       propertyPath: rayTransform
       value: 
@@ -1235,10 +1239,6 @@ PrefabInstance:
         type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key1.a
       value: 0.19607843
-      objectReference: {fileID: 0}
-    - target: {fileID: 8579281019748986, guid: 5a7682c244a150b49965c007720bdbb7, type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8206836929756727825, guid: 5a7682c244a150b49965c007720bdbb7,
         type: 3}
@@ -9908,7 +9908,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22b86b4e05bc5154f920964c688efe76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loginMethod: 2
+  loginMethod: 0
   platformText: {fileID: 0}
   requireEmailFormat: 1
   nameInput: {fileID: 1549737621}
@@ -11362,7 +11362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22b86b4e05bc5154f920964c688efe76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loginMethod: 3
+  loginMethod: 1
   platformText: {fileID: 0}
   requireEmailFormat: 1
   nameInput: {fileID: 0}
