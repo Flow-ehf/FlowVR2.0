@@ -315,6 +315,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuManagerMeditation
       objectReference: {fileID: 0}
+    - target: {fileID: 8246622263230269179, guid: 379750b7604f95743abbe800c841bfc1,
+        type: 3}
+      propertyPath: rayLineRenderer
+      value: 
+      objectReference: {fileID: 1629335802}
+    - target: {fileID: 8246622263230269179, guid: 379750b7604f95743abbe800c841bfc1,
+        type: 3}
+      propertyPath: rayTransform
+      value: 
+      objectReference: {fileID: 1629335804}
     - target: {fileID: 7449082304570612132, guid: 379750b7604f95743abbe800c841bfc1,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -435,16 +445,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 8246622263230269179, guid: 379750b7604f95743abbe800c841bfc1,
-        type: 3}
-      propertyPath: rayLineRenderer
-      value: 
-      objectReference: {fileID: 1629335802}
-    - target: {fileID: 8246622263230269179, guid: 379750b7604f95743abbe800c841bfc1,
-        type: 3}
-      propertyPath: rayTransform
-      value: 
-      objectReference: {fileID: 1629335804}
     - target: {fileID: 4890118443022926653, guid: 379750b7604f95743abbe800c841bfc1,
         type: 3}
       propertyPath: fadeTime
@@ -565,7 +565,7 @@ GameObject:
   - component: {fileID: 1140568279}
   - component: {fileID: 1140568278}
   m_Layer: 0
-  m_Name: Ambiance1
+  m_Name: Ambiance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -726,15 +726,6 @@ MonoBehaviour:
   musicClips:
   - {fileID: 8300000, guid: f30734d460caffa43bf367189040ef57, type: 3}
   - {fileID: 8300000, guid: a6c740b295a12d14e950e54cb65e5a1c, type: 3}
-  ambianceClips:
-  - {fileID: 8300000, guid: b5ab2c93740c18144ad33953a6983a60, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 8300000, guid: b5ab2c93740c18144ad33953a6983a60, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!4 &1485933927
 Transform:
   m_ObjectHideFlags: 0

@@ -19,14 +19,14 @@ public class LevelController : MonoBehaviour
 	[SerializeField] UIPanel pausePanel;
 	[SerializeField] AudioClip[] guidanceClips;
 	[SerializeField] AudioClip[] musicClips;
-	[SerializeField] AudioClip[] ambianceClips;
+	//[SerializeField] AudioClip[] ambianceClips;
 
 	AudioSource guidanceAudio;
 	AudioSource musicAudio;
-	AudioSource ambiance1;
-	AudioSource ambiance2;
-	AudioSource ambiance3;
-	AudioSource ambiance4;
+	//AudioSource ambiance1;
+	//AudioSource ambiance2;
+	//AudioSource ambiance3;
+	//AudioSource ambiance4;
 	float timeLeft;
 	bool isPaused;
 	float sessionStartTimestamp;
@@ -47,10 +47,10 @@ public class LevelController : MonoBehaviour
 
 		musicAudio = GameObject.Find("Music")?.GetComponent<AudioSource>();
 		guidanceAudio = GameObject.Find("Guidance")?.GetComponent<AudioSource>();
-		ambiance1 = GameObject.Find("Ambiance1")?.GetComponent<AudioSource>();
-		ambiance2 = GameObject.Find("Ambiance2")?.GetComponent<AudioSource>();
-		ambiance3 = GameObject.Find("Ambiance3")?.GetComponent<AudioSource>();
-		ambiance4 = GameObject.Find("Ambiance4")?.GetComponent<AudioSource>();
+		//ambiance1 = GameObject.Find("Ambiance1")?.GetComponent<AudioSource>();
+		//ambiance2 = GameObject.Find("Ambiance2")?.GetComponent<AudioSource>();
+		//ambiance3 = GameObject.Find("Ambiance3")?.GetComponent<AudioSource>();
+		//ambiance4 = GameObject.Find("Ambiance4")?.GetComponent<AudioSource>();
 
 		raycaster = FindObjectOfType<OVRRaycaster>();
 		raycaster.enabled = false;
@@ -94,26 +94,26 @@ public class LevelController : MonoBehaviour
 		musicAudio.Play();
 		musicAudio.mute = !SessionSettings.PlayMusic;
 
-		if(ambiance1 != null)
-		{
-			ambiance1.clip = ambianceClips[SessionSettings.DurationIndex * 4];
-			ambiance1.Play();
-		}
-		if(ambiance2 != null)
-		{
-			ambiance2.clip = ambianceClips[SessionSettings.DurationIndex * 4 + 1];
-			ambiance2.Play();
-		}
-		if(ambiance3 != null)
-		{
-			ambiance3.clip = ambianceClips[SessionSettings.DurationIndex * 4 + 2];
-			ambiance3.Play();
-		}
-		if (ambiance4 != null)
-		{
-			ambiance4.clip = ambianceClips[SessionSettings.DurationIndex * 4 + 3];
-			ambiance4.Play();
-		}
+		//if(ambiance1 != null)
+		//{
+		//	ambiance1.clip = ambianceClips[SessionSettings.DurationIndex * 4];
+		//	ambiance1.Play();
+		//}
+		//if(ambiance2 != null)
+		//{
+		//	ambiance2.clip = ambianceClips[SessionSettings.DurationIndex * 4 + 1];
+		//	ambiance2.Play();
+		//}
+		//if(ambiance3 != null)
+		//{
+		//	ambiance3.clip = ambianceClips[SessionSettings.DurationIndex * 4 + 2];
+		//	ambiance3.Play();
+		//}
+		//if (ambiance4 != null)
+		//{
+		//	ambiance4.clip = ambianceClips[SessionSettings.DurationIndex * 4 + 3];
+		//	ambiance4.Play();
+		//}
 
 		pauseButton?.onClick.AddListener(() => Pause(true));
 		resumeButton?.onClick.AddListener(() => Pause(false));
@@ -242,23 +242,23 @@ public class LevelController : MonoBehaviour
 			musicClips[i] = mClip;
 		}
 
-		AudioClip a1Clip = UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Audio/Ambiance/Breathe/Video 1/Breathe_App_v2_flat_mixdown_Audio 2.wav", typeof(AudioClip)) as AudioClip;
-		AudioClip a2Clip = UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Audio/Ambiance/Breathe/Video 1/Breathe_App_v2_flat_mixdown_Audio 3.wav", typeof(AudioClip)) as AudioClip;
-		AudioClip a3Clip = UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Audio/Ambiance/Breathe/Video 1/Breathe_App_v2_flat_mixdown_Audio 4.wav", typeof(AudioClip)) as AudioClip;
-		AudioClip a4Clip = UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Audio/Ambiance/Breathe/Video 1/Breathe_App_v2_flat_mixdown_Audio 5.wav", typeof(AudioClip)) as AudioClip;
+		//AudioClip a1Clip = UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Audio/Ambiance/Breathe/Video 1/Breathe_App_v2_flat_mixdown_Audio 2.wav", typeof(AudioClip)) as AudioClip;
+		//AudioClip a2Clip = UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Audio/Ambiance/Breathe/Video 1/Breathe_App_v2_flat_mixdown_Audio 3.wav", typeof(AudioClip)) as AudioClip;
+		//AudioClip a3Clip = UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Audio/Ambiance/Breathe/Video 1/Breathe_App_v2_flat_mixdown_Audio 4.wav", typeof(AudioClip)) as AudioClip;
+		//AudioClip a4Clip = UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Audio/Ambiance/Breathe/Video 1/Breathe_App_v2_flat_mixdown_Audio 5.wav", typeof(AudioClip)) as AudioClip;
 
-		ambianceClips = new AudioClip[SessionSettings.AvailableDurations.Length * 4];
-		for (int i = 0; i < ambianceClips.Length; i++)
-		{
-			if (i % 4 == 0)
-				ambianceClips[i] = a1Clip;
-			else if (i % 4 == 1)
-				ambianceClips[i] = a2Clip;
-			else if (i % 4 == 2)
-				ambianceClips[i] = a3Clip;
-			else if (i % 4 == 3)
-				ambianceClips[i] = a4Clip;
-		}
+		//ambianceClips = new AudioClip[SessionSettings.AvailableDurations.Length * 4];
+		//for (int i = 0; i < ambianceClips.Length; i++)
+		//{
+		//	if (i % 4 == 0)
+		//		ambianceClips[i] = a1Clip;
+		//	else if (i % 4 == 1)
+		//		ambianceClips[i] = a2Clip;
+		//	else if (i % 4 == 2)
+		//		ambianceClips[i] = a3Clip;
+		//	else if (i % 4 == 3)
+		//		ambianceClips[i] = a4Clip;
+		//}
 	}
 #endif
 }

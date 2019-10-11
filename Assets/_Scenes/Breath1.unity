@@ -590,7 +590,7 @@ GameObject:
   - component: {fileID: 939680577}
   - component: {fileID: 939680576}
   m_Layer: 0
-  m_Name: Ambiance1
+  m_Name: Ambiance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1090,6 +1090,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuManagerMeditation
       objectReference: {fileID: 0}
+    - target: {fileID: 8246622263230269179, guid: 379750b7604f95743abbe800c841bfc1,
+        type: 3}
+      propertyPath: rayTransform
+      value: 
+      objectReference: {fileID: 1629335804}
+    - target: {fileID: 8246622263230269179, guid: 379750b7604f95743abbe800c841bfc1,
+        type: 3}
+      propertyPath: rayLineRenderer
+      value: 
+      objectReference: {fileID: 1629335802}
+    - target: {fileID: 8246622263230269179, guid: 379750b7604f95743abbe800c841bfc1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7449082304570612132, guid: 379750b7604f95743abbe800c841bfc1,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1209,21 +1224,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 8246622263230269179, guid: 379750b7604f95743abbe800c841bfc1,
-        type: 3}
-      propertyPath: rayTransform
-      value: 
-      objectReference: {fileID: 1629335804}
-    - target: {fileID: 8246622263230269179, guid: 379750b7604f95743abbe800c841bfc1,
-        type: 3}
-      propertyPath: rayLineRenderer
-      value: 
-      objectReference: {fileID: 1629335802}
-    - target: {fileID: 8246622263230269179, guid: 379750b7604f95743abbe800c841bfc1,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4890118443022926653, guid: 379750b7604f95743abbe800c841bfc1,
         type: 3}

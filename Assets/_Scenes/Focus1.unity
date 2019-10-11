@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.46306705, g: 0.51948357, b: 0.5221202, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -234,15 +234,6 @@ MonoBehaviour:
   musicClips:
   - {fileID: 8300000, guid: 9cb4f61ae0d60e1489f549c2f630f358, type: 3}
   - {fileID: 8300000, guid: b57fcd15cfca6084a8950a795ec91628, type: 3}
-  ambianceClips:
-  - {fileID: 8300000, guid: 3dac2eedb927561449797e24594560d0, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 8300000, guid: 3dac2eedb927561449797e24594560d0, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!4 &241693619
 Transform:
   m_ObjectHideFlags: 0
@@ -280,7 +271,7 @@ GameObject:
   - component: {fileID: 612320883}
   - component: {fileID: 612320882}
   m_Layer: 0
-  m_Name: Ambiance1
+  m_Name: Ambiance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -537,6 +528,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuManagerMeditation
       objectReference: {fileID: 0}
+    - target: {fileID: 8246622263230269179, guid: 379750b7604f95743abbe800c841bfc1,
+        type: 3}
+      propertyPath: rayTransform
+      value: 
+      objectReference: {fileID: 1672078259}
+    - target: {fileID: 8246622263230269179, guid: 379750b7604f95743abbe800c841bfc1,
+        type: 3}
+      propertyPath: rayLineRenderer
+      value: 
+      objectReference: {fileID: 1672078256}
     - target: {fileID: 7449082304570612132, guid: 379750b7604f95743abbe800c841bfc1,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -657,16 +658,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 8246622263230269179, guid: 379750b7604f95743abbe800c841bfc1,
-        type: 3}
-      propertyPath: rayTransform
-      value: 
-      objectReference: {fileID: 1672078259}
-    - target: {fileID: 8246622263230269179, guid: 379750b7604f95743abbe800c841bfc1,
-        type: 3}
-      propertyPath: rayLineRenderer
-      value: 
-      objectReference: {fileID: 1672078256}
     - target: {fileID: 4890118443022926653, guid: 379750b7604f95743abbe800c841bfc1,
         type: 3}
       propertyPath: fadeTime
