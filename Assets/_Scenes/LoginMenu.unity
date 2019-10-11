@@ -1260,6 +1260,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1937274876, guid: 5a7682c244a150b49965c007720bdbb7, type: 3}
+      propertyPath: rayTransform
+      value: 
+      objectReference: {fileID: 1256460651}
+    - target: {fileID: 1937274876, guid: 5a7682c244a150b49965c007720bdbb7, type: 3}
+      propertyPath: rayLineRenderer
+      value: 
+      objectReference: {fileID: 1256460652}
     - target: {fileID: 9167052891667392988, guid: 5a7682c244a150b49965c007720bdbb7,
         type: 3}
       propertyPath: InitialModule.startColor.minMaxState
@@ -1360,14 +1368,6 @@ PrefabInstance:
       propertyPath: ColorModule.gradient.maxGradient.key1.a
       value: 0.19607843
       objectReference: {fileID: 0}
-    - target: {fileID: 1937274876, guid: 5a7682c244a150b49965c007720bdbb7, type: 3}
-      propertyPath: rayTransform
-      value: 
-      objectReference: {fileID: 1256460651}
-    - target: {fileID: 1937274876, guid: 5a7682c244a150b49965c007720bdbb7, type: 3}
-      propertyPath: rayLineRenderer
-      value: 
-      objectReference: {fileID: 1256460652}
     - target: {fileID: 8206836929756727825, guid: 5a7682c244a150b49965c007720bdbb7,
         type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.size
@@ -2294,7 +2294,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 92120789302de024d9464cafbc0aba3a, type: 3}
-    m_FontSize: 6
+    m_FontSize: 4
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -2576,7 +2576,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0d2548522ae586d409149b8a302d525e, type: 3}
-    m_FontSize: 6
+    m_FontSize: 4
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 4
@@ -2826,7 +2826,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0d2548522ae586d409149b8a302d525e, type: 3}
-    m_FontSize: 6
+    m_FontSize: 4
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 4
@@ -10294,7 +10294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22b86b4e05bc5154f920964c688efe76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loginMethod: 2
+  loginMethod: 0
   platformText: {fileID: 0}
   requireEmailFormat: 1
   nameInput: {fileID: 1549737621}
@@ -11748,7 +11748,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22b86b4e05bc5154f920964c688efe76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loginMethod: 3
+  loginMethod: 1
   platformText: {fileID: 0}
   requireEmailFormat: 1
   nameInput: {fileID: 0}
@@ -12342,7 +12342,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 92120789302de024d9464cafbc0aba3a, type: 3}
-    m_FontSize: 6
+    m_FontSize: 4
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 4
