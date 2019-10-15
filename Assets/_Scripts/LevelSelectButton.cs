@@ -37,6 +37,8 @@ public class LevelSelectButton : MonoBehaviour
 		normalSpite = image.sprite;
 		if(noAccessSprite != null)
 			image.sprite = noAccessSprite;
+
+		button.onClick.AddListener(ClickedButton);
 	}
 
 
@@ -86,7 +88,6 @@ public class LevelSelectButton : MonoBehaviour
 	void ProductOwned()
 	{
 		button.interactable = true;
-		button.onClick.AddListener(ClickedButton);
 		image.sprite = normalSpite;
 		canAccess = true;
 		StopAllCoroutines();

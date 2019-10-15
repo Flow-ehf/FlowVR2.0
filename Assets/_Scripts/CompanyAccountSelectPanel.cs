@@ -32,9 +32,8 @@ public class CompanyAccountSelectPanel : MonoBehaviour
 		List<AccountBackend.User> availableUsers = new List<AccountBackend.User>();
 		for (int i = 0; i < AccountCache.Count; i++)
 		{
-			var cachedUser = AccountCache.GetLoginAtIndex(i);
-			if (cachedUser.uid != LoginManager.currentUser.uid)
-				availableUsers.Add(cachedUser);
+			AccountBackend.User cachedUser = AccountCache.GetLoginAtIndex(i);
+			availableUsers.Add(cachedUser);
 		}
 
 		for (int i = content.childCount - 1; i >= 0; i--)

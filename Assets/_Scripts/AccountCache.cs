@@ -78,6 +78,7 @@ public static class AccountCache
 
 	static Cache cache;
 
+	[System.Serializable]
     class Cache
 	{
 		public List<AccountBackend.User> users;

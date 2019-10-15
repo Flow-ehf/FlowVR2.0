@@ -210,7 +210,7 @@ public class AccountBackend : MonoBehaviour
 		if (at < 1)
 			return false;
 		//Must have a period 
-		int period = text.IndexOf('.');
+		int period = text.LastIndexOf('.');
 		//Period must be after at +1 character and must have character after it
 		if (period <= at + 1 || period == text.Length - 1)
 			return false;

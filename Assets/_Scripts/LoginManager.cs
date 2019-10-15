@@ -71,7 +71,7 @@ public class LoginManager : MonoBehaviour
 			Debug.Log("Found cached login: " + currentUser);
 
 			//Previously logged in to company account, show account selection
-			if(currentUser.isCompany && AccountCache.Count > 1)
+			if(currentUser.isCompany && AccountCache.Count > 0)
 				LevelLoader.LoadLevel("CompanyAccountSelection", false);
 			else
 				LevelLoader.LoadLevel("MainMenu", false);
@@ -133,7 +133,7 @@ public class LoginManager : MonoBehaviour
 
 		if (firstLogin && !currentUser.isSubscribed && !currentUser.isGuest)
 			LevelLoader.LoadLevel("BuySubscription");
-		else if(AccountCache.Count > 1 && currentUser.isCompany)
+		else if(AccountCache.Count > 0 && currentUser.isCompany && LevelLoader.Level != "CompanyAccountSelection")
 			LevelLoader.LoadLevel("CompanyAccountSelection", false);
 		else
 			LevelLoader.LoadLevel("MainMenu");
@@ -159,7 +159,7 @@ public class LoginManager : MonoBehaviour
 		currentUser = null;
 
 		//Return to login screen when logging out
-		if (LevelLoader.Level != "LoginMenu")
+		if (LevelLoader.Level != "LoginMenu" && LevelLoader.Level != "CompanyAccountSelection")
 			LevelLoader.LoadLevel("LoginMenu");
 	}
 
