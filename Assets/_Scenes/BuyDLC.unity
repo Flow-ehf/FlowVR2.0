@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.39401236, g: 0.43247807, b: 0.462205, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -859,10 +859,9 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2.79
       objectReference: {fileID: 0}
-    - target: {fileID: 6503579409894622908, guid: 5a7682c244a150b49965c007720bdbb7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 8579281019748986, guid: 5a7682c244a150b49965c007720bdbb7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1937274876, guid: 5a7682c244a150b49965c007720bdbb7, type: 3}
       propertyPath: rayTransform
@@ -872,9 +871,10 @@ PrefabInstance:
       propertyPath: rayLineRenderer
       value: 
       objectReference: {fileID: 1256460652}
-    - target: {fileID: 8579281019748986, guid: 5a7682c244a150b49965c007720bdbb7, type: 3}
-      propertyPath: m_Enabled
-      value: 0
+    - target: {fileID: 6503579409894622908, guid: 5a7682c244a150b49965c007720bdbb7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a7682c244a150b49965c007720bdbb7, type: 3}
@@ -1003,11 +1003,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 77725752330723443, guid: fa786e75fc0aa6d4e980fe2479094b6d,
         type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 77725752330723443, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
@@ -1063,12 +1058,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 77725752330723443, guid: fa786e75fc0aa6d4e980fe2479094b6d,
         type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 77725752330723443, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
-      propertyPath: m_AnchorMin.x
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 77725752330723443, guid: fa786e75fc0aa6d4e980fe2479094b6d,
@@ -1076,210 +1066,21 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 77725752330723443, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 77725752330723443, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 77725752330723443, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 77725752330723443, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1127479920337961526, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
-      propertyPath: m_Colors.m_PressedColor.r
-      value: 0.99215686
-      objectReference: {fileID: 0}
-    - target: {fileID: 1127479920337961526, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
-      propertyPath: m_Colors.m_PressedColor.g
-      value: 0.7137255
-      objectReference: {fileID: 0}
-    - target: {fileID: 1127479920337961526, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
-      propertyPath: m_Colors.m_PressedColor.b
-      value: 0.07058824
-      objectReference: {fileID: 0}
-    - target: {fileID: 1127479920337961526, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
-      propertyPath: m_Colors.m_HighlightedColor.r
-      value: 0.12941177
-      objectReference: {fileID: 0}
-    - target: {fileID: 1127479920337961526, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
-      propertyPath: m_Colors.m_HighlightedColor.g
-      value: 0.65882355
-      objectReference: {fileID: 0}
-    - target: {fileID: 1127479920337961526, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
-      propertyPath: m_Colors.m_HighlightedColor.b
-      value: 0.9529412
-      objectReference: {fileID: 0}
-    - target: {fileID: 1127479920337961526, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
-      propertyPath: m_Colors.m_NormalColor.r
-      value: 0.105882354
-      objectReference: {fileID: 0}
-    - target: {fileID: 1127479920337961526, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
-      propertyPath: m_Colors.m_NormalColor.g
-      value: 0.105882354
-      objectReference: {fileID: 0}
-    - target: {fileID: 1127479920337961526, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
-      propertyPath: m_Colors.m_NormalColor.b
-      value: 0.105882354
-      objectReference: {fileID: 0}
-    - target: {fileID: 1127479920337961526, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
-      propertyPath: m_Colors.m_DisabledColor.r
-      value: 0.105882354
-      objectReference: {fileID: 0}
-    - target: {fileID: 1127479920337961526, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
-      propertyPath: m_Colors.m_DisabledColor.g
-      value: 0.105882354
-      objectReference: {fileID: 0}
-    - target: {fileID: 1127479920337961526, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
-      propertyPath: m_Colors.m_DisabledColor.b
-      value: 0.105882354
-      objectReference: {fileID: 0}
-    - target: {fileID: 6550176346408239072, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6550176346408239072, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6550176346408239072, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6550176346408239072, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 626672e63ba41744ba72933c1edc99d6,
-        type: 3}
-    - target: {fileID: 3021486725127415621, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 265
-      objectReference: {fileID: 0}
     - target: {fileID: 4758652695350266722, guid: fa786e75fc0aa6d4e980fe2479094b6d,
         type: 3}
       propertyPath: m_Text
       value: Learn how to use your breath to overcome obstacles like stress, worry
         or tension in relationships
       objectReference: {fileID: 0}
-    - target: {fileID: 4758652695350266722, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 50b964640f3213a4fbcbc64e0b6dbfa4,
-        type: 3}
-    - target: {fileID: 4758652695350266722, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.09803922
-      objectReference: {fileID: 0}
-    - target: {fileID: 4758652695350266722, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.09803922
-      objectReference: {fileID: 0}
-    - target: {fileID: 4758652695350266722, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.09803922
-      objectReference: {fileID: 0}
     - target: {fileID: 452548702162472511, guid: fa786e75fc0aa6d4e980fe2479094b6d,
         type: 3}
       propertyPath: m_Text
       value: Breathe to ease tension
       objectReference: {fileID: 0}
-    - target: {fileID: 452548702162472511, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 50b964640f3213a4fbcbc64e0b6dbfa4,
-        type: 3}
-    - target: {fileID: 452548702162472511, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.09803922
-      objectReference: {fileID: 0}
-    - target: {fileID: 452548702162472511, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.09803922
-      objectReference: {fileID: 0}
-    - target: {fileID: 452548702162472511, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.09803922
-      objectReference: {fileID: 0}
     - target: {fileID: 7458629678929797954, guid: fa786e75fc0aa6d4e980fe2479094b6d,
         type: 3}
       propertyPath: m_Text
       value: $2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7458629678929797954, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 50b964640f3213a4fbcbc64e0b6dbfa4,
-        type: 3}
-    - target: {fileID: 7458629678929797954, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.09803922
-      objectReference: {fileID: 0}
-    - target: {fileID: 7458629678929797954, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.09803922
-      objectReference: {fileID: 0}
-    - target: {fileID: 7458629678929797954, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.09803922
-      objectReference: {fileID: 0}
-    - target: {fileID: 7908582655319421103, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.93333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 7908582655319421103, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.93333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 7908582655319421103, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.93333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 4359883627924080084, guid: fa786e75fc0aa6d4e980fe2479094b6d,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4359883627924080084, guid: fa786e75fc0aa6d4e980fe2479094b6d,
         type: 3}
@@ -8529,6 +8330,9 @@ MonoBehaviour:
   container: {fileID: 1813922727}
   prefabOrTemplate: {fileID: 77725752330723443, guid: fa786e75fc0aa6d4e980fe2479094b6d,
     type: 3}
+  perPageCapacity: 7
+  nextPage: {fileID: 0}
+  previousPage: {fileID: 0}
 --- !u!1001 &1881172558
 PrefabInstance:
   m_ObjectHideFlags: 0

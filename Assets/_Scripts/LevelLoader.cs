@@ -145,8 +145,10 @@ public class LevelLoader : MonoBehaviour
 		var player = FindObjectOfType<UnityEngine.Video.VideoPlayer>();
 		if(player != null)
 		{
+			player.Prepare();
+			player.Pause();
 			yield return new WaitWhile(() => !player.isPrepared);
+			player.Play();
 		}
 	}
-
 }

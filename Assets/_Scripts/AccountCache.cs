@@ -55,11 +55,13 @@ public static class AccountCache
 			return;
 
 		cache.AddUser(user);
+		Save();
 	}
 
 	public static void RemoveFromCache(AccountBackend.User user)
 	{
 		cache.RemoveUser(user);
+		Save();
 	}
 
 	public static int Count => cache.users.Count;

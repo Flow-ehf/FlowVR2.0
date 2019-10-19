@@ -84,10 +84,12 @@ public class SessionSettingsUI : MonoBehaviour
 	{
 		panel.SetActive(true);
 
-		ScreenFade.instance.StartFade(1, Color.black);
-		yield return new WaitForSeconds(1);
 		player.clip = targetClip;
 		player.targetTexture = targetMaterial.mainTexture as RenderTexture;
+		player.Prepare();
+		ScreenFade.instance.StartFade(1, Color.black);
+		yield return new WaitForSeconds(1);
+		yield return new WaitWhile(() => !player.isPrepared);
 		RenderSettings.skybox = targetMaterial;
 		ScreenFade.instance.StartFade(1, Color.clear);
 	}

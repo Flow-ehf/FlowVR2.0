@@ -31,10 +31,12 @@ public class LoginManager : MonoBehaviour
 	static EmailLogin emailLogin = new EmailLogin();
 
 	static LoginBase currentLogin;
+	static bool isStartUp;
 
 	public static AccountBackend.User currentUser;
 
 	public static bool IsLoggingIn { get; private set; }
+
 
 
 	//Login menu
@@ -60,21 +62,25 @@ public class LoginManager : MonoBehaviour
 
 	void Start()
 	{
-//		fbLogin.Initialize();
-//		googleLogin.Initialize();
+		//		fbLogin.Initialize();
+		//		googleLogin.Initialize();
 
-		currentUser = AccountCache.GetLastLogin();
-
-		//User logged in previously
-		if (currentUser != null)
+		if (isStartUp)
 		{
-			Debug.Log("Found cached login: " + currentUser);
+			currentUser = AccountCache.GetLastLogin();
 
-			//Previously logged in to company account, show account selection
-			if(currentUser.isCompany && AccountCache.Count > 0)
-				LevelLoader.LoadLevel("CompanyAccountSelection", false);
-			else
-				LevelLoader.LoadLevel("MainMenu", false);
+			//User logged in previously
+			if (currentUser != null)
+			{
+				Debug.Log("Found cached login: " + currentUser);
+
+				//Previously logged in to company account, show account selection
+				if (currentUser.isCompany && AccountCache.Count > 0)
+					LevelLoader.LoadLevel("CompanyAccountSelection", false);
+				else
+					LevelLoader.LoadLevel("MainMenu", false);
+			}
+			isStartUp = false;
 		}
 	}
 

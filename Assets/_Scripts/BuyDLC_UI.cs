@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using Oculus.Platform;
@@ -12,8 +13,13 @@ public class BuyDLC_UI : MonoBehaviour
 	[Space]
 	[SerializeField] RectTransform container;
 	[SerializeField] RectTransform prefabOrTemplate;
+	[SerializeField] int perPageCapacity = 7;
+	[SerializeField] Button nextPage, previousPage;
 
 	Dictionary<string, DLCButton> buttons = new Dictionary<string, DLCButton>();
+	int currentPage = 0;
+
+	List<Product> dlcs = new List<Product>();
 
 	public static string targetDlcSKU = "";
 
@@ -24,6 +30,9 @@ public class BuyDLC_UI : MonoBehaviour
 		{
 			Destroy(container.GetChild(i).gameObject);
 		}
+
+		nextPage.interactable = false;
+		previousPage.interactable = false;
 
 		if (dlcSKUValues.Length > 0 && container != null && prefabOrTemplate != null)
 			IAP.GetProductsBySKU(dlcSKUValues).OnComplete(OnRetrievedProductList);
@@ -37,8 +46,12 @@ public class BuyDLC_UI : MonoBehaviour
 		}
 		else
 		{
-			foreach (var dlc in result.GetProductList())
+			dlcs = result.GetProductList().ToList();
+
+			for (int i = 0; i < dlcs.Count; i++)
 			{
+				Product dlc = dlcs[i];
+
 				GameObject newEntry = Instantiate(prefabOrTemplate.gameObject, container);
 				newEntry.SetActive(true);
 				DLCButton info = newEntry.GetComponent<DLCButton>();
@@ -46,11 +59,48 @@ public class BuyDLC_UI : MonoBehaviour
 				info.priceText?.UpdateText(dlc.FormattedPrice);
 				info.descriptionText?.UpdateText(dlc.Description);
 				info.sku = dlc.Sku;
-				info.buyButton.interactable = false;
-				info.buyButton.onClick.AddListener(() => Buy(info));
-				buttons.Add(dlc.Sku, info);
+				info.buyButton.onClick.RemoveAllListeners();
+				info.buyButton.onClick.AddListener(() => Buy(dlc));
+				buttons[dlc.Sku] = info;
 			}
 			IAP.GetViewerPurchases().OnComplete(OnRetrieveExistingPurchases);
+		}
+	}
+
+	void GoNextPage()
+	{
+		BuildDLCPage(currentPage + 1);
+	}
+
+	void GoPreviousPage()
+	{
+		BuildDLCPage(currentPage - 1);
+	}
+
+	void BuildDLCPage(int page)
+	{
+		for (int i = container.childCount - 1; i >= 0; i--)
+		{
+			container.GetChild(i).gameObject.SetActive(false);
+		}
+
+		int maxPage = dlcs.Count / perPageCapacity;
+
+		if (page < 0)
+			currentPage = maxPage;
+		else if (maxPage > 0)
+			currentPage = page % maxPage;
+		else
+			currentPage = 0;
+
+		nextPage.interactable = maxPage > 0;
+		previousPage.interactable = maxPage > 0;
+
+		for (int i = currentPage * perPageCapacity; i < dlcs.Count && i < (currentPage + 1) * perPageCapacity; i++)
+		{
+			Product dlc = dlcs[i];
+
+			buttons[dlc.Sku].gameObject.SetActive(true);
 		}
 	}
 
@@ -62,10 +112,8 @@ public class BuyDLC_UI : MonoBehaviour
 		}
 		else
 		{
-			foreach (var info in buttons.Values)
-			{
-				info.buyButton.interactable = true;
-			}
+			BuildDLCPage(0);
+
 			foreach (var dlc in result.GetPurchaseList())
 			{
 				UpdatePurchase(dlc.Sku);
@@ -73,27 +121,28 @@ public class BuyDLC_UI : MonoBehaviour
 
 			if(targetDlcSKU != "")
 			{
-				Buy(buttons[targetDlcSKU]);
+				Buy(dlcs.Find((dlc) => dlc.Sku == targetDlcSKU));
 				targetDlcSKU = "";
 			}
 		}
 	}
 
-	void Buy(DLCButton button)
+	void Buy(Product product)
 	{
-		IAP.LaunchCheckoutFlow(button.sku).OnComplete(Purchased);
-		button.buyButton.interactable = false;
+		IAP.LaunchCheckoutFlow(product.Sku).OnComplete(Purchased);
+		buttons[product.Sku].buyButton.interactable = false;
 	}
 
 	void Purchased(Message<Purchase> result)
 	{
+		var purchase = result.GetPurchase();
 		if(result.IsError)
 		{
 			Debug.LogError("Failed to buy DLC: " + result.GetError());
+			buttons[purchase.Sku].buyButton.interactable = true;
 		}
 		else
 		{
-			var purchase = result.GetPurchase();
 			UpdatePurchase(purchase.Sku);
 		}
 	}
@@ -101,10 +150,7 @@ public class BuyDLC_UI : MonoBehaviour
 
 	void UpdatePurchase(string sku)
 	{
-		buttons.TryGetValue(sku, out DLCButton info);
-		if (info == null)
-			Debug.LogError($"SKU '{sku}' not found included in build");
-		else
+		if(buttons.TryGetValue(sku, out DLCButton info))
 		{
 			info.buyButton.interactable = false;
 			info.priceText?.UpdateText("<purchased>");
