@@ -284,15 +284,6 @@ MonoBehaviour:
   musicClips:
   - {fileID: 8300000, guid: b00e4eab943380545a3eb0d5de423b17, type: 3}
   - {fileID: 8300000, guid: 6bbf8daa682306e4d8f94f0d5c9967eb, type: 3}
-  ambianceClips:
-  - {fileID: 8300000, guid: 9004e85b60fddee46bcd2ad0f4462c6e, type: 3}
-  - {fileID: 8300000, guid: cd6d67b7276272e41b9a6308409422fa, type: 3}
-  - {fileID: 8300000, guid: f1f2b9c25523b3343b80131926036e6e, type: 3}
-  - {fileID: 8300000, guid: e35300f7e848023498892359020f4de9, type: 3}
-  - {fileID: 8300000, guid: 9004e85b60fddee46bcd2ad0f4462c6e, type: 3}
-  - {fileID: 8300000, guid: cd6d67b7276272e41b9a6308409422fa, type: 3}
-  - {fileID: 8300000, guid: f1f2b9c25523b3343b80131926036e6e, type: 3}
-  - {fileID: 8300000, guid: e35300f7e848023498892359020f4de9, type: 3}
 --- !u!4 &473260679
 Transform:
   m_ObjectHideFlags: 0
@@ -700,13 +691,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 939680575}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.42261845, z: -0, w: -0.9063077}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 310, z: 0}
 --- !u!1 &1560225056
 GameObject:
   m_ObjectHideFlags: 0
