@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.6258134, g: 0.63140416, b: 0.6125762, a: 1}
+  m_IndirectSpecularColor: {r: 0.4821573, g: 0.5257103, b: 0.55517256, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -347,15 +347,6 @@ MonoBehaviour:
   musicClips:
   - {fileID: 8300000, guid: a03d8281b6f489d4e9ef53efc9eff57b, type: 3}
   - {fileID: 8300000, guid: 104855b8053fe4b4a9cc1d618d833273, type: 3}
-  ambianceClips:
-  - {fileID: 8300000, guid: e1b1fba27befda2458ea77de5f36a128, type: 3}
-  - {fileID: 8300000, guid: 26b0bddeb56d47645b64d8065d2edb1d, type: 3}
-  - {fileID: 8300000, guid: 00fa68cddc0b87c48ac9ecbb2eb5dd7f, type: 3}
-  - {fileID: 8300000, guid: 37cbf415862a21d409f62c36b0d5809c, type: 3}
-  - {fileID: 8300000, guid: e1b1fba27befda2458ea77de5f36a128, type: 3}
-  - {fileID: 8300000, guid: 26b0bddeb56d47645b64d8065d2edb1d, type: 3}
-  - {fileID: 8300000, guid: 00fa68cddc0b87c48ac9ecbb2eb5dd7f, type: 3}
-  - {fileID: 8300000, guid: 37cbf415862a21d409f62c36b0d5809c, type: 3}
 --- !u!4 &1324749317
 Transform:
   m_ObjectHideFlags: 0
@@ -503,13 +494,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1398977416}
-  m_LocalRotation: {x: 0, y: 0.9914449, z: 0, w: 0.13052626}
+  m_LocalRotation: {x: 0, y: 0.7372774, z: -0, w: -0.67559016}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 165, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 265, z: 0}
 --- !u!1 &1560225056
 GameObject:
   m_ObjectHideFlags: 0
