@@ -110,8 +110,8 @@ public class LevelLoader : MonoBehaviour
 		//Fade in
 		ScreenFade.instance.StartFade(FadeDuration, Color.clear);
 		//Fade in volume 
-		yield return FadeVolumeIn(FadeDuration);
 		Time.timeScale = 1;
+		yield return FadeVolumeIn(FadeDuration);
 		IsLoading = false;
 	}
 
@@ -147,6 +147,7 @@ public class LevelLoader : MonoBehaviour
 		{
 			player.Prepare();
 			player.Pause();
+			yield return null;
 			yield return new WaitWhile(() => !player.isPrepared);
 			player.Play();
 		}

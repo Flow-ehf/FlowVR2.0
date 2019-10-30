@@ -36,11 +36,9 @@ public class LoginManager : MonoBehaviour
 	public static AccountBackend.User currentUser;
 
 	public static bool IsLoggingIn { get; private set; }
+	public static bool StartAtLogin { get; set; }
 
-
-
-	//Login menu
-	[SerializeField] UIPanel mainMenu;
+	[SerializeField] UIPanel loginPanel;
 
 	public enum LoginMethod
 	{
@@ -81,6 +79,14 @@ public class LoginManager : MonoBehaviour
 					LevelLoader.LoadLevel("MainMenu", false);
 			}
 			isStartUp = false;
+		}
+		else
+		{
+			if (StartAtLogin)
+			{
+				loginPanel.SetActiveImmediately(true);
+				StartAtLogin = false;
+			}
 		}
 	}
 
@@ -164,6 +170,8 @@ public class LoginManager : MonoBehaviour
 		currentLogin = null;
 		currentUser = null;
 
+		LoginManager.StartAtLogin = true;
+
 		//Return to login screen when logging out
 		if (LevelLoader.Level != "LoginMenu" && LevelLoader.Level != "CompanyAccountSelection")
 			LevelLoader.LoadLevel("LoginMenu");
@@ -205,8 +213,11 @@ public class LoginManager : MonoBehaviour
 		public void Login()
 		{
 			//No platform is currently logged in and this platform is ready for login
-			if (!LoginManager.IsLoggingIn && !LoginManager.IsLoggedIn && IsInitialized)
+			if (!LoginManager.IsLoggingIn && IsInitialized)
 			{
+				if (IsLoggedIn)
+					Logout();
+
 				IsLoggingIn = true;
 #if UNITY_EDITOR && BYPASS_LOGIN
 				OnLoggedIn(this);
@@ -390,10 +401,8 @@ public class LoginManager : MonoBehaviour
 					{
 						email = user.email;
 						currentUser = user;
-						OnLoggedIn(this);
 					}
-					else
-						Debug.LogError("Failed to login user");
+					OnLoggedIn(this);
 				});
 			}
 			else

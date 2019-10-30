@@ -1,26 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using UnityEngine;
 
-public static class AccountCache 
+public class AccountCache : MonoBehaviour
 {
 	const string FILENAME = "AccountCache.json";
+
 	static readonly string path = Path.Combine(Application.persistentDataPath, FILENAME);
 
-	static AccountCache()
+	[RuntimeInitializeOnLoadMethod]
+	static void Init()
+	{
+		GameObject go = new GameObject("AccountCache");
+		go.AddComponent<AccountCache>();
+		go.hideFlags = HideFlags.HideInHierarchy;
+		DontDestroyOnLoad(go);
+
+		Application.quitting += OnQuit;
+	}
+
+	private void Awake()
 	{
 		if (File.Exists(path))
 		{
-			string data = File.ReadAllText(path);
+			byte[] jsonBytes = File.ReadAllBytes(path);
+			string data = Encoding.ASCII.GetString(jsonBytes);
 			cache = JsonUtility.FromJson<Cache>(data);
 		}
-		if(cache == null)
+		if (cache == null)
 			cache = new Cache();
 		if (cache.users == null)
 			cache.users = new List<AccountBackend.User>();
 
-		Application.quitting += OnQuit;
 	}
 
 	public static AccountBackend.User GetLastLogin()
@@ -74,7 +87,15 @@ public static class AccountCache
 	public static void Save()
 	{
 		string data = JsonUtility.ToJson(cache);
-		File.WriteAllText(path, data);
+
+		if (!Directory.Exists(Application.persistentDataPath))
+			Directory.CreateDirectory(Application.persistentDataPath);
+		if (!File.Exists(path))
+			File.Create(path).Close();
+
+		byte[] jsonBytes = Encoding.ASCII.GetBytes(data);
+
+		File.WriteAllBytes(path, jsonBytes);
 	}
 
 

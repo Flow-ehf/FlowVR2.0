@@ -63,7 +63,7 @@ public class LoginUI : MonoBehaviour, ILoginDetails
 
 	void Update()
 	{
-		button.interactable = (login == null || login.IsInitialized) && !LoginManager.IsLoggedIn && !LoginManager.IsLoggingIn && EmailValid() && PasswordValid();
+		button.interactable = (login == null || login.IsInitialized) && !LoginManager.IsLoggingIn && EmailValid() && PasswordValid();
 
 		if (errorText != null)
 		{

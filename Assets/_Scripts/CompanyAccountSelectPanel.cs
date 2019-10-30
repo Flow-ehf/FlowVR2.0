@@ -72,26 +72,45 @@ public class CompanyAccountSelectPanel : MonoBehaviour
 			Destroy(content.GetChild(i).gameObject);
 		}
 
-		for (int i = page * perPageCapacity; i < availableUsers.Count && i < (page + 1) * perPageCapacity; i++)
+		int count = Mathf.Min(availableUsers.Count, (page + 1) * perPageCapacity) + 1;
+	
+		for (int i = page * perPageCapacity; i < count; i++)
 		{
-			AccountBackend.User user = availableUsers[i];
-
 			GameObject inst = Instantiate(accountEntryPrefab, content);
+
 			AccountButton info = inst.GetComponent<AccountButton>();
-			if(info == null)
+			if (info == null)
 			{
 				Debug.LogError("Account panel prefab must have a script of type 'AccountButton'. Info will not be set");
 				continue;
 			}
-			info.selectAccountButton.onClick.RemoveAllListeners();
-			info.selectAccountButton.onClick.AddListener(() => Login(user));
-			//if(!string.IsNullOrEmpty(user.photoUrl))
-			//	StartCoroutine(LoadAvatar(user.photoUrl, info.avatarImg));
-			info.avatarImg.color = backgroundColors[i % backgroundColors.Length];
-			if (!string.IsNullOrEmpty(user.displayName))
-				info.nameText.text = user.displayName;
-			else if (!string.IsNullOrEmpty(user.email))
-				info.nameText.text = user.email;
+
+			if (i < count - 1)
+			{
+				AccountBackend.User user = availableUsers[i];
+
+				info.selectAccountButton.onClick.RemoveAllListeners();
+				info.selectAccountButton.onClick.AddListener(() => Login(user));
+				//if(!string.IsNullOrEmpty(user.photoUrl))
+				//	StartCoroutine(LoadAvatar(user.photoUrl, info.avatarImg));
+				info.avatarImg.color = backgroundColors[i % backgroundColors.Length];
+				if (!string.IsNullOrEmpty(user.displayName))
+					info.nameText.text = user.displayName;
+				else if (!string.IsNullOrEmpty(user.email))
+					info.nameText.text = user.email;
+			}
+			else
+			{
+				info.selectAccountButton.onClick.RemoveAllListeners();
+				info.selectAccountButton.onClick.AddListener(() =>
+				{
+					LoginManager.StartAtLogin = true;
+					LevelLoader.LoadLevel("LoginMenu");
+				});
+
+				info.avatarImg.color = backgroundColors[i % backgroundColors.Length];
+				info.nameText.text = "Add user";
+			}
 		}
 	}
 
