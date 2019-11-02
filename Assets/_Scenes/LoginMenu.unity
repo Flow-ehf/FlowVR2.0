@@ -562,6 +562,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   loginPanel: {fileID: 1564941090}
+
 --- !u!4 &224108629
 Transform:
   m_ObjectHideFlags: 0
@@ -2038,7 +2039,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 92120789302de024d9464cafbc0aba3a, type: 3}
-    m_FontSize: 6
+    m_FontSize: 5
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -2320,7 +2321,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0d2548522ae586d409149b8a302d525e, type: 3}
-    m_FontSize: 6
+    m_FontSize: 5
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 4
@@ -2570,7 +2571,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0d2548522ae586d409149b8a302d525e, type: 3}
-    m_FontSize: 6
+    m_FontSize: 5
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 4
@@ -11956,7 +11957,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 92120789302de024d9464cafbc0aba3a, type: 3}
-    m_FontSize: 6
+    m_FontSize: 5
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 4
