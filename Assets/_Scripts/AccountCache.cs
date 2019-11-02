@@ -25,8 +25,7 @@ public class AccountCache : MonoBehaviour
 	{
 		if (File.Exists(path))
 		{
-			byte[] jsonBytes = File.ReadAllBytes(path);
-			string data = Encoding.ASCII.GetString(jsonBytes);
+			string data = File.ReadAllText(path);			
 			cache = JsonUtility.FromJson<Cache>(data);
 		}
 		if (cache == null)
@@ -93,9 +92,7 @@ public class AccountCache : MonoBehaviour
 		if (!File.Exists(path))
 			File.Create(path).Close();
 
-		byte[] jsonBytes = Encoding.ASCII.GetBytes(data);
-
-		File.WriteAllBytes(path, jsonBytes);
+		File.WriteAllText(path, data, System.Text.Encoding.ASCII);
 	}
 
 
