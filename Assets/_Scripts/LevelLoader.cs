@@ -43,7 +43,8 @@ public class LevelLoader : MonoBehaviour
 
 	public static void LoadLevel(string level, bool transition = true)
 	{
-		instance.StartCoroutine(WaitLoadLevel(level, transition));
+		if(Application.CanStreamedLevelBeLoaded(level))
+			instance.StartCoroutine(WaitLoadLevel(level, transition));
 	}
 
 

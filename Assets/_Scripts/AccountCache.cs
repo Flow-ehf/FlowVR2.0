@@ -18,6 +18,10 @@ public class AccountCache : MonoBehaviour
 		go.hideFlags = HideFlags.HideInHierarchy;
 		DontDestroyOnLoad(go);
 
+#if UNITY_ANDROID
+		UnityEngine.Android.Permission.RequestUserPermission("READ_EXTERNAL_STORAGE");
+#endif
+
 		Application.quitting += OnQuit;
 	}
 
@@ -25,7 +29,8 @@ public class AccountCache : MonoBehaviour
 	{
 		if (File.Exists(path))
 		{
-			string data = File.ReadAllText(path);			
+			byte[] bytes = File.ReadAllBytes(path);
+			string data = System.Text.Encoding.ASCII.GetString(bytes);		
 			cache = JsonUtility.FromJson<Cache>(data);
 		}
 		if (cache == null)
@@ -92,7 +97,9 @@ public class AccountCache : MonoBehaviour
 		if (!File.Exists(path))
 			File.Create(path).Close();
 
-		File.WriteAllText(path, data, System.Text.Encoding.ASCII);
+		byte[] bytes = System.Text.Encoding.ASCII.GetBytes(data);
+
+		File.WriteAllBytes(path, bytes);
 	}
 
 

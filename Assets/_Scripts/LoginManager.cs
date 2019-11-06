@@ -144,7 +144,7 @@ public class LoginManager : MonoBehaviour
 		PlayerPrefs.SetInt("HasLogin", 1);
 
 		if (firstLogin && !currentUser.isSubscribed && !currentUser.isGuest)
-			LevelLoader.LoadLevel("BuySubscription");
+			LevelLoader.LoadLevel("BuyDLC");
 		else if(AccountCache.Count > 0 && currentUser.isCompany && LevelLoader.Level != "CompanyAccountSelection")
 			LevelLoader.LoadLevel("CompanyAccountSelection", false);
 		else
