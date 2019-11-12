@@ -111,9 +111,6 @@ public class LevelSelectButton : MonoBehaviour
 		}
 	}
 
-
-
-
     void Reset()
 	{
 		level = name;

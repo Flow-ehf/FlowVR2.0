@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Oculus.Platform;
 
 public class LevelLoader : MonoBehaviour
 {
@@ -27,6 +28,21 @@ public class LevelLoader : MonoBehaviour
 		StartCoroutine(InitTransition());
 	}
 
+	void Start()
+	{
+		Oculus.Platform.Core.Initialize();
+		Oculus.Platform.Entitlements.IsUserEntitledToApplication().OnComplete(OnEntitlementCheckComplete);
+	}
+
+	void OnEntitlementCheckComplete(Message msg)
+	{
+		if(msg.IsError)
+		{
+			Debug.LogError("App not owned. Quitting!");
+			UnityEngine.Application.Quit();
+		}
+	}
+
 	IEnumerator InitTransition()
 	{
 		IsLoading = true;
@@ -43,7 +59,7 @@ public class LevelLoader : MonoBehaviour
 
 	public static void LoadLevel(string level, bool transition = true)
 	{
-		if(Application.CanStreamedLevelBeLoaded(level))
+		if(UnityEngine.Application.CanStreamedLevelBeLoaded(level))
 			instance.StartCoroutine(WaitLoadLevel(level, transition));
 	}
 
