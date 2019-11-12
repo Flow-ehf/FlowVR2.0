@@ -8,7 +8,7 @@ public class AccountCache : MonoBehaviour
 {
 	const string FILENAME = "AccountCache.json";
 
-	static readonly string path = Path.Combine(Application.persistentDataPath, FILENAME);
+	static readonly string path = Application.persistentDataPath + "/" + FILENAME;
 
 	[RuntimeInitializeOnLoadMethod]
 	static void Init()
@@ -91,17 +91,16 @@ public class AccountCache : MonoBehaviour
 	public static void Save()
 	{
 		string data = JsonUtility.ToJson(cache);
+		byte[] bytes = System.Text.Encoding.ASCII.GetBytes(data);
 
 		if (!Directory.Exists(Application.persistentDataPath))
 			Directory.CreateDirectory(Application.persistentDataPath);
 		if (!File.Exists(path))
-			File.Create(path).Close();
-
-		byte[] bytes = System.Text.Encoding.ASCII.GetBytes(data);
-
+		{
+			File.CreateText(path);
+		}
 		File.WriteAllBytes(path, bytes);
 	}
-
 
 	static Cache cache;
 
