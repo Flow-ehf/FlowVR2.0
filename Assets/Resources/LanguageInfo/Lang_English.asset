@@ -80,48 +80,48 @@ MonoBehaviour:
     str: Focus
   - tag: restore
     str: Restore
-  - tag: restore1_desc
+  - tag: restore2_desc
     str: 'In the midst of fast paced, modern existence it is important to relax into
       deep peace for restorative healing of body and mind. '
-  - tag: breathe1_desc
+  - tag: breathe2_desc
     str: Learn how to use your breath to overcome obstacles like stress, worry or
       tension in interpersonal relationships
-  - tag: breathe2_desc
+  - tag: breathe1_desc
     str: Learn to breathe with awareness is the foundation of Flow meditation
   - tag: breathe3_desc
     str: breath3_desc
-  - tag: move1_desc
+  - tag: move2_desc
     str: Moving the body, while opening the mind and heart is the doorway to positive
       energy
-  - tag: move2_desc
+  - tag: move1_desc
     str: Moving our bodies can increase the depth and power of our meditation
   - tag: move3_desc
     str: move3_desc
-  - tag: letgo1_desc
+  - tag: letgo2_desc
     str: Get out of old patterns and find your inner passion by letting go to energetic
       music
-  - tag: letgo2_desc
+  - tag: letgo1_desc
     str: Letting go of stress or tension helps us make more space inside ourselves
       for more of what we desire
   - tag: letgo3_desc
     str: letgo3_desc
-  - tag: calm1_desc
+  - tag: calm2_desc
     str: 'Calm your body and mind and prepare yourself to find accurate solutions
       to your challenges '
-  - tag: calm2_desc
+  - tag: calm1_desc
     str: Letting go of stress or tension helps us make more space inside ourselves
       for more of what we desire
   - tag: calm3_desc
     str: calm3_desc
-  - tag: focus1_desc
+  - tag: focus2_desc
     str: Meditative thinking, from a calm place within is the key to connect with
       your true intelligence
-  - tag: focus2_desc
+  - tag: focus1_desc
     str: Choosing a focus allows us to find more of the positive energy we are looking
       for in meditation
   - tag: focus3_desc
     str: focus3_desc
-  - tag: restore2_desc
+  - tag: restore1_desc
     str: Relaxing and resting more deeply is essential key to well being
   - tag: restore3_desc
     str: restore3_desc
@@ -204,3 +204,5 @@ MonoBehaviour:
     str: Using multiple modes in each session increases the effectiveness of Flow
   - tag: sales_menu_message
     str: Use the Flow mobile app to subscribe and get access to all premium content
+  - tag: profound_quote_8
+    str: 

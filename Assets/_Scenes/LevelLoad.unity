@@ -726,6 +726,12 @@ MonoBehaviour:
     - Restore3
     randomTexts:
     - <profound_quote_6>
+  - levels:
+    - LoginMenu
+    - BuyDLC
+    - CompanyAccountSelection
+    randomTexts:
+    - <profound_quote_8>
   fallbackText: <profound_quote_7>
 --- !u!114 &2050280095
 MonoBehaviour:

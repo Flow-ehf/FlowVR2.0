@@ -405,7 +405,7 @@ VideoPlayer:
   m_AspectRatio: 2
   m_DataSource: 0
   m_PlaybackSpeed: 1
-  m_AudioOutputMode: 2
+  m_AudioOutputMode: 0
   m_TargetAudioSources: []
   m_DirectAudioVolumes: []
   m_Url: 
@@ -846,15 +846,6 @@ MonoBehaviour:
   musicClips:
   - {fileID: 8300000, guid: ced23d7eb23b35e4fa51927a9bbad926, type: 3}
   - {fileID: 8300000, guid: d0ae3b206692f2e498b37df638a0224a, type: 3}
-  ambianceClips:
-  - {fileID: 8300000, guid: 61615bce0b597c04685e288767bfd5df, type: 3}
-  - {fileID: 8300000, guid: bc21a37f52f610540acfbfc1de00b9a6, type: 3}
-  - {fileID: 8300000, guid: eba1db97b2fa6b24c8d550ec936d758f, type: 3}
-  - {fileID: 8300000, guid: d8425bf46796f6c4494ae22248dac285, type: 3}
-  - {fileID: 8300000, guid: 61615bce0b597c04685e288767bfd5df, type: 3}
-  - {fileID: 8300000, guid: bc21a37f52f610540acfbfc1de00b9a6, type: 3}
-  - {fileID: 8300000, guid: eba1db97b2fa6b24c8d550ec936d758f, type: 3}
-  - {fileID: 8300000, guid: d8425bf46796f6c4494ae22248dac285, type: 3}
 --- !u!4 &1658531494
 Transform:
   m_ObjectHideFlags: 0
