@@ -31,7 +31,7 @@ public class LoginManager : MonoBehaviour
 	static EmailLogin emailLogin = new EmailLogin();
 
 	static LoginBase currentLogin;
-	static bool isStartUp;
+	static bool isStartUp = true;
 
 	public static AccountBackend.User currentUser;
 
@@ -165,7 +165,7 @@ public class LoginManager : MonoBehaviour
 		instance?.LoggedOut.Invoke();
 		LoginChanged?.Invoke(false);
 
-		AccountCache.RemoveFromCache(currentUser);
+		//AccountCache.RemoveFromCache(currentUser);
 
 		currentLogin = null;
 		currentUser = null;

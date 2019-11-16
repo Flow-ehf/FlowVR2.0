@@ -8,6 +8,9 @@ public class AccountCache : MonoBehaviour
 {
 	const string FILENAME = "AccountCache.json";
 
+	const string CacheCount = "Cache_Count";
+	const string CacheEntry = "Cache_User_";
+
 	static readonly string path = Application.persistentDataPath + "/" + FILENAME;
 
 	[RuntimeInitializeOnLoadMethod]
@@ -27,17 +30,30 @@ public class AccountCache : MonoBehaviour
 
 	private void Awake()
 	{
-		if (File.Exists(path))
-		{
-			byte[] bytes = File.ReadAllBytes(path);
-			string data = System.Text.Encoding.ASCII.GetString(bytes);		
-			cache = JsonUtility.FromJson<Cache>(data);
-		}
+		//#if AccountCachePlayerPrefs
+
+		//#else
+		//		if (File.Exists(path))
+		//		{
+		//			byte[] bytes = File.ReadAllBytes(path);
+		//			string data = System.Text.Encoding.ASCII.GetString(bytes);		
+		//			cache = JsonUtility.FromJson<Cache>(data);
+		//		}
+		//#endif
 		if (cache == null)
 			cache = new Cache();
 		if (cache.users == null)
 			cache.users = new List<AccountBackend.User>();
 
+		int count = PlayerPrefs.GetInt(CacheCount, 0);
+		for (int i = 0; i < count; i++)
+		{
+			string userData = PlayerPrefs.GetString(CacheEntry + i, null);
+			AccountBackend.User user = JsonUtility.FromJson<AccountBackend.User>(userData);
+			cache.AddUser(user);
+		}
+
+		Debug.Log("Loaded " + Count + " cached users");
 	}
 
 	public static AccountBackend.User GetLastLogin()
@@ -90,16 +106,29 @@ public class AccountCache : MonoBehaviour
 
 	public static void Save()
 	{
-		string data = JsonUtility.ToJson(cache);
-		byte[] bytes = System.Text.Encoding.ASCII.GetBytes(data);
+#if AccountCachePlayerPrefs
 
-		if (!Directory.Exists(Application.persistentDataPath))
-			Directory.CreateDirectory(Application.persistentDataPath);
-		if (!File.Exists(path))
+#else
+		//string data = JsonUtility.ToJson(cache);
+		//byte[] bytes = System.Text.Encoding.ASCII.GetBytes(data);
+
+		//if (!Directory.Exists(Application.persistentDataPath))
+		//	Directory.CreateDirectory(Application.persistentDataPath);
+		//if (!File.Exists(path))
+		//{
+		//	File.CreateText(path);
+		//}
+		//File.WriteAllBytes(path, bytes);
+
+		PlayerPrefs.SetInt(CacheCount, Count);
+		for (int i = 0; i < Count; i++)
 		{
-			File.CreateText(path);
+			string userData = JsonUtility.ToJson(cache.users[i]);
+			PlayerPrefs.SetString(CacheEntry + i, userData);
 		}
-		File.WriteAllBytes(path, bytes);
+
+		Debug.Log("Saved " + Count + " cached accounts to cache");
+#endif
 	}
 
 	static Cache cache;

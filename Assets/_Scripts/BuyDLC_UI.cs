@@ -42,7 +42,7 @@ public class BuyDLC_UI : MonoBehaviour
 	{
 		if(result.IsError)
 		{
-			Debug.LogError("Failed to retrieve DLC list: " + result.GetError());
+			Debug.LogError("Failed to retrieve DLC list: " + result.GetError().Message);
 		}
 		else
 		{
@@ -108,7 +108,7 @@ public class BuyDLC_UI : MonoBehaviour
 	{
 		if(result.IsError)
 		{
-			Debug.LogError("Failed to retrieve purchased dLDC list: " + result.GetError());
+			Debug.LogError("Failed to retrieve purchased dLDC list: " + result.GetError().Message);
 		}
 		else
 		{
@@ -135,6 +135,11 @@ public class BuyDLC_UI : MonoBehaviour
 
 	void Purchased(Message<Purchase> result)
 	{
+		if(result == null)
+		{
+			Debug.LogError("Failed to buy DLC: result was null for some reason");
+			return;
+		}
 		var purchase = result.GetPurchase();
 		if(result.IsError)
 		{
@@ -144,6 +149,7 @@ public class BuyDLC_UI : MonoBehaviour
 		else
 		{
 			UpdatePurchase(purchase.Sku);
+			Debug.Log("Successfully purchased dlc: " + purchase.Sku);
 		}
 	}
 
