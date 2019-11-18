@@ -213,5 +213,7 @@ MonoBehaviour:
   - tag: sales_menu_message
     str: "Nota\xF0u Flow appi\xF0 til a\xF0 gerast \xE1skrifandi og f\xE1 a\xF0gang
       a\xF0 \xF6llu \xFAtgefnu efni"
+  - tag: close
+    str: Loka
   - tag: profound_quote_8
     str: 

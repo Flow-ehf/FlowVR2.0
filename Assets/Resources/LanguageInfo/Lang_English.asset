@@ -199,10 +199,12 @@ MonoBehaviour:
     str: off
   - tag: login_menu_message
     str: Use the Flow mobile app* to subscribe and get access to all current and future
-      premium content for a monthly fee\n\n*available on android and iOS
+      premium content for a monthly fee\n\n*available on Android and iOS
   - tag: profound_quote_7
     str: Using multiple modes in each session increases the effectiveness of Flow
   - tag: sales_menu_message
     str: Use the Flow mobile app to subscribe and get access to all premium content
+  - tag: close
+    str: Close
   - tag: profound_quote_8
     str: 
