@@ -156,15 +156,9 @@ MonoBehaviour:
   musicClips:
   - {fileID: 8300000, guid: 77febe35661816f4295612d1f3d9dd4c, type: 3}
   - {fileID: 8300000, guid: b796fa00ed929de468aee07838755745, type: 3}
-  ambianceClips:
-  - {fileID: 8300000, guid: 2fe229f6bdc944042bf10e699aca652e, type: 3}
-  - {fileID: 8300000, guid: ce7c63e796e39f14e92e126bc7029b61, type: 3}
-  - {fileID: 8300000, guid: 80ac61109fe3d83449d85da835bdc4f9, type: 3}
-  - {fileID: 8300000, guid: e35005603b68bd641a1da1ff2646c07a, type: 3}
-  - {fileID: 8300000, guid: 2fe229f6bdc944042bf10e699aca652e, type: 3}
-  - {fileID: 8300000, guid: ce7c63e796e39f14e92e126bc7029b61, type: 3}
-  - {fileID: 8300000, guid: 80ac61109fe3d83449d85da835bdc4f9, type: 3}
-  - {fileID: 8300000, guid: e35005603b68bd641a1da1ff2646c07a, type: 3}
+  guidanceOff: {fileID: 245810242608443978, guid: fa331450c1f209a438d0425979cd8f90,
+    type: 2}
+  normal: {fileID: 24500003, guid: fa331450c1f209a438d0425979cd8f90, type: 2}
 --- !u!4 &69557253
 Transform:
   m_ObjectHideFlags: 0

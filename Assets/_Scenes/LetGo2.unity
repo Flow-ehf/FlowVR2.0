@@ -846,6 +846,9 @@ MonoBehaviour:
   musicClips:
   - {fileID: 8300000, guid: ced23d7eb23b35e4fa51927a9bbad926, type: 3}
   - {fileID: 8300000, guid: d0ae3b206692f2e498b37df638a0224a, type: 3}
+  guidanceOff: {fileID: 245453822209383314, guid: b9152c49200145244b5176f506dea389,
+    type: 2}
+  normal: {fileID: 24500003, guid: b9152c49200145244b5176f506dea389, type: 2}
 --- !u!4 &1658531494
 Transform:
   m_ObjectHideFlags: 0

@@ -15,7 +15,8 @@ public class LevelControllerEditor : Editor
 	SerializedProperty muteGuidanceButton;
 	SerializedProperty guidanceClips;
 	SerializedProperty musicClips;
-	SerializedProperty ambianceClips;
+	//SerializedProperty guidanceOff;
+	//SerializedProperty normal;
 
 	private void OnEnable()
 	{
@@ -27,7 +28,8 @@ public class LevelControllerEditor : Editor
 		muteGuidanceButton = serializedObject.FindProperty(nameof(muteGuidanceButton));
 		guidanceClips = serializedObject.FindProperty(nameof(guidanceClips));
 		musicClips = serializedObject.FindProperty(nameof(musicClips));
-		ambianceClips = serializedObject.FindProperty(nameof(ambianceClips));
+		//guidanceOff = serializedObject.FindProperty(nameof(guidanceOff));
+		//normal = serializedObject.FindProperty(nameof(normal));
 	}
 
 
@@ -41,6 +43,8 @@ public class LevelControllerEditor : Editor
 		EditorGUILayout.PropertyField(resumeButton);
 		EditorGUILayout.PropertyField(muteMusicButton);
 		EditorGUILayout.PropertyField(muteGuidanceButton);
+		//EditorGUILayout.PropertyField(guidanceOff);
+		//EditorGUILayout.PropertyField(normal);
 		EditorGUILayout.Space();
 		LanguageManager.Language[] allLang = Enum.GetValues(typeof(LanguageManager.Language)) as LanguageManager.Language[];
 		EditorGUILayout.LabelField("Guidance Audio Clips");
@@ -72,21 +76,6 @@ public class LevelControllerEditor : Editor
 				EditorGUILayout.PropertyField(elm, new GUIContent("Music " + SessionSettings.AvailableDurations[i] / 60 + "m"));
 			}
 		}
-		EditorGUILayout.Space();
-		EditorGUILayout.LabelField("Ambiance Audio Clips");
-		using (new EditorGUI.IndentLevelScope())
-		{
-			for (int i = 0; i < SessionSettings.AvailableDurations.Length * 4; i++)
-			{
-				if (ambianceClips.arraySize <= i)
-					ambianceClips.InsertArrayElementAtIndex(i);
-				SerializedProperty elm = ambianceClips.GetArrayElementAtIndex(i);
-				int durIndex = i / 4;
-				int ambIndex = i % 4 + 1;
-				EditorGUILayout.PropertyField(elm, new GUIContent("Ambiance"+ ambIndex + " " + SessionSettings.AvailableDurations[durIndex] / 60 + "m"));
-			}
-		}
-
 		serializedObject.ApplyModifiedProperties();
 	}
 }

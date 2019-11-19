@@ -159,7 +159,7 @@ public class BuyDLC_UI : MonoBehaviour
 		if(buttons.TryGetValue(sku, out DLCButton info))
 		{
 			info.buyButton.interactable = false;
-			info.priceText?.UpdateText("<purchased>");
+			info.priceText?.UpdateText("<owned>");
 		}
 	}
 }

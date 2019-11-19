@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class LevelController : MonoBehaviour
 {
@@ -19,7 +20,10 @@ public class LevelController : MonoBehaviour
 	[SerializeField] UIPanel pausePanel;
 	[SerializeField] AudioClip[] guidanceClips;
 	[SerializeField] AudioClip[] musicClips;
-	//[SerializeField] AudioClip[] ambianceClips;
+
+
+	//public AudioMixerSnapshot guidanceOff;
+	//public AudioMixerSnapshot normal;
 
 	AudioSource guidanceAudio;
 	AudioSource musicAudio;
@@ -148,6 +152,15 @@ public class LevelController : MonoBehaviour
 
 	void Update()
 	{
+		//if(SessionSettings.playGuidance == false)
+		//{
+		//	guidanceOff.TransitionTo(.5f);
+		//}
+		//else
+		//{
+		//	normal.TransitionTo(.5f);
+		//}
+
 		if(!isPaused)
 		{
 			//Connected controller is touch

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public static class SessionSettings 
 {
-	static bool playMusic = false;
-	static bool playGuidance = false;
+	static bool playMusic = true;
+	public static bool playGuidance = true;
 	static int durationIndex = 0;
 
 	static int[] availableSessionDurations = new int[]
@@ -26,10 +26,12 @@ public static class SessionSettings
 
 	public static bool PlayMusic
 	{
-		get {
+		get
+		{
 			return playMusic;
 		}
-		set {
+		set
+		{
 			playMusic = value;
 			PlayerPrefs.SetInt("PlayMusic", value ? 1 : 0);
 		}
@@ -37,10 +39,12 @@ public static class SessionSettings
 
 	public static bool PlayGuidance
 	{
-		get {
+		get
+		{
 			return playGuidance;
 		}
-		set {
+		set
+		{
 			playGuidance = value;
 			PlayerPrefs.SetInt("PlayGuidance", value ? 1 : 0);
 		}
@@ -60,7 +64,7 @@ public static class SessionSettings
 		}
 		set {
 			durationIndex = Mathf.Clamp(value, 0, availableSessionDurations.Length - 1);
-			PlayerPrefs.SetInt("DurationIndex", durationIndex);
+			//PlayerPrefs.SetInt("DurationIndex", durationIndex);
 		}
 	}
 
