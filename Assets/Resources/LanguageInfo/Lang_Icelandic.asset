@@ -98,15 +98,14 @@ MonoBehaviour:
     str: "Hreyfing3 l\xFDsing"
   - tag: letgo2_desc
     str: "Kraftmikil huglei\xF0sla sem hj\xE1lpar \xFE\xE9r a\xF0 brj\xF3tast \xFAt
-      \xFAr g\xF6mlum heg\xF0unarmynstrum og finna innri styrk og \xE1kve\xF0ni"
+      \xFAr g\xF6mlum heg\xF0unarmynstrum og finna innri styrk og \xE1r\xE6\xF0ni"
   - tag: letgo1_desc
     str: "Slepptu streitu og spennu og l\xE6r\xF0u a\xF0 fara d\xFDpra innra me\xF0
       \xFE\xE9r. Vi\xF0 m\xE6lum me\xF0 a\xF0 gera \xFEessa huglei\xF0slu standandi"
   - tag: letgo3_desc
     str: "Sleppa3 l\xFDsing"
   - tag: calm2_desc
-    str: "R\xF3a\xF0u hugann og b\xFA\xF0u \xFEig undir a\xF0 finna sk\xFDrar launsnir
-      \xE1 hindrunum "
+    str: "R\xF3a\xF0u hugann til a\xF0 \xF6\xF0last sk\xFDrleika og skilning"
   - tag: calm1_desc
     str: "Slaka\xF0u \xE1 og opna\xF0u dyrnar a\xF0 \xF3endanlegum \xE1vinningi huglei\xF0slu.
       Vi\xF0 m\xE6lum me\xF0 \xFEv\xED a\xF0 gera \xFEessa huglei\xF0slu sitjandi"

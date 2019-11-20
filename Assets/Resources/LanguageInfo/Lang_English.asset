@@ -85,14 +85,14 @@ MonoBehaviour:
       deep peace for restorative healing of body and mind. '
   - tag: breathe2_desc
     str: Learn how to use your breath to overcome obstacles like stress, worry or
-      tension in interpersonal relationships
+      tension in relationships
   - tag: breathe1_desc
     str: Learn to breathe with awareness is the foundation of Flow meditation
   - tag: breathe3_desc
     str: breath3_desc
   - tag: move2_desc
-    str: Moving the body, while opening the mind and heart is the doorway to positive
-      energy
+    str: Moving your body, while opening your mind and heart creates more access to
+      positive energy
   - tag: move1_desc
     str: Moving our bodies can increase the depth and power of our meditation
   - tag: move3_desc
@@ -101,7 +101,7 @@ MonoBehaviour:
     str: Get out of old patterns and find your inner passion by letting go to energetic
       music
   - tag: letgo1_desc
-    str: Letting go of stress or tension helps us make more space inside ourselves
+    str: Letting go of stress and tension helps us make more space inside ourselves
       for more of what we desire
   - tag: letgo3_desc
     str: letgo3_desc
@@ -126,12 +126,12 @@ MonoBehaviour:
   - tag: restore3_desc
     str: restore3_desc
   - tag: profound_quote_1
-    str: Learning to breathe with awareness is the foundation of Flow meditation
+    str: 'Breathing with awareness is one the foundations of meditation '
   - tag: profound_quote_2
     str: Choosing a focus allows us to find more of the positive energy we are looking
       for in meditation
   - tag: profound_quote_3
-    str: Moving our bodies can increase the depth and power of our meditation
+    str: Moving your bodies can increase the depth and power of our meditation
   - tag: profound_quote_4
     str: Finding calm comes more naturally when we go deeper and let go of stress
   - tag: profound_quote_5
