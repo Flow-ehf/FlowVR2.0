@@ -158,7 +158,7 @@ PlayerSettings:
     Android: com.flowmeditation.flowvr
     Standalone: com.oculus.UnitySample
   buildNumber: {}
-  AndroidBundleVersionCode: 50
+  AndroidBundleVersionCode: 51
   AndroidMinSdkVersion: 21
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 0
