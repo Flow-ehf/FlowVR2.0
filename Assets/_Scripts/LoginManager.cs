@@ -165,7 +165,7 @@ public class LoginManager : MonoBehaviour
 		instance?.LoggedOut.Invoke();
 		LoginChanged?.Invoke(false);
 
-		//AccountCache.RemoveFromCache(currentUser);
+		AccountCache.RemoveFromCache(currentUser);
 
 		currentLogin = null;
 		currentUser = null;

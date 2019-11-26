@@ -17,6 +17,7 @@ public class BuyDLC_UI : MonoBehaviour
 	[SerializeField] Button nextPage, previousPage;
 
 	Dictionary<string, DLCButton> buttons = new Dictionary<string, DLCButton>();
+	DLCButton buyTarget;
 	int currentPage = 0;
 
 	List<Product> dlcs = new List<Product>();
@@ -116,7 +117,7 @@ public class BuyDLC_UI : MonoBehaviour
 
 			foreach (var dlc in result.GetPurchaseList())
 			{
-				UpdatePurchase(dlc.Sku);
+				UpdatePurchase(buttons[dlc.Sku]);
 			}
 
 			if(targetDlcSKU != "")
@@ -130,7 +131,8 @@ public class BuyDLC_UI : MonoBehaviour
 	void Buy(Product product)
 	{
 		IAP.LaunchCheckoutFlow(product.Sku).OnComplete(Purchased);
-		buttons[product.Sku].buyButton.interactable = false;
+		buyTarget = buttons[product.Sku];
+		buyTarget.buyButton.interactable = false;
 	}
 
 	void Purchased(Message<Purchase> result)
@@ -144,22 +146,19 @@ public class BuyDLC_UI : MonoBehaviour
 		if(result.IsError)
 		{
 			Debug.LogError("Failed to buy DLC: " + result.GetError());
-			buttons[purchase.Sku].buyButton.interactable = true;
+			buyTarget.buyButton.interactable = true;
 		}
 		else
 		{
-			UpdatePurchase(purchase.Sku);
+			UpdatePurchase(buyTarget);
 			Debug.Log("Successfully purchased dlc: " + purchase.Sku);
 		}
 	}
 
 
-	void UpdatePurchase(string sku)
+	void UpdatePurchase(DLCButton button)
 	{
-		if(buttons.TryGetValue(sku, out DLCButton info))
-		{
-			info.buyButton.interactable = false;
-			info.priceText?.UpdateText("<owned>");
-		}
+		button.buyButton.interactable = false;
+		button.priceText?.UpdateText("<owned>");
 	}
 }

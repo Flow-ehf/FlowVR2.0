@@ -10,6 +10,7 @@ public class SessionSettingsUI : MonoBehaviour
 	[SerializeField] Toggle playGuidanceToggle;
 	[SerializeField] GameObject durationButtonTemplate;
 	[SerializeField] RectTransform durationContainer;
+	[SerializeField] bool saveSessionSettings;
 	[Space]
 	[SerializeField] VideoPlayer player;
 
@@ -26,6 +27,9 @@ public class SessionSettingsUI : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
+		if (!saveSessionSettings)
+			SessionSettings.Reset();
+
 		defaultSkybox = RenderSettings.skybox;
 		defaultClip = player.clip;
 

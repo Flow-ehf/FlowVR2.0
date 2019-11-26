@@ -17,8 +17,8 @@ PlayerSettings:
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
-  m_ShowUnitySplashScreen: 0
-  m_ShowUnitySplashLogo: 0
+  m_ShowUnitySplashScreen: 1
+  m_ShowUnitySplashLogo: 1
   m_SplashScreenOverlayOpacity: 1
   m_SplashScreenAnimation: 0
   m_SplashScreenLogoStyle: 0
@@ -738,9 +738,9 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 124c2596-2b8f-449b-8b91-1c5f02927c82
+  cloudProjectId: a3acf4f8-98e3-4e8c-95c9-ad0810f467ab
   framebufferDepthMemorylessMode: 0
-  projectName: Flow 2.0b
+  projectName: flowvr
   organizationId: magnus_nordfjord
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0

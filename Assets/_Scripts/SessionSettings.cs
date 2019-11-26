@@ -69,4 +69,11 @@ public static class SessionSettings
 	}
 
 	public static int[] AvailableDurations => availableSessionDurations;
+
+	public static void Reset()
+	{
+		playMusic = true;
+		playGuidance = true;
+		durationIndex = 0;
+	}
 }
