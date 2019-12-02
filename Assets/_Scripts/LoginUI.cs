@@ -91,7 +91,6 @@ public class LoginUI : MonoBehaviour, ILoginDetails
 		{
 			login.LoginDetails = this;
 			login.Login();
-			nameInput.text = "";
 			passwordInput.text = "";
 		}
 		else

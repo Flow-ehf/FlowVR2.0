@@ -18,8 +18,8 @@ public static class SessionSettings
 	//Fetch settings from previous session, or defaults
 	static SessionSettings()
 	{
-		playMusic = PlayerPrefs.GetInt("PlayMusic", 1) != 0;
-		playGuidance = PlayerPrefs.GetInt("PlayGuidance", 1) != 0;
+		playMusic = PlayerPrefs.GetInt("PlayMusic", 0) != 0;
+		playGuidance = PlayerPrefs.GetInt("PlayGuidance", 0) != 0;
 		durationIndex = PlayerPrefs.GetInt("DurationIndex", 0);
 	}
 
@@ -72,8 +72,8 @@ public static class SessionSettings
 
 	public static void Reset()
 	{
-		playMusic = true;
-		playGuidance = true;
+		playMusic = false;
+		playGuidance = false;
 		durationIndex = 0;
 	}
 }

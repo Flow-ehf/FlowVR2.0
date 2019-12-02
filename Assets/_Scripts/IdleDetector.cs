@@ -6,59 +6,45 @@ using UnityEngine.SceneManagement;
 
 public class IdleDetector : MonoBehaviour
 {
-	const float IDLE_KICK_TIME = 10 * 60;
-
+	const float IDLE_TIME = 60;
 
 	[RuntimeInitializeOnLoadMethod]
 	static void Init()
 	{
 		instance = new GameObject(nameof(IdleDetector)).AddComponent<IdleDetector>();
-		instance.enabled = false;
 		//instance.gameObject.hideFlags = HideFlags.HideInHierarchy;
 		DontDestroyOnLoad(instance.gameObject);
 	}
 
 	static IdleDetector instance;
 
+	Coroutine waitLogout;
 
-	[SerializeField] float idleTime = 0;
-
-
-	void Awake()
+	void Start()
 	{
-		SceneManager.activeSceneChanged += OnLevelLoad;
-		LoginManager.LoginChanged += OnLoginChanged;
+		OVRManager.HMDMounted += OnHeadsetAdded;
+		OVRManager.HMDUnmounted += OnHeadsetRemoved;
 	}
 
-	void Update()
+	void OnHeadsetRemoved()
 	{
-		if (XRDevice.userPresence != UserPresenceState.Present)
-		{
-			idleTime += Time.unscaledDeltaTime;
-			if (idleTime > IDLE_KICK_TIME)
-			{
-				idleTime = 0;
-				LevelLoader.LoadLevel("LoginMenu");
-			}
-		}
-		else
-			idleTime = 0;
+		if (waitLogout != null)
+			StopCoroutine(waitLogout);
+
+		waitLogout = StartCoroutine(WaitLogout());
 	}
 
-
-	void OnLevelLoad(Scene oldScene, Scene newScene)
+	void OnHeadsetAdded()
 	{
-		if (newScene.name == "LoginMenu" || LoginManager.currentUser == null || !LoginManager.currentUser.isCompany)
-			enabled = false;
-		else
-			enabled = true;
-		idleTime = 0;
+		if (waitLogout != null)
+			StopCoroutine(waitLogout);
 	}
 
-
-	void OnLoginChanged(bool loggedIn)
+	IEnumerator WaitLogout()
 	{
-		if (!loggedIn)
-			enabled = false;
+		yield return new WaitForSeconds(IDLE_TIME);
+
+		if (LoginManager.IsLoggedIn && LoginManager.currentUser.isCompany)
+			LoginManager.Logout();
 	}
 }

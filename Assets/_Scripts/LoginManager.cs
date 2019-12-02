@@ -167,14 +167,23 @@ public class LoginManager : MonoBehaviour
 
 		AccountCache.RemoveFromCache(currentUser);
 
+		bool wasCompanyAccount = currentUser.isCompany;
+
 		currentLogin = null;
 		currentUser = null;
 
 		LoginManager.StartAtLogin = true;
 
 		//Return to login screen when logging out
-		if (LevelLoader.Level != "LoginMenu" && LevelLoader.Level != "CompanyAccountSelection")
-			LevelLoader.LoadLevel("LoginMenu");
+		if(wasCompanyAccount)
+		{
+			LevelLoader.LoadLevel("CompanyAccountSelection");
+		}
+		else
+		{
+			if (LevelLoader.Level != "LoginMenu" && LevelLoader.Level != "CompanyAccountSelection")
+				LevelLoader.LoadLevel("LoginMenu");
+		}
 	}
 
 
