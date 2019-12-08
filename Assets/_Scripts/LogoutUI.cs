@@ -27,7 +27,7 @@ public class LogoutUI : MonoBehaviour
     
 	void LogOut()
 	{
-		LoginManager.Logout();
+		LoginManager.Logout(true);
 	}
 
 

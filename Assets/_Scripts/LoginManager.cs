@@ -107,14 +107,14 @@ public class LoginManager : MonoBehaviour
 	}
 
 
-	public static void Logout()
+	public static void Logout(bool removeFromCache)
 	{
 		if (IsLoggedIn)
 		{
 			if (currentLogin != null)
-				currentLogin.Logout();
+				currentLogin.Logout(removeFromCache);
 			else
-				OnLoggedOut();
+				OnLoggedOut(removeFromCache);
 		}
 	}
 
@@ -160,12 +160,13 @@ public class LoginManager : MonoBehaviour
 	}
 
 
-	static void OnLoggedOut()
+	static void OnLoggedOut(bool removeFromCache)
 	{
 		instance?.LoggedOut.Invoke();
 		LoginChanged?.Invoke(false);
 
-		AccountCache.RemoveFromCache(currentUser);
+		if(removeFromCache)
+			AccountCache.RemoveFromCache(currentUser);
 
 		bool wasCompanyAccount = currentUser.isCompany;
 
@@ -201,7 +202,7 @@ public class LoginManager : MonoBehaviour
 		if (!IsLoggingIn)
 		{
 			if (IsLoggedIn)
-				Logout();
+				Logout(false);
 			currentUser = user;
 			OnFetchedUserData();
 		}
@@ -225,7 +226,7 @@ public class LoginManager : MonoBehaviour
 			if (!LoginManager.IsLoggingIn && IsInitialized)
 			{
 				if (IsLoggedIn)
-					Logout();
+					Logout(false);
 
 				IsLoggingIn = true;
 #if UNITY_EDITOR && BYPASS_LOGIN
@@ -237,15 +238,15 @@ public class LoginManager : MonoBehaviour
 			}
 		}
 
-		public void Logout()
+		public void Logout(bool removeFromCache)
 		{
 			if (IsLoggedIn)
-				DoLogout();
+				DoLogout(removeFromCache);
 		}
 
 		public abstract void Initialize();
 		protected abstract void DoLogin();
-		protected abstract void DoLogout();
+		protected abstract void DoLogout(bool removeFromCache);
 
 		protected virtual void OnInitialized()
 		{
@@ -419,9 +420,9 @@ public class LoginManager : MonoBehaviour
 		}
 
 
-		protected override void DoLogout()
+		protected override void DoLogout(bool removeFromCache)
 		{
-			OnLoggedOut();
+			OnLoggedOut(removeFromCache);
 		}
 
 

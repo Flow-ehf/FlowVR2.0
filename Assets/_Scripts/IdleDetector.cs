@@ -27,7 +27,10 @@ public class IdleDetector : MonoBehaviour
 	}
 
 	void OnHeadsetRemoved()
-	{
+	{ 
+		if (LoginManager.IsLoggedIn && LoginManager.currentUser.isCompany)
+			LoginManager.Logout(false);
+
 		if (waitLogout != null)
 			StopCoroutine(waitLogout);
 
@@ -45,6 +48,6 @@ public class IdleDetector : MonoBehaviour
 		yield return new WaitForSeconds(IDLE_TIME);
 
 		if (LoginManager.IsLoggedIn && LoginManager.currentUser.isCompany)
-			LoginManager.Logout();
+			LoginManager.Logout(false);
 	}
 }
