@@ -609,6 +609,7 @@ GameObject:
   - component: {fileID: 2050280092}
   - component: {fileID: 2050280095}
   - component: {fileID: 2050280094}
+  - component: {fileID: 2050280096}
   m_Layer: 5
   m_Name: RandomQuotes
   m_TagString: Untagged
@@ -745,6 +746,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 223584e247ff908448974be0eb7759f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &2050280096
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2050280090}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d14c259adad013c49901962b782cb50e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!223 &8246622263317469792
 Canvas:
   m_ObjectHideFlags: 0

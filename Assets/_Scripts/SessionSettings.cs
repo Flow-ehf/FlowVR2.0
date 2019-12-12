@@ -72,8 +72,8 @@ public static class SessionSettings
 
 	public static void Reset()
 	{
-		playMusic = false;
-		playGuidance = false;
+		playMusic = true;
+		playGuidance = true;
 		durationIndex = 0;
 	}
 }
