@@ -19,7 +19,7 @@ MonoBehaviour:
   - tag: back
     str: Bakka
   - tag: play
-    str: "\xC1fram"
+    str: "Hefja huglei\xF0slu"
   - tag: music_on
     str: "T\xF3nlist \\n\xE1"
   - tag: music_off
@@ -41,7 +41,7 @@ MonoBehaviour:
   - tag: move2
     str: "Opna\xF0 fyrir j\xE1kv\xE6\xF0a orku "
   - tag: move1
-    str: "Hreyf\xF0u \xFEig"
+    str: Hreyfing
   - tag: move3
     str: "\xCD framlei\xF0slu"
   - tag: letgo2
@@ -59,13 +59,13 @@ MonoBehaviour:
   - tag: focus2
     str: "Dj\xFAp \xEDhugun"
   - tag: focus1
-    str: "N\xE1\xF0u einbeitingu"
+    str: Einbeiting
   - tag: focus3
     str: "\xCD framlei\xF0slu"
   - tag: restore2
     str: "Dj\xFAp fri\xF0s\xE6ld"
   - tag: restore1
-    str: "Endurn\xFDja\xF0u \xFEig"
+    str: "Endurn\xFDjun"
   - tag: restore3
     str: "\xCD framlei\xF0slu"
   - tag: breathe
@@ -90,40 +90,40 @@ MonoBehaviour:
   - tag: breathe3_desc
     str: "\xD6ndun3 l\xFDsing"
   - tag: move2_desc
-    str: "M\xE6lt me\xF0: Sitjandi e\xF0a standandi\\nHreyfum l\xEDkamann, opnum hugann
-      og fyllum okkur af j\xE1kv\xE6\xF0ri orku."
+    str: "M\xE6lt me\xF0: Sitjandi e\xF0a standandi\\nHreyf\xF0u l\xEDkamann, opna\xF0u
+      hugann og fylltu \xFEig af j\xE1kv\xE6\xF0ri orku."
   - tag: move1_desc
-    str: "M\xE6lt me\xF0: Sitjandi e\xF0a standandi\\nHreyf\xF0u \xFEig og opna\xF0u
-      til a\xF0 f\xE1 a\xF0gang a\xF0 \xFEv\xED sem \xFE\xFA leitar innra me\xF0 \xFE\xE9r."
+    str: "M\xE6lt me\xF0: Sitjandi e\xF0a standandi\\nHreyfing l\xEDkamans getur auki\xF0
+      d\xFDpt og kraft huglei\xF0slu \xFEinnar."
   - tag: move3_desc
     str: "Hreyfing3 l\xFDsing"
   - tag: letgo2_desc
     str: "M\xE6lt me\xF0: Standandi\\nKraftmikil huglei\xF0sla sem hj\xE1lpar \xFE\xE9r
-      a\xF0 brj\xF3tast \xFAt \xFAr heg\xF0unarmynstrum og finna innri styrk og \xE1r\xE6\xF0ni."
+      a\xF0 \xF6\xF0last innri styrk og \xE1r\xE6\xF0ni."
   - tag: letgo1_desc
-    str: "M\xE6lt me\xF0: Standandi\\nSlepptu streitu og spennu og l\xE6r\xF0u a\xF0
-      fara d\xFDpra innra me\xF0 \xFE\xE9r."
+    str: "M\xE6lt me\xF0: Standandi\\nSlepptu takinu af spennu og streitu og l\xE6r\xF0u
+      a\xF0 fara d\xFDpra inn \xE1 vi\xF0."
   - tag: letgo3_desc
     str: "Sleppa3 l\xFDsing"
   - tag: calm2_desc
     str: "M\xE6lt me\xF0: Sitjandi\\nR\xF3a\xF0u hugann til a\xF0 \xF6\xF0last sk\xFDrleika
       og skilning."
   - tag: calm1_desc
-    str: "M\xE6lt me\xF0: Sitjandi\\nSlaka\xF0u \xE1 og opna\xF0u dyrnar a\xF0 \xF3endanlegum
-      \xE1vinningi huglei\xF0slu."
+    str: "M\xE6lt me\xF0: Sitjandi\\nR\xF3 hugans er mikilv\xE6g fyrir andlega og
+      l\xEDkamlega velfer\xF0 \xFE\xEDna."
   - tag: calm3_desc
-    str: "Slaka\xF0u \xE13 l\xFDsing"
+    str: "Slaka\xF0u \xE1 l\xFDsing"
   - tag: focus2_desc
-    str: "M\xE6lt me\xF0: Sitjandi\\n\xDEegar hugurinn er r\xF3r hj\xE1lpar dj\xFAp
-      \xEDhugun vi\xF0 a\xF0 tengja \xFEig vi\xF0 \xFE\xEDna \xE6\xF0stu vitsmuni"
+    str: "M\xE6lt me\xF0: Sitjandi e\xF0a standandi\\nTengdu vi\xF0 \xFE\xEDna \xE6\xF0stu
+      vitund me\xF0 dj\xFApri \xEDhugun."
   - tag: focus1_desc
     str: "M\xE6lt me\xF0: Sitjandi e\xF0a standandi\\nN\xE1\xF0u einbeitingu til a\xF0
-      hj\xE1lpa \xFE\xE9r a\xF0 f\xE6rast n\xE6r \xFE\xEDnu \xE6\xF0sta markmi\xF0i."
+      f\xE6rast n\xE6r \xFE\xEDnu \xE6\xF0sta markmi\xF0i."
   - tag: focus3_desc
     str: "Einbeting3 l\xFDsing"
   - tag: restore2_desc
     str: "M\xE6lt me\xF0: Sitjandi\\n\xCD hr\xF6\xF0u n\xFAt\xEDmasamf\xE9lagi er
-      mikilv\xE6gt a\xF0 n\xE1 endurn\xE6randi heilun me\xF0 dj\xFApri hv\xEDld."
+      dj\xFAp hv\xEDld nau\xF0synleg til a\xF0 n\xE1 endurn\xE6randi heilun."
   - tag: restore1_desc
     str: "M\xE6lt me\xF0: Sitjandi\\nEndurn\xFDja\xF0u \xFEig til a\xF0 \xF6\xF0last
       aukna orku og vell\xED\xF0an."
