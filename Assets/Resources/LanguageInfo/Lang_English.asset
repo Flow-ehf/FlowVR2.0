@@ -19,7 +19,7 @@ MonoBehaviour:
   - tag: back
     str: Back
   - tag: play
-    str: Play
+    str: Start meditation
   - tag: music_on
     str: Music \non
   - tag: music_off
@@ -81,51 +81,50 @@ MonoBehaviour:
   - tag: restore
     str: Restore
   - tag: restore2_desc
-    str: 'Recommended: Sitting\nIn the midst of fast paced, modern existence it is
-      important to relax into deep peace for restorative healing of body and mind.'
+    str: 'In our fast paced existence it''s important to relax into deep peace for
+      restorative healing of body and mind.\nRecommended: Sitting.'
   - tag: breathe2_desc
-    str: 'Recommended: Sitting\nLearn how to use your breath to overcome obstacles
-      like stress, worry or tension in relationships.'
+    str: 'Learn how to use your breath to overcome obstacles like stress, worry or
+      tension in relationships.\nRecommended: Sitting.'
   - tag: breathe1_desc
-    str: 'Recommended: Sitting\nLearn to breathe with awareness is the foundation
-      of Flow meditation.'
+    str: 'Learning to breathe with awareness is the foundation of Flow meditation.\n\nRecommended:
+      Sitting.'
   - tag: breathe3_desc
     str: breath3_desc
   - tag: move2_desc
-    str: 'Recommended: Sitting or standing\nMoving your body, while opening your mind
-      and heart creates more access to positive energy.'
+    str: 'Moving your body, while opening your mind and heart creates more access
+      to positive energy.\nRecommended: Sitting or standing.'
   - tag: move1_desc
-    str: 'Recommended: Sitting\nMoving our bodies can increase the depth and power
-      of our meditation.'
+    str: 'Moving your body can increase the depth and power of your meditation.\n\nRecommended:
+      Sitting or standing.'
   - tag: move3_desc
     str: move3_desc
   - tag: letgo2_desc
-    str: 'Recommended: Standing\nGet out of old patterns and find your inner passion
-      by letting go to energetic music.'
+    str: 'Get out of old patterns and find your inner passion by letting go to energetic
+      music.\nRecommended: Standing.'
   - tag: letgo1_desc
-    str: 'Recommended: Standing\nLetting go of stress and tension helps us make more
-      space inside ourselves for more of what we desire.'
+    str: 'Letting go of stress and tension creates space within you for more of what
+      you desire.\nRecommended: Standing.'
   - tag: letgo3_desc
     str: letgo3_desc
   - tag: calm2_desc
-    str: 'Recommended: Sitting\nCalm your body and mind and prepare yourself to find
-      accurate solutions to your challenges.'
+    str: 'Calm your body and mind and prepare yourself to find accurate solutions
+      to your challenges.\nRecommended: Sitting.'
   - tag: calm1_desc
-    str: 'Recommended: Sitting\nLetting go of stress or tension helps us make more
-      space inside ourselves for more of what we desire.'
+    str: 'Calm your mind and senses to drop within your heart.\n\nRecommended: Sitting.'
   - tag: calm3_desc
     str: calm3_desc
   - tag: focus2_desc
-    str: 'Recommended: Sitting\nMeditative thinking, from a calm place within is the
-      key to connect with your true intelligence.'
+    str: 'Meditative thinking, from a calm place within is the key to connect with
+      your true intelligence.\nRecommended: Sitting, pen and paper.'
   - tag: focus1_desc
-    str: 'Recommended: Sitting or standing\nChoosing a focus allows us to find more
-      of the positive energy we are looking for in meditation.'
+    str: 'Focus within and find the true qualities that make you shine.\n\nRecommended:
+      Sitting or standing.'
   - tag: focus3_desc
     str: focus3_desc
   - tag: restore1_desc
-    str: 'Recommended: Sitting\nRelaxing and resting more deeply is essential key
-      to well being.'
+    str: 'Deep relaxing and resting is essential for your well-being.\n\nRecommended:
+      Sitting.'
   - tag: restore3_desc
     str: restore3_desc
   - tag: profound_quote_1
@@ -161,13 +160,13 @@ MonoBehaviour:
   - tag: letgo_3_location
     str: location
   - tag: calm_1_location
-    str: Hitardalur
+    str: "H\xEDtardalur"
   - tag: calm_2_location
     str: "Sta\xF0arkirkja"
   - tag: calm_3_location
     str: location
   - tag: focus_1_location
-    str: "Gr\xEDmssta\xF0ir lake"
+    str: "Gr\xEDmssta\xF0ir pond"
   - tag: focus_2_location
     str: Holtsbryggja
   - tag: focus_3_location

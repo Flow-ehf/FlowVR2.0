@@ -81,52 +81,52 @@ MonoBehaviour:
   - tag: restore
     str: "Endurn\xFDjun"
   - tag: breathe2_desc
-    str: "M\xE6lt me\xF0: Sitjandi\\nNota\xF0u andardr\xE1ttinn til a\xF0 losa um
-      streitu, \xE1hyggjur og spennu \xE1 milli \xFE\xEDn og f\xF3lksins \xED l\xEDfi
-      \xFE\xEDnu."
+    str: "Nota\xF0u andardr\xE1ttinn til a\xF0 losa um streitu, \xE1hyggjur og spennu
+      \xE1 milli \xFE\xEDn og f\xF3lksins \xED l\xEDfi \xFE\xEDnu.\\nM\xE6lt me\xF0:
+      Sitjandi."
   - tag: breathe1_desc
-    str: "M\xE6lt me\xF0: Sitjandi\\nAukin vitund um andardr\xE1ttinn er ein af undirst\xF6\xF0um
-      huglei\xF0slu."
+    str: "Aukin vitund um andardr\xE1ttinn er ein af undirst\xF6\xF0um huglei\xF0slu.\\n\\nM\xE6lt
+      me\xF0: Sitjandi."
   - tag: breathe3_desc
     str: "\xD6ndun3 l\xFDsing"
   - tag: move2_desc
-    str: "M\xE6lt me\xF0: Sitjandi e\xF0a standandi\\nHreyf\xF0u l\xEDkamann, opna\xF0u
-      hugann og fylltu \xFEig af j\xE1kv\xE6\xF0ri orku."
+    str: "Hreyf\xF0u l\xEDkamann, opna\xF0u hugann og fylltu \xFEig af j\xE1kv\xE6\xF0ri
+      orku.\\n\\nM\xE6lt me\xF0: Sitjandi e\xF0a standandi."
   - tag: move1_desc
-    str: "M\xE6lt me\xF0: Sitjandi e\xF0a standandi\\nHreyfing l\xEDkamans getur auki\xF0
-      d\xFDpt og kraft huglei\xF0slu \xFEinnar."
+    str: "Hreyfing l\xEDkamans getur auki\xF0 d\xFDpt og kraft huglei\xF0slu \xFEinnar.\\n\\nM\xE6lt
+      me\xF0: Sitjandi e\xF0a standandi."
   - tag: move3_desc
     str: "Hreyfing3 l\xFDsing"
   - tag: letgo2_desc
-    str: "M\xE6lt me\xF0: Standandi\\nKraftmikil huglei\xF0sla sem hj\xE1lpar \xFE\xE9r
-      a\xF0 \xF6\xF0last innri styrk og \xE1r\xE6\xF0ni."
+    str: "Kraftmikil huglei\xF0sla sem hj\xE1lpar \xFE\xE9r a\xF0 \xF6\xF0last innri
+      styrk og \xE1r\xE6\xF0ni.\\n\\nM\xE6lt me\xF0: Sitjandi."
   - tag: letgo1_desc
-    str: "M\xE6lt me\xF0: Standandi\\nSlepptu takinu af spennu og streitu og l\xE6r\xF0u
-      a\xF0 fara d\xFDpra inn \xE1 vi\xF0."
+    str: "Slepptu takinu af spennu og streitu og l\xE6r\xF0u a\xF0 fara d\xFDpra inn
+      \xE1 vi\xF0.\\n\\nM\xE6lt me\xF0: Sitjandi."
   - tag: letgo3_desc
     str: "Sleppa3 l\xFDsing"
   - tag: calm2_desc
-    str: "M\xE6lt me\xF0: Sitjandi\\nR\xF3a\xF0u hugann til a\xF0 \xF6\xF0last sk\xFDrleika
-      og skilning."
+    str: "R\xF3a\xF0u hugann til a\xF0 \xF6\xF0last sk\xFDrleika og skilning.\\n\\nM\xE6lt
+      me\xF0: Sitjandi."
   - tag: calm1_desc
-    str: "M\xE6lt me\xF0: Sitjandi\\nR\xF3 hugans er mikilv\xE6g fyrir andlega og
-      l\xEDkamlega velfer\xF0 \xFE\xEDna."
+    str: "R\xF3 hugans er mikilv\xE6g fyrir andlega og l\xEDkamlega velfer\xF0 \xFE\xEDna.\\n\\nM\xE6lt
+      me\xF0: Sitjandi."
   - tag: calm3_desc
     str: "Slaka\xF0u \xE1 l\xFDsing"
   - tag: focus2_desc
-    str: "M\xE6lt me\xF0: Sitjandi e\xF0a standandi\\nTengdu vi\xF0 \xFE\xEDna \xE6\xF0stu
-      vitund me\xF0 dj\xFApri \xEDhugun."
+    str: "Tengdu vi\xF0 \xFE\xEDna \xE6\xF0stu vitund me\xF0 dj\xFApri \xEDhugun.\\n\\nM\xE6lt
+      me\xF0: Sitjandi me\xF0 bla\xF0 og penna."
   - tag: focus1_desc
-    str: "M\xE6lt me\xF0: Sitjandi e\xF0a standandi\\nN\xE1\xF0u einbeitingu til a\xF0
-      f\xE6rast n\xE6r \xFE\xEDnu \xE6\xF0sta markmi\xF0i."
+    str: "N\xE1\xF0u einbeitingu til a\xF0 f\xE6rast n\xE6r \xFE\xEDnu \xE6\xF0sta
+      markmi\xF0i.\\n\\nM\xE6lt me\xF0: Sitjandi e\xF0a standandi."
   - tag: focus3_desc
     str: "Einbeting3 l\xFDsing"
   - tag: restore2_desc
-    str: "M\xE6lt me\xF0: Sitjandi\\n\xCD hr\xF6\xF0u n\xFAt\xEDmasamf\xE9lagi er
-      dj\xFAp hv\xEDld nau\xF0synleg til a\xF0 n\xE1 endurn\xE6randi heilun."
+    str: "\xCD hr\xF6\xF0u n\xFAt\xEDmasamf\xE9lagi er dj\xFAp hv\xEDld nau\xF0synleg
+      til a\xF0 n\xE1 endurn\xE6randi heilun.\\nM\xE6lt me\xF0: Sitjandi."
   - tag: restore1_desc
-    str: "M\xE6lt me\xF0: Sitjandi\\nEndurn\xFDja\xF0u \xFEig til a\xF0 \xF6\xF0last
-      aukna orku og vell\xED\xF0an."
+    str: "Endurn\xFDja\xF0u \xFEig til a\xF0 \xF6\xF0last aukna orku og vell\xED\xF0an.\\n\\nM\xE6lt
+      me\xF0: Sitjandi."
   - tag: restore3_desc
     str: "Endurn\xFDjun3 l\xFDsing"
   - tag: profound_quote_1
@@ -164,13 +164,13 @@ MonoBehaviour:
   - tag: letgo_3_location
     str: location
   - tag: calm_1_location
-    str: Hitardalur
+    str: "H\xEDtardalur"
   - tag: calm_2_location
     str: "Sta\xF0arkirkja"
   - tag: calm_3_location
     str: location
   - tag: focus_1_location
-    str: "Gr\xEDmssta\xF0ar vatn"
+    str: "Gr\xEDmssta\xF0ar tj\xF6rn"
   - tag: focus_2_location
     str: Holtsbryggja
   - tag: focus_3_location
