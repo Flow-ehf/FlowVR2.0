@@ -1436,9 +1436,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
---- !u!4 &177855748 stripped
+--- !u!120 &177855749 stripped
+LineRenderer:
+  m_CorrespondingSourceObject: {fileID: 1029334627671817747, guid: 126d619cf4daa52469682f85c1378b4a,
+    type: 3}
+  m_PrefabInstance: {fileID: 177855747}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &177855750 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 487254, guid: 126d619cf4daa52469682f85c1378b4a,
+  m_CorrespondingSourceObject: {fileID: 400002, guid: 126d619cf4daa52469682f85c1378b4a,
     type: 3}
   m_PrefabInstance: {fileID: 177855747}
   m_PrefabAsset: {fileID: 0}
@@ -2237,11 +2243,11 @@ PrefabInstance:
     - target: {fileID: 1937274876, guid: 5a7682c244a150b49965c007720bdbb7, type: 3}
       propertyPath: rayTransform
       value: 
-      objectReference: {fileID: 177855748}
+      objectReference: {fileID: 177855750}
     - target: {fileID: 1937274876, guid: 5a7682c244a150b49965c007720bdbb7, type: 3}
       propertyPath: rayLineRenderer
       value: 
-      objectReference: {fileID: 1256460652}
+      objectReference: {fileID: 177855749}
     - target: {fileID: 6503579409894622908, guid: 5a7682c244a150b49965c007720bdbb7,
         type: 3}
       propertyPath: m_IsActive
@@ -15642,7 +15648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f1a9a1d119a5944aacfb87d1ec283a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayTransform: {fileID: 177855748}
+  rayTransform: {fileID: 177855750}
   m_Cursor: {fileID: 1937274876}
   joyPadClickButton: 1
   gazeClickKey: 32

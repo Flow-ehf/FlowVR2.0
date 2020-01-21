@@ -20,14 +20,21 @@ public static class MeditationAnalytics
 	static PlaySessionData currentSession;
 	static List<MeditationSessionData> meditationSessions = new List<MeditationSessionData>();
 
-	public static MeditationSessionData CurrentMeditationSession => meditationSessions.Count > 0 ? meditationSessions[Random.Range(0, meditationSessions.Count)] : null;
+	public static MeditationSessionData CurrentMeditationSession => meditationSessions.Count > 0 ? meditationSessions[meditationSessions.Count - 1] : null;
 
 	public static void AddMeditationSession(MeditationSessionData data)
 	{
 		if (data != null)
 		{
 			meditationSessions.Add(data);
-			AnalyticsEvent.Custom("Session", data.ToDictionary());
+		}
+	}
+
+	public static void SendCurrentSession()
+	{
+		if(CurrentMeditationSession != null)
+		{
+			AnalyticsEvent.Custom("Session", CurrentMeditationSession.ToDictionary());
 		}
 	}
 

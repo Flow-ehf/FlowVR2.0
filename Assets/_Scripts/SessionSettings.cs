@@ -5,7 +5,7 @@ using UnityEngine;
 public static class SessionSettings 
 {
 	static bool playMusic = true;
-	public static bool playGuidance = true;
+	static bool playGuidance = true;
 	static int durationIndex = 0;
 
 	static int[] availableSessionDurations = new int[]

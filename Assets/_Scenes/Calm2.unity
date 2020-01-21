@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4821573, g: 0.5257103, b: 0.55517256, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -575,12 +575,12 @@ PrefabInstance:
         type: 3}
       propertyPath: rayLineRenderer
       value: 
-      objectReference: {fileID: 1629335802}
+      objectReference: {fileID: 1629335806}
     - target: {fileID: 8246622263230269179, guid: 379750b7604f95743abbe800c841bfc1,
         type: 3}
       propertyPath: rayTransform
       value: 
-      objectReference: {fileID: 1629335804}
+      objectReference: {fileID: 1629335807}
     - target: {fileID: 7449082304570612132, guid: 379750b7604f95743abbe800c841bfc1,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -840,7 +840,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f1a9a1d119a5944aacfb87d1ec283a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayTransform: {fileID: 1629335804}
+  rayTransform: {fileID: 1629335807}
   m_Cursor: {fileID: 1211293931}
   joyPadClickButton: 1
   gazeClickKey: 32
@@ -1169,15 +1169,21 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 0
   m_Loop: 0
---- !u!4 &1629335804 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 487254, guid: 126d619cf4daa52469682f85c1378b4a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1629335797}
-  m_PrefabAsset: {fileID: 0}
 --- !u!20 &1629335805 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 2037080, guid: 126d619cf4daa52469682f85c1378b4a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1629335797}
+  m_PrefabAsset: {fileID: 0}
+--- !u!120 &1629335806 stripped
+LineRenderer:
+  m_CorrespondingSourceObject: {fileID: 1029334627671817747, guid: 126d619cf4daa52469682f85c1378b4a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1629335797}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1629335807 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400002, guid: 126d619cf4daa52469682f85c1378b4a,
     type: 3}
   m_PrefabInstance: {fileID: 1629335797}
   m_PrefabAsset: {fileID: 0}
@@ -1225,9 +1231,6 @@ MonoBehaviour:
   musicClips:
   - {fileID: 8300000, guid: 7777fa717b7039845a3245d1a4d8f9ca, type: 3}
   - {fileID: 8300000, guid: df628bcc4bf6da448a0506809d229768, type: 3}
-  guidanceOff: {fileID: 245953398928848988, guid: 46ceba2dc8d20fb428b4b6bad104048b,
-    type: 2}
-  normal: {fileID: 24500003, guid: 46ceba2dc8d20fb428b4b6bad104048b, type: 2}
 --- !u!4 &1956371398
 Transform:
   m_ObjectHideFlags: 0

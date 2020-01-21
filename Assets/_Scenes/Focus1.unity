@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.46306705, g: 0.51948357, b: 0.5221202, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f1a9a1d119a5944aacfb87d1ec283a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayTransform: {fileID: 1672078259}
+  rayTransform: {fileID: 1672078261}
   m_Cursor: {fileID: 1087995187}
   joyPadClickButton: 1
   gazeClickKey: 32
@@ -234,9 +234,6 @@ MonoBehaviour:
   musicClips:
   - {fileID: 8300000, guid: 9cb4f61ae0d60e1489f549c2f630f358, type: 3}
   - {fileID: 8300000, guid: b57fcd15cfca6084a8950a795ec91628, type: 3}
-  guidanceOff: {fileID: 245087579703773678, guid: 8709dada8ae8ae6458bf7ddd7960299e,
-    type: 2}
-  normal: {fileID: 24500003, guid: 8709dada8ae8ae6458bf7ddd7960299e, type: 2}
 --- !u!4 &241693619
 Transform:
   m_ObjectHideFlags: 0
@@ -535,12 +532,12 @@ PrefabInstance:
         type: 3}
       propertyPath: rayTransform
       value: 
-      objectReference: {fileID: 1672078259}
+      objectReference: {fileID: 1672078261}
     - target: {fileID: 8246622263230269179, guid: 379750b7604f95743abbe800c841bfc1,
         type: 3}
       propertyPath: rayLineRenderer
       value: 
-      objectReference: {fileID: 1672078256}
+      objectReference: {fileID: 1672078260}
     - target: {fileID: 7449082304570612132, guid: 379750b7604f95743abbe800c841bfc1,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1120,9 +1117,15 @@ Camera:
     type: 3}
   m_PrefabInstance: {fileID: 1672078251}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1672078259 stripped
+--- !u!120 &1672078260 stripped
+LineRenderer:
+  m_CorrespondingSourceObject: {fileID: 1029334627671817747, guid: 126d619cf4daa52469682f85c1378b4a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1672078251}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1672078261 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 487254, guid: 126d619cf4daa52469682f85c1378b4a,
+  m_CorrespondingSourceObject: {fileID: 400002, guid: 126d619cf4daa52469682f85c1378b4a,
     type: 3}
   m_PrefabInstance: {fileID: 1672078251}
   m_PrefabAsset: {fileID: 0}

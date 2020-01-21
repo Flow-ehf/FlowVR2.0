@@ -35,10 +35,11 @@ public class SessionAnalyticsCollector : MonoBehaviour
 		var session = MeditationAnalytics.CurrentMeditationSession;
 		session.playTime = LevelController.Instance.PlayTime;
 		session.quitEarly = LevelController.Instance.TimeLeft > 0;
+		MeditationAnalytics.SendCurrentSession();
 	}
 
 
-    void OnDestroy()
+	void OnDestroy()
 	{
 		if(LevelController.Instance != null)
 			LevelController.Instance.QuitMeditation -= QuitMeditiation;
