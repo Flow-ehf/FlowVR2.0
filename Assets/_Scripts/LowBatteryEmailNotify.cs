@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LowBatteryEmailNotify : MonoBehaviour
 {
-	const byte NotifyThreshold = 15;
+	const byte NotifyThreshold = 30;
 
 	static LowBatteryEmailNotify instance;
 
@@ -21,24 +21,24 @@ public class LowBatteryEmailNotify : MonoBehaviour
 
 	// Start is called before the first frame update
 	IEnumerator Start()
-    {
-        while(true)
+	{
+		while (true)
 		{
-			if (LoginManager.IsLoggedIn && LoginManager.currentUser.isCompany)
-			{
-				byte batteryPerc = OVRInput.GetControllerBatteryPercentRemaining();
+			//if (LoginManager.IsLoggedIn && LoginManager.currentUser.isCompany)
+			//{
+			byte batteryPerc = OVRInput.GetControllerBatteryPercentRemaining();
 
-				if (batteryPerc <= NotifyThreshold && oldBatteryLvl > NotifyThreshold)
-				{
-					EmailClient email = new EmailClient("smtp.gmail.com", 587, "name@email.com", "password");
-					string subject = "Flow VR: Controller low battery";
-					string message = "Controller is low battery";
-					email.SendMessage(LoginManager.currentUser.email, subject, message);
-				}
-				oldBatteryLvl = batteryPerc;
-			}
+			//	if (batteryPerc <= NotifyThreshold && oldBatteryLvl > NotifyThreshold)
+			//	{
+			EmailClient email = new EmailClient("smtp.gmail.com", 587, "magnus@flow.is", "90.Modelin");
+			string subject = "Flow VR: Low power";
+			string message = "Either your headset or controller battery level is low, please check this at your earliest convenience";
+			email.SendMessage("magnus@flow.is", subject, message);
+			//	}
+			oldBatteryLvl = batteryPerc;
+			//}
 
 			yield return waiter;
 		}
-    }
+	}
 }
