@@ -2,6 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public static class HMDUtils
+{
+	public static string DeviceID
+	{
+		get
+		{
+#if UNITY_EDITOR || UNITY_STANDALONE
+			return "PC_" + SystemInfo.deviceUniqueIdentifier; //Unique per pc
+#elif UNITY_ANDROID
+			AndroidJavaObject jo = new AndroidJavaObject("android.os.Build");
+			return jo.GetStatic<string>("SERIAL");
+#else
+			return "N/A";
+#endif
+		}
+	}
+}
+
 public class SessionAnalyticsCollector : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -9,12 +27,7 @@ public class SessionAnalyticsCollector : MonoBehaviour
     {
 		string lvl = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
 
-#if UNITY_EDITOR || UNITY_STANDALONE
-		string deviceId = "PC_" + SystemInfo.deviceUniqueIdentifier; //Unique per pc
-#elif UNITY_ANDROID
-		AndroidJavaObject jo = new AndroidJavaObject("android.os.Build");
-		string deviceId = jo.GetStatic<string>("SERIAL");
-#endif
+		string deviceId = HMDUtils.DeviceID;
 
 		MeditationAnalytics.MeditationSessionData data = new MeditationAnalytics.MeditationSessionData()
 		{
