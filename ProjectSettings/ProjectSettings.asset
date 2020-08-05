@@ -17,8 +17,8 @@ PlayerSettings:
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
-  m_ShowUnitySplashScreen: 0
-  m_ShowUnitySplashLogo: 0
+  m_ShowUnitySplashScreen: 1
+  m_ShowUnitySplashLogo: 1
   m_SplashScreenOverlayOpacity: 1
   m_SplashScreenAnimation: 0
   m_SplashScreenLogoStyle: 0
@@ -49,7 +49,7 @@ PlayerSettings:
   defaultScreenWidthWeb: 960
   defaultScreenHeightWeb: 600
   m_StereoRenderingPath: 0
-  m_ActiveColorSpace: 0
+  m_ActiveColorSpace: 1
   m_MTRendering: 1
   m_StackTraceTypes: 010000000100000001000000010000000100000001000000
   iosShowActivityIndicatorOnLoading: -1
@@ -393,7 +393,7 @@ PlayerSettings:
   m_BuildTargetGraphicsAPIs:
   - m_BuildTarget: AndroidPlayer
     m_APIs: 0b00000008000000
-    m_Automatic: 1
+    m_Automatic: 0
   - m_BuildTarget: iOSSupport
     m_APIs: 10000000
     m_Automatic: 1

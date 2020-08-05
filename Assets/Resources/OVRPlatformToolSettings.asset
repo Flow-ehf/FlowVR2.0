@@ -12,30 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd7bb81df5b74b34dadbf531f381a26b, type: 3}
   m_Name: OVRPlatformToolSettings
   m_EditorClassIdentifier: 
-  appIDs:
-  - 
-  - jo_harald.2278592019663924815946997@hotmail.com
-  - 
-  appTokens:
-  - 
-  - 
-  - 
-  releaseNotes:
-  - 
-  - 
-  - 
-  releaseChannels:
-  - Alpha
-  - Alpha
-  - Alpha
-  riftBuildDiretory: 
-  riftBuildVersion: 
-  riftLaunchFile: 
-  riftLaunchParams: 
-  rift2DLaunchFile: 
-  rift2DLaunchParams: 
-  riftFirewallException: 0
-  riftGamepadEmulation: 0
   riftRedistPackages:
   - include: 0
     name: ' .NET Framework 3.5'
@@ -92,26 +68,21 @@ MonoBehaviour:
     name: ' Visual C++ 2017 x86'
     id: ' 1064693870299984   '
   - include: 0
+    name: ' Visual C++ 2019'
+    id: ' 2657209094360789   '
+  - include: 0
+    name: ' Visual C++ 2019 x86'
+    id: ' 2556834837738356   '
+  - include: 0
     name: ' Vulkan Runtime 1.0.65.1'
     id: ' 1824471960899274   '
   - include: 0
     name: ' Vulkan Runtime 1.1.73.0'
     id: ' 1941020095932382   '
   languagePackDirectory: 
-  apkBuildPaths:
-  - 
-  - 
-  - 
-  obbFilePaths:
-  - 
-  - 
-  - 
-  assetsDirectorys:
-  - 
-  - 
-  - 
   assetConfigs:
   - configList: []
   - configList: []
   - configList: []
-  targetPlatform: 1
+  targetPlatform: 2
+  runOvrLint: 1
