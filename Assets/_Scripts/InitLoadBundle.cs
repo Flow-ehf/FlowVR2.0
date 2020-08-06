@@ -9,7 +9,7 @@ public static class InitLoadBundle
 	[RuntimeInitializeOnLoadMethod]
     static void Init()
 	{
-#if UNITY_ANDROID
+#if UNITY_ANDROID && !UNITY_EDITOR
 		AssetBundle.LoadFromFile("/sdcard/Android/obb/com.flowmeditation.flowvr/main.88.com.flowmeditation.flowvr.obb");
 		//AssetBundle.LoadFromFile("/sdcard/Android/obb/com.flowmeditation.flowvr/pack1 - assets.88.com.flowmeditation.flowvr.obb");
 		//AssetBundle.LoadFromFile("/sdcard/Android/obb/com.flowmeditation.flowvr/pack1 - scenes.88.com.flowmeditation.flowvr.obb");

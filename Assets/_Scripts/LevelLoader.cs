@@ -59,8 +59,10 @@ public class LevelLoader : MonoBehaviour
 
 	public static void LoadLevel(string level, bool transition = true)
 	{
-		if(UnityEngine.Application.CanStreamedLevelBeLoaded(level))
+		if (UnityEngine.Application.CanStreamedLevelBeLoaded(level))
 			instance.StartCoroutine(WaitLoadLevel(level, transition));
+		else
+			Debug.LogError($"Failed to load level '{level}'. AssetBundle not loaded?");
 	}
 
 

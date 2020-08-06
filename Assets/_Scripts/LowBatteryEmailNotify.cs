@@ -28,9 +28,9 @@ public class LowBatteryEmailNotify : MonoBehaviour
 		{
 			//if (LoginManager.IsLoggedIn && LoginManager.currentUser.isCompany)
 			//{
+			byte ctrlBatteryLvl;
 #if UNITY_EDITOR || UNITY_STANDALONE
 
-			byte ctrlBatteryLvl;
 			if (OVRInput.IsControllerConnected(OVRInput.Controller.Touch))
 				ctrlBatteryLvl = (byte)Mathf.Min(
 											OVRInput.GetControllerBatteryPercentRemaining(OVRInput.Controller.LTouch),

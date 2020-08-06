@@ -56,6 +56,7 @@ public class ScreenFade : MonoBehaviour
 
 		if (currentColor.a > 0 && fadeMaterial)
 		{
+#if UNITY_EDITOR || !UNITY_ANDROID
 			GL.PushMatrix();
 			GL.LoadOrtho();
 			fadeMaterial.SetPass(0);
@@ -67,6 +68,7 @@ public class ScreenFade : MonoBehaviour
 			GL.Vertex3(0, 1, 0);
 			GL.End();
 			GL.PopMatrix();
+#endif
 		}
 	}
 }
