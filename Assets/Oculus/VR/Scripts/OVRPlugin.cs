@@ -1,12 +1,12 @@
 /************************************************************************************
 Copyright : Copyright (c) Facebook Technologies, LLC and its affiliates. All rights reserved.
 
-Licensed under the Oculus Master SDK License Version 1.0 (the "License"); you may not use
+Licensed under the Oculus Utilities SDK License Version 1.31 (the "License"); you may not use
 the Utilities SDK except in compliance with the License, which is provided at the time of installation
 or download, or which otherwise accompanies this software in either electronic or hard copy form.
 
 You may obtain a copy of the License at
-https://developer.oculus.com/licenses/oculusmastersdk-1.0/
+https://developer.oculus.com/licenses/utilities-1.31
 
 Unless required by applicable law or agreed to in writing, the Utilities SDK distributed
 under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
@@ -43,7 +43,7 @@ public static class OVRPlugin
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
 	public static readonly System.Version wrapperVersion = _versionZero;
 #else
-	public static readonly System.Version wrapperVersion = OVRP_1_50_0.version;
+	public static readonly System.Version wrapperVersion = OVRP_1_48_0.version;
 #endif
 
 #if !OVRPLUGIN_UNSUPPORTED_PLATFORM
@@ -181,8 +181,6 @@ public static class OVRPlugin
 		Failure_NotYetImplemented = -1005,
 		Failure_OperationFailed = -1006,
 		Failure_InsufficientSize = -1007,
-		Failure_DataIsInvalid = -1008,
-		Failure_DeprecatedOperation = -1009
 	}
 
 	public enum CameraStatus
@@ -192,16 +190,7 @@ public static class OVRPlugin
 		CameraStatus_Calibrating,
 		CameraStatus_CalibrationFailed,
 		CameraStatus_Calibrated,
-		CameraStatus_ThirdPerson,
 		CameraStatus_EnumSize = 0x7fffffff
-	}
-
-	public enum CameraAnchorType
-	{
-		CameraAnchorType_PreDefined = 0,
-		CameraAnchorType_Custom = 1,
-		CameraAnchorType_Count,
-		CameraAnchorType_EnumSize = 0x7fffffff
 	}
 
 	public enum Eye
@@ -329,12 +318,6 @@ public static class OVRPlugin
 		GearVR_R325, // Commercial 4 (USB Type C)
 		Oculus_Go,
 		Oculus_Quest,
-		Placeholder_9,
-		Placeholder_10,
-		Placeholder_11,
-		Placeholder_12,
-		Placeholder_13,
-		Placeholder_14,
 
 		// PC headsets
 		Rift_DK1 = 0x1000,
@@ -343,12 +326,6 @@ public static class OVRPlugin
 		Rift_CB,
 		Rift_S,
 		Oculus_Link_Quest,
-		PC_Placeholder_4102,
-		PC_Placeholder_4103,
-		PC_Placeholder_4104,
-		PC_Placeholder_4105,
-		PC_Placeholder_4106,
-		PC_Placeholder_4107
 	}
 
 	public enum OverlayShape
@@ -981,8 +958,6 @@ public static class OVRPlugin
 		HandTracked = (1 << 0), // if this is set the hand pose and bone rotations data is usable
 		InputStateValid = (1 << 1), // if this is set the pointer pose and pinch data is usable
 		SystemGestureInProgress = (1 << 6), // if this is set the hand is currently processing a system gesture
-		DominantHand = (1 << 7), // if this is set the hand is currently the dominant hand
-		MenuPressed = (1 << 8) // if this is set the hand performed a menu press
 	}
 
 	public enum BoneId
@@ -1181,28 +1156,6 @@ public static class OVRPlugin
 		public Vector4s[] BlendIndices;
 		[MarshalAs(UnmanagedType.ByValArray, SizeConst = (int)MeshConstants.MaxVertices)]
 		public Vector4f[] BlendWeights;
-	}
-
-	public enum ColorSpace
-	{
-		/// The default value from GetHmdColorSpace until SetClientColorDesc is called. Only valid on PC, and will be remapped to Quest on Mobile
-		Unknown = 0,
-		/// No color correction, not recommended for production use. See documentation for more info
-		Unmanaged = 1,
-		/// Preferred color space for standardized color across all Oculus HMDs with D65 white point
-		Rec_2020 = 2,
-		/// Rec. 709 is used on Oculus Go and shares the same primary color coordinates as sRGB
-		Rec_709 = 3,
-		/// Oculus Rift CV1 uses a unique color space, see documentation for more info
-		Rift_CV1 = 4,
-		/// Oculus Rift S uses a unique color space, see documentation for more info
-		Rift_S = 5,
-		/// Oculus Quest's native color space is slightly different than Rift CV1
-		Quest = 6,
-		/// Similar to DCI-P3. See documentation for more details on P3
-		P3 = 7,
-		/// Similar to sRGB but with deeper greens using D65 white point
-		Adobe_RGB = 8,
 	}
 
 	public static bool initialized
@@ -2191,31 +2144,6 @@ public static class OVRPlugin
 			if (result == Result.Success)
 			{
 				return trackingTransformPose;
-			}
-			else
-			{
-				return Posef.identity;
-			}
-		}
-		else
-		{
-			return Posef.identity;
-		}
-#endif
-	}
-
-	public static Posef GetTrackingTransformRawPose()
-	{
-#if OVRPLUGIN_UNSUPPORTED_PLATFORM
-		return Posef.identity;
-#else
-		if (version >= OVRP_1_30_0.version)
-		{
-			Posef trackingTransforRawPose;
-			Result result = OVRP_1_30_0.ovrp_GetTrackingTransformRawPose(out trackingTransforRawPose);
-			if (result == Result.Success)
-			{
-				return trackingTransforRawPose;
 			}
 			else
 			{
@@ -4357,7 +4285,7 @@ public static class OVRPlugin
 #endif
 		}
 
-		public static bool EncodeMrcFrame(System.IntPtr textureHandle, System.IntPtr fgTextureHandle, float[] audioData, int audioFrames, int audioChannels, double timestamp, double poseTime, ref int outSyncId)
+		public static bool EncodeMrcFrame(System.IntPtr textureHandle, System.IntPtr fgTextureHandle, float[] audioData, int audioFrames, int audioChannels, double timestamp, ref int outSyncId)
 		{
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
 			return false;
@@ -4388,25 +4316,11 @@ public static class OVRPlugin
 				Result result;
 				if (fgTextureHandle == System.IntPtr.Zero)
 				{
-					if (version >= OVRP_1_49_0.version)
-					{
-						result = OVRP_1_49_0.ovrp_Media_EncodeMrcFrameWithPoseTime(textureHandle, audioDataPtr, audioDataLen, audioChannels, timestamp, poseTime, ref outSyncId);
-					}
-					else
-					{
-						result = OVRP_1_38_0.ovrp_Media_EncodeMrcFrame(textureHandle, audioDataPtr, audioDataLen, audioChannels, timestamp, ref outSyncId);
-					}
+					result = OVRP_1_38_0.ovrp_Media_EncodeMrcFrame(textureHandle, audioDataPtr, audioDataLen, audioChannels, timestamp, ref outSyncId);
 				}
 				else
 				{
-					if (version >= OVRP_1_49_0.version)
-					{
-						result = OVRP_1_49_0.ovrp_Media_EncodeMrcFrameDualTexturesWithPoseTime(textureHandle, fgTextureHandle, audioDataPtr, audioDataLen, audioChannels, timestamp, poseTime, ref outSyncId);
-					}
-					else
-					{
-						result = OVRP_1_38_0.ovrp_Media_EncodeMrcFrameWithDualTextures(textureHandle, fgTextureHandle, audioDataPtr, audioDataLen, audioChannels, timestamp, ref outSyncId);
-					}
+					result = OVRP_1_38_0.ovrp_Media_EncodeMrcFrameWithDualTextures(textureHandle, fgTextureHandle, audioDataPtr, audioDataLen, audioChannels, timestamp, ref outSyncId);
 				}
 
 				if (audioData != null)
@@ -4425,7 +4339,7 @@ public static class OVRPlugin
 #if !OVRPLUGIN_UNSUPPORTED_PLATFORM
 		static Texture2D cachedTexture = null;
 #endif
-		public static bool EncodeMrcFrame(RenderTexture frame, float[] audioData, int audioFrames, int audioChannels, double timestamp, double poseTime, ref int outSyncId)
+		public static bool EncodeMrcFrame(RenderTexture frame, float[] audioData, int audioFrames, int audioChannels, double timestamp, ref int outSyncId)
 		{
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
 			return false;
@@ -4467,15 +4381,8 @@ public static class OVRPlugin
 					audioDataPtr = pinnedAudioData.AddrOfPinnedObject();
 					audioDataLen = audioFrames * 4;
 				}
-				Result result;
-				if (version >= OVRP_1_49_0.version)
-				{
-					result = OVRP_1_49_0.ovrp_Media_EncodeMrcFrameWithPoseTime(pointer, audioDataPtr, audioDataLen, audioChannels, timestamp, poseTime, ref outSyncId);
-				}
-				else
-				{
-					result = OVRP_1_38_0.ovrp_Media_EncodeMrcFrame(pointer, audioDataPtr, audioDataLen, audioChannels, timestamp, ref outSyncId);
-				}
+				Result result = OVRP_1_38_0.ovrp_Media_EncodeMrcFrame(pointer, audioDataPtr, audioDataLen, audioChannels, timestamp, ref outSyncId);
+
 				pinnedArray.Free();
 				if (audioData != null)
 				{
@@ -4514,23 +4421,6 @@ public static class OVRPlugin
 			if (version >= OVRP_1_45_0.version)
 			{
 				return OVRP_1_45_0.ovrp_Media_SetAvailableQueueIndexVulkan(queueIndexVk) == Result.Success;
-			}
-			else
-			{
-				return false;
-			}
-#endif
-		}
-
-		public static bool SetMrcHeadsetControllerPose(Posef headsetPose, Posef leftControllerPose, Posef rightControllerPose)
-		{
-#if OVRPLUGIN_UNSUPPORTED_PLATFORM
-		return false;
-#else
-			if (version >= OVRP_1_49_0.version)
-			{
-				Result res = OVRP_1_49_0.ovrp_Media_SetHeadsetControllerPose(headsetPose, leftControllerPose, rightControllerPose);
-				return res == Result.Success;
 			}
 			else
 			{
@@ -4730,29 +4620,6 @@ public static class OVRPlugin
 #endif
 	}
 
-	public static int GetLocalTrackingSpaceRecenterCount()
-	{
-#if OVRPLUGIN_UNSUPPORTED_PLATFORM
-		return 0;
-#else
-		if (version >= OVRP_1_44_0.version)
-		{
-			int recenterCount = 0;
-			Result res = OVRP_1_44_0.ovrp_GetLocalTrackingSpaceRecenterCount(ref recenterCount);
-			if (res == Result.Success)
-			{
-				return recenterCount;
-			}
-
-			return 0;
-		}
-		else
-		{
-			return 0;
-		}
-#endif
-	}
-
 	public static bool GetSystemHmd3DofModeEnabled()
 	{
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
@@ -4772,49 +4639,6 @@ public static class OVRPlugin
 		else
 		{
 			return false;
-		}
-#endif
-	}
-
-	public static bool SetClientColorDesc(ColorSpace colorSpace)
-	{
-#if OVRPLUGIN_UNSUPPORTED_PLATFORM
-		return false;
-#else
-		if (version >= OVRP_1_49_0.version)
-		{
-#if UNITY_ANDROID
-			if (colorSpace == ColorSpace.Unknown)
-				colorSpace = ColorSpace.Quest;
-#endif
-			return OVRP_1_49_0.ovrp_SetClientColorDesc(colorSpace) == Result.Success;
-		}
-		else
-		{
-			return false;
-		}
-#endif
-		}
-
-	public static ColorSpace GetHmdColorDesc()
-	{
-#if OVRPLUGIN_UNSUPPORTED_PLATFORM
-		return ColorSpace.Unknown;
-#else
-		ColorSpace colorSpace = ColorSpace.Unknown;
-		if (version >= OVRP_1_49_0.version)
-		{
-			Result res = OVRP_1_49_0.ovrp_GetHmdColorDesc(ref colorSpace);
-			if(res != Result.Success)
-			{
-				Debug.LogError("GetHmdColorDesc: Failed to get Hmd color description");
-			}
-			return colorSpace;
-		}
-		else
-		{
-			Debug.LogError("GetHmdColorDesc: Not supported on this version of OVRPlugin");
-			return colorSpace;
 		}
 #endif
 	}
@@ -5422,8 +5246,8 @@ public static class OVRPlugin
 		[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
 		public static extern Result ovrp_GetCurrentTrackingTransformPose(out Posef trackingTransformPose);
 
-		[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
-		public static extern Result ovrp_GetTrackingTransformRawPose(out Posef trackingTransformRawPose);
+		//[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
+		//public static extern Result ovrp_GetTrackingTransformRawPose(out Posef trackingTransformRawPose);
 
 		[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
 		public static extern Result ovrp_SendEvent2(string name, string param, string source);
@@ -5627,8 +5451,6 @@ public static class OVRPlugin
 		[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
 		public static extern Result ovrp_SetDefaultExternalCamera(string cameraName, ref CameraIntrinsics cameraIntrinsics, ref CameraExtrinsics cameraExtrinsics);
 
-		[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
-		public static extern Result ovrp_GetLocalTrackingSpaceRecenterCount(ref int recenterCount);
 	}
 
 	private static class OVRP_1_45_0
@@ -5667,65 +5489,6 @@ public static class OVRPlugin
 		public static extern Result ovrp_SetExternalCameraProperties(string cameraName, ref CameraIntrinsics cameraIntrinsics, ref CameraExtrinsics cameraExtrinsics);
 	}
 
-	private static class OVRP_1_49_0
-	{
-		public static readonly System.Version version = new System.Version(1, 49, 0);
-
-		public const int OVRP_ANCHOR_NAME_SIZE = 32;
-
-		[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
-		public static extern Result ovrp_SetClientColorDesc(ColorSpace colorSpace);
-
-		[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
-		public static extern Result ovrp_GetHmdColorDesc(ref ColorSpace colorSpace);
-
-		[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
-		public static extern Result ovrp_Media_EncodeMrcFrameWithPoseTime(IntPtr rawBuffer, IntPtr audioDataPtr, int audioDataLen, int audioChannels, double timestamp, double poseTime, ref int outSyncId);
-
-		[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
-		public static extern Result ovrp_Media_EncodeMrcFrameDualTexturesWithPoseTime(IntPtr backgroundTextureHandle, IntPtr foregroundTextureHandle, IntPtr audioData, int audioDataLen, int audioChannels, double timestamp, double poseTime, ref int outSyncId);
-
-		[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
-		public static extern Result ovrp_Media_SetHeadsetControllerPose(Posef headsetPose, Posef leftControllerPose, Posef rightControllerPose);
-
-		[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
-		public static extern Result ovrp_Media_EnumerateCameraAnchorHandles(ref int anchorCount, ref IntPtr CameraAnchorHandle);
-
-		[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
-		public static extern Result ovrp_Media_GetCurrentCameraAnchorHandle(ref IntPtr anchorHandle);
-
-		[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
-		public static extern Result ovrp_Media_GetCameraAnchorName(IntPtr anchorHandle, [MarshalAs(UnmanagedType.LPArray, SizeConst = OVRP_ANCHOR_NAME_SIZE)] char[] cameraName);
-
-		[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
-		public static extern Result ovrp_Media_GetCameraAnchorHandle(IntPtr anchorName, ref IntPtr anchorHandle);
-
-		[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
-		public static extern Result ovrp_Media_GetCameraAnchorType(IntPtr anchorHandle, ref CameraAnchorType anchorType);
-
-		[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
-		public static extern Result ovrp_Media_CreateCustomCameraAnchor(IntPtr anchorName, ref IntPtr anchorHandle);
-
-		[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
-		public static extern Result ovrp_Media_DestroyCustomCameraAnchor(IntPtr anchorHandle);
-
-		[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
-		public static extern Result ovrp_Media_GetCustomCameraAnchorPose(IntPtr anchorHandle, ref Posef pose);
-
-		[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
-		public static extern Result ovrp_Media_SetCustomCameraAnchorPose(IntPtr anchorHandle, Posef pose);
-
-		[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
-		public static extern Result ovrp_Media_GetCameraMinMaxDistance(IntPtr anchorHandle, ref double minDistance, ref double maxDistance);
-
-		[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
-		public static extern Result ovrp_Media_SetCameraMinMaxDistance(IntPtr anchorHandle, double minDistance, double maxDistance);
-	}
-
-	private static class OVRP_1_50_0
-	{
-		public static readonly System.Version version = new System.Version(1, 50, 0);
-	}
 #endif // !OVRPLUGIN_UNSUPPORTED_PLATFORM
 
 }

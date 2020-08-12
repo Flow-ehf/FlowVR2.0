@@ -367,6 +367,12 @@ namespace Assets.Oculus.VR.Editor
 			set { Instance.runOvrLint = value; }
 		}
 
+		public static bool SkipUnneededShaders
+		{
+			get { return Instance.skipUnneededShaders; }
+			set { Instance.skipUnneededShaders = value; }
+		}
+
 		[SerializeField]
 		private List<RedistPackage> riftRedistPackages;
 
@@ -381,6 +387,9 @@ namespace Assets.Oculus.VR.Editor
 
 		[SerializeField]
 		private bool runOvrLint = true;
+
+		[SerializeField]
+		private bool skipUnneededShaders = false;
 
 		public static bool TryInitialize()
 		{

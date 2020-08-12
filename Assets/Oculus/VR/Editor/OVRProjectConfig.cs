@@ -27,9 +27,6 @@ using System.IO;
 using System;
 
 [System.Serializable]
-#if UNITY_EDITOR
-[UnityEditor.InitializeOnLoad]
-#endif
 public class OVRProjectConfig : ScriptableObject
 {
 	public enum DeviceType
@@ -45,32 +42,25 @@ public class OVRProjectConfig : ScriptableObject
 		HandsOnly = 2
 	}
 
+	public enum ColorGamut
+	{
+		Default = 0,
+		Rec709 = 1,
+		DciP3 = 2,
+		Adobe = 3,
+		Rec2020 = 4
+	}
+
 	public List<DeviceType> targetDeviceTypes;
 	public HandTrackingSupport handTrackingSupport;
+	public ColorGamut colorGamut;
 
 	public bool disableBackups;
 	public bool enableNSCConfig;
-	public string securityXmlPath;
 
-	public bool skipUnneededShaders;
 	public bool focusAware;
 
 	//public const string OculusProjectConfigAssetPath = "Assets/Oculus/OculusProjectConfig.asset";
-
-	static OVRProjectConfig()
-	{
-		// BuildPipeline.isBuildingPlayer cannot be called in a static constructor
-		// Run Update once to call GetProjectConfig then remove delegate
-		EditorApplication.update += Update;
-	}
-
-	static void Update()
-	{
-		// Initialize the asset if it doesn't exist
-		GetProjectConfig();
-		// Stop running Update
-		EditorApplication.update -= Update;
-	}
 
 	private static string GetOculusProjectConfigAssetPath()
 	{
@@ -100,8 +90,7 @@ public class OVRProjectConfig : ScriptableObject
 		{
 			Debug.LogWarningFormat("Unable to load ProjectConfig from {0}, error {1}", oculusProjectConfigAssetPath, e.Message);
 		}
-		// Initialize the asset only if a build is not currently running.
-		if (projectConfig == null && !BuildPipeline.isBuildingPlayer)
+		if (projectConfig == null)
 		{
 			projectConfig = ScriptableObject.CreateInstance<OVRProjectConfig>();
 			projectConfig.targetDeviceTypes = new List<DeviceType>();
@@ -109,8 +98,7 @@ public class OVRProjectConfig : ScriptableObject
 			projectConfig.handTrackingSupport = HandTrackingSupport.ControllersOnly;
 			projectConfig.disableBackups = true;
 			projectConfig.enableNSCConfig = true;
-			projectConfig.skipUnneededShaders = false;
-			projectConfig.focusAware = true;
+			projectConfig.focusAware = false;
 			AssetDatabase.CreateAsset(projectConfig, oculusProjectConfigAssetPath);
 		}
 		return projectConfig;
@@ -124,5 +112,17 @@ public class OVRProjectConfig : ScriptableObject
 			Debug.LogWarningFormat("The asset path of ProjectConfig is wrong. Expect {0}, get {1}", oculusProjectConfigAssetPath, AssetDatabase.GetAssetPath(projectConfig));
 		}
 		EditorUtility.SetDirty(projectConfig);
+	}
+
+	public static string ColorGamutToString(ColorGamut colorGamut)
+	{
+		switch(colorGamut)
+		{
+			case ColorGamut.Rec709: return "Rec. 709";
+			case ColorGamut.DciP3: return "DCI-P3";
+			case ColorGamut.Adobe: return "Adobe";
+			case ColorGamut.Rec2020: return "Rec. 2020";
+			default: return "<none>";
+		}
 	}
 }

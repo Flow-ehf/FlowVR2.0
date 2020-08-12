@@ -412,9 +412,6 @@ namespace Oculus.Platform
     public static extern UIntPtr ovr_NetSync_GetPcmBufferMaxSamples();
 
     [DllImport(DLL_NAME, CallingConvention=CallingConvention.Cdecl)]
-    public static extern bool ovr_NetSync_GetVoipAmplitude(long connection_id, UInt64 sessionId, ref float amplitude);
-
-    [DllImport(DLL_NAME, CallingConvention=CallingConvention.Cdecl)]
     public static extern void ovr_NetSync_SetListenerPosition(long connection_id, ref ovrNetSyncVec3 position);
 
     [DllImport(DLL_NAME, CallingConvention=CallingConvention.Cdecl)]
@@ -1168,28 +1165,6 @@ namespace Oculus.Platform
     [DllImport(DLL_NAME, CallingConvention=CallingConvention.Cdecl)]
     public static extern ulong ovr_NetSync_SetVoipAttenuation(long connection_id, float[] distances, float[] decibels, UIntPtr count);
 
-    public static ulong ovr_NetSync_SetVoipAttenuationModel(long connection_id, string name, float[] distances, float[] decibels, UIntPtr count) {
-      IntPtr name_native = StringToNative(name);
-      var result = (ovr_NetSync_SetVoipAttenuationModel_Native(connection_id, name_native, distances, decibels, count));
-      Marshal.FreeCoTaskMem(name_native);
-      return result;
-    }
-
-    [DllImport(DLL_NAME, CallingConvention=CallingConvention.Cdecl, EntryPoint="ovr_NetSync_SetVoipAttenuationModel")]
-    private static extern ulong ovr_NetSync_SetVoipAttenuationModel_Native(long connection_id, IntPtr name, float[] distances, float[] decibels, UIntPtr count);
-
-    public static ulong ovr_NetSync_SetVoipChannelCfg(long connection_id, string channel_name, string attnmodel, bool disable_spatialization) {
-      IntPtr channel_name_native = StringToNative(channel_name);
-      IntPtr attnmodel_native = StringToNative(attnmodel);
-      var result = (ovr_NetSync_SetVoipChannelCfg_Native(connection_id, channel_name_native, attnmodel_native, disable_spatialization));
-      Marshal.FreeCoTaskMem(channel_name_native);
-      Marshal.FreeCoTaskMem(attnmodel_native);
-      return result;
-    }
-
-    [DllImport(DLL_NAME, CallingConvention=CallingConvention.Cdecl, EntryPoint="ovr_NetSync_SetVoipChannelCfg")]
-    private static extern ulong ovr_NetSync_SetVoipChannelCfg_Native(long connection_id, IntPtr channel_name, IntPtr attnmodel, bool disable_spatialization);
-
     public static ulong ovr_NetSync_SetVoipGroup(long connection_id, string group_id) {
       IntPtr group_id_native = StringToNative(group_id);
       var result = (ovr_NetSync_SetVoipGroup_Native(connection_id, group_id_native));
@@ -1201,16 +1176,10 @@ namespace Oculus.Platform
     private static extern ulong ovr_NetSync_SetVoipGroup_Native(long connection_id, IntPtr group_id);
 
     [DllImport(DLL_NAME, CallingConvention=CallingConvention.Cdecl)]
-    public static extern ulong ovr_NetSync_SetVoipListentoChannels(long connection_id, string[] listento_channels, UIntPtr count);
-
-    [DllImport(DLL_NAME, CallingConvention=CallingConvention.Cdecl)]
     public static extern ulong ovr_NetSync_SetVoipMicSource(long connection_id, NetSyncVoipMicSource mic_source);
 
     [DllImport(DLL_NAME, CallingConvention=CallingConvention.Cdecl)]
     public static extern ulong ovr_NetSync_SetVoipSessionMuted(long connection_id, UInt64 session_id, bool muted);
-
-    [DllImport(DLL_NAME, CallingConvention=CallingConvention.Cdecl)]
-    public static extern ulong ovr_NetSync_SetVoipSpeaktoChannels(long connection_id, string[] speakto_channels, UIntPtr count);
 
     [DllImport(DLL_NAME, CallingConvention=CallingConvention.Cdecl)]
     public static extern ulong ovr_NetSync_SetVoipStreamMode(long connection_id, UInt64 sessionId, NetSyncVoipStreamMode streamMode);
@@ -2070,14 +2039,6 @@ namespace Oculus.Platform
 
     [DllImport(DLL_NAME, CallingConvention=CallingConvention.Cdecl)]
     public static extern bool ovr_LaunchUnblockFlowResult_GetDidUnblock(IntPtr obj);
-
-    public static string ovr_Leaderboard_GetApiName(IntPtr obj) {
-      var result = StringFromNative(ovr_Leaderboard_GetApiName_Native(obj));
-      return result;
-    }
-
-    [DllImport(DLL_NAME, CallingConvention=CallingConvention.Cdecl, EntryPoint="ovr_Leaderboard_GetApiName")]
-    private static extern IntPtr ovr_Leaderboard_GetApiName_Native(IntPtr obj);
 
     public static byte[] ovr_LeaderboardEntry_GetExtraData(IntPtr obj) {
       var result = BlobFromNative(ovr_LeaderboardEntry_GetExtraDataLength(obj), ovr_LeaderboardEntry_GetExtraData_Native(obj));
@@ -3120,14 +3081,6 @@ namespace Oculus.Platform
 
     [DllImport(DLL_NAME, CallingConvention=CallingConvention.Cdecl)]
     public static extern UIntPtr ovr_TestUserAppAccessArray_GetSize(IntPtr obj);
-
-    public static string ovr_User_GetDisplayName(IntPtr obj) {
-      var result = StringFromNative(ovr_User_GetDisplayName_Native(obj));
-      return result;
-    }
-
-    [DllImport(DLL_NAME, CallingConvention=CallingConvention.Cdecl, EntryPoint="ovr_User_GetDisplayName")]
-    private static extern IntPtr ovr_User_GetDisplayName_Native(IntPtr obj);
 
     [DllImport(DLL_NAME, CallingConvention=CallingConvention.Cdecl)]
     public static extern UInt64 ovr_User_GetID(IntPtr obj);

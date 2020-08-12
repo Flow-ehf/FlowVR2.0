@@ -36,13 +36,16 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEditor.Build;
+#if UNITY_2018_1_OR_NEWER
 using UnityEditor.Build.Reporting;
+#endif
 #if UNITY_ANDROID
 using UnityEditor.Android;
 #endif
 
 [InitializeOnLoad]
 public class OVRGradleGeneration
+#if UNITY_2018_2_OR_NEWER
 	: IPreprocessBuildWithReport, IPostprocessBuildWithReport
 #if UNITY_ANDROID
 	, IPostGenerateGradleAndroidProject
@@ -51,7 +54,7 @@ public class OVRGradleGeneration
 	public OVRADBTool adbTool;
 	public Process adbProcess;
 
-	public int callbackOrder { get { return 99999; } }
+	public int callbackOrder { get { return 3; } }
 	static private System.DateTime buildStartTime;
 	static private System.Guid buildGuid;
 
@@ -210,20 +213,8 @@ public class OVRGradleGeneration
 		{
 			if (projectConfig.enableNSCConfig)
 			{
-				// If no custom xml security path is specified, look for the default location in the integrations package.
-				string securityConfigFile = projectConfig.securityXmlPath;
-				if (string.IsNullOrEmpty(securityConfigFile))
-				{
-					securityConfigFile = GetOculusProjectNetworkSecConfigPath();
-				}
-				else
-				{
-					Uri configUri = new Uri(Path.GetFullPath(securityConfigFile));
-					Uri projectUri = new Uri(Application.dataPath);
-					Uri relativeUri = projectUri.MakeRelativeUri(configUri);
-					securityConfigFile = relativeUri.ToString();
-				}
 
+				string securityConfigFile = GetOculusProjectNetworkSecConfigPath();
 				string xmlDirectory = Path.Combine(path, "src/main/res/xml");
 				try
 				{
@@ -432,5 +423,8 @@ public class OVRGradleGeneration
 			}
 		}
 	}
+#endif
+#else
+{
 #endif
 }

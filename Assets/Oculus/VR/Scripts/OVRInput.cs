@@ -1,12 +1,12 @@
 /************************************************************************************
 Copyright : Copyright (c) Facebook Technologies, LLC and its affiliates. All rights reserved.
 
-Licensed under the Oculus Master SDK License Version 1.0 (the "License"); you may not use
+Licensed under the Oculus Utilities SDK License Version 1.31 (the "License"); you may not use
 the Utilities SDK except in compliance with the License, which is provided at the time of installation
 or download, or which otherwise accompanies this software in either electronic or hard copy form.
 
 You may obtain a copy of the License at
-https://developer.oculus.com/licenses/oculusmastersdk-1.0/
+https://developer.oculus.com/licenses/utilities-1.31
 
 Unless required by applicable law or agreed to in writing, the Utilities SDK distributed
 under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
@@ -20,7 +20,15 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
 
+#if UNITY_2017_2_OR_NEWER
+using InputTracking = UnityEngine.XR.InputTracking;
 using Node = UnityEngine.XR.XRNode;
+using Settings = UnityEngine.XR.XRSettings;
+#else
+using InputTracking = UnityEngine.VR.InputTracking;
+using Node = UnityEngine.VR.VRNode;
+using Settings = UnityEngine.VR.VRSettings;
+#endif
 
 /// <summary>
 /// Provides a unified input system for Oculus controllers and gamepads.
@@ -2503,7 +2511,7 @@ public static class OVRInput
 			buttonMap.Two                      = RawButton.None;
 			buttonMap.Three                    = RawButton.X;
 			buttonMap.Four                     = RawButton.None;
-			buttonMap.Start                    = RawButton.Start;
+			buttonMap.Start                    = RawButton.None;
 			buttonMap.Back                     = RawButton.None;
 			buttonMap.PrimaryShoulder          = RawButton.None;
 			buttonMap.PrimaryIndexTrigger      = RawButton.None;
@@ -2611,7 +2619,7 @@ public static class OVRInput
 			buttonMap.Two                      = RawButton.None;
 			buttonMap.Three                    = RawButton.None;
 			buttonMap.Four                     = RawButton.None;
-			buttonMap.Start                    = RawButton.Start;
+			buttonMap.Start                    = RawButton.None;
 			buttonMap.Back                     = RawButton.None;
 			buttonMap.PrimaryShoulder          = RawButton.None;
 			buttonMap.PrimaryIndexTrigger      = RawButton.None;
@@ -2715,7 +2723,7 @@ public static class OVRInput
 			buttonMap.Two                      = RawButton.None;
 			buttonMap.Three                    = RawButton.None;
 			buttonMap.Four                     = RawButton.None;
-			buttonMap.Start                    = RawButton.Start;
+			buttonMap.Start                    = RawButton.None;
 			buttonMap.Back                     = RawButton.None;
 			buttonMap.PrimaryShoulder          = RawButton.None;
 			buttonMap.PrimaryIndexTrigger      = RawButton.None;
