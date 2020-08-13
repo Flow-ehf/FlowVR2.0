@@ -7,7 +7,7 @@ public class ScreenFade : MonoBehaviour
 	public static ScreenFade instance;
 
 	static Color currentColor = new Color(0, 0, 0, 1);
-	static Color targetColor = new Color(0, 0, 0, 1); 
+	static Color targetColor = new Color(0, 0, 0, 1);
 	static Color deltaColor = new Color(0, 0, 0, 0);   // the delta-color is basically the "speed / second" at which the current color should change
 
 	static Material fadeMaterial = null;
