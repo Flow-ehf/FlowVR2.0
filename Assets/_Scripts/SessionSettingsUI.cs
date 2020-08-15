@@ -91,11 +91,11 @@ public class SessionSettingsUI : MonoBehaviour
 		player.clip = targetClip;
 		player.targetTexture = targetMaterial.mainTexture as RenderTexture;
 		player.Prepare();
-		ScreenFade.instance.StartFade(1, Color.black);
+		ScreenFade.StartFade(1, Color.black);
 		yield return new WaitForSeconds(1);
 		yield return new WaitWhile(() => !player.isPrepared);
 		RenderSettings.skybox = targetMaterial;
-		ScreenFade.instance.StartFade(1, Color.clear);
+		ScreenFade.StartFade(1, Color.clear);
 	}
 
 
@@ -106,12 +106,12 @@ public class SessionSettingsUI : MonoBehaviour
 
 	IEnumerator WaitClose()
 	{
-		ScreenFade.instance.StartFade(1, Color.black);
+		ScreenFade.StartFade(1, Color.black);
 		yield return new WaitForSeconds(1);
 		player.clip = defaultClip;
 		player.targetTexture = defaultSkybox.mainTexture as RenderTexture;
 		RenderSettings.skybox = defaultSkybox;
-		ScreenFade.instance.StartFade(1, Color.clear);
+		ScreenFade.StartFade(1, Color.clear);
 	}
 
 

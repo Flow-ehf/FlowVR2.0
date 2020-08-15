@@ -2,18 +2,52 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class InitLoadBundle 
+public class InitLoadBundle : MonoBehaviour
 {
-//	static readonly int bundleVersionCode = 108;
+	//	const int bundleVersionCode = 108;
+
+	private static readonly string[] bundles =
+	{
+		"/sdcard/Android/obb/com.flowmeditation.flowvr/main.108.com.flowmeditation.flowvr.obb",
+		"/sdcard/Android/obb/com.flowmeditation.flowvr/pack1 - assets1.108.com.flowmeditation.flowvr.obb",
+		"/sdcard/Android/obb/com.flowmeditation.flowvr/pack2 - assets2.108.com.flowmeditation.flowvr.obb",
+		"/sdcard/Android/obb/com.flowmeditation.flowvr/pack3 - assets3.108.com.flowmeditation.flowvr.obb",
+	};
+
+	public static bool IsBundlesLoaded { get; private set; }
 
 	[RuntimeInitializeOnLoadMethod]
     static void Init()
 	{
+		InitLoadBundle instance = new GameObject(nameof(InitLoadBundle)).AddComponent<InitLoadBundle>();
+		instance.hideFlags = HideFlags.HideInHierarchy;
+		DontDestroyOnLoad(instance);
+	}
+
+	private void Start()
+	{
 #if UNITY_ANDROID
-		AssetBundle.LoadFromFile("/sdcard/Android/obb/com.flowmeditation.flowvr/main.108.com.flowmeditation.flowvr.obb");
-		AssetBundle.LoadFromFile("/sdcard/Android/obb/com.flowmeditation.flowvr/pack1 - assets1.108.com.flowmeditation.flowvr.obb");
-		AssetBundle.LoadFromFile("/sdcard/Android/obb/com.flowmeditation.flowvr/pack2 - assets2.108.com.flowmeditation.flowvr.obb");
-		AssetBundle.LoadFromFile("/sdcard/Android/obb/com.flowmeditation.flowvr/pack3 - assets3.108.com.flowmeditation.flowvr.obb");
+		StartCoroutine(LoadBundles());
+#else
+		IsBundlesLoaded = true;
 #endif
+
+	}
+
+	private IEnumerator LoadBundles()
+	{
+		Debug.Log("Begin loading bundles");
+		for (int i = 0; i < bundles.Length; i++)
+		{
+			AssetBundleCreateRequest request = AssetBundle.LoadFromFileAsync(bundles[i]);
+			yield return request;
+			if (request.assetBundle == null)
+				Debug.LogError("Error: Failed to load bundle " + bundles[i]);
+		}
+		Debug.Log("Finished loading bundles");
+
+		IsBundlesLoaded = true;
+
+		LevelLoader.LoadLevel("LoginMenu");
 	}
 }

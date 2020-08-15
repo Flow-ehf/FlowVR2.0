@@ -23,11 +23,6 @@ public class LevelLoader : MonoBehaviour
 	public static bool IsLoading { get; private set; }
 
 
-	void Awake()
-	{
-		StartCoroutine(InitTransition());
-	}
-
 	void Start()
 	{
 		Oculus.Platform.Core.Initialize();
@@ -43,26 +38,9 @@ public class LevelLoader : MonoBehaviour
 		}
 	}
 
-	IEnumerator InitTransition()
-	{
-		IsLoading = true;
-		Level = SceneManager.GetActiveScene().name;
-
-		Time.timeScale = 0;
-		AudioListener.volume = 0;
-		yield return new WaitForSecondsRealtime(1);
-		ScreenFade.instance.StartFade(FadeDuration, Color.clear);
-		yield return FadeVolumeIn(FadeDuration);
-		Time.timeScale = 1;
-		IsLoading = false;
-	}
-
 	public static void LoadLevel(string level, bool transition = true)
 	{
-		if (UnityEngine.Application.CanStreamedLevelBeLoaded(level))
-			instance.StartCoroutine(WaitLoadLevel(level, transition));
-		else
-			Debug.LogError($"Failed to load level '{level}'. AssetBundle not loaded?");
+		instance.StartCoroutine(WaitLoadLevel(level, transition));
 	}
 
 
@@ -72,17 +50,29 @@ public class LevelLoader : MonoBehaviour
 			yield return new WaitUntil(() => !IsLoading);
 
 		IsLoading = true;
+
+		// Wait for assetbundle loaded
+		if (!InitLoadBundle.IsBundlesLoaded)
+			yield return new WaitUntil(() => InitLoadBundle.IsBundlesLoaded);
+
+		if (!UnityEngine.Application.CanStreamedLevelBeLoaded(level))
+		{
+			Debug.LogError($"Failed to load level '{level}'. AssetBundle not loaded?");
+			IsLoading = false;
+			yield break;
+		}
+
 		LevelBeingLoaded = level;
 
 		Time.timeScale = 0;
 		if (transition)
 		{
-			ScreenFade.instance.StartFade(FadeDuration, Color.black);
+			ScreenFade.StartFade(FadeDuration, Color.black);
 			yield return FadeVolumeOut(FadeDuration);
 		}
 		else
 		{
-			ScreenFade.instance.StartFade(0, Color.black);
+			ScreenFade.StartFade(0, Color.black);
 			AudioListener.volume = 0;
 		}
 
@@ -91,7 +81,7 @@ public class LevelLoader : MonoBehaviour
 		if (transition)
 		{
 			//Fade in
-			ScreenFade.instance.StartFade(FadeDuration, Color.clear);
+			ScreenFade.StartFade(FadeDuration, Color.clear);
 			yield return new WaitForSecondsRealtime(FadeDuration);
 			//Begin load target scene
 		}
@@ -116,7 +106,7 @@ public class LevelLoader : MonoBehaviour
 			while (sceneLoad.progress < 0.9f || duration < 3f);
 
 			//When target scene is loaded, fade to black
-			ScreenFade.instance.StartFade(FadeDuration, Color.black);
+			ScreenFade.StartFade(FadeDuration, Color.black);
 			yield return new WaitForSecondsRealtime(1);
 		}
 		//Activate target scene
@@ -127,7 +117,7 @@ public class LevelLoader : MonoBehaviour
 		//Wait for video to load
 		yield return WaitForVideo();
 		//Fade in
-		ScreenFade.instance.StartFade(FadeDuration, Color.clear);
+		ScreenFade.StartFade(FadeDuration, Color.clear);
 		//Fade in volume 
 		Time.timeScale = 1;
 		yield return FadeVolumeIn(FadeDuration);

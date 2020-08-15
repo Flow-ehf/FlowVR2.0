@@ -23,8 +23,7 @@ public class ScreenFade : MonoBehaviour
 		}
 	}
 
-
-	public void StartFade(float duration, Color newColor)
+	public static void StartFade(float duration, Color newColor)
 	{
 		if (duration > 0.0f)
 		{
@@ -36,7 +35,6 @@ public class ScreenFade : MonoBehaviour
 			currentColor = newColor;
 		}
 	}
-
 
 	void OnPostRender()
 	{
