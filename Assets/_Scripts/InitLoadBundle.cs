@@ -36,18 +36,18 @@ public class InitLoadBundle : MonoBehaviour
 
 	private IEnumerator LoadBundles()
 	{
-		Debug.Log("Begin loading bundles");
+		Debug.Log("[LoadBundle] Begin loading bundles");
 		for (int i = 0; i < bundles.Length; i++)
 		{
 			AssetBundleCreateRequest request = AssetBundle.LoadFromFileAsync(bundles[i]);
 			yield return request;
 			if (request.assetBundle == null)
-				Debug.LogError("Error: Failed to load bundle " + bundles[i]);
+				Debug.LogError("[LoadBundle] Error: Failed to load bundle " + bundles[i]);
+			else
+				Debug.Log("[LoadBundle] Loaded " + bundles[i]);
 		}
-		Debug.Log("Finished loading bundles");
+		Debug.Log("[LoadBundle] Finished loading bundles");
 
 		IsBundlesLoaded = true;
-
-		LevelLoader.LoadLevel("LoginMenu");
 	}
 }
