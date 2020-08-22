@@ -7,6 +7,7 @@ using Oculus.Platform;
 public class LevelLoader : MonoBehaviour
 {
 	const string LoaderScene = "LevelLoad";
+	const string StartScene = "LoginMenu";
 	const float FadeDuration = 1;
 
 	[RuntimeInitializeOnLoadMethod]
@@ -35,6 +36,10 @@ public class LevelLoader : MonoBehaviour
 		{
 			Debug.LogError("App not owned. Quitting!");
 			UnityEngine.Application.Quit();
+		}
+		else
+		{
+			LoadLevel(StartScene);
 		}
 	}
 

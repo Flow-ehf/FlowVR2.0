@@ -24,24 +24,23 @@ public class InitLoadBundle : MonoBehaviour
 		DontDestroyOnLoad(instance);
 	}
 
-	private void Start()
+	private void Awake()
 	{
 #if UNITY_ANDROID
-		StartCoroutine(LoadBundles());
+		LoadBundles();
 #else
 		IsBundlesLoaded = true;
 #endif
 
 	}
 
-	private IEnumerator LoadBundles()
+	private void LoadBundles()
 	{
 		Debug.Log("[LoadBundle] Begin loading bundles");
 		for (int i = 0; i < bundles.Length; i++)
 		{
-			AssetBundleCreateRequest request = AssetBundle.LoadFromFileAsync(bundles[i]);
-			yield return request;
-			if (request.assetBundle == null)
+			AssetBundle assetbundle = AssetBundle.LoadFromFile(bundles[i]);
+			if (assetbundle == null)
 				Debug.LogError("[LoadBundle] Error: Failed to load bundle " + bundles[i]);
 			else
 				Debug.Log("[LoadBundle] Loaded " + bundles[i]);
