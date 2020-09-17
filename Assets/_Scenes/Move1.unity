@@ -506,6 +506,18 @@ MonoBehaviour:
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &729512893 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4017080576028779425, guid: 379750b7604f95743abbe800c841bfc1,
+    type: 3}
+  m_PrefabInstance: {fileID: 729512890}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cd692f3f52bca2428a758f8ee4660d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &729512894 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9154167046371965900, guid: 379750b7604f95743abbe800c841bfc1,
@@ -706,6 +718,7 @@ MonoBehaviour:
   muteMusicButton: {fileID: 729512895}
   muteGuidanceButton: {fileID: 729512894}
   pausePanel: {fileID: 729512891}
+  previewPanel: {fileID: 729512893}
   guidanceClips:
   - {fileID: 8300000, guid: 75fc18082eac73d4ea96edab78e7d9ee, type: 3}
   - {fileID: 8300000, guid: f20f53cf91403ea4098ad0c6a8ba39d2, type: 3}

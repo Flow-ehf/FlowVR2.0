@@ -36,7 +36,7 @@ public class InitLoadBundle : MonoBehaviour
 
 	private void LoadBundles()
 	{
-		Debug.Log("[LoadBundle] Begin loading bundles");
+		Debug.Log("[LoadBundle] Begin loading " + bundles.Length + " bundles");
 		for (int i = 0; i < bundles.Length; i++)
 		{
 			AssetBundle assetbundle = AssetBundle.LoadFromFile(bundles[i]);

@@ -11,6 +11,7 @@ public class LevelController : MonoBehaviour
 	const string FallbackLevel = "Breath1";
 
 	public static LevelController Instance { get; private set; }
+	public static bool previewMode;
 
 	[SerializeField] Text timerText;
 	[SerializeField] Button pauseButton;
@@ -18,6 +19,7 @@ public class LevelController : MonoBehaviour
 	[SerializeField] Toggle muteMusicButton;
 	[SerializeField] Toggle muteGuidanceButton;
 	[SerializeField] UIPanel pausePanel;
+	[SerializeField] UIPanel previewPanel;
 	[SerializeField] AudioClip[] guidanceClips;
 	[SerializeField] AudioClip[] musicClips;
 
@@ -66,67 +68,80 @@ public class LevelController : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-		if(muteGuidanceButton != null)
+		if (!previewMode)
 		{
-			//Update initial state
-			muteGuidanceButton.isOn = SessionSettings.PlayGuidance;
-			muteGuidanceButton.onValueChanged.AddListener((isOn) =>
+			if (muteGuidanceButton != null)
 			{
-				//Save preference
-				SessionSettings.PlayGuidance = isOn;
-				guidanceAudio.mute = !isOn;
-			});
+				//Update initial state
+				muteGuidanceButton.isOn = SessionSettings.PlayGuidance;
+				muteGuidanceButton.onValueChanged.AddListener((isOn) =>
+				{
+					//Save preference
+					SessionSettings.PlayGuidance = isOn;
+					guidanceAudio.mute = !isOn;
+				});
+			}
+			if (muteMusicButton != null)
+			{
+				//Update initial state
+				muteMusicButton.isOn = SessionSettings.PlayMusic;
+				muteMusicButton.onValueChanged.AddListener((isOn) =>
+				{
+					//Save preference
+					SessionSettings.PlayMusic = isOn;
+					musicAudio.mute = !isOn;
+				});
+			}
+
+			//if(ambiance1 != null)
+			//{
+			//	ambiance1.clip = ambianceClips[SessionSettings.DurationIndex * 4];
+			//	ambiance1.Play();
+			//}
+			//if(ambiance2 != null)
+			//{
+			//	ambiance2.clip = ambianceClips[SessionSettings.DurationIndex * 4 + 1];
+			//	ambiance2.Play();
+			//}
+			//if(ambiance3 != null)
+			//{
+			//	ambiance3.clip = ambianceClips[SessionSettings.DurationIndex * 4 + 2];
+			//	ambiance3.Play();
+			//}
+			//if (ambiance4 != null)
+			//{
+			//	ambiance4.clip = ambianceClips[SessionSettings.DurationIndex * 4 + 3];
+			//	ambiance4.Play();
+			//}
+
+			pauseButton?.onClick.AddListener(() => Pause(true));
+			resumeButton?.onClick.AddListener(() => Pause(false));
+
+			pausePanel?.SetActiveImmediately(false);
+
+			timeLeft = SessionSettings.Duration;
+
+			StartCoroutine(WaitDuration());
+
+
+			int totalLanguages = System.Enum.GetValues(typeof(LanguageManager.Language)).Length;
+			guidanceAudio.clip = guidanceClips[SessionSettings.DurationIndex * totalLanguages + (int)LanguageManager.CurrentLanguage];
+			guidanceAudio.Play();
+			guidanceAudio.mute = !SessionSettings.PlayGuidance;
+
+			musicAudio.clip = musicClips[SessionSettings.DurationIndex];
+			musicAudio.Play();
+			musicAudio.mute = !SessionSettings.PlayMusic;
 		}
-		if (muteMusicButton != null)
+		else
 		{
-			//Update initial state
-			muteMusicButton.isOn = SessionSettings.PlayMusic;
-			muteMusicButton.onValueChanged.AddListener((isOn) =>
-			{
-				//Save preference
-				SessionSettings.PlayMusic = isOn;
-				musicAudio.mute = !isOn;
-			});
+			guidanceAudio.Stop();
+			musicAudio.Stop();
+
+			previewPanel.SetActive(true);
 		}
 
-		int totalLanguages = System.Enum.GetValues(typeof(LanguageManager.Language)).Length;
-		guidanceAudio.clip = guidanceClips[SessionSettings.DurationIndex * totalLanguages + (int)LanguageManager.CurrentLanguage];
-		guidanceAudio.Play();
-		guidanceAudio.mute = !SessionSettings.PlayGuidance;
 
-		musicAudio.clip = musicClips[SessionSettings.DurationIndex];
-		musicAudio.Play();
-		musicAudio.mute = !SessionSettings.PlayMusic;
-
-		//if(ambiance1 != null)
-		//{
-		//	ambiance1.clip = ambianceClips[SessionSettings.DurationIndex * 4];
-		//	ambiance1.Play();
-		//}
-		//if(ambiance2 != null)
-		//{
-		//	ambiance2.clip = ambianceClips[SessionSettings.DurationIndex * 4 + 1];
-		//	ambiance2.Play();
-		//}
-		//if(ambiance3 != null)
-		//{
-		//	ambiance3.clip = ambianceClips[SessionSettings.DurationIndex * 4 + 2];
-		//	ambiance3.Play();
-		//}
-		//if (ambiance4 != null)
-		//{
-		//	ambiance4.clip = ambianceClips[SessionSettings.DurationIndex * 4 + 3];
-		//	ambiance4.Play();
-		//}
-
-		pauseButton?.onClick.AddListener(() => Pause(true));
-		resumeButton?.onClick.AddListener(() => Pause(false));
-
-		pausePanel?.SetActiveImmediately(false);
-
-		timeLeft = SessionSettings.Duration;
-
-		StartCoroutine(WaitDuration());
     }
 
 
@@ -161,26 +176,29 @@ public class LevelController : MonoBehaviour
 		//	normal.TransitionTo(.5f);
 		//}
 
-		if(!isPaused)
+		if (!previewMode)
 		{
-			//Connected controller is touch
-			if(OVRInput.IsControllerConnected(OVRInput.Controller.Touch))
+			if (!isPaused)
 			{
-				if (OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch) || OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger, OVRInput.Controller.RTouch))
-					Pause(!isPaused);
+				//Connected controller is touch
+				if (OVRInput.IsControllerConnected(OVRInput.Controller.Touch))
+				{
+					if (OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch) || OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger, OVRInput.Controller.RTouch))
+						Pause(!isPaused);
+				}
+				//Conected controller is probably GO remote
+				else
+				{
+					if (OVRInput.GetDown(OVRInput.Button.Back) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
+						Pause(!isPaused);
+				}
 			}
-			//Conected controller is probably GO remote
 			else
 			{
-				if(OVRInput.GetDown(OVRInput.Button.Back) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
-					Pause(!isPaused);
+				//Reset pause menu close on input
+				if (OVRInput.GetDown(OVRInput.Button.One))
+					pauseMenuTimer = 0;
 			}
-		}
-		else
-		{
-			//Reset pause menu close on input
-			if (OVRInput.GetDown(OVRInput.Button.One))
-				pauseMenuTimer = 0;
 		}
 	}
 
@@ -231,6 +249,8 @@ public class LevelController : MonoBehaviour
 	{
 		if(Instance == this)
 			Instance = null;
+
+		previewMode = false;
 	}
 
 

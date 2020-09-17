@@ -85,12 +85,12 @@ public class BuyDLC_UI : MonoBehaviour
 			container.GetChild(i).gameObject.SetActive(false);
 		}
 
-		int maxPage = dlcs.Count / perPageCapacity;
+		int maxPage = (dlcs.Count - 1) / perPageCapacity;
 
 		if (page < 0)
 			currentPage = maxPage;
 		else if (maxPage > 0)
-			currentPage = page % maxPage;
+			currentPage = page % (maxPage + 1);
 		else
 			currentPage = 0;
 

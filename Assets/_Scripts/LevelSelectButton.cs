@@ -96,18 +96,23 @@ public class LevelSelectButton : MonoBehaviour
 
 	void ClickedButton()
 	{
-		if (canAccess)
+		if (targetButton != null && session != null)
 		{
-			if (targetButton != null && session != null)
+			if (canAccess)
 			{
+				BuyDLC_UI.targetDlcSKU = "";
+
 				targetButton.SetTargetLevel(level);
 				session.Open(skyboxMat, meditationClip);
 			}
-		}
-		else
-		{
-			BuyDLC_UI.targetDlcSKU = productId;
-			LevelLoader.LoadLevel("BuyDLC");
+			else
+			{
+				BuyDLC_UI.targetDlcSKU = productId;
+				LevelController.previewMode = true;
+
+				// Level not owned. Go directly into level in preview mode
+				LevelLoader.LoadLevel(level);
+			}
 		}
 	}
 

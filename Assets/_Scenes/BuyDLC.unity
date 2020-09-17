@@ -4494,7 +4494,7 @@ MonoBehaviour:
   container: {fileID: 1813922727}
   prefabOrTemplate: {fileID: 77725752330723443, guid: fa786e75fc0aa6d4e980fe2479094b6d,
     type: 3}
-  perPageCapacity: 7
+  perPageCapacity: 6
   nextPage: {fileID: 782681912}
   previousPage: {fileID: 1322993809}
 --- !u!1 &1908502120
