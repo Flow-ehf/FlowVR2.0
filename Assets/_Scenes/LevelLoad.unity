@@ -184,8 +184,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 3709de9eba9f9b54090138b74f6bdc45, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -259,8 +257,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: fff2335b65c684c43999c9fe6290b257, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -285,6 +281,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 113768, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -333,10 +333,6 @@ PrefabInstance:
       propertyPath: _trackingOriginType
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 113768, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
 --- !u!1 &1629335798 stripped
@@ -345,9 +341,9 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1629335797}
   m_PrefabAsset: {fileID: 0}
---- !u!120 &1629335799 stripped
-LineRenderer:
-  m_CorrespondingSourceObject: {fileID: 1029334627671817747, guid: 126d619cf4daa52469682f85c1378b4a,
+--- !u!4 &1629335799 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 487254, guid: 126d619cf4daa52469682f85c1378b4a,
     type: 3}
   m_PrefabInstance: {fileID: 1629335797}
   m_PrefabAsset: {fileID: 0}
@@ -386,7 +382,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629335800}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 0
@@ -573,8 +569,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: fff2335b65c684c43999c9fe6290b257, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
@@ -650,8 +644,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 50b964640f3213a4fbcbc64e0b6dbfa4, type: 3}
     m_FontSize: 20
@@ -930,10 +922,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.25
       objectReference: {fileID: 0}
-    - target: {fileID: 8579281019748986, guid: 5a7682c244a150b49965c007720bdbb7, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1937274876, guid: 5a7682c244a150b49965c007720bdbb7, type: 3}
       propertyPath: rayTransform
       value: 
@@ -941,17 +929,26 @@ PrefabInstance:
     - target: {fileID: 1937274876, guid: 5a7682c244a150b49965c007720bdbb7, type: 3}
       propertyPath: rayLineRenderer
       value: 
-      objectReference: {fileID: 1629335799}
+      objectReference: {fileID: 0}
     - target: {fileID: 1937274876, guid: 5a7682c244a150b49965c007720bdbb7, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6503579409894622908, guid: 5a7682c244a150b49965c007720bdbb7,
+    - target: {fileID: 8579281019748986, guid: 5a7682c244a150b49965c007720bdbb7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2931508597550885396, guid: 5a7682c244a150b49965c007720bdbb7,
+        type: 3}
+      propertyPath: rayTransform
+      value: 
+      objectReference: {fileID: 1629335799}
+    - target: {fileID: 4538071902986836899, guid: 5a7682c244a150b49965c007720bdbb7,
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4538071902986836899, guid: 5a7682c244a150b49965c007720bdbb7,
+    - target: {fileID: 6503579409894622908, guid: 5a7682c244a150b49965c007720bdbb7,
         type: 3}
       propertyPath: m_IsActive
       value: 0

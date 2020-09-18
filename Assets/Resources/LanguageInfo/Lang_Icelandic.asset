@@ -33,39 +33,39 @@ MonoBehaviour:
   - tag: logout
     str: "Skr\xE1 \xFAt"
   - tag: breathe2
-    str: "Anda\xF0u og losa\xF0u um spennu"
+    str: "Anda\xF0 fyrir hjarta\xF0"
   - tag: breathe1
-    str: "\xD6ndun"
+    str: "D\xFDpka\xF0u andardr\xE1ttinn"
   - tag: breathe3
-    str: "\xCD framlei\xF0slu"
+    str: "Anda\xF0u og losa\xF0u um spennu"
   - tag: move2
     str: "Opna\xF0 fyrir j\xE1kv\xE6\xF0a orku "
   - tag: move1
-    str: Hreyfing
+    str: "Tengdu vi\xF0 \xFEa\xF0 sem hjarta\xF0 vill"
   - tag: move3
     str: "\xCD framlei\xF0slu"
   - tag: letgo2
     str: "Finndu innri styrk og \xE1r\xE6\xF0ni "
   - tag: letgo1
-    str: Slepptu takinu
+    str: "Hentu \xFEv\xED sem \xFE\xFA \xFEarfnast ekki lengur"
   - tag: letgo3
     str: "\xCD framlei\xF0slu"
   - tag: calm2
     str: "Hugarr\xF3 fyrir sk\xFDrleika og skilning"
   - tag: calm1
-    str: "Slaka\xF0u \xE1"
+    str: "Slaka\xF0u \xE1 og far\xF0u d\xFDpra inn\xE1 vi\xF0"
   - tag: calm3
     str: "\xCD framlei\xF0slu"
   - tag: focus2
     str: "Dj\xFAp \xEDhugun"
   - tag: focus1
-    str: Einbeiting
+    str: "Hverjir eru \xFE\xFDnir j\xE1kv\xE6\xF0u eiginleikar?"
   - tag: focus3
     str: "\xCD framlei\xF0slu"
   - tag: restore2
     str: "Dj\xFAp fri\xF0s\xE6ld"
   - tag: restore1
-    str: "Endurn\xFDjun"
+    str: "Fullkomin sl\xF6kun"
   - tag: restore3
     str: "\xCD framlei\xF0slu"
   - tag: breathe
@@ -81,14 +81,15 @@ MonoBehaviour:
   - tag: restore
     str: "Endurn\xFDjun"
   - tag: breathe2_desc
-    str: "Nota\xF0u andardr\xE1ttinn til a\xF0 losa um streitu, \xE1hyggjur og spennu
-      \xE1 milli \xFE\xEDn og f\xF3lksins \xED l\xEDfi \xFE\xEDnu.\\nM\xE6lt me\xF0:
-      Sitjandi."
+    str: "Undirb\xFA\xF0u fr\xE1b\xE6ran dag me\xF0 huglei\xF0slu sem opnar hjarta\xF0.\\\\nM\xE6lt
+      me\xF0: Sitjandi."
   - tag: breathe1_desc
     str: "Aukin vitund um andardr\xE1ttinn er ein af undirst\xF6\xF0um huglei\xF0slu.\\n\\nM\xE6lt
       me\xF0: Sitjandi."
   - tag: breathe3_desc
-    str: "\xD6ndun3 l\xFDsing"
+    str: "Nota\xF0u andardr\xE1ttinn til a\xF0 losa um streitu, \xE1hyggjur og spennu
+      \xE1 milli \xFE\xEDn og f\xF3lksins \xED l\xEDfi \xFE\xEDnu.\\\\nM\xE6lt me\xF0:
+      Sitjandi."
   - tag: move2_desc
     str: "Hreyf\xF0u l\xEDkamann, opna\xF0u hugann og fylltu \xFEig af j\xE1kv\xE6\xF0ri
       orku.\\n\\nM\xE6lt me\xF0: Sitjandi e\xF0a standandi."
@@ -150,7 +151,7 @@ MonoBehaviour:
   - tag: breathe_2_location
     str: Kleifarvatn
   - tag: breathe_3_location
-    str: location
+    str: "\xDEingvellir"
   - tag: move_1_location
     str: "\xDEingvellir"
   - tag: move_2_location
@@ -204,9 +205,11 @@ MonoBehaviour:
   - tag: off
     str: af
   - tag: login_menu_message
-    str: "Nota\xF0u Flow s\xEDmaappi\xF0* til a\xF0 gerast \xE1skrifandi og f\xE1\xF0u
-      a\xF0gang a\xF0 \xF6llu \xFAtgefnu og framt\xED\xF0arefni fyrir fast ver\xF0
-      m\xE1na\xF0arlega\\n\\n*fyrir Android og iOS"
+    str: "Stofnun a\xF0gangs hefur ekki veri\xF0 virkju\xF0, \xFE\xFA munnt s\xED\xF0ar
+      geta\xF0 stofna\xF0 a\xF0gang og keypt \xE1skrift a\xF0 frekara efni fr\xE1
+      Flow. \xDEanga\xF0 til getur \xFE\xFA sko\xF0a\xF0 fr\xEDa efni\xF0 okkar sem
+      gestur og keypt fullan a\xF0gang a\xF0 st\xF6kum huglei\xF0slum fyrir Oculus
+      a\xF0ganginn \xFEinn."
   - tag: profound_quote_7
     str: "Huglei\xF0sla \xFE\xEDn getur veri\xF0 d\xFDpri ef \xFE\xFA notar fleiri
       en eina huglei\xF0slua\xF0fer\xF0 \xED hvert skipti"

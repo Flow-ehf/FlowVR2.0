@@ -33,39 +33,39 @@ MonoBehaviour:
   - tag: logout
     str: Log out
   - tag: breathe2
-    str: Breathe to ease tension
+    str: Heartful breath
   - tag: breathe1
     str: Breathe
   - tag: breathe3
-    str: In production
+    str: Expand your breath
   - tag: move2
     str: Open up for positive energy
   - tag: move1
-    str: Move
+    str: Connect with your desire
   - tag: move3
     str: In production
   - tag: letgo2
     str: Find determination
   - tag: letgo1
-    str: Let go
+    str: Throw away what no longer serves you
   - tag: letgo3
     str: In production
   - tag: calm2
     str: Calm for clarity
   - tag: calm1
-    str: Calm
+    str: Relax and go deep within
   - tag: calm3
     str: In production
   - tag: focus2
     str: Thinking in meditation
   - tag: focus1
-    str: Focus
+    str: What are your positive qualities?
   - tag: focus3
     str: In production
   - tag: restore2
     str: Deep peace
   - tag: restore1
-    str: Restore
+    str: Melt into the earth
   - tag: restore3
     str: In production
   - tag: breathe
@@ -84,13 +84,14 @@ MonoBehaviour:
     str: 'In our fast paced existence it''s important to relax into deep peace for
       restorative healing of body and mind.\nRecommended: Sitting.'
   - tag: breathe2_desc
-    str: 'Learn how to use your breath to overcome obstacles like stress, worry or
-      tension in relationships.\nRecommended: Sitting.'
+    str: 'Prepare for a magnificent day by opening your heart through breathing.\n\nRecommended:
+      Sitting.'
   - tag: breathe1_desc
     str: 'Learning to breathe with awareness is the foundation of Flow meditation.\n\nRecommended:
       Sitting.'
   - tag: breathe3_desc
-    str: breath3_desc
+    str: '''Learn how to use your breath to overcome obstacles like stress, worry
+      or tension in relationships.\nRecommended: Sitting.'
   - tag: move2_desc
     str: 'Moving your body, while opening your mind and heart creates more access
       to positive energy.\nRecommended: Sitting or standing.'
@@ -146,7 +147,7 @@ MonoBehaviour:
   - tag: breathe_2_location
     str: Kleifarvatn
   - tag: breathe_3_location
-    str: location
+    str: "\xDEingvellir"
   - tag: move_1_location
     str: "\xDEingvellir"
   - tag: move_2_location
@@ -200,8 +201,10 @@ MonoBehaviour:
   - tag: off
     str: off
   - tag: login_menu_message
-    str: Use the Flow mobile app* to subscribe and get access to all current and future
-      premium content for a monthly fee\n\n*available on Android and iOS
+    str: Account creation is not yet available, you will eventually be able to create
+      an account and subscribe to premium content. For now you can experience our
+      free content and buy premium meditations for your Oculus account through single
+      purchase.
   - tag: profound_quote_7
     str: Using multiple modes in each session increases the effectiveness of Flow
   - tag: sales_menu_message

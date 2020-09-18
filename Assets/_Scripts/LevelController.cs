@@ -183,7 +183,7 @@ public class LevelController : MonoBehaviour
 				//Connected controller is touch
 				if (OVRInput.IsControllerConnected(OVRInput.Controller.Touch))
 				{
-					if (OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch) || OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger, OVRInput.Controller.RTouch))
+					if (OVRInput.GetDown(OVRInput.Button.One) || OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
 						Pause(!isPaused);
 				}
 				//Conected controller is probably GO remote

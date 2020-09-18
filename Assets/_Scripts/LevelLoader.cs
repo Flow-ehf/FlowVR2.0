@@ -27,21 +27,21 @@ public class LevelLoader : MonoBehaviour
 	void Start()
 	{
 		Oculus.Platform.Core.Initialize();
-		Oculus.Platform.Entitlements.IsUserEntitledToApplication().OnComplete(OnEntitlementCheckComplete);
+		//Oculus.Platform.Entitlements.IsUserEntitledToApplication().OnComplete(OnEntitlementCheckComplete);
 	}
 
-	void OnEntitlementCheckComplete(Message msg)
-	{
-		if(msg.IsError)
-		{
-			Debug.LogError("App not owned. Quitting!");
-			UnityEngine.Application.Quit();
-		}
-		else
-		{
-			LoadLevel(StartScene);
-		}
-	}
+	//void OnEntitlementCheckComplete(Message msg)
+	//{
+	//	if(msg.IsError)
+	//	{
+	//		Debug.LogError("App not owned. Quitting!");
+	//		UnityEngine.Application.Quit();
+	//	}
+	//	else
+	//	{
+	//		LoadLevel(StartScene);
+	//	}
+	//}
 
 	public static void LoadLevel(string level, bool transition = true)
 	{
@@ -55,10 +55,6 @@ public class LevelLoader : MonoBehaviour
 			yield return new WaitUntil(() => !IsLoading);
 
 		IsLoading = true;
-
-		// Wait for assetbundle loaded
-		if (!InitLoadBundle.IsBundlesLoaded)
-			yield return new WaitUntil(() => InitLoadBundle.IsBundlesLoaded);
 
 		if (!UnityEngine.Application.CanStreamedLevelBeLoaded(level))
 		{

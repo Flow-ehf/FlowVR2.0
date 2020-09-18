@@ -15,7 +15,7 @@ public class LogoutUI : MonoBehaviour
 
 		button = GetComponent<Button>();
 		button.onClick.AddListener(LogOut);
-		button.interactable = LoginManager.IsLoggedIn;
+		//button.interactable = LoginManager.IsLoggedIn;
     }
 
 
