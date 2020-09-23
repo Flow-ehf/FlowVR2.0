@@ -1183,12 +1183,32 @@ PrefabInstance:
       propertyPath: ColorModule.gradient.maxGradient.key1.a
       value: 0.19607843
       objectReference: {fileID: 0}
+    - target: {fileID: 1755711471902906302, guid: 379750b7604f95743abbe800c841bfc1,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1755711471902906302, guid: 379750b7604f95743abbe800c841bfc1,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4771918665251448445, guid: 379750b7604f95743abbe800c841bfc1,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4890118443022926653, guid: 379750b7604f95743abbe800c841bfc1,
         type: 3}
       propertyPath: fadeTime
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6548001622114786067, guid: 379750b7604f95743abbe800c841bfc1,
+        type: 3}
+      propertyPath: rayTransform
+      value: 
+      objectReference: {fileID: 1629335804}
+    - target: {fileID: 7209729624011072190, guid: 379750b7604f95743abbe800c841bfc1,
         type: 3}
       propertyPath: rayTransform
       value: 
@@ -1454,7 +1474,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!114 &1739603834 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6548001622114786067, guid: 379750b7604f95743abbe800c841bfc1,
+  m_CorrespondingSourceObject: {fileID: 7209729624011072190, guid: 379750b7604f95743abbe800c841bfc1,
     type: 3}
   m_PrefabInstance: {fileID: 1739603827}
   m_PrefabAsset: {fileID: 0}

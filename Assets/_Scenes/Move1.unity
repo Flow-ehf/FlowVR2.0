@@ -320,6 +320,11 @@ PrefabInstance:
       propertyPath: rayTransform
       value: 
       objectReference: {fileID: 1629335804}
+    - target: {fileID: 7209729624011072190, guid: 379750b7604f95743abbe800c841bfc1,
+        type: 3}
+      propertyPath: rayTransform
+      value: 
+      objectReference: {fileID: 1629335804}
     - target: {fileID: 7449082304570612132, guid: 379750b7604f95743abbe800c841bfc1,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -561,7 +566,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!114 &729512897 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6548001622114786067, guid: 379750b7604f95743abbe800c841bfc1,
+  m_CorrespondingSourceObject: {fileID: 7209729624011072190, guid: 379750b7604f95743abbe800c841bfc1,
     type: 3}
   m_PrefabInstance: {fileID: 729512890}
   m_PrefabAsset: {fileID: 0}

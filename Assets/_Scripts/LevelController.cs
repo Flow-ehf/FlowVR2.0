@@ -193,12 +193,12 @@ public class LevelController : MonoBehaviour
 						Pause(!isPaused);
 				}
 			}
-			else
-			{
-				//Reset pause menu close on input
-				if (OVRInput.GetDown(OVRInput.Button.One))
-					pauseMenuTimer = 0;
-			}
+			//else
+			//{
+			//	//Reset pause menu close on input
+			//	if (OVRInput.GetDown(OVRInput.Button.One))
+			//		pauseMenuTimer = 0;
+			//}
 		}
 	}
 
