@@ -11,12 +11,15 @@ public class SessionSettingsUI : MonoBehaviour
 	[SerializeField] GameObject durationButtonTemplate;
 	[SerializeField] RectTransform durationContainer;
 	[SerializeField] bool saveSessionSettings;
+	[SerializeField] LoadLevelButton playButton;
+	[SerializeField] LoadLevelButton buyButton;
 	[Space]
 	[SerializeField] VideoPlayer player;
 
 	Material defaultSkybox;
 	VideoClip defaultClip;
 	UIPanel panel;
+	List<Toggle> durationToggles = new List<Toggle>();
 
 	void Awake()
 	{
@@ -63,6 +66,7 @@ public class SessionSettingsUI : MonoBehaviour
 				Toggle toggle = rectTrans.GetComponentInChildren<Toggle>();
 				if(toggle != null)
 				{
+					durationToggles.Add(toggle);
 					int index = i;
 					toggle.isOn = SessionSettings.DurationIndex == index;
 					toggle.onValueChanged.AddListener((isOn) =>
@@ -79,14 +83,22 @@ public class SessionSettingsUI : MonoBehaviour
     }
 
 
-	public void Open(Material targetMateial, VideoClip targetClip)
+	public void Open(Material targetMateial, VideoClip targetClip, bool owned)
 	{
-		StartCoroutine(WaitOpen(targetMateial, targetClip));
+		StartCoroutine(WaitOpen(targetMateial, targetClip, owned));
 	}
 
-	public IEnumerator WaitOpen(Material targetMaterial, VideoClip targetClip)
+	public IEnumerator WaitOpen(Material targetMaterial, VideoClip targetClip, bool owned)
 	{
 		panel.SetActive(true);
+
+		playButton.gameObject.SetActive(owned);
+		buyButton.gameObject.SetActive(!owned);
+
+		playMusicToggle.interactable = owned;
+		playGuidanceToggle.interactable = owned;
+		foreach (var toggle in durationToggles)
+			toggle.interactable = owned;
 
 		player.clip = targetClip;
 		player.targetTexture = targetMaterial.mainTexture as RenderTexture;

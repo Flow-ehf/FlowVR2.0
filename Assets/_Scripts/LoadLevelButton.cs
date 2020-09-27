@@ -11,11 +11,14 @@ public class LoadLevelButton : MonoBehaviour
 
 	Button button;
 
+	public LanguageText text;
+
     // Start is called before the first frame update
     void Awake()
     {
 		button = GetComponent<Button>();
 		button.onClick.AddListener(LoadLevel);
+		text = GetComponentInChildren<LanguageText>();
     }
 
 

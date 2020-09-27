@@ -213,3 +213,5 @@ MonoBehaviour:
     str: Close
   - tag: profound_quote_8
     str: 
+  - tag: buy
+    str: Buy
