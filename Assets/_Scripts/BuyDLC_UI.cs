@@ -13,7 +13,7 @@ public class BuyDLC_UI : MonoBehaviour
 	[Space]
 	[SerializeField] RectTransform container;
 	[SerializeField] RectTransform prefabOrTemplate;
-	[SerializeField] int perPageCapacity = 7;
+	[SerializeField] int perPageCapacity = 6;
 	[SerializeField] Button nextPage, previousPage;
 
 	Dictionary<string, DLCButton> buttons = new Dictionary<string, DLCButton>();

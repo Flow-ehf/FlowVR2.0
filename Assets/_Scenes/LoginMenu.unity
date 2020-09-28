@@ -12390,6 +12390,91 @@ PrefabInstance:
       propertyPath: rayTransform
       value: 
       objectReference: {fileID: 177855748}
+    - target: {fileID: 881010374981242831, guid: f4aa3ae28c8200f4ca808bca834c0b24,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 881010374981242831, guid: f4aa3ae28c8200f4ca808bca834c0b24,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508074164702596601, guid: f4aa3ae28c8200f4ca808bca834c0b24,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508074164702596601, guid: f4aa3ae28c8200f4ca808bca834c0b24,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508074164702596601, guid: f4aa3ae28c8200f4ca808bca834c0b24,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4391369576806110816, guid: f4aa3ae28c8200f4ca808bca834c0b24,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4391369576806110816, guid: f4aa3ae28c8200f4ca808bca834c0b24,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4391369576806110816, guid: f4aa3ae28c8200f4ca808bca834c0b24,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4391369576806110816, guid: f4aa3ae28c8200f4ca808bca834c0b24,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5442404212866014837, guid: f4aa3ae28c8200f4ca808bca834c0b24,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5442404212866014837, guid: f4aa3ae28c8200f4ca808bca834c0b24,
+        type: 3}
+      propertyPath: m_MaxParticleSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5442404212866014837, guid: f4aa3ae28c8200f4ca808bca834c0b24,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ad69bb8c6a4faad4baa524933c5b8fec, type: 2}
+    - target: {fileID: 5442404212866014837, guid: f4aa3ae28c8200f4ca808bca834c0b24,
+        type: 3}
+      propertyPath: m_UseCustomVertexStreams
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5442404212866014837, guid: f4aa3ae28c8200f4ca808bca834c0b24,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.data[1]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5442404212866014837, guid: f4aa3ae28c8200f4ca808bca834c0b24,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.data[2]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5442404212866014837, guid: f4aa3ae28c8200f4ca808bca834c0b24,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.data[3]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5442404212866014837, guid: f4aa3ae28c8200f4ca808bca834c0b24,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.data[4]
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6130024541963968788, guid: f4aa3ae28c8200f4ca808bca834c0b24,
         type: 3}
       propertyPath: m_Name
@@ -12458,12 +12543,12 @@ PrefabInstance:
     - target: {fileID: 8694956490620501050, guid: f4aa3ae28c8200f4ca808bca834c0b24,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.25
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8694956490620501050, guid: f4aa3ae28c8200f4ca808bca834c0b24,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.25
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4aa3ae28c8200f4ca808bca834c0b24, type: 3}

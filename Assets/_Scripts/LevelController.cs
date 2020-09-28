@@ -165,24 +165,24 @@ public class LevelController : MonoBehaviour
 		if (!isPaused)
 		{
 			//Connected controller is touch
-			if (OVRInput.IsControllerConnected(OVRInput.Controller.Touch))
-			{
-				if (OVRInput.GetDown(OVRInput.Button.One) || OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
+			//if (OVRInput.IsControllerConnected(OVRInput.Controller.Touch))
+			//{
+				if (OVRInput.GetDown(OVRInput.Button.Back) || OVRInput.GetDown(OVRInput.Button.One) || OVRInput.GetDown(OVRInput.Button.Two) || OVRInput.GetDown(OVRInput.Button.Three) || OVRInput.GetDown(OVRInput.Button.Four) || OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger) || OVRInput.GetDown(OVRInput.Button.SecondaryHandTrigger) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) || OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
 					Pause(!isPaused);
-			}
-			//Conected controller is probably GO remote
-			else
-			{
-				if (OVRInput.GetDown(OVRInput.Button.Back) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
-					Pause(!isPaused);
-			}
-		}
+			//}
+			////Conected controller is probably GO remote
+		//	else
+		//	{
+		//		if (OVRInput.GetDown(OVRInput.Button.Back) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) || OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger))
+		//			Pause(!isPaused);
+		//	}
+		//}
 		//else
 		//{
 		//	//Reset pause menu close on input
 		//	if (OVRInput.GetDown(OVRInput.Button.One))
 		//		pauseMenuTimer = 0;
-		//}
+		}
 	}
 
 

@@ -276,7 +276,6 @@ MonoBehaviour:
   muteMusicButton: {fileID: 1739603832}
   muteGuidanceButton: {fileID: 1739603831}
   pausePanel: {fileID: 1739603828}
-  previewPanel: {fileID: 1739603830}
   guidanceClips:
   - {fileID: 8300000, guid: 5ec4f5f3a1068814a9f55d252a2fdfe7, type: 3}
   - {fileID: 8300000, guid: d007dfc7df34a924b93a3ecf9b45dcbb, type: 3}
@@ -1124,9 +1123,24 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.25
       objectReference: {fileID: 0}
+    - target: {fileID: 1755711471902906302, guid: 379750b7604f95743abbe800c841bfc1,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 4771918665251448445, guid: 379750b7604f95743abbe800c841bfc1,
         type: 3}
       propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4771918665251448445, guid: 379750b7604f95743abbe800c841bfc1,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4771918665251448445, guid: 379750b7604f95743abbe800c841bfc1,
+        type: 3}
+      propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4890118443022926653, guid: 379750b7604f95743abbe800c841bfc1,
@@ -1353,18 +1367,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1739603830 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4017080576028779425, guid: 379750b7604f95743abbe800c841bfc1,
-    type: 3}
-  m_PrefabInstance: {fileID: 1739603827}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cd692f3f52bca2428a758f8ee4660d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1739603831 stripped
