@@ -12438,7 +12438,7 @@ PrefabInstance:
     - target: {fileID: 5442404212866014837, guid: f4aa3ae28c8200f4ca808bca834c0b24,
         type: 3}
       propertyPath: m_VertexStreams.Array.size
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5442404212866014837, guid: f4aa3ae28c8200f4ca808bca834c0b24,
         type: 3}
