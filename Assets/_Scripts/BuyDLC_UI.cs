@@ -20,7 +20,7 @@ public class BuyDLC_UI : MonoBehaviour
 	DLCButton buyTarget;
 	int currentPage = 0;
 
-	List<Product> dlcs = new List<Product>();
+	List<ProductUIInfo> dlcs = new List<ProductUIInfo>();
 
 	public static string targetDlcSKU = "";
 
@@ -33,7 +33,9 @@ public class BuyDLC_UI : MonoBehaviour
 		}
 
 		nextPage.interactable = false;
+		nextPage.onClick.AddListener(GoNextPage);
 		previousPage.interactable = false;
+		previousPage.onClick.AddListener(GoPreviousPage);
 
 		if (dlcSKUValues.Length > 0 && container != null && prefabOrTemplate != null)
 			IAP.GetProductsBySKU(dlcSKUValues).OnComplete(OnRetrievedProductList);
@@ -47,32 +49,50 @@ public class BuyDLC_UI : MonoBehaviour
 		}
 		else
 		{
-			dlcs = result.GetProductList().ToList();
+			List<ProductUIInfo> list = new List<ProductUIInfo>();
 
-			for (int i = 0; i < dlcs.Count; i++)
+			foreach (var product in result.GetProductList())
 			{
-				Product dlc = dlcs[i];
-
-				GameObject newEntry = Instantiate(prefabOrTemplate.gameObject, container);
-				newEntry.SetActive(true);
-				DLCButton info = newEntry.GetComponent<DLCButton>();
-				info.nameText?.UpdateText(dlc.Name);
-				info.priceText?.UpdateText(dlc.FormattedPrice);
-				info.descriptionText?.UpdateText(dlc.Description);
-				info.sku = dlc.Sku;
-				info.buyButton.onClick.RemoveAllListeners();
-				info.buyButton.onClick.AddListener(() => Buy(dlc));
-				buttons[dlc.Sku] = info;
+				list.Add(new ProductUIInfo(product));
 			}
+
+			SetProducts(list);
+
 			IAP.GetViewerPurchases().OnComplete(OnRetrieveExistingPurchases);
 		}
 	}
 
+	void SetProducts(List<ProductUIInfo> list)
+	{
+		dlcs = list;
+		dlcs.Sort((p1, p2) => p1.sku.CompareTo(p2.sku));
+
+		for (int i = 0; i < list.Count; i++)
+		{
+			ProductUIInfo dlc = list[i];
+
+			GameObject newEntry = Instantiate(prefabOrTemplate.gameObject, container);
+			newEntry.SetActive(true);
+			DLCButton info = newEntry.GetComponent<DLCButton>();
+			info.nameText?.UpdateText(dlc.name);
+			info.priceText?.UpdateText(dlc.price);
+			info.descriptionText?.UpdateText(dlc.desc);
+			info.sku = dlc.sku;
+			info.buyButton.onClick.RemoveAllListeners();
+			info.buyButton.onClick.AddListener(() => Buy(dlc.sku));
+			buttons[dlc.sku] = info;
+		}
+		BuildDLCPage(0);
+
+	}
+
+	[ContextMenu("Go Next")]
 	void GoNextPage()
 	{
 		BuildDLCPage(currentPage + 1);
 	}
 
+	[ContextMenu("Go Previous")]
 	void GoPreviousPage()
 	{
 		BuildDLCPage(currentPage - 1);
@@ -99,9 +119,9 @@ public class BuyDLC_UI : MonoBehaviour
 
 		for (int i = currentPage * perPageCapacity; i < dlcs.Count && i < (currentPage + 1) * perPageCapacity; i++)
 		{
-			Product dlc = dlcs[i];
+			ProductUIInfo dlc = dlcs[i];
 
-			buttons[dlc.Sku].gameObject.SetActive(true);
+			buttons[dlc.sku].gameObject.SetActive(true);
 		}
 	}
 
@@ -113,8 +133,6 @@ public class BuyDLC_UI : MonoBehaviour
 		}
 		else
 		{
-			BuildDLCPage(0);
-
 			foreach (var dlc in result.GetPurchaseList())
 			{
 				UpdatePurchase(buttons[dlc.Sku]);
@@ -122,16 +140,16 @@ public class BuyDLC_UI : MonoBehaviour
 
 			if(targetDlcSKU != "")
 			{
-				Buy(dlcs.Find((dlc) => dlc.Sku == targetDlcSKU));
+				Buy(targetDlcSKU);
 				targetDlcSKU = "";
 			}
 		}
 	}
 
-	void Buy(Product product)
+	void Buy(string sku)
 	{
-		IAP.LaunchCheckoutFlow(product.Sku).OnComplete(Purchased);
-		buyTarget = buttons[product.Sku];
+		IAP.LaunchCheckoutFlow(sku).OnComplete(Purchased);
+		buyTarget = buttons[sku];
 		buyTarget.buyButton.interactable = false;
 	}
 
@@ -160,5 +178,41 @@ public class BuyDLC_UI : MonoBehaviour
 	{
 		button.buyButton.interactable = false;
 		button.priceText?.UpdateText("<owned>");
+	}
+
+	[ContextMenu("Add test data")]
+	void AddTestData()
+	{
+		List<ProductUIInfo> list = new List<ProductUIInfo>();
+
+		for (int i = 0; i < dlcSKUValues.Length; i++)
+		{
+			list.Add(new ProductUIInfo(i.ToString(), dlcSKUValues[i], "desc " + i, i + "$"));
+		}
+		SetProducts(list);
+	}
+
+	class ProductUIInfo
+	{
+		public string sku;
+		public string desc;
+		public string name;
+		public string price;
+
+		public ProductUIInfo(Product product)
+		{
+			this.name = product.Name;
+			this.sku = product.Sku;
+			this.desc = product.Description;
+			this.price = product.FormattedPrice;
+		}
+
+		public ProductUIInfo(string name, string sku, string desc, string price)
+		{
+			this.name = name;
+			this.sku = sku;
+			this.desc = desc;
+			this.price = price;
+		}
 	}
 }
