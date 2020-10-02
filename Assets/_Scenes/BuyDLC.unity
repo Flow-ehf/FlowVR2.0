@@ -192,7 +192,7 @@ PrefabInstance:
     - target: {fileID: 77725752330723443, guid: fa786e75fc0aa6d4e980fe2479094b6d,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 77725752330723443, guid: fa786e75fc0aa6d4e980fe2479094b6d,
         type: 3}
@@ -224,10 +224,25 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 452548702162472511, guid: fa786e75fc0aa6d4e980fe2479094b6d,
+        type: 3}
+      propertyPath: m_Text
+      value: Calm for clarity
+      objectReference: {fileID: 0}
     - target: {fileID: 1811078225117786817, guid: fa786e75fc0aa6d4e980fe2479094b6d,
         type: 3}
       propertyPath: m_Name
       value: DLCButtonEntry (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4758652695350266722, guid: fa786e75fc0aa6d4e980fe2479094b6d,
+        type: 3}
+      propertyPath: m_Text
+      value: Unlock the Calm for clarity
+      objectReference: {fileID: 0}
+    - target: {fileID: 7458629678929797954, guid: fa786e75fc0aa6d4e980fe2479094b6d,
+        type: 3}
+      propertyPath: m_Text
+      value: owned
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa786e75fc0aa6d4e980fe2479094b6d, type: 3}
@@ -517,7 +532,7 @@ PrefabInstance:
     - target: {fileID: 77725752330723443, guid: fa786e75fc0aa6d4e980fe2479094b6d,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 77725752330723443, guid: fa786e75fc0aa6d4e980fe2479094b6d,
         type: 3}
@@ -549,10 +564,25 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 452548702162472511, guid: fa786e75fc0aa6d4e980fe2479094b6d,
+        type: 3}
+      propertyPath: m_Text
+      value: Thinking in meditation
+      objectReference: {fileID: 0}
     - target: {fileID: 1811078225117786817, guid: fa786e75fc0aa6d4e980fe2479094b6d,
         type: 3}
       propertyPath: m_Name
       value: DLCButtonEntry (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4758652695350266722, guid: fa786e75fc0aa6d4e980fe2479094b6d,
+        type: 3}
+      propertyPath: m_Text
+      value: Unlock Thinking in meditation
+      objectReference: {fileID: 0}
+    - target: {fileID: 7458629678929797954, guid: fa786e75fc0aa6d4e980fe2479094b6d,
+        type: 3}
+      propertyPath: m_Text
+      value: owned
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa786e75fc0aa6d4e980fe2479094b6d, type: 3}
@@ -1217,7 +1247,7 @@ MonoBehaviour:
     m_Top: 5
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 2
+  m_Spacing: 1.5
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
@@ -2028,7 +2058,7 @@ PrefabInstance:
     - target: {fileID: 77725752330723443, guid: fa786e75fc0aa6d4e980fe2479094b6d,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 77725752330723443, guid: fa786e75fc0aa6d4e980fe2479094b6d,
         type: 3}
@@ -2060,10 +2090,25 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 452548702162472511, guid: fa786e75fc0aa6d4e980fe2479094b6d,
+        type: 3}
+      propertyPath: m_Text
+      value: Deep peace
+      objectReference: {fileID: 0}
     - target: {fileID: 1811078225117786817, guid: fa786e75fc0aa6d4e980fe2479094b6d,
         type: 3}
       propertyPath: m_Name
       value: DLCButtonEntry (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4758652695350266722, guid: fa786e75fc0aa6d4e980fe2479094b6d,
+        type: 3}
+      propertyPath: m_Text
+      value: Unlock Deep peace
+      objectReference: {fileID: 0}
+    - target: {fileID: 7458629678929797954, guid: fa786e75fc0aa6d4e980fe2479094b6d,
+        type: 3}
+      propertyPath: m_Text
+      value: owned
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa786e75fc0aa6d4e980fe2479094b6d, type: 3}
@@ -2540,7 +2585,7 @@ PrefabInstance:
     - target: {fileID: 77725752330723443, guid: fa786e75fc0aa6d4e980fe2479094b6d,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 77725752330723443, guid: fa786e75fc0aa6d4e980fe2479094b6d,
         type: 3}
@@ -2572,6 +2617,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 452548702162472511, guid: fa786e75fc0aa6d4e980fe2479094b6d,
+        type: 3}
+      propertyPath: m_Text
+      value: Find determination
+      objectReference: {fileID: 0}
     - target: {fileID: 1811078225117786817, guid: fa786e75fc0aa6d4e980fe2479094b6d,
         type: 3}
       propertyPath: m_Name
@@ -2580,7 +2630,12 @@ PrefabInstance:
     - target: {fileID: 4758652695350266722, guid: fa786e75fc0aa6d4e980fe2479094b6d,
         type: 3}
       propertyPath: m_Text
-      value: Learn how to use your breath to overcome obstacles
+      value: Unlock the Find determination
+      objectReference: {fileID: 0}
+    - target: {fileID: 7458629678929797954, guid: fa786e75fc0aa6d4e980fe2479094b6d,
+        type: 3}
+      propertyPath: m_Text
+      value: owned
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa786e75fc0aa6d4e980fe2479094b6d, type: 3}
@@ -2670,7 +2725,7 @@ PrefabInstance:
     - target: {fileID: 77725752330723443, guid: fa786e75fc0aa6d4e980fe2479094b6d,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 77725752330723443, guid: fa786e75fc0aa6d4e980fe2479094b6d,
         type: 3}
@@ -2702,6 +2757,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 452548702162472511, guid: fa786e75fc0aa6d4e980fe2479094b6d,
+        type: 3}
+      propertyPath: m_Text
+      value: Open up for positive energy
+      objectReference: {fileID: 0}
     - target: {fileID: 1811078225117786817, guid: fa786e75fc0aa6d4e980fe2479094b6d,
         type: 3}
       propertyPath: m_Name
@@ -2710,7 +2770,7 @@ PrefabInstance:
     - target: {fileID: 4758652695350266722, guid: fa786e75fc0aa6d4e980fe2479094b6d,
         type: 3}
       propertyPath: m_Text
-      value: Learn how to use your breath to overcome obstacles
+      value: Unlock Open up for positive energy
       objectReference: {fileID: 0}
     - target: {fileID: 7458629678929797954, guid: fa786e75fc0aa6d4e980fe2479094b6d,
         type: 3}
@@ -2983,12 +3043,12 @@ PrefabInstance:
     - target: {fileID: 77725752330723443, guid: fa786e75fc0aa6d4e980fe2479094b6d,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 452548702162472511, guid: fa786e75fc0aa6d4e980fe2479094b6d,
         type: 3}
       propertyPath: m_Text
-      value: Breathe to ease tension
+      value: Heartful breath
       objectReference: {fileID: 0}
     - target: {fileID: 452548702162472511, guid: fa786e75fc0aa6d4e980fe2479094b6d,
         type: 3}
@@ -3008,7 +3068,7 @@ PrefabInstance:
     - target: {fileID: 452548702162472511, guid: fa786e75fc0aa6d4e980fe2479094b6d,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 452548702162472511, guid: fa786e75fc0aa6d4e980fe2479094b6d,
         type: 3}
@@ -3059,7 +3119,7 @@ PrefabInstance:
     - target: {fileID: 1191939384607248373, guid: fa786e75fc0aa6d4e980fe2479094b6d,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 24
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1191939384607248373, guid: fa786e75fc0aa6d4e980fe2479094b6d,
         type: 3}
@@ -3104,12 +3164,12 @@ PrefabInstance:
     - target: {fileID: 3021486725127415621, guid: fa786e75fc0aa6d4e980fe2479094b6d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 25
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 3021486725127415621, guid: fa786e75fc0aa6d4e980fe2479094b6d,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 35
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 4359883627924080084, guid: fa786e75fc0aa6d4e980fe2479094b6d,
         type: 3}
@@ -3149,7 +3209,7 @@ PrefabInstance:
     - target: {fileID: 4758652695350266722, guid: fa786e75fc0aa6d4e980fe2479094b6d,
         type: 3}
       propertyPath: m_Text
-      value: Learn how to use your breath to overcome obstacles
+      value: Unlock the Heartful breath
       objectReference: {fileID: 0}
     - target: {fileID: 4758652695350266722, guid: fa786e75fc0aa6d4e980fe2479094b6d,
         type: 3}
@@ -3205,7 +3265,7 @@ PrefabInstance:
     - target: {fileID: 7908582655319421103, guid: fa786e75fc0aa6d4e980fe2479094b6d,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7908582655319421103, guid: fa786e75fc0aa6d4e980fe2479094b6d,
         type: 3}
