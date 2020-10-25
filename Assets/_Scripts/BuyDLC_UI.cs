@@ -5,6 +5,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using Oculus.Platform;
 using Oculus.Platform.Models;
+#if STEAM_STORE
+using Steamworks;
+#endif
+
 
 public class BuyDLC_UI : MonoBehaviour
 {
@@ -37,11 +41,15 @@ public class BuyDLC_UI : MonoBehaviour
 		previousPage.interactable = false;
 		previousPage.onClick.AddListener(GoPreviousPage);
 
+#if STEAM_STORE
+		OnRetrieveSteamDLCList(SteamApps.DlcInformation());
+			#elif OCULUS_STORE
 		if (dlcSKUValues.Length > 0 && container != null && prefabOrTemplate != null)
-			IAP.GetProductsBySKU(dlcSKUValues).OnComplete(OnRetrievedProductList);
+			IAP.GetProductsBySKU(dlcSKUValues).OnComplete(OnRetrievedOculusProductList);
+#endif
     }
 
-    void OnRetrievedProductList(Message<ProductList> result)
+    void OnRetrievedOculusProductList(Message<ProductList> result)
 	{
 		if(result.IsError)
 		{
@@ -60,6 +68,18 @@ public class BuyDLC_UI : MonoBehaviour
 
 			IAP.GetViewerPurchases().OnComplete(OnRetrieveExistingPurchases);
 		}
+	}
+
+	void OnRetrieveSteamDLCList(IEnumerable<Steamworks.Data.DlcInformation> result)
+	{
+		List<ProductUIInfo> list = new List<ProductUIInfo>();
+
+		foreach (var dlc in result)
+		{
+			list.Add(new ProductUIInfo(dlc));
+		}
+
+		SetProducts(list);
 	}
 
 	void SetProducts(List<ProductUIInfo> list)
@@ -148,9 +168,13 @@ public class BuyDLC_UI : MonoBehaviour
 
 	void Buy(string sku)
 	{
+#if STEAM_STORE
+		// TODO
+#elif OCULUS_STORE
 		IAP.LaunchCheckoutFlow(sku).OnComplete(Purchased);
 		buyTarget = buttons[sku];
 		buyTarget.buyButton.interactable = false;
+#endif
 	}
 
 	void Purchased(Message<Purchase> result)
@@ -205,6 +229,12 @@ public class BuyDLC_UI : MonoBehaviour
 			this.sku = product.Sku;
 			this.desc = product.Description;
 			this.price = product.FormattedPrice;
+		}
+
+		public ProductUIInfo(Steamworks.Data.DlcInformation dlc)
+		{
+			this.name = dlc.Name;
+			this.sku = dlc.AppId.ToString();
 		}
 
 		public ProductUIInfo(string name, string sku, string desc, string price)

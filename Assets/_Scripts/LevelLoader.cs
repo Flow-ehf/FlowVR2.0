@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Oculus.Platform;
+#if STEAM_STORE
+using Steamworks;
+#endif
 
 public class LevelLoader : MonoBehaviour
 {
@@ -27,6 +30,9 @@ public class LevelLoader : MonoBehaviour
 	void Start()
 	{
 		Oculus.Platform.Core.Initialize();
+#if STEAM_STORE
+		SteamClient.Init(SteamInfo.STEAM_ID);
+#endif
 		//Oculus.Platform.Entitlements.IsUserEntitledToApplication().OnComplete(OnEntitlementCheckComplete);
 	}
 
@@ -161,5 +167,12 @@ public class LevelLoader : MonoBehaviour
 			yield return new WaitWhile(() => !player.isPrepared);
 			player.Play();
 		}
+	}
+
+	private void OnApplicationQuit()
+	{
+#if STEAM_STORE
+		SteamClient.Shutdown();
+#endif
 	}
 }
