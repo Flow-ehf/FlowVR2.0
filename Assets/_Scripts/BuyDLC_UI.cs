@@ -43,7 +43,7 @@ public class BuyDLC_UI : MonoBehaviour
 
 #if STEAM_STORE
 		OnRetrieveSteamDLCList(SteamApps.DlcInformation());
-			#elif OCULUS_STORE
+#elif OCULUS_STORE
 		if (dlcSKUValues.Length > 0 && container != null && prefabOrTemplate != null)
 			IAP.GetProductsBySKU(dlcSKUValues).OnComplete(OnRetrievedOculusProductList);
 #endif
@@ -70,6 +70,7 @@ public class BuyDLC_UI : MonoBehaviour
 		}
 	}
 
+#if STEAM_STORE
 	void OnRetrieveSteamDLCList(IEnumerable<Steamworks.Data.DlcInformation> result)
 	{
 		List<ProductUIInfo> list = new List<ProductUIInfo>();
@@ -81,6 +82,7 @@ public class BuyDLC_UI : MonoBehaviour
 
 		SetProducts(list);
 	}
+#endif
 
 	void SetProducts(List<ProductUIInfo> list)
 	{
