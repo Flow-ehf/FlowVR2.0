@@ -233,11 +233,13 @@ public class BuyDLC_UI : MonoBehaviour
 			this.price = product.FormattedPrice;
 		}
 
+		#if STEAM_STORE
 		public ProductUIInfo(Steamworks.Data.DlcInformation dlc)
 		{
 			this.name = dlc.Name;
 			this.sku = dlc.AppId.ToString();
 		}
+		#endif
 
 		public ProductUIInfo(string name, string sku, string desc, string price)
 		{

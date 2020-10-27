@@ -4,5 +4,5 @@ using UnityEngine;
 
 public static class SteamInfo
 {
-	public const uint STEAM_ID = 0;
+	public const uint STEAM_ID = 1453870;
 }

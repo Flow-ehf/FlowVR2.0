@@ -656,7 +656,7 @@ PlayerSettings:
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
   scriptingDefineSymbols:
-    1: VR_INPUT_OCULUS
+    1: VR_INPUT_OCULUS;STEAM_STORE
     7: VR_INPUT_OCULUS
   platformArchitecture: {}
   scriptingBackend:
