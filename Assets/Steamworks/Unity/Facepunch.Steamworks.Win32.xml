@@ -1078,11 +1078,6 @@
             Before using, please ask your Valve technical contact how to package and secure your free weekened
             </summary>
         </member>
-        <member name="M:Steamworks.SteamApps.DlcInformation">
-            <summary>
-            Returns metadata for all available DLC
-            </summary>
-        </member>
         <member name="M:Steamworks.SteamApps.InstallDlc(Steamworks.AppId)">
             <summary>
             Install/Uninstall control for optional DLC
