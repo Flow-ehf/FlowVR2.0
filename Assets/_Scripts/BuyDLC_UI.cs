@@ -14,6 +14,7 @@ public class BuyDLC_UI : MonoBehaviour
 {
 	[Header("DLC identifiers go here")]
 	[SerializeField] string[] dlcSKUValues;
+	[SerializeField] ProductUIInfo[] dlcInfos;
 	[Space]
 	[SerializeField] RectTransform container;
 	[SerializeField] RectTransform prefabOrTemplate;
@@ -40,12 +41,16 @@ public class BuyDLC_UI : MonoBehaviour
 		nextPage.onClick.AddListener(GoNextPage);
 		previousPage.interactable = false;
 		previousPage.onClick.AddListener(GoPreviousPage);
-
 #if STEAM_STORE
 		OnRetrieveSteamDLCList(SteamApps.DlcInformation());
 #elif OCULUS_STORE
-		if (dlcSKUValues.Length > 0 && container != null && prefabOrTemplate != null)
-			IAP.GetProductsBySKU(dlcSKUValues).OnComplete(OnRetrievedOculusProductList);
+		if (dlcInfos.Length > 0 && container != null && prefabOrTemplate != null)
+		{
+			string[] skus = new string[dlcInfos.Length];
+			for (int i = 0; i < skus.Length; i++)
+				skus[i] = dlcInfos[i].sku;
+			IAP.GetProductsBySKU(skus).OnComplete(OnRetrievedOculusProductList);
+		}
 #endif
     }
 
@@ -77,7 +82,14 @@ public class BuyDLC_UI : MonoBehaviour
 
 		foreach (var dlc in result)
 		{
-			list.Add(new ProductUIInfo(dlc));
+			ProductUIInfo info = new ProductUIInfo(dlc);
+			ProductUIInfo preDef = dlcInfos.Find((d) => d.steamAppid == dlc.AppId);
+			if (preDef != null)
+			{
+				info.price = preDef.price;
+				info.desc = preDef.desc;
+			}
+			list.Add(info);
 		}
 
 		SetProducts(list);
@@ -209,17 +221,15 @@ public class BuyDLC_UI : MonoBehaviour
 	[ContextMenu("Add test data")]
 	void AddTestData()
 	{
-		List<ProductUIInfo> list = new List<ProductUIInfo>();
+		List<ProductUIInfo> list = new List<ProductUIInfo>(dlcInfos);
 
-		for (int i = 0; i < dlcSKUValues.Length; i++)
-		{
-			list.Add(new ProductUIInfo(i.ToString(), dlcSKUValues[i], "desc " + i, i + "$"));
-		}
 		SetProducts(list);
 	}
 
+	[System.Serializable]
 	class ProductUIInfo
 	{
+		public uint steamAppid;
 		public string sku;
 		public string desc;
 		public string name;
@@ -236,8 +246,8 @@ public class BuyDLC_UI : MonoBehaviour
 		#if STEAM_STORE
 		public ProductUIInfo(Steamworks.Data.DlcInformation dlc)
 		{
+			this.steamAppid = dlc.AppId.Value;
 			this.name = dlc.Name;
-			this.sku = dlc.AppId.ToString();
 		}
 		#endif
 

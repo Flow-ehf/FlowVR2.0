@@ -1272,6 +1272,42 @@ MonoBehaviour:
   - unlock_02-5
   - unlock_02-6
   - unlock_03-1
+  dlcInfos:
+  - steamAppid: 0
+    sku: 
+    desc: 
+    name: 
+    price: 
+  - steamAppid: 0
+    sku: 
+    desc: 
+    name: 
+    price: 
+  - steamAppid: 0
+    sku: 
+    desc: 
+    name: 
+    price: 
+  - steamAppid: 0
+    sku: 
+    desc: 
+    name: 
+    price: 
+  - steamAppid: 0
+    sku: 
+    desc: 
+    name: 
+    price: 
+  - steamAppid: 0
+    sku: 
+    desc: 
+    name: 
+    price: 
+  - steamAppid: 0
+    sku: 
+    desc: 
+    name: 
+    price: 
   container: {fileID: 740321369}
   prefabOrTemplate: {fileID: 77725752330723443, guid: fa786e75fc0aa6d4e980fe2479094b6d,
     type: 3}
