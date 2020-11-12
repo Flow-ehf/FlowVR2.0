@@ -80,19 +80,22 @@ public class BuyDLC_UI : MonoBehaviour
 	{
 		List<ProductUIInfo> list = new List<ProductUIInfo>();
 
-		foreach (var dlc in result)
+		foreach (var dlc in dlcInfos)
 		{
-			ProductUIInfo info = new ProductUIInfo(dlc);
-			ProductUIInfo preDef = dlcInfos.Find((d) => d.steamAppid == dlc.AppId);
-			if (preDef != null)
-			{
-				info.price = preDef.price;
-				info.desc = preDef.desc;
-			}
+			ProductUIInfo info = dlc;
+			info.sku = dlc.steamAppid.ToString();
 			list.Add(info);
 		}
 
 		SetProducts(list);
+
+		if (result != null)
+		{
+			foreach (var purchased in result)
+			{
+				UpdatePurchase(buttons[purchased.AppId.Value.ToString()]);
+			}
+		}
 	}
 #endif
 

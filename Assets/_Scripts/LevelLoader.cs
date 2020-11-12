@@ -33,21 +33,21 @@ public class LevelLoader : MonoBehaviour
 #if STEAM_STORE
 		SteamClient.Init(SteamInfo.STEAM_ID);
 #endif
-		//Oculus.Platform.Entitlements.IsUserEntitledToApplication().OnComplete(OnEntitlementCheckComplete);
+		Oculus.Platform.Entitlements.IsUserEntitledToApplication().OnComplete(OnEntitlementCheckComplete);
 	}
 
-	//void OnEntitlementCheckComplete(Message msg)
-	//{
-	//	if(msg.IsError)
-	//	{
-	//		Debug.LogError("App not owned. Quitting!");
-	//		UnityEngine.Application.Quit();
-	//	}
-	//	else
-	//	{
-	//		LoadLevel(StartScene);
-	//	}
-	//}
+	void OnEntitlementCheckComplete(Message msg)
+	{
+		if (msg.IsError)
+		{
+			Debug.LogError("App not owned. Quitting!");
+			UnityEngine.Application.Quit();
+		}
+		else
+		{
+			Debug.Log("Oculus entitlement check OK");
+		}
+	}
 
 	public static void LoadLevel(string level, bool transition = true)
 	{
