@@ -13,7 +13,6 @@ using Steamworks;
 public class BuyDLC_UI : MonoBehaviour
 {
 	[Header("DLC identifiers go here")]
-	[SerializeField] string[] dlcSKUValues;
 	[SerializeField] ProductUIInfo[] dlcInfos;
 	[Space]
 	[SerializeField] RectTransform container;
@@ -116,7 +115,7 @@ public class BuyDLC_UI : MonoBehaviour
 			info.descriptionText?.UpdateText(dlc.desc);
 			info.sku = dlc.sku;
 			info.buyButton.onClick.RemoveAllListeners();
-			info.buyButton.onClick.AddListener(() => Buy(dlc.sku));
+			info.buyButton.onClick.AddListener(() => Buy(dlc));
 			buttons[dlc.sku] = info;
 		}
 		BuildDLCPage(0);
@@ -177,19 +176,23 @@ public class BuyDLC_UI : MonoBehaviour
 
 			if(targetDlcSKU != "")
 			{
-				Buy(targetDlcSKU);
-				targetDlcSKU = "";
+				var dlc = dlcs.Find((p) => p.sku == targetDlcSKU);
+				if (dlc != null)
+				{
+					Buy(dlc);
+					targetDlcSKU = "";
+				}
 			}
 		}
 	}
 
-	void Buy(string sku)
+	void Buy(ProductUIInfo info)
 	{
 #if STEAM_STORE
-		// TODO
+		UnityEngine.Application.OpenURL(info.steamURL);
 #elif OCULUS_STORE
 		IAP.LaunchCheckoutFlow(sku).OnComplete(Purchased);
-		buyTarget = buttons[sku];
+		buyTarget = buttons[info.sku];
 		buyTarget.buyButton.interactable = false;
 #endif
 	}
@@ -236,6 +239,7 @@ public class BuyDLC_UI : MonoBehaviour
 		public string sku;
 		public string desc;
 		public string name;
+		public string steamURL;
 		public string price;
 
 		public ProductUIInfo(Product product)
@@ -250,6 +254,7 @@ public class BuyDLC_UI : MonoBehaviour
 		public ProductUIInfo(Steamworks.Data.DlcInformation dlc)
 		{
 			this.steamAppid = dlc.AppId.Value;
+			this.sku = dlc.AppId.ToString();
 			this.name = dlc.Name;
 		}
 		#endif

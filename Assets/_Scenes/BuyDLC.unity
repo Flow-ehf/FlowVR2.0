@@ -1264,49 +1264,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83e29b69bbc527746b841eac88096336, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dlcSKUValues:
-  - unlock_02-1
-  - unlock_02-2
-  - unlock_02-3
-  - unlock_02-4
-  - unlock_02-5
-  - unlock_02-6
-  - unlock_03-1
   dlcInfos:
-  - steamAppid: 1453870
+  - steamAppid: 1478090
     sku: unlock_02-1
     desc: Unlock the Heartful breath
     name: Heartful breath
+    steamURL: https://store.steampowered.com/app/1478090/Flow__Heartful_breath/?curator_clanid=39024544
     price: 1.99
-  - steamAppid: 1453870
+  - steamAppid: 1478091
     sku: unlock_02-2
     desc: Unlock the Open up for positive energy
     name: Open up for positive energy
+    steamURL: https://store.steampowered.com/app/1478091/Flow__Open_up_for_positive_energy/?curator_clanid=39024544
     price: 1.99
-  - steamAppid: 1453870
+  - steamAppid: 1478092
     sku: unlock_02-3
     desc: Unlock the Find determination
     name: Find determination
+    steamURL: https://store.steampowered.com/app/1478092/Flow__Find_determination/?curator_clanid=39024544
     price: 1.99
-  - steamAppid: 1453870
+  - steamAppid: 1478093
     sku: unlock_02-4
     desc: Unlock the Calm for clarity
     name: Calm for clarity
+    steamURL: https://store.steampowered.com/app/1478093/Flow__Calm_for_clarity/?curator_clanid=39024544
     price: 1.99
-  - steamAppid: 1453870
+  - steamAppid: 1478094
     sku: unlock_02-5
     desc: Unlock Thinking in meditation
     name: Thinking in meditation
+    steamURL: https://store.steampowered.com/app/1478094/Flow__Thinking_in_meditation/?curator_clanid=39024544
     price: 1.99
-  - steamAppid: 1453870
+  - steamAppid: 1478095
     sku: unlock_02-6
     desc: Unlock Deep peace
     name: Deep peace
+    steamURL: https://store.steampowered.com/app/1478095/Flow__Deep_peace/?curator_clanid=39024544
     price: 1.99
-  - steamAppid: 1453870
+  - steamAppid: 1478096
     sku: unlock_03-1
     desc: Unlock Expand your breath
     name: Expand your breath
+    steamURL: https://store.steampowered.com/app/1478096/Flow__Expand_your_breath/?curator_clanid=39024544
     price: 1.99
   container: {fileID: 740321369}
   prefabOrTemplate: {fileID: 77725752330723443, guid: fa786e75fc0aa6d4e980fe2479094b6d,
