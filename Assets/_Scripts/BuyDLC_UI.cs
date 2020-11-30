@@ -92,7 +92,10 @@ public class BuyDLC_UI : MonoBehaviour
 		{
 			foreach (var purchased in result)
 			{
-				UpdatePurchase(buttons[purchased.AppId.Value.ToString()]);
+				if(purchased.Available)
+				{
+					UpdatePurchase(buttons[purchased.AppId.Value.ToString()]);
+				}
 			}
 		}
 	}
@@ -191,7 +194,7 @@ public class BuyDLC_UI : MonoBehaviour
 #if STEAM_STORE
 		UnityEngine.Application.OpenURL(info.steamURL);
 #elif OCULUS_STORE
-		IAP.LaunchCheckoutFlow(sku).OnComplete(Purchased);
+		IAP.LaunchCheckoutFlow(info.sku).OnComplete(Purchased);
 		buyTarget = buttons[info.sku];
 		buyTarget.buyButton.interactable = false;
 #endif
