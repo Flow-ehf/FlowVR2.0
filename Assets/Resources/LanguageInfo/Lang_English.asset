@@ -215,3 +215,5 @@ MonoBehaviour:
     str: 
   - tag: buy
     str: Buy
+  - tag: buy_message
+    str: Please finish your purchase in Steam using your desktop.

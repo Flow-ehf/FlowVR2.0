@@ -220,3 +220,7 @@ MonoBehaviour:
     str: Loka
   - tag: profound_quote_8
     str: 
+  - tag: buy
+    str: Kaupa
+  - tag: buy_message
+    str: "Vinsamlegast kl\xE1ri\xF0 kaupin \xED t\xF6lvunni \xED gegnum Steam."
