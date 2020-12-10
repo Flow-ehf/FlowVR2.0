@@ -12,19 +12,18 @@ using Steamworks;
 
 public class BuyDLC_UI : MonoBehaviour
 {
-	[Header("DLC identifiers go here")]
-	[SerializeField] ProductUIInfo[] dlcInfos;
-	[Space]
 	[SerializeField] RectTransform container;
 	[SerializeField] RectTransform prefabOrTemplate;
 	[SerializeField] int perPageCapacity = 6;
 	[SerializeField] Button nextPage, previousPage;
+	[Header("Steam specific")]
+	[SerializeField] UIPanel steamBuyMessagePanel;
 
 	Dictionary<string, DLCButton> buttons = new Dictionary<string, DLCButton>();
 	DLCButton buyTarget;
 	int currentPage = 0;
 
-	List<ProductUIInfo> dlcs = new List<ProductUIInfo>();
+	List<DLCInfo> dlcs;
 
 	public static string targetDlcSKU = "";
 
@@ -40,20 +39,32 @@ public class BuyDLC_UI : MonoBehaviour
 		nextPage.onClick.AddListener(GoNextPage);
 		previousPage.interactable = false;
 		previousPage.onClick.AddListener(GoPreviousPage);
-#if STEAM_STORE
-		OnRetrieveSteamDLCList(SteamApps.DlcInformation());
-#elif OCULUS_STORE
-		if (dlcInfos.Length > 0 && container != null && prefabOrTemplate != null)
-		{
-			string[] skus = new string[dlcInfos.Length];
-			for (int i = 0; i < skus.Length; i++)
-				skus[i] = dlcInfos[i].sku;
-			IAP.GetProductsBySKU(skus).OnComplete(OnRetrievedOculusProductList);
-		}
-#endif
+
+		StartCoroutine(LoopFetchDLC());
     }
 
-    void OnRetrievedOculusProductList(Message<ProductList> result)
+	private IEnumerator LoopFetchDLC()
+	{
+		while (true)
+		{
+#if STEAM_STORE
+			OnRetrieveSteamDLCList(SteamApps.DlcInformation());
+#elif OCULUS_STORE
+			var dlcInfos = DLCInfo.GetDLCS();
+			if (dlcInfos.Length > 0 && container != null && prefabOrTemplate != null)
+			{
+				string[] skus = new string[dlcInfos.Length];
+				for (int i = 0; i < skus.Length; i++)
+					skus[i] = dlcInfos[i].sku;
+				IAP.GetProductsBySKU(skus).OnComplete(OnRetrievedOculusProductList);
+			}
+#endif
+			yield return new WaitForSeconds(5);
+		}
+	}
+
+#if OCULUS_STORE
+	void OnRetrievedOculusProductList(Message<ProductList> result)
 	{
 		if(result.IsError)
 		{
@@ -61,32 +72,29 @@ public class BuyDLC_UI : MonoBehaviour
 		}
 		else
 		{
-			List<ProductUIInfo> list = new List<ProductUIInfo>();
+			List<DLCInfo> list = new List<DLCInfo>();
+			var availableDLCs = DLCInfo.GetDLCS();
 
 			foreach (var product in result.GetProductList())
 			{
-				list.Add(new ProductUIInfo(product));
+				DLCInfo info = availableDLCs.Find((d) => d.sku == product.Sku);
+				if (info)
+					list.Add(info);
+				else
+					Debug.LogError("no matching DLCInfo for dlc " + product.Sku);
 			}
 
-			SetProducts(list);
+			SetProducts(list.ToArray());
 
 			IAP.GetViewerPurchases().OnComplete(OnRetrieveExistingPurchases);
 		}
 	}
+#endif
 
 #if STEAM_STORE
 	void OnRetrieveSteamDLCList(IEnumerable<Steamworks.Data.DlcInformation> result)
 	{
-		List<ProductUIInfo> list = new List<ProductUIInfo>();
-
-		foreach (var dlc in dlcInfos)
-		{
-			ProductUIInfo info = dlc;
-			info.sku = dlc.steamAppid.ToString();
-			list.Add(info);
-		}
-
-		SetProducts(list);
+		SetProducts(DLCInfo.GetDLCS());
 
 		if (result != null)
 		{
@@ -101,14 +109,20 @@ public class BuyDLC_UI : MonoBehaviour
 	}
 #endif
 
-	void SetProducts(List<ProductUIInfo> list)
+	void SetProducts(DLCInfo[] list)
 	{
-		dlcs = list;
+		foreach (var button in buttons.Values)
+		{
+			Destroy(button.gameObject);
+		}
+		buttons.Clear();
+
+		dlcs = new List<DLCInfo>(list);
 		dlcs.Sort((p1, p2) => p1.sku.CompareTo(p2.sku));
 
-		for (int i = 0; i < list.Count; i++)
+		for (int i = 0; i < list.Length; i++)
 		{
-			ProductUIInfo dlc = list[i];
+			DLCInfo dlc = list[i];
 
 			GameObject newEntry = Instantiate(prefabOrTemplate.gameObject, container);
 			newEntry.SetActive(true);
@@ -122,6 +136,16 @@ public class BuyDLC_UI : MonoBehaviour
 			buttons[dlc.sku] = info;
 		}
 		BuildDLCPage(0);
+
+		if (targetDlcSKU != "")
+		{
+			var dlc = dlcs.Find((p) => p.sku == targetDlcSKU);
+			if (dlc != null)
+			{
+				Buy(dlc);
+				targetDlcSKU = "";
+			}
+		}
 
 	}
 
@@ -158,7 +182,7 @@ public class BuyDLC_UI : MonoBehaviour
 
 		for (int i = currentPage * perPageCapacity; i < dlcs.Count && i < (currentPage + 1) * perPageCapacity; i++)
 		{
-			ProductUIInfo dlc = dlcs[i];
+			DLCInfo dlc = dlcs[i];
 
 			buttons[dlc.sku].gameObject.SetActive(true);
 		}
@@ -176,23 +200,14 @@ public class BuyDLC_UI : MonoBehaviour
 			{
 				UpdatePurchase(buttons[dlc.Sku]);
 			}
-
-			if(targetDlcSKU != "")
-			{
-				var dlc = dlcs.Find((p) => p.sku == targetDlcSKU);
-				if (dlc != null)
-				{
-					Buy(dlc);
-					targetDlcSKU = "";
-				}
-			}
 		}
 	}
 
-	void Buy(ProductUIInfo info)
+	void Buy(DLCInfo info)
 	{
 #if STEAM_STORE
 		UnityEngine.Application.OpenURL(info.steamURL);
+		steamBuyMessagePanel.SetActive(true);
 #elif OCULUS_STORE
 		IAP.LaunchCheckoutFlow(info.sku).OnComplete(Purchased);
 		buyTarget = buttons[info.sku];
@@ -207,7 +222,6 @@ public class BuyDLC_UI : MonoBehaviour
 			Debug.LogError("Failed to buy DLC: result was null for some reason");
 			return;
 		}
-		var purchase = result.GetPurchase();
 		if(result.IsError)
 		{
 			Debug.LogError("Failed to buy DLC: " + result.GetError());
@@ -215,6 +229,7 @@ public class BuyDLC_UI : MonoBehaviour
 		}
 		else
 		{
+			var purchase = result.GetPurchase();
 			UpdatePurchase(buyTarget);
 			Debug.Log("Successfully purchased dlc: " + purchase.Sku);
 		}
@@ -230,44 +245,6 @@ public class BuyDLC_UI : MonoBehaviour
 	[ContextMenu("Add test data")]
 	void AddTestData()
 	{
-		List<ProductUIInfo> list = new List<ProductUIInfo>(dlcInfos);
-
-		SetProducts(list);
-	}
-
-	[System.Serializable]
-	class ProductUIInfo
-	{
-		public uint steamAppid;
-		public string sku;
-		public string desc;
-		public string name;
-		public string steamURL;
-		public string price;
-
-		public ProductUIInfo(Product product)
-		{
-			this.name = product.Name;
-			this.sku = product.Sku;
-			this.desc = product.Description;
-			this.price = product.FormattedPrice;
-		}
-
-		#if STEAM_STORE
-		public ProductUIInfo(Steamworks.Data.DlcInformation dlc)
-		{
-			this.steamAppid = dlc.AppId.Value;
-			this.sku = dlc.AppId.ToString();
-			this.name = dlc.Name;
-		}
-		#endif
-
-		public ProductUIInfo(string name, string sku, string desc, string price)
-		{
-			this.name = name;
-			this.sku = sku;
-			this.desc = desc;
-			this.price = price;
-		}
+		SetProducts(DLCInfo.GetDLCS());
 	}
 }

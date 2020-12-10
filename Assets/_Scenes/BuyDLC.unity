@@ -1607,6 +1607,7 @@ MonoBehaviour:
   perPageCapacity: 6
   nextPage: {fileID: 782681912}
   previousPage: {fileID: 1322993809}
+  steamBuyMessagePanel: {fileID: 459793853}
 --- !u!114 &740321372
 MonoBehaviour:
   m_ObjectHideFlags: 0

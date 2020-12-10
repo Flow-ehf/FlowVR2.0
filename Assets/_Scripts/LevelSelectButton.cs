@@ -5,6 +5,9 @@ using UnityEngine.UI;
 using UnityEngine.Video;
 using Oculus.Platform;
 using Oculus.Platform.Models;
+#if STEAM_STORE
+using Steamworks;
+#endif
 
 [RequireComponent(typeof(Button))]
 public class LevelSelectButton : MonoBehaviour
@@ -13,7 +16,7 @@ public class LevelSelectButton : MonoBehaviour
 
 	[SerializeField] LoadLevelButton targetButton;
 	[SerializeField] string level;
-	[SerializeField] string productId;
+	[SerializeField] DLCInfo targetDLC;
 	[SerializeField] Sprite noAccessSprite;
 	[SerializeField] Material skyboxMat;
 	[SerializeField] VideoClip meditationClip;
@@ -49,7 +52,7 @@ public class LevelSelectButton : MonoBehaviour
 
 #else
 		//Not dlc, unlock right away
-		if (productId == "" || LoginManager.currentUser.IsPremiumUser)
+		if (targetDLC == null || LoginManager.currentUser.IsPremiumUser)
 			ProductOwned();
 		else
 			StartCoroutine(WaitCheckOwnership());
@@ -61,12 +64,16 @@ public class LevelSelectButton : MonoBehaviour
 	{
 		while(enabled)
 		{
+#if OCULUS_STORE
 			IAP.GetViewerPurchases().OnComplete(OnFetchedPurchases);
+#elif STEAM_STORE
+			OnFetchedDLC(SteamApps.DlcInformation());
+#endif
 			yield return new WaitForSeconds(OwnershipCheckInterval);
 		}
 	}
 
-
+#if OCULUS_STORE
 	void OnFetchedPurchases(Message<PurchaseList> msg)
 	{
 		if (msg.IsError)
@@ -75,7 +82,7 @@ public class LevelSelectButton : MonoBehaviour
 		{
 			foreach (var purchase in msg.GetPurchaseList())
 			{
-				if(purchase.Sku == productId)
+				if(purchase.Sku == targetDLC.sku)
 				{
 					ProductOwned();
 					break;
@@ -83,7 +90,24 @@ public class LevelSelectButton : MonoBehaviour
 			}
 		}
 	}
+#endif
 
+#if STEAM_STORE
+
+	void OnFetchedDLC(IEnumerable<Steamworks.Data.DlcInformation> dlcs)
+	{
+		foreach (var dlc in dlcs)
+		{
+			if(dlc.AppId == targetDLC.steamAppid)
+			{
+				if (dlc.Available)
+					ProductOwned();
+				break;
+			}
+		}
+	}
+
+#endif
 
 	void ProductOwned()
 	{
@@ -107,7 +131,7 @@ public class LevelSelectButton : MonoBehaviour
 			}
 			else
 			{
-				BuyDLC_UI.targetDlcSKU = productId;
+				BuyDLC_UI.targetDlcSKU = targetDLC.sku;
 				targetButton.SetTargetLevel(null);
 				session.Open(skyboxMat, meditationClip, false);
 			}
