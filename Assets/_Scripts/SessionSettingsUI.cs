@@ -100,9 +100,12 @@ public class SessionSettingsUI : MonoBehaviour
 		foreach (var toggle in durationToggles)
 			toggle.interactable = owned;
 
-		player.clip = targetClip;
-		player.targetTexture = targetMaterial.mainTexture as RenderTexture;
-		player.Prepare();
+		if (targetClip != null)
+		{
+			player.clip = targetClip;
+			player.targetTexture = targetMaterial.mainTexture as RenderTexture;
+			player.Prepare();
+		}
 		ScreenFade.StartFade(1, Color.black);
 		yield return new WaitForSeconds(1);
 		yield return new WaitWhile(() => !player.isPrepared);

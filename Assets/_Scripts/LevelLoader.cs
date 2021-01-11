@@ -32,8 +32,9 @@ public class LevelLoader : MonoBehaviour
 		Oculus.Platform.Core.Initialize();
 #if STEAM_STORE
 		SteamClient.Init(SteamInfo.STEAM_ID);
-#endif
+#elif OCULUS_STORE
 		Oculus.Platform.Entitlements.IsUserEntitledToApplication().OnComplete(OnEntitlementCheckComplete);
+#endif
 	}
 
 	void OnEntitlementCheckComplete(Message msg)
