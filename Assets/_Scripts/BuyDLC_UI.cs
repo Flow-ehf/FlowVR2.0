@@ -93,14 +93,14 @@ public class BuyDLC_UI : MonoBehaviour
 
 #if STEAM_STORE
 	void OnRetrieveSteamDLCList(IEnumerable<Steamworks.Data.DlcInformation> result)
-	{
+	{	
 		SetProducts(DLCInfo.GetDLCS());
 
 		if (result != null)
 		{
 			foreach (var purchased in result)
-			{
-				if(purchased.Available)
+			{			
+				if(SteamApps.IsDlcInstalled(purchased.AppId))
 				{
 					UpdatePurchase(buttons[purchased.AppId.Value.ToString()]);
 				}

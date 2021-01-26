@@ -100,7 +100,7 @@ public class LevelSelectButton : MonoBehaviour
 		{
 			if(dlc.AppId == targetDLC.steamAppid)
 			{
-				if (dlc.Available)
+				if (SteamApps.IsDlcInstalled(dlc.AppId))
 					ProductOwned();
 				break;
 			}
