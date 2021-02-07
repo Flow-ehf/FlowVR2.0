@@ -54,14 +54,14 @@ public class LevelControllerEditor : Editor
 		using (new EditorGUI.IndentLevelScope())
 		{
 			int index = 0;
-			for (int i = 0; i < SessionSettings.AvailableDurations.Length; i++)
+			for (int i = 0; i < MeditationQueue.availableSessionDurations.Length; i++)
 			{
 				for (int j = 0; j < allLang.Length; j++)
 				{
 					if (guidanceClips.arraySize <= index)
 						guidanceClips.InsertArrayElementAtIndex(index);
 					SerializedProperty elm = guidanceClips.GetArrayElementAtIndex(index);
-					EditorGUILayout.PropertyField(elm, new GUIContent("Guidance " + SessionSettings.AvailableDurations[i] / 60 + "m " + allLang[j]));
+					EditorGUILayout.PropertyField(elm, new GUIContent("Guidance " + MeditationQueue.availableSessionDurations[i] / 60 + "m " + allLang[j]));
 
 					index++;
 				}
@@ -71,12 +71,12 @@ public class LevelControllerEditor : Editor
 		EditorGUILayout.LabelField("Music Audio Clips");
 		using (new EditorGUI.IndentLevelScope())
 		{
-			for (int i = 0; i < SessionSettings.AvailableDurations.Length; i++)
+			for (int i = 0; i < MeditationQueue.availableSessionDurations.Length; i++)
 			{
 				if (musicClips.arraySize <= i)
 					musicClips.InsertArrayElementAtIndex(i);
 				SerializedProperty elm = musicClips.GetArrayElementAtIndex(i);
-				EditorGUILayout.PropertyField(elm, new GUIContent("Music " + SessionSettings.AvailableDurations[i] / 60 + "m"));
+				EditorGUILayout.PropertyField(elm, new GUIContent("Music " + MeditationQueue.availableSessionDurations[i] / 60 + "m"));
 			}
 		}
 		serializedObject.ApplyModifiedProperties();

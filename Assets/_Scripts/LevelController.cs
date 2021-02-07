@@ -59,6 +59,8 @@ public class LevelController : MonoBehaviour
 		raycaster = FindObjectOfType<OVRRaycaster>();
 		raycaster.enabled = false;
 
+		MeditationQueue.TryStartNewSession(out _);
+
 		sessionStartTimestamp = Time.unscaledTime;
 	}
 
@@ -69,22 +71,18 @@ public class LevelController : MonoBehaviour
 		if (muteGuidanceButton != null)
 		{
 			//Update initial state
-			muteGuidanceButton.isOn = SessionSettings.PlayGuidance;
+			muteGuidanceButton.isOn = MeditationQueue.CurrentSession.playGuidance;
 			muteGuidanceButton.onValueChanged.AddListener((isOn) =>
 			{
-				//Save preference
-				SessionSettings.PlayGuidance = isOn;
 				guidanceAudio.mute = !isOn;
 			});
 		}
 		if (muteMusicButton != null)
 		{
 			//Update initial state
-			muteMusicButton.isOn = SessionSettings.PlayMusic;
+			muteMusicButton.isOn = MeditationQueue.CurrentSession.playMusic;
 			muteMusicButton.onValueChanged.AddListener((isOn) =>
 			{
-				//Save preference
-				SessionSettings.PlayMusic = isOn;
 				musicAudio.mute = !isOn;
 			});
 		}
@@ -115,19 +113,19 @@ public class LevelController : MonoBehaviour
 
 		pausePanel?.SetActiveImmediately(false);
 
-		timeLeft = SessionSettings.Duration;
+		timeLeft = MeditationQueue.CurrentSession.Duration;
 
 		StartCoroutine(WaitDuration());
 
 
 		int totalLanguages = System.Enum.GetValues(typeof(LanguageManager.Language)).Length;
-		guidanceAudio.clip = guidanceClips[SessionSettings.DurationIndex * totalLanguages + (int)LanguageManager.CurrentLanguage];
+		guidanceAudio.clip = guidanceClips[MeditationQueue.CurrentSession.durationIndex * totalLanguages + (int)LanguageManager.CurrentLanguage];
 		guidanceAudio.Play();
-		guidanceAudio.mute = !SessionSettings.PlayGuidance;
+		guidanceAudio.mute = !MeditationQueue.CurrentSession.playGuidance;
 
-		musicAudio.clip = musicClips[SessionSettings.DurationIndex];
+		musicAudio.clip = musicClips[MeditationQueue.CurrentSession.durationIndex];
 		musicAudio.Play();
-		musicAudio.mute = !SessionSettings.PlayMusic;
+		musicAudio.mute = !MeditationQueue.CurrentSession.playMusic;
     }
 
 
@@ -147,7 +145,7 @@ public class LevelController : MonoBehaviour
 			if (isPaused)
 				yield return new WaitWhile(() => isPaused);
 		}
-		ReturnToMenu();
+		OnCompletedLevel();
 	}
 
 
@@ -220,11 +218,18 @@ public class LevelController : MonoBehaviour
 		raycaster.enabled = true;
 	}
 
+	public void OnCompletedLevel()
+	{
+		if (MeditationQueue.TryStartNewSession(out var session))
+			LevelLoader.LoadLevel(session.level);
+		else
+			LevelLoader.LoadLevel("MainMenu");
+	}
 
 	public void ReturnToMenu()
 	{
-		QuitMeditation?.Invoke();
-		LevelLoader.LoadLevel("MainMenu");
+		MeditationQueue.ClearQueue();
+		OnCompletedLevel();
 	}
 
 
@@ -242,7 +247,7 @@ public class LevelController : MonoBehaviour
 		//Set sensible defaults
 		AudioClip gClip = UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Audio/Guidance/Breath1_Guidance.wav", typeof(AudioClip)) as AudioClip;
 
-		guidanceClips = new AudioClip[SessionSettings.AvailableDurations.Length * System.Enum.GetValues(typeof(LanguageManager.Language)).Length];
+		guidanceClips = new AudioClip[MeditationQueue.availableSessionDurations.Length * System.Enum.GetValues(typeof(LanguageManager.Language)).Length];
 		for (int i = 0; i < guidanceClips.Length; i++)
 		{
 			guidanceClips[i] = gClip;
@@ -250,7 +255,7 @@ public class LevelController : MonoBehaviour
 
 		AudioClip mClip = UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Audio/Music/Breath1_Music.wav", typeof(AudioClip)) as AudioClip;
 
-		musicClips = new AudioClip[SessionSettings.AvailableDurations.Length];
+		musicClips = new AudioClip[MeditationQueue.availableSessionDurations.Length];
 		for (int i = 0; i < musicClips.Length; i++)
 		{
 			musicClips[i] = mClip;

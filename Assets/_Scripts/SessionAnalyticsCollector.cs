@@ -32,9 +32,9 @@ public class SessionAnalyticsCollector : MonoBehaviour
 		MeditationAnalytics.MeditationSessionData data = new MeditationAnalytics.MeditationSessionData()
 		{
 			level = lvl,
-			selectedDuration = SessionSettings.Duration,
-			initialMusicEnabled = SessionSettings.PlayMusic,
-			initialGuidanceEnabled = SessionSettings.PlayGuidance,
+			selectedDuration = MeditationQueue.CurrentSession.Duration,
+			initialMusicEnabled = MeditationQueue.CurrentSession.playMusic,
+			initialGuidanceEnabled = MeditationQueue.CurrentSession.playGuidance,
 			hmdId = deviceId,
 		};
 		MeditationAnalytics.AddMeditationSession(data);

@@ -1,65 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Video;
-using UnityEngine.XR;
+using UnityEngine.Events;
 
 public class PauseBehaviour : MonoBehaviour
 {
-	public static bool IsPaused { get; private set; }
+	[SerializeField] UnityEvent onPause;
+	[SerializeField] UnityEvent onUnpause;
 
-	[RuntimeInitializeOnLoadMethod]
-	static void Init()
-    {
-		PauseBehaviour instance = new GameObject(nameof(PauseBehaviour)).AddComponent<PauseBehaviour>();
-		instance.hideFlags = HideFlags.HideAndDontSave;
-		DontDestroyOnLoad(instance.gameObject);
-    }
-
-	private static VideoPlayer b_video;
-	private static VideoPlayer Video
+	private void Awake()
 	{
-		get
-		{
-			if (b_video == null)
-				b_video = FindObjectOfType<VideoPlayer>();
-			return b_video;
-		}
+		PauseController.onPaused += OnPausedChanged;
+		OnPausedChanged(PauseController.IsPaused);
 	}
 
-	private UserPresenceState prev_present = UserPresenceState.Present;
-
-	private void Update()
+	private void OnPausedChanged(bool paused)
 	{
-		if(prev_present != XRDevice.userPresence)
-		{
-			prev_present = XRDevice.userPresence;
-			PauseApp(XRDevice.userPresence == UserPresenceState.NotPresent);
-		}
+		if (paused)
+			onPause?.Invoke();
+		else
+			onUnpause?.Invoke();
 	}
 
-	private void OnApplicationFocus(bool focus)
+	private void OnDestroy()
 	{
-		PauseApp(!focus);
-	}
+		PauseController.onPaused -= OnPausedChanged;
 
-	private void OnApplicationPause(bool pause)
-	{
-		PauseApp(pause);
-	}
-
-	public static void PauseApp(bool pause)
-	{
-		Debug.Log("App pause: " + pause);
-
-		Time.timeScale = pause ? 0 : 1;
-
-		var vid = Video;
-		if(vid != null)
-		{
-			vid.playbackSpeed = Time.timeScale;
-		}
-
-		IsPaused = pause;
 	}
 }

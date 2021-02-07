@@ -21,6 +21,8 @@ public class SessionSettingsUI : MonoBehaviour
 	UIPanel panel;
 	List<Toggle> durationToggles = new List<Toggle>();
 
+	MeditationQueue.Session newSession;
+
 	void Awake()
 	{
 		panel = GetComponent<UIPanel>();
@@ -30,20 +32,19 @@ public class SessionSettingsUI : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-		if (!saveSessionSettings)
-			SessionSettings.Reset();
+		MeditationQueue.ClearQueue(); // Clear if we left level without finishing queue
 
 		defaultSkybox = RenderSettings.skybox;
 		defaultClip = player.clip;
 
 		if(playMusicToggle != null)
 		{
-			playMusicToggle.isOn = SessionSettings.PlayMusic;
+			playMusicToggle.isOn = newSession.playMusic;
 			playMusicToggle.onValueChanged.AddListener(TogglePlayMusic);
 		}
 		if(playGuidanceToggle != null)
 		{
-			playGuidanceToggle.isOn = SessionSettings.PlayGuidance;
+			playGuidanceToggle.isOn = newSession.playGuidance;
 			playGuidanceToggle.onValueChanged.AddListener(TogglePlayGuidance);
 		}
 		if(durationButtonTemplate != null && durationContainer != null)
@@ -54,9 +55,9 @@ public class SessionSettingsUI : MonoBehaviour
 			group.allowSwitchOff = false;
 
 			float xPos = 0;
-			for (int i = 0; i < SessionSettings.AvailableDurations.Length; i++)
+			for (int i = 0; i < MeditationQueue.availableSessionDurations.Length; i++)
 			{
-				int min = SessionSettings.AvailableDurations[i] / 60;
+				int min = MeditationQueue.availableSessionDurations[i] / 60;
 				RectTransform rectTrans = Instantiate(durationButtonTemplate).GetComponent<RectTransform>();
 				rectTrans.SetParent(durationContainer, false);
 				rectTrans.anchoredPosition = new Vector2(xPos, 0);
@@ -68,7 +69,7 @@ public class SessionSettingsUI : MonoBehaviour
 				{
 					durationToggles.Add(toggle);
 					int index = i;
-					toggle.isOn = SessionSettings.DurationIndex == index;
+					toggle.isOn = newSession.durationIndex == index;
 					toggle.onValueChanged.AddListener((isOn) =>
 					{
 						if(isOn)
@@ -82,6 +83,12 @@ public class SessionSettingsUI : MonoBehaviour
 		}
     }
 
+	public void SetTargetLevel(string level)
+	{
+		newSession.level = level;
+		MeditationQueue.SetQueue(newSession);
+		playButton.SetTargetLevel(level);
+	}
 
 	public void Open(Material targetMateial, VideoClip targetClip, bool owned)
 	{
@@ -116,6 +123,7 @@ public class SessionSettingsUI : MonoBehaviour
 
 	public void Close()
 	{
+		MeditationQueue.ClearQueue();
 		StartCoroutine(WaitClose());
 	}
 
@@ -129,22 +137,23 @@ public class SessionSettingsUI : MonoBehaviour
 		ScreenFade.StartFade(1, Color.clear);
 	}
 
-
 	void TogglePlayMusic(bool isOn)
 	{
-		SessionSettings.PlayMusic = isOn;
+		newSession.playMusic = isOn;
+		MeditationQueue.SetQueue(newSession);
 	}
 
 	void TogglePlayGuidance(bool isOn)
 	{
-		SessionSettings.PlayGuidance = isOn;
+		newSession.playGuidance = isOn;
+		MeditationQueue.SetQueue(newSession);
 	}
 
 	void DurationIndexChanged(int index)
 	{
-		SessionSettings.DurationIndex = index;
+		newSession.durationIndex = index;
+		MeditationQueue.SetQueue(newSession);
 	}
-
 
 	void OnDestroy()
 	{
