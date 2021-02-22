@@ -83,7 +83,7 @@ public class SessionSettingsUI : MonoBehaviour
 		}
     }
 
-	public void SetTargetLevel(string level)
+	public void SetTargetLevel(LevelInfo level)
 	{
 		newSession.level = level;
 		MeditationQueue.SetQueue(newSession);

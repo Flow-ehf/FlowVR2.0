@@ -221,7 +221,7 @@ public class LevelController : MonoBehaviour
 	public void OnCompletedLevel()
 	{
 		if (MeditationQueue.TryStartNewSession(out var session))
-			LevelLoader.LoadLevel(session.level);
+			LevelLoader.LoadLevel(session.level.name);
 		else
 			LevelLoader.LoadLevel("MainMenu");
 	}

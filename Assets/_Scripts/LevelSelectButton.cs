@@ -15,25 +15,21 @@ public class LevelSelectButton : MonoBehaviour
 	const float OwnershipCheckInterval = 5;
 
 	[SerializeField] LoadLevelButton targetButton;
-	[SerializeField] string level;
+	[SerializeField] LevelInfo level;
 	[SerializeField] DLCInfo targetDLC;
 	[SerializeField] Sprite noAccessSprite;
 	[SerializeField] Material skyboxMat;
 	[SerializeField] VideoClip meditationClip;
+	[SerializeField] PlaylistUI playList;
+	[SerializeField] SessionSettingsUI session;
 
 	Image image;
 	Button button;
 	Sprite normalSpite;
 	bool canAccess = false;
-	SessionSettingsUI session;
 
 	void Awake()
 	{
-
-		if (targetButton == null)
-			targetButton = FindObjectOfType<LoadLevelButton>();
-
-		session = FindObjectOfType<SessionSettingsUI>();
 		button = GetComponent<Button>();
 
 		image = GetComponent<Image>();
@@ -120,26 +116,29 @@ public class LevelSelectButton : MonoBehaviour
 
 	void ClickedButton()
 	{
-		if (targetButton != null && session != null)
+		if (canAccess)
 		{
-			if (canAccess)
-			{
-				BuyDLC_UI.targetDlcSKU = "";
+			BuyDLC_UI.targetDlcSKU = "";
 
+			if(targetButton != null)
 				targetButton.SetTargetLevel(level);
+			if (session != null)
 				session.Open(skyboxMat, meditationClip, true);
-			}
-			else
-			{
-				BuyDLC_UI.targetDlcSKU = targetDLC.sku;
+			else if (playList != null)
+				playList.AddEntry(level);
+		}
+		else
+		{
+			BuyDLC_UI.targetDlcSKU = targetDLC.sku;
+			if (targetButton != null)
 				targetButton.SetTargetLevel(null);
+			if (session != null)
 				session.Open(skyboxMat, meditationClip, false);
-			}
 		}
 	}
 
     void Reset()
 	{
-		level = name;
+		level = LevelInfo.Get(name);
 	}
 }

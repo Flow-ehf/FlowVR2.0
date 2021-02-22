@@ -7,72 +7,60 @@ public class PlaylistUI : MonoBehaviour
 {
 	[SerializeField] GameObject playlistEntryPrefab;
 	[SerializeField] Transform playlistContainer;
-	[SerializeField] Toggle musicToggle;
-	[SerializeField] Toggle guidanceToggle;
-	[SerializeField] Dropdown durationDropdown;
-	[SerializeField] UIPanel settingsPanel;
 	[SerializeField] Button playButton;
 
 	private List<MeditationQueue.Session> playlist = new List<MeditationQueue.Session>();
 	private List<PlaylistUIEntry> uiList = new List<PlaylistUIEntry>();
+	private Color newEntryColor = Color.gray;
 
-	private ToggleGroup group;
-
-	private int settingsEditIndex = -1;
 
 	private void Start()
 	{
-		group = playlistContainer.GetComponent<ToggleGroup>();
-	
-		durationDropdown.ClearOptions();
-		List<string> durationOptions = new List<string>();
-		for (int i = 0; i < MeditationQueue.availableSessionDurations.Length; i++)
-		{
-			durationOptions.Add(MeditationQueue.DurationFormatted(i));
-		}
-		durationDropdown.AddOptions(durationOptions);
-
-		musicToggle.onValueChanged.AddListener(SetMusic);
-		guidanceToggle.onValueChanged.AddListener(SetGuidance);
-		durationDropdown.onValueChanged.AddListener(SetDuration);
-
 		playButton.interactable = false;
 		playButton.onClick.AddListener(Play);
 	}
 
-	private void SetMusic(bool isOn)
+	public void SetNewEntryColor(Color color)
 	{
-		if(settingsEditIndex > -1)
+		newEntryColor = color;
+	}
+
+	public void SetMusic(bool isOn, PlaylistUIEntry entry)
+	{
+		int index = uiList.IndexOf(entry);
+		if(index > -1)
 		{
-			var session = playlist[settingsEditIndex];
+			var session = playlist[index];
 			session.playMusic = isOn;
-			playlist[settingsEditIndex] = session;
+			playlist[index] = session;
 
-			uiList[settingsEditIndex].UpdateSession(session, settingsEditIndex);
+			uiList[index].UpdateSession(session, index);
 		}
 	}
 
-	private void SetGuidance(bool isOn)
+	public void SetGuidance(bool isOn, PlaylistUIEntry entry)
 	{
-		if (settingsEditIndex > -1)
+		int index = uiList.IndexOf(entry);
+		if (index > -1)
 		{
-			var session = playlist[settingsEditIndex];
+			var session = playlist[index];
 			session.playGuidance = isOn;
-			playlist[settingsEditIndex] = session;
+			playlist[index] = session;
 
-			uiList[settingsEditIndex].UpdateSession(session, settingsEditIndex);
+			uiList[index].UpdateSession(session, index);
 		}
 	}
 
-	private void SetDuration(int index)
+	public void SetDuration(int durIndex, PlaylistUIEntry entry)
 	{
-		if (settingsEditIndex > -1)
+		int index = uiList.IndexOf(entry);
+		if (index > -1)
 		{
-			var session = playlist[settingsEditIndex];
-			session.durationIndex = index;
-			playlist[settingsEditIndex] = session;
+			var session = playlist[index];
+			session.durationIndex = durIndex;
+			playlist[index] = session;
 
-			uiList[settingsEditIndex].UpdateSession(session, settingsEditIndex);
+			uiList[index].UpdateSession(session, index);
 		}
 	}
 
@@ -81,11 +69,11 @@ public class PlaylistUI : MonoBehaviour
 		if(playlist.Count > 0)
 		{
 			MeditationQueue.SetQueue(playlist);
-			LevelLoader.LoadLevel(playlist[0].level);
+			LevelLoader.LoadLevel(playlist[0].level.name);
 		}
 	}
 
-	public void AddEntry(string level)
+	public void AddEntry(LevelInfo level)
 	{
 		var session = new MeditationQueue.Session(level);
 		playlist.Add(session);
@@ -95,33 +83,11 @@ public class PlaylistUI : MonoBehaviour
 		go.transform.localPosition = Vector3.zero;
 		PlaylistUIEntry entry = go.GetComponent<PlaylistUIEntry>();
 		entry.playlist = this;
-		entry.SetToggleGroup(group);
+		entry.SetColor(newEntryColor);
 		entry.UpdateSession(session, playlist.Count - 1);
 		uiList.Add(entry);
 
 		playButton.interactable = true;
-	}
-
-	public void OnToggleSettings(bool isOn, PlaylistUIEntry entry)
-	{
-		if(!isOn)
-		{
-			settingsEditIndex = -1;
-			settingsPanel.SetActive(false);
-		}
-		else
-		{
-			int idx = uiList.IndexOf(entry);
-			if(idx > -1)
-			{
-				settingsEditIndex = idx;
-				musicToggle.isOn = playlist[idx].playMusic;
-				guidanceToggle.isOn = playlist[idx].playGuidance;
-				durationDropdown.value = playlist[idx].durationIndex;
-				settingsPanel.SetActive(true);
-			}
-		}
-
 	}
 
 	public void RemoveEntry(PlaylistUIEntry entry)
@@ -137,9 +103,6 @@ public class PlaylistUI : MonoBehaviour
 
 		Destroy(uiList[index].gameObject);
 		uiList.RemoveAt(index);
-
-		if (index == settingsEditIndex)
-			OnToggleSettings(false, null);
 
 		if (playlist.Count == 0)
 			playButton.interactable = false;

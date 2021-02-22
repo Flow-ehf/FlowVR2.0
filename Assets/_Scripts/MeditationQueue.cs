@@ -23,7 +23,7 @@ public static class MeditationQueue
 
 	public struct Session
 	{
-		public string level;
+		public LevelInfo level;
 		public bool playMusic;
 		public bool playGuidance;
 		public int durationIndex;
@@ -32,7 +32,7 @@ public static class MeditationQueue
 
 		public string DurationFormatted => DurationFormatted(durationIndex);
 
-		public Session(string level)
+		public Session(LevelInfo level)
 		{
 			this.level = level;
 			this.playMusic = true;

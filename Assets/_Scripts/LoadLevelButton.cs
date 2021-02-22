@@ -22,9 +22,9 @@ public class LoadLevelButton : MonoBehaviour
     }
 
 
-	public void SetTargetLevel(string level)
+	public void SetTargetLevel(LevelInfo level)
 	{
-		this.level = level;
+		this.level = level.name;
 	}
 
 	
