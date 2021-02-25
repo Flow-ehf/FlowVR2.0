@@ -8,14 +8,16 @@ public class PlaylistUI : MonoBehaviour
 	[SerializeField] GameObject playlistEntryPrefab;
 	[SerializeField] Transform playlistContainer;
 	[SerializeField] Button playButton;
+	[SerializeField] Color newEntryColor = Color.gray;
 
 	private List<MeditationQueue.Session> playlist = new List<MeditationQueue.Session>();
 	private List<PlaylistUIEntry> uiList = new List<PlaylistUIEntry>();
-	private Color newEntryColor = Color.gray;
-
+	private VerticalLayoutGroup layout;
 
 	private void Start()
 	{
+		layout = GetComponentInChildren<VerticalLayoutGroup>();
+
 		playButton.interactable = false;
 		playButton.onClick.AddListener(Play);
 	}
@@ -23,6 +25,55 @@ public class PlaylistUI : MonoBehaviour
 	public void SetNewEntryColor(Color color)
 	{
 		newEntryColor = color;
+	}
+
+	public void BeginDrag()
+	{
+		layout.enabled = false;
+	}
+
+	public void EndDrag()
+	{
+		layout.enabled = true;
+	}
+
+	public void SetOrder(int targetIndex, PlaylistUIEntry entry)
+	{
+		int index = uiList.IndexOf(entry);
+		if (index > -1)
+		{
+			var uiTemp = uiList[index];
+			uiList.RemoveAt(index);
+			uiList.Insert(targetIndex, uiTemp);
+
+			var pTemp = playlist[index];
+			playlist.RemoveAt(index);
+			playlist.Insert(targetIndex, pTemp);
+
+			entry.transform.SetSiblingIndex(targetIndex);
+
+			// Update UI
+			int min = Mathf.Min(index, targetIndex);
+			for (int i = min; i < playlist.Count; i++)
+			{
+				uiList[i].UpdateSession(playlist[i], i);
+			}
+		}
+	}
+
+	public int GetEntryDesiredIndex(PlaylistUIEntry entry)
+	{
+		float pos = entry.transform.localPosition.y;
+		int index = 0;
+		for (int i = 0; i < uiList.Count; i++)
+		{
+			if(uiList[i] != entry)
+			{
+				if (uiList[i].transform.localPosition.y > pos)
+					index++;
+			}
+		}
+		return index;
 	}
 
 	public void SetMusic(bool isOn, PlaylistUIEntry entry)
