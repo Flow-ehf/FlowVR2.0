@@ -48,7 +48,7 @@ public class LevelSelectButton : MonoBehaviour
 
 #else
 		//Not dlc, unlock right away
-		if (targetDLC == null || LoginManager.currentUser.IsPremiumUser)
+		if (targetDLC == null || targetDLC.alwaysUnlocked || LoginManager.currentUser.IsPremiumUser)
 			ProductOwned();
 		else
 			StartCoroutine(WaitCheckOwnership());
@@ -134,6 +134,8 @@ public class LevelSelectButton : MonoBehaviour
 				targetButton.SetTargetLevel(null);
 			if (session != null)
 				session.Open(skyboxMat, meditationClip, false);
+			if (playList != null) // Click meditation in playlist panel
+				LevelLoader.LoadLevel("BuyDLC");
 		}
 	}
 

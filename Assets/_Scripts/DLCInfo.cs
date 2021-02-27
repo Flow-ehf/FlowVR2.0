@@ -11,6 +11,7 @@ public class DLCInfo : ScriptableObject
 	public string name;
 	public string steamURL;
 	public string price;
+	public bool alwaysUnlocked = false;
 
 	private static DLCInfo[] dlcs;
 

@@ -37,7 +37,7 @@ public static class MeditationQueue
 			this.level = level;
 			this.playMusic = true;
 			this.playGuidance = true;
-			this.durationIndex = availableSessionDurations.Length - 1;
+			this.durationIndex = 0;
 		}
 	}
 
