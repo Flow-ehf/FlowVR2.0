@@ -24,7 +24,7 @@ public class LoadLevelButton : MonoBehaviour
 
 	public void SetTargetLevel(LevelInfo level)
 	{
-		this.level = level.name;
+		this.level = (level != null) ? level.name : "";
 	}
 
 	
