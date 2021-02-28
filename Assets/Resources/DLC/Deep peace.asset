@@ -18,3 +18,4 @@ MonoBehaviour:
   name: Deep peace
   steamURL: https://store.steampowered.com/app/1478095/Flow__Deep_peace/?curator_clanid=39024544
   price: 1.99
+  alwaysUnlocked: 1

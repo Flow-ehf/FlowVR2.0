@@ -18,3 +18,4 @@ MonoBehaviour:
   name: Find determination
   steamURL: https://store.steampowered.com/app/1478092/Flow__Find_determination/?curator_clanid=39024544
   price: 1.99
+  alwaysUnlocked: 1

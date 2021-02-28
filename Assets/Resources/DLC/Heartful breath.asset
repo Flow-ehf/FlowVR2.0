@@ -18,3 +18,4 @@ MonoBehaviour:
   name: Heartful breath
   steamURL: https://store.steampowered.com/app/1478090/Flow__Heartful_breath/?curator_clanid=39024544
   price: 1.99
+  alwaysUnlocked: 1
