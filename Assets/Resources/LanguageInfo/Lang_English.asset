@@ -49,7 +49,7 @@ MonoBehaviour:
   - tag: letgo1
     str: Throw away what no longer serves you
   - tag: letgo3
-    str: In production
+    str: Dance, release and scream
   - tag: calm2
     str: Calm for clarity
   - tag: calm1
@@ -107,7 +107,7 @@ MonoBehaviour:
     str: 'Letting go of stress and tension creates space within you for more of what
       you desire.\nRecommended: Standing.'
   - tag: letgo3_desc
-    str: letgo3_desc
+    str: Let go of tension and stress by screaming in a safe way
   - tag: calm2_desc
     str: 'Calm your body and mind and prepare yourself to find accurate solutions
       to your challenges.\nRecommended: Sitting.'
@@ -159,7 +159,7 @@ MonoBehaviour:
   - tag: letgo_2_location
     str: "G\xFDgjarfoss"
   - tag: letgo_3_location
-    str: location
+    str: Geldingadalir
   - tag: calm_1_location
     str: "H\xEDtardalur"
   - tag: calm_2_location

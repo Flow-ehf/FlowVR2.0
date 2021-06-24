@@ -48,6 +48,9 @@ EditorBuildSettings:
     path: Assets/_Scenes/LetGo2.unity
     guid: 9deb56faf91da79459475b5e54038940
   - enabled: 0
+    path: Assets/_Scenes/LetGo3.unity
+    guid: 1f056aad393eeec48b1c1cf2b1e8e7c0
+  - enabled: 0
     path: Assets/_Scenes/Move1.unity
     guid: a2cfdf9343ddba04abe55d25a47a0d2c
   - enabled: 0

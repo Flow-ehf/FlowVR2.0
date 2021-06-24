@@ -49,7 +49,7 @@ MonoBehaviour:
   - tag: letgo1
     str: "Hentu \xFEv\xED sem \xFE\xFA \xFEarfnast ekki lengur"
   - tag: letgo3
-    str: "\xCD framlei\xF0slu"
+    str: "Dansa, sleppa takinu og \xF6skra"
   - tag: calm2
     str: "Hugarr\xF3 fyrir sk\xFDrleika og skilning"
   - tag: calm1
@@ -105,7 +105,8 @@ MonoBehaviour:
     str: "Slepptu takinu af spennu og streitu og l\xE6r\xF0u a\xF0 fara d\xFDpra inn
       \xE1 vi\xF0.\\n\\nM\xE6lt me\xF0: Sitjandi."
   - tag: letgo3_desc
-    str: "Sleppa3 l\xFDsing"
+    str: "Slepptu takinu af streitu \xE1 j\xE1kv\xE6\xF0an h\xE1tt, me\xF0 \xFEv\xED
+      a\xF0 \xF6skra"
   - tag: calm2_desc
     str: "R\xF3a\xF0u hugann til a\xF0 \xF6\xF0last sk\xFDrleika og skilning.\\n\\nM\xE6lt
       me\xF0: Sitjandi."
@@ -163,7 +164,7 @@ MonoBehaviour:
   - tag: letgo_2_location
     str: "G\xFDgjafoss"
   - tag: letgo_3_location
-    str: location
+    str: Geldingadalir
   - tag: calm_1_location
     str: "H\xEDtardalur"
   - tag: calm_2_location

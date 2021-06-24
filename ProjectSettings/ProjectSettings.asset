@@ -122,7 +122,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 2.0.3
+  bundleVersion: 2.0.4
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -164,7 +164,7 @@ PlayerSettings:
     Standalone: com.flowmeditation.flowvr
   buildNumber:
     Standalone: 2.0.3
-  AndroidBundleVersionCode: 125
+  AndroidBundleVersionCode: 126
   AndroidMinSdkVersion: 21
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 0
@@ -659,7 +659,7 @@ PlayerSettings:
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
   scriptingDefineSymbols:
-    1: VR_INPUT_OCULUS;STEAM_STORE
+    1: VR_INPUT_OCULUS;OCULUS_STORE
     7: VR_INPUT_OCULUS
   platformArchitecture: {}
   scriptingBackend:
