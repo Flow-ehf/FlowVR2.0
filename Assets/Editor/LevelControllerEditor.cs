@@ -10,7 +10,6 @@ public class LevelControllerEditor : Editor
 	SerializedProperty timerText;
 	SerializedProperty pauseButton;
 	SerializedProperty pausePanel;
-	SerializedProperty previewPanel;
 	SerializedProperty resumeButton;
 	SerializedProperty muteMusicButton;
 	SerializedProperty muteGuidanceButton;
@@ -24,7 +23,6 @@ public class LevelControllerEditor : Editor
 		timerText = serializedObject.FindProperty(nameof(timerText));
 		pauseButton = serializedObject.FindProperty(nameof(pauseButton));
 		pausePanel = serializedObject.FindProperty(nameof(pausePanel));
-		previewPanel = serializedObject.FindProperty(nameof(previewPanel));
 		resumeButton = serializedObject.FindProperty(nameof(resumeButton));
 		muteMusicButton = serializedObject.FindProperty(nameof(muteMusicButton));
 		muteGuidanceButton = serializedObject.FindProperty(nameof(muteGuidanceButton));
@@ -42,7 +40,6 @@ public class LevelControllerEditor : Editor
 		EditorGUILayout.PropertyField(timerText);
 		EditorGUILayout.PropertyField(pauseButton);
 		EditorGUILayout.PropertyField(pausePanel);
-		EditorGUILayout.PropertyField(previewPanel);
 		EditorGUILayout.PropertyField(resumeButton);
 		EditorGUILayout.PropertyField(muteMusicButton);
 		EditorGUILayout.PropertyField(muteGuidanceButton);
