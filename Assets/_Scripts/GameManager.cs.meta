@@ -3,7 +3,22 @@ guid: a89463db0ec8a8342acd4e353c4aa862
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - MusicToggle: {instanceID: 0}
+  - GuidanceToggle: {instanceID: 0}
+  - TimeDropDown: {instanceID: 0}
+  - LanguageDropDown: {instanceID: 0}
+  - LogOutButton: {instanceID: 0}
+  - ResumeButton: {instanceID: 0}
+  - PlayButton: {instanceID: 0}
+  - ToMenuButton: {instanceID: 0}
+  - PauseMenu: {instanceID: 0}
+  - Video: {instanceID: 0}
+  - Music: {instanceID: 0}
+  - GuidanceIce: {instanceID: 0}
+  - GuidanceEng: {instanceID: 0}
+  - AmbianceIce: {instanceID: 0}
+  - AmbianceEng: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
