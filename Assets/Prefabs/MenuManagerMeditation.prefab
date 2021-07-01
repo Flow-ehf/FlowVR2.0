@@ -1621,9 +1621,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5442404212866014837, guid: f4aa3ae28c8200f4ca808bca834c0b24,
         type: 3}
+      propertyPath: m_VertexStreams.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5442404212866014837, guid: f4aa3ae28c8200f4ca808bca834c0b24,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ad69bb8c6a4faad4baa524933c5b8fec, type: 2}
+    - target: {fileID: 5442404212866014837, guid: f4aa3ae28c8200f4ca808bca834c0b24,
+        type: 3}
+      propertyPath: m_UseCustomVertexStreams
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5442404212866014837, guid: f4aa3ae28c8200f4ca808bca834c0b24,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.data[1]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5442404212866014837, guid: f4aa3ae28c8200f4ca808bca834c0b24,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.data[2]
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6130024541963968788, guid: f4aa3ae28c8200f4ca808bca834c0b24,
         type: 3}
       propertyPath: m_Name

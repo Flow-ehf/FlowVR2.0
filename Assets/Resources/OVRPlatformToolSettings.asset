@@ -83,7 +83,14 @@ MonoBehaviour:
   assetConfigs:
   - configList: []
   - configList: []
-  - configList: []
+  - configList:
+    - name: pone.123.com.flowmeditation.flowvr.obb
+      required: 0
+      type: 0
+      sku: 
+    - name: ptwo.123.com.flowmeditation.flowvr.obb
+      required: 0
+      type: 0
+      sku: 
   targetPlatform: 2
-  runOvrLint: 1
-  skipUnneededShaders: 0
+  runOvrLint: 0

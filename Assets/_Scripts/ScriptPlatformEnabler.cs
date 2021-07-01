@@ -17,9 +17,6 @@ public class ScriptPlatformEnabler : MonoBehaviour
 		{
 			switch (PlatformInfo.platform)
 			{
-				case Platform.GO:
-					script.enabled = goEnabled;
-					break;
 				case Platform.Quest:
 					script.enabled = questEnabled;
 					break;

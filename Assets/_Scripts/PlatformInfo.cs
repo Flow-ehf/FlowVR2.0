@@ -6,7 +6,6 @@ using UnityEngine.XR;
 public enum Platform
 {
 	Quest,
-	GO,
 	Rift,
 }
 
@@ -17,9 +16,6 @@ public static class PlatformInfo
 #if UNITY_STANDALONE
 		platform = Platform.Rift;
 #else
-		if (OVRPlugin.GetSystemHeadsetType() == OVRPlugin.SystemHeadset.Oculus_Go)
-			platform = Platform.GO;
-		else
 			platform = Platform.Quest;
 #endif
 	}
