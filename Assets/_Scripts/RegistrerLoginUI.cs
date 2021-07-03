@@ -9,6 +9,7 @@ public class RegistrerLoginUI : MonoBehaviour, ILoginDetails
 {
 	const int MinPasswordLength = 1;
 
+	[SerializeField] LoginManager.LoginMethod registerMethod = LoginManager.LoginMethod.Email;
 	[SerializeField] InputField firsNameText;
 	[SerializeField] InputField lastNameText;
 	[SerializeField] InputField emailInput;
@@ -17,7 +18,7 @@ public class RegistrerLoginUI : MonoBehaviour, ILoginDetails
 	[SerializeField] Text registrationFailedText;
 	[SerializeField] UnityEngine.Events.UnityEvent RegistrationSuccess;
 
-	ICanRegistrer registrer;
+	IRegisterHandler registrer;
 	Coroutine fadeTextCoroutine;
 	Button registrerButton;
 
@@ -29,8 +30,7 @@ public class RegistrerLoginUI : MonoBehaviour, ILoginDetails
 	// Start is called before the first frame update
 	void Start()
     {
-		registrer = LoginManager.GetLogin(LoginManager.LoginMethod.Email) as ICanRegistrer;
-		registrer.RegistrationComplete += OnRegistrationComplete;
+		registrer = LoginManager.GetLogin(registerMethod) as IRegisterHandler;
 
 		registrerButton = GetComponent<Button>();
 
@@ -68,7 +68,9 @@ public class RegistrerLoginUI : MonoBehaviour, ILoginDetails
 	void Registrer()
 	{
 		if (IsEmailInputValid() && IsPasswordInputValid())
-			registrer.Registrer(this);
+		{
+			registrer.Registrer(this, OnRegistrationComplete);
+		}
 	}
 
 

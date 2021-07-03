@@ -1,0 +1,93 @@
+{
+  "project_info": {
+    "project_number": "584874114607",
+    "firebase_url": "https://flow-fbb35-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "flow-fbb35",
+    "storage_bucket": "flow-fbb35.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:584874114607:android:ab8167db8a6e7b865e10da",
+        "android_client_info": {
+          "package_name": "is.flowapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "584874114607-8o6l3gub0jppng5m89769q5el6buvkhh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "is.flowapp",
+            "certificate_hash": "247aca00025079511ad13d3968e9786668e9306f"
+          }
+        },
+        {
+          "client_id": "584874114607-lo23fv2m5eqehu9h1m39kdhhraog50us.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApRkh4pJtwyQJ3GFotFyfLpQ24WFIxxV0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "584874114607-lo23fv2m5eqehu9h1m39kdhhraog50us.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "584874114607-ubjotj41dcjeoirs7p114bm63gng592b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "is.flowapp",
+                "app_store_id": "1496054096"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:584874114607:android:660aef1d325e3b645e10da",
+        "android_client_info": {
+          "package_name": "is.flowvr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "584874114607-lo23fv2m5eqehu9h1m39kdhhraog50us.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApRkh4pJtwyQJ3GFotFyfLpQ24WFIxxV0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "584874114607-lo23fv2m5eqehu9h1m39kdhhraog50us.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "584874114607-ubjotj41dcjeoirs7p114bm63gng592b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "is.flowapp",
+                "app_store_id": "1496054096"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

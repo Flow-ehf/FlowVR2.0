@@ -29,6 +29,7 @@ public class LoginManager : MonoBehaviour
 //	static FBLogin fbLogin = new FBLogin();
 //	static GoogleLogin googleLogin = new GoogleLogin();
 	static EmailLogin emailLogin = new EmailLogin();
+	static FirebaseLogin firebaseLogin = new FirebaseLogin();
 
 	static LoginBase currentLogin;
 	static bool isStartUp = true;
@@ -44,6 +45,7 @@ public class LoginManager : MonoBehaviour
 	{
 //		FB,
 //		Google,
+		Firebase,
 		Email, 
 		Guest,
 	}
@@ -62,6 +64,7 @@ public class LoginManager : MonoBehaviour
 	{
 		//		fbLogin.Initialize();
 		//		googleLogin.Initialize();
+		firebaseLogin.Initialize();
 
 		if (isStartUp)
 		{
@@ -103,6 +106,8 @@ public class LoginManager : MonoBehaviour
 //				return googleLogin;
 			case LoginMethod.Email:
 				return emailLogin;
+			case LoginMethod.Firebase:
+				return firebaseLogin;
 		}
 	}
 
@@ -256,64 +261,64 @@ public class LoginManager : MonoBehaviour
 		}
 	}
 
-//	class GoogleLogin : LoginBase
-//	{
-//		const string webClientId = "";
+	//	class GoogleLogin : LoginBase
+	//	{
+	//		const string webClientId = "";
 
-//		public override bool IsInitialized => isInitialized;
+	//		public override bool IsInitialized => isInitialized;
 
-//		public override bool IsLoggedIn => loggedInUser != null;
+	//		public override bool IsLoggedIn => loggedInUser != null;
 
-//		public override string PlatformName => "Google";
+	//		public override string PlatformName => "Google";
 
-//		public override string LoggedInEmail => loggedInUser?.Email ?? "";
+	//		public override string LoggedInEmail => loggedInUser?.Email ?? "";
 
-//		bool isInitialized;
-////		GoogleSignInConfiguration configuration;
-////		GoogleSignInUser loggedInUser;
+	//		bool isInitialized;
+	////		GoogleSignInConfiguration configuration;
+	////		GoogleSignInUser loggedInUser;
 
-//		public override void Initialize()
-//		{
-//			configuration = new GoogleSignInConfiguration
-//			{
-//				WebClientId = webClientId,
-//				RequestIdToken = true,
-				
-//			};
-//			isInitialized = true;
-//			OnInitialized();
-//		}
+	//		public override void Initialize()
+	//		{
+	//			configuration = new GoogleSignInConfiguration
+	//			{
+	//				WebClientId = webClientId,
+	//				RequestIdToken = true,
 
-
-//		protected override void DoLogin()
-//		{
-//			GoogleSignIn.Configuration = configuration;
-//			GoogleSignIn.Configuration.UseGameSignIn = false;
-//			GoogleSignIn.Configuration.RequestIdToken = true;
-
-//			GoogleSignIn.DefaultInstance.SignIn().ContinueWith(OnLogin);
-//		}
+	//			};
+	//			isInitialized = true;
+	//			OnInitialized();
+	//		}
 
 
-//		protected override void DoLogout()
-//		{
-//			loggedInUser = null;
-//			GoogleSignIn.DefaultInstance.SignOut();
-//			OnLoggedOut();
-//		}
+	//		protected override void DoLogin()
+	//		{
+	//			GoogleSignIn.Configuration = configuration;
+	//			GoogleSignIn.Configuration.UseGameSignIn = false;
+	//			GoogleSignIn.Configuration.RequestIdToken = true;
+
+	//			GoogleSignIn.DefaultInstance.SignIn().ContinueWith(OnLogin);
+	//		}
 
 
-//		//void OnLogin(Task<GoogleSignInUser> result)
-//		//{
-//		//	if (result.IsFaulted || result.IsCanceled)
-//		//		OnlogginFailed();
-//		//	else
-//		//	{
-//		//		loggedInUser = result.Result;
-//		//		OnLoggedIn(this);
-//		//	}
-//		//}
-//	}
+	//		protected override void DoLogout()
+	//		{
+	//			loggedInUser = null;
+	//			GoogleSignIn.DefaultInstance.SignOut();
+	//			OnLoggedOut();
+	//		}
+
+
+	//		//void OnLogin(Task<GoogleSignInUser> result)
+	//		//{
+	//		//	if (result.IsFaulted || result.IsCanceled)
+	//		//		OnlogginFailed();
+	//		//	else
+	//		//	{
+	//		//		loggedInUser = result.Result;
+	//		//		OnLoggedIn(this);
+	//		//	}
+	//		//}
+	//	}
 
 	//class FBLogin : LoginBase
 	//{
@@ -358,41 +363,86 @@ public class LoginManager : MonoBehaviour
 	//	}
 
 
-		//void OnFBLogin(ILoginResult result)
-		//{
-		//	if (IsLoggedIn)
-		//	{
-		//		Debug.Log(result.AccessToken.UserId);
-		//		foreach (var res in result.ResultDictionary)
-		//		{
-		//			Debug.Log(res.Key + " " + res.Value);
-		//		}
-		//		loggedInEmail = "";
-		//		OnLoggedIn(this);
-		//	}
-		//	else
-		//		OnlogginFailed();
-		//}
+	//void OnFBLogin(ILoginResult result)
+	//{
+	//	if (IsLoggedIn)
+	//	{
+	//		Debug.Log(result.AccessToken.UserId);
+	//		foreach (var res in result.ResultDictionary)
+	//		{
+	//			Debug.Log(res.Key + " " + res.Value);
+	//		}
+	//		loggedInEmail = "";
+	//		OnLoggedIn(this);
+	//	}
+	//	else
+	//		OnlogginFailed();
+	//}
 
 
 	//	protected override void DoLogout()
 	//	{
-		//	FB.LogOut();
+	//	FB.LogOut();
 	//		OnLoggedOut();
 	//	}
 	//}
 
-	class EmailLogin : LoginBase, ICanRegistrer
+	class FirebaseLogin : LoginBase, IRegisterHandler
+	{
+		public override bool IsInitialized => FirebaseBackend.IsInitialized;
+
+		public override bool IsLoggedIn => currentUser != null;
+
+		public override string PlatformName => "Email";
+
+		public override string LoggedInEmail => currentUser?.email ?? "";
+
+		public override void Initialize()
+		{
+			FirebaseBackend.Initialize();
+		}
+
+		public void Registrer(ILoginDetails details, Action<bool> onRegistered)
+		{
+			FirebaseBackend.RegisterAccount(details.Username, details.Password, (user) =>
+			{
+				onRegistered?.Invoke(user != null);
+
+				if (user != null)
+				{
+					currentUser = user;
+				}
+				OnLoggedIn(this);
+			});
+		}
+
+		protected override void DoLogin()
+		{
+			FirebaseBackend.AuthenticateAccount(LoginDetails.Username, LoginDetails.Password, (user) =>
+			{
+				if (user != null)
+				{
+					currentUser = user;
+				}
+				OnLoggedIn(this);
+			});
+		}
+
+		protected override void DoLogout(bool removeFromCache)
+		{
+			FirebaseBackend.Logout();
+			OnLoggedOut(removeFromCache);
+		}
+	}
+
+	class EmailLogin : LoginBase, IRegisterHandler
 	{
 		public override bool IsInitialized => true;
 		public override bool IsLoggedIn => currentUser != null;
 
 		public override string PlatformName => "Email";
 
-		string email;
-		public override string LoggedInEmail => email;
-
-		public event Action<bool> RegistrationComplete;
+		public override string LoggedInEmail => currentUser?.email ?? "";
 
 		public override void Initialize()
 		{
@@ -409,7 +459,6 @@ public class LoginManager : MonoBehaviour
 					Debug.Log(user);
 					if (user != null)
 					{
-						email = user.email;
 						currentUser = user;
 					}
 					OnLoggedIn(this);
@@ -426,11 +475,11 @@ public class LoginManager : MonoBehaviour
 		}
 
 
-		public void Registrer(ILoginDetails details)
+		public void Registrer(ILoginDetails details, Action<bool> onRegistered)
 		{
 			AccountBackend.RegistrerEmail(details.Username, details.Password, (u) =>
 			{
-				RegistrationComplete?.Invoke(u != null);
+				onRegistered?.Invoke(u != null);
 			});
 		}
 	}
@@ -444,8 +493,7 @@ public interface ILoginDetails
 	string LastName { get; }
 }
 
-public interface ICanRegistrer
+public interface IRegisterHandler
 {
-	event Action<bool> RegistrationComplete;
-	void Registrer(ILoginDetails details);
+	void Registrer(ILoginDetails details, Action<bool> onRegistered);
 }
