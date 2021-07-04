@@ -21,4 +21,16 @@ public class DLCInfo : ScriptableObject
 			dlcs = Resources.LoadAll<DLCInfo>("DLC");
 		return dlcs;
 	}
+
+	public static DLCInfo FindSKu(string sku)
+	{
+		return dlcs.Find((d) => d.sku == sku);
+	}
+
+#if STEAM_STORE
+	public static DLCInfo FindSteamAPPId(Steamworks.AppId appid)
+	{
+		return dlcs.Find((d) => d.steamAppid == appid.Value);
+	}
+#endif
 }

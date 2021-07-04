@@ -102,7 +102,8 @@ public class BuyDLC_UI : MonoBehaviour
 			{			
 				if(SteamApps.IsDlcInstalled(purchased.AppId))
 				{
-					UpdatePurchase(buttons[purchased.AppId.Value.ToString()]);
+					DLCInfo dlc = DLCInfo.FindSteamAPPId(purchased.AppId);
+					UpdatePurchase(dlc);
 				}
 			}
 		}
@@ -198,7 +199,7 @@ public class BuyDLC_UI : MonoBehaviour
 		{
 			foreach (var dlc in result.GetPurchaseList())
 			{
-				UpdatePurchase(buttons[dlc.Sku]);
+				UpdatePurchase(DLCInfo.FindSKu(dlc.Sku));
 			}
 		}
 	}
@@ -230,16 +231,23 @@ public class BuyDLC_UI : MonoBehaviour
 		else
 		{
 			var purchase = result.GetPurchase();
-			UpdatePurchase(buyTarget);
+			DLCInfo dlc = DLCInfo.FindSKu(purchase.Sku);
+			UpdatePurchase(dlc);
 			Debug.Log("Successfully purchased dlc: " + purchase.Sku);
 		}
 	}
 
 
-	void UpdatePurchase(DLCButton button)
+	void UpdatePurchase(DLCInfo info)
 	{
-		button.buyButton.interactable = false;
-		button.priceText?.UpdateText("<owned>");
+		if (info == null)
+			Debug.LogError("Tried update null DLC");
+		else
+		{
+			DLCButton button = buttons[info.sku];
+			button.buyButton.interactable = false;
+			button.priceText?.UpdateText("<owned>");
+		}
 	}
 
 	[ContextMenu("Add test data")]
