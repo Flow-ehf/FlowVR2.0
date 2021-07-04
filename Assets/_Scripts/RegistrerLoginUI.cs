@@ -20,7 +20,7 @@ public class RegistrerLoginUI : MonoBehaviour, ILoginDetails
 
 	IRegisterHandler registrer;
 	Coroutine fadeTextCoroutine;
-	Button registrerButton;
+	Button registerButton;
 
 	public string Username => emailInput.text;
 	public string Password => password1Input.text;
@@ -32,7 +32,8 @@ public class RegistrerLoginUI : MonoBehaviour, ILoginDetails
     {
 		registrer = LoginManager.GetLogin(registerMethod) as IRegisterHandler;
 
-		registrerButton = GetComponent<Button>();
+		registerButton = GetComponent<Button>();
+		registerButton.onClick.AddListener(Registrer);
 
 		if (registrationFailedText != null)
 			registrationFailedText.text = "";
@@ -61,7 +62,7 @@ public class RegistrerLoginUI : MonoBehaviour, ILoginDetails
     // Update is called once per frame
     void Update()
     {
-		registrerButton.interactable = !LoginManager.IsLoggedIn && !LoginManager.IsLoggingIn && IsPasswordInputValid() && IsEmailInputValid() && IsNameInputValid();
+		registerButton.interactable = !LoginManager.IsLoggedIn && !LoginManager.IsLoggingIn && IsPasswordInputValid() && IsEmailInputValid() && IsNameInputValid();
 	}
 
 

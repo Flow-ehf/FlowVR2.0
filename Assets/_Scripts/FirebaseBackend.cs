@@ -40,31 +40,32 @@ public static class FirebaseBackend
 
 	private static void Auth_StateChanged(object sender, System.EventArgs e)
 	{
-		throw new System.NotImplementedException();
+		
 	}
 
-	public static void AuthenticateAccount(string email, string password, Action<AccountBackend.User> onCompleted)
+	public static async void AuthenticateAccount(string email, string password, Action<AccountBackend.User> onCompleted)
 	{
 		if (auth != null)
 		{
-			auth.SignInWithEmailAndPasswordAsync(email, password).ContinueWith((task) =>
-			{
-				AccountBackend.User user = null;
+			Task<FirebaseUser> task = auth.SignInWithEmailAndPasswordAsync(email, password);
 
-				if (task.IsCanceled)
-					Debug.LogError($"Firebase login canceled");
-				else if (task.IsFaulted)
-					Debug.LogException(task.Exception);
-				else
-				{
-					FirebaseUser fUser = task.Result;
-					user = new AccountBackend.User();
-					user.email = fUser.Email;
-					user.displayName = fUser.DisplayName;
-					user.uid = fUser.UserId;
-				}
-				onCompleted?.Invoke(user);
-			});
+			await task;
+
+			AccountBackend.User user = null;
+
+			if (task.IsCanceled)
+				Debug.LogError($"Firebase login canceled");
+			else if (task.IsFaulted)
+				Debug.LogException(task.Exception);
+			else
+			{
+				FirebaseUser fUser = task.Result;
+				user = new AccountBackend.User();
+				user.email = fUser.Email;
+				user.displayName = fUser.DisplayName;
+				user.uid = fUser.UserId;
+			}
+			onCompleted?.Invoke(user);
 		}
 	}
 
@@ -76,28 +77,31 @@ public static class FirebaseBackend
 		}
 	}
 
-	public static void RegisterAccount(string email, string password, Action<AccountBackend.User> onCompleted)
+	public static async void RegisterAccount(string email, string password, Action<AccountBackend.User> onCompleted)
 	{
 		if (auth != null)
 		{
-			auth.CreateUserWithEmailAndPasswordAsync(email, password).ContinueWith((task) =>
-			{
-				AccountBackend.User user = null;
+			Task<FirebaseUser> task = auth.CreateUserWithEmailAndPasswordAsync(email, password);
+			
+			await task;
 
-				if (task.IsCanceled)
-					Debug.LogError($"Firebase login canceled");
-				else if (task.IsFaulted)
-					Debug.LogException(task.Exception);
-				else
-				{
-					FirebaseUser fUser = task.Result;
-					user = new AccountBackend.User();
-					user.email = fUser.Email;
-					user.displayName = fUser.DisplayName;
-					user.uid = fUser.UserId;
-				}
-				onCompleted?.Invoke(user);
-			});
+			AccountBackend.User user = null;
+
+			if (task.IsCanceled)
+				Debug.LogError($"Firebase login canceled");
+			else if (task.IsFaulted)
+				Debug.LogException(task.Exception);
+			else
+			{
+				FirebaseUser fUser = task.Result;
+				user = new AccountBackend.User();
+				user.email = fUser.Email;
+				user.displayName = fUser.DisplayName;
+				user.uid = fUser.UserId;
+
+				Debug.Log("Registered user: " + user.uid);
+			}
+			onCompleted?.Invoke(user);
 		}
 	}
 }

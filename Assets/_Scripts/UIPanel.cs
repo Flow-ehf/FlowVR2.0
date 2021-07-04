@@ -198,4 +198,10 @@ public class UIPanel : MonoBehaviour, IUIConditional
 			}
 		}
 	}
+
+	[ContextMenu("SetActive")]
+	void EditorSetActive()
+	{
+		SetActive(true);
+	}
 }

@@ -20,6 +20,8 @@ public class LoginManager : MonoBehaviour
 	public UnityEvent LoggedIn;
 	public UnityEvent LoggedOut;
 
+	public bool useLastLogin = false;
+
 	static LoginManager instance;
 	//Any platform currently logged in
 	public static bool IsLoggedIn => currentUser != null;
@@ -68,18 +70,23 @@ public class LoginManager : MonoBehaviour
 
 		if (isStartUp)
 		{
-			currentUser = AccountCache.GetLastLogin();
-
-			//User logged in previously
-			if (currentUser != null)
+			if (useLastLogin)
 			{
-				Debug.Log("Found cached login: " + currentUser);
+				currentUser = AccountCache.GetLastLogin();
 
-				//Previously logged in to company account, show account selection
-				//if (currentUser.isCompany && AccountCache.Count > 0)
-				//	LevelLoader.LoadLevel("CompanyAccountSelection", false);
-				//else
-				//	LevelLoader.LoadLevel("MainMenu", false);
+				//User logged in previously
+				if (currentUser != null)
+				{
+					Debug.Log("Found cached login: " + currentUser);
+
+					OnFetchedUserData();
+
+					//Previously logged in to company account, show account selection
+					//if (currentUser.isCompany && AccountCache.Count > 0)
+					//	LevelLoader.LoadLevel("CompanyAccountSelection", false);
+					//else
+					//	LevelLoader.LoadLevel("MainMenu", false);
+				}
 			}
 			isStartUp = false;
 		}
@@ -407,12 +414,6 @@ public class LoginManager : MonoBehaviour
 			FirebaseBackend.RegisterAccount(details.Username, details.Password, (user) =>
 			{
 				onRegistered?.Invoke(user != null);
-
-				if (user != null)
-				{
-					currentUser = user;
-				}
-				OnLoggedIn(this);
 			});
 		}
 
