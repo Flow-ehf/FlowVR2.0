@@ -18,4 +18,4 @@ MonoBehaviour:
   name: Open up for positive energy
   steamURL: https://store.steampowered.com/app/1478091/Flow__Open_up_for_positive_energy/?curator_clanid=39024544
   price: 1.99
-  alwaysUnlocked: 1
+  alwaysUnlocked: 0

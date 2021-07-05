@@ -175,7 +175,7 @@ PlayerSettings:
     Standalone: com.flowmeditation.flowvr
   buildNumber:
     Standalone: 2.0.3
-  AndroidBundleVersionCode: 130
+  AndroidBundleVersionCode: 131
   AndroidMinSdkVersion: 23
   AndroidTargetSdkVersion: 30
   AndroidPreferredInstallLocation: 0

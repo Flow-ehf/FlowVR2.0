@@ -18,4 +18,4 @@ MonoBehaviour:
   name: Dance, release and scream
   steamURL: https://store.steampowered.com/app/1678120/Flow__Dance_release_and_scream/?curator_clanid=39024544
   price: 1.99
-  alwaysUnlocked: 1
+  alwaysUnlocked: 0
