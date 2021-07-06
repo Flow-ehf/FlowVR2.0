@@ -62,7 +62,7 @@ public class RegistrerLoginUI : MonoBehaviour, ILoginDetails
     // Update is called once per frame
     void Update()
     {
-		registerButton.interactable = !LoginManager.IsLoggedIn && !LoginManager.IsLoggingIn && IsPasswordInputValid() && IsEmailInputValid() && IsNameInputValid();
+		registerButton.interactable = !LoginManager.IsLoggedIn && !LoginManager.IsLoggingIn && IsPasswordInputValid() && IsEmailInputValid();// && IsNameInputValid();
 	}
 
 
