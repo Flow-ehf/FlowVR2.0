@@ -42,6 +42,12 @@ public class NetworkTest : MonoBehaviour
 		AccountBackend.RegistrerEmail("a@abc.com", "password123", (user) => Debug.Log(user));
 	}
 
+	[ContextMenu("FBTest auth")]
+	void FBTest1()
+	{
+		FirebaseBackend.AuthenticateAccount("test@example.com", "password1234", (user) => Debug.Log(user));
+	}
+
 
 	IEnumerator PerformTest()
 	{
