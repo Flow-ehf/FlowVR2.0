@@ -62,7 +62,7 @@ public class RegistrerLoginUI : MonoBehaviour, ILoginDetails
     // Update is called once per frame
     void Update()
     {
-		registerButton.interactable = !LoginManager.IsLoggedIn && !LoginManager.IsLoggingIn && IsPasswordInputValid() && IsEmailInputValid();// && IsNameInputValid();
+		registerButton.interactable = !LoginManager.IsLoggedIn && !LoginManager.IsLoggingIn && IsPasswordInputValid() && IsEmailInputValid() && IsNameInputValid();
 	}
 
 
@@ -131,8 +131,10 @@ public class RegistrerLoginUI : MonoBehaviour, ILoginDetails
 
 	bool IsNameInputValid()
 	{
-		if (firsNameText == null || lastNameText == null)
-			return true;
-		return firsNameText.text.Length > 0 && lastNameText.text.Length > 0;
+		if (firsNameText != null && firsNameText.isActiveAndEnabled && firsNameText.text.Length == 0)
+			return false;
+		if (lastNameText != null && lastNameText.isActiveAndEnabled && lastNameText.text.Length == 0)
+			return false;
+		return true;
 	}
 }

@@ -188,15 +188,15 @@ public class LoginManager : MonoBehaviour
 		LoginManager.StartAtLogin = true;
 
 		//Return to login screen when logging out
-	//	if(wasCompanyAccount)
-	//	{
-	//		LevelLoader.LoadLevel("CompanyAccountSelection");
-	//	}
-	//	else
-	//	{
-	//		if (LevelLoader.Level != "LoginMenu" && LevelLoader.Level != "CompanyAccountSelection")
-	//			LevelLoader.LoadLevel("LoginMenu");
-	//	}
+		//	if(wasCompanyAccount)
+		//	{
+		//		LevelLoader.LoadLevel("CompanyAccountSelection");
+		//	}
+		//	else
+		//	{
+		if (LevelLoader.Level != "LoginMenu" && LevelLoader.Level != "CompanyAccountSelection")
+			LevelLoader.LoadLevel("LoginMenu");
+		//	}
 	}
 
 
@@ -411,7 +411,7 @@ public class LoginManager : MonoBehaviour
 
 		public void Registrer(ILoginDetails details, Action<bool> onRegistered)
 		{
-			FirebaseBackend.RegisterAccount(details.Username, details.Password, (user) =>
+			FirebaseBackend.RegisterAccount(details.Username, details.Password, details.FirstName, (user) =>
 			{
 				onRegistered?.Invoke(user != null);
 			});

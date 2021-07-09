@@ -47,6 +47,19 @@ public static class FirebaseBackend
 		
 	}
 
+	private static async Task<bool> SafeTask(Task task, [CallerMemberName] string name = null)
+	{
+		await task;
+
+		if (task.IsCanceled)
+			Debug.LogError($"Firebase " + name + " canceled");
+		else if (task.IsFaulted)
+			Debug.LogException(task.Exception);
+		else
+			return true;
+		return false;
+	}
+
 	private static async Task<T> SafeTask<T>(Task<T> task, [CallerMemberName] string name = null) where T : class
 	{
 		await task;
@@ -98,9 +111,11 @@ public static class FirebaseBackend
 
 		string emailDomain = user.email.Substring(user.email.IndexOf('@'));
 
+#if CORPORATE_ACCOUNT_UNLOCKED
 		DataSnapshot corpData = await SafeTask(db.GetReference("corporate-contracts").OrderByChild("email").EqualTo(emailDomain).GetValueAsync());
 
 		user.isCompany = corpData != null && corpData.Exists;
+#endif
 	}
 
 	public static void Logout()
@@ -111,31 +126,54 @@ public static class FirebaseBackend
 		}
 	}
 
-	public static async void RegisterAccount(string email, string password, Action<AccountBackend.User> onCompleted)
+	public static async void RegisterAccount(string email, string password, string firstName, Action<AccountBackend.User> onCompleted)
 	{
 		if (auth != null)
 		{
-			Task<FirebaseUser> task = auth.CreateUserWithEmailAndPasswordAsync(email, password);
+			FirebaseUser fUser = await SafeTask(auth.CreateUserWithEmailAndPasswordAsync(email, password));
 			
-			await task;
-
-			AccountBackend.User user = null;
-
-			if (task.IsCanceled)
-				Debug.LogError($"Firebase login canceled");
-			else if (task.IsFaulted)
-				Debug.LogException(task.Exception);
-			else
+			if (fUser == null)
 			{
-				FirebaseUser fUser = task.Result;
-				user = new AccountBackend.User();
-				user.email = fUser.Email;
-				user.displayName = fUser.DisplayName;
-				user.uid = fUser.UserId;
-
-				Debug.Log("Registered user: " + user.uid);
+				Debug.LogError("Failed to signup user. Failed to create user. Aborting");
+				onCompleted?.Invoke(null);
 			}
+
+			AccountBackend.User user = new AccountBackend.User();
+			user.email = fUser.Email;
+			user.displayName = fUser.DisplayName;
+			user.uid = fUser.UserId;
+
+			string json = JsonUtility.ToJson(new RegisterJSON()
+			{
+				created = DateTimeOffset.UtcNow.ToUnixTimeSeconds(),
+				userEmail = user.email,
+				userFirstName = firstName,
+				userId = "ac" + user.uid,
+				userLastName = "",
+				userPremiumCode = "",
+			});
+
+			bool success = await SafeTask(db.GetReference("users/ac" + user.uid).SetRawJsonValueAsync(json));
+
+			if (!success)
+			{
+				Debug.LogError("Failed to signup user. Failed to post user data. Aborting");
+				onCompleted?.Invoke(null);
+			}
+
+			Debug.Log("Registered user: " + user.uid);
 			onCompleted?.Invoke(user);
 		}
+	}
+
+	[Serializable]
+	class RegisterJSON
+	{
+		public long created;
+		public string userEmail;
+		public string userFirstName;
+		public string userId;
+		public string userLastName;
+		public string userPremiumCode;
 	}
 }

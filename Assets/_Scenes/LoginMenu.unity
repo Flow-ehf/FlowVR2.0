@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc449404c6c4aed45b03b6b18dedf675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  registerMethod: 1
+  registerMethod: 0
   firsNameText: {fileID: 1185560008}
   lastNameText: {fileID: 63284258}
   emailInput: {fileID: 1687758894}
@@ -11271,7 +11271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22b86b4e05bc5154f920964c688efe76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loginMethod: 1
+  loginMethod: 2
   platformText: {fileID: 0}
   requireEmailFormat: 1
   nameInput: {fileID: 0}
