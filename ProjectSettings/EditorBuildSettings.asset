@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/MainMenu.unity
     guid: 6aff7519b7f0cd941b82be3a6aed0a01
-  - enabled: 0
+  - enabled: 1
     path: Assets/_Scenes/BuyDLC.unity
     guid: 42958a2021b97a743a130a340c0a8e7a
   - enabled: 0
